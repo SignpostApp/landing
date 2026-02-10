@@ -744,10 +744,10 @@ export default function Home() {
 
       <section id="team" aria-label="Meet the Signpost Team" className="relative py-32 lg:py-40 overflow-hidden">
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
-          <div className="founders-header text-center max-w-3xl mx-auto mb-20">
+          <div className="founders-header text-center max-w-4xl mx-auto mb-20">
             <p className="font-mono-upper mb-4">Our team</p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
-              Built by builders
+              Built by students, for students
             </h2>
           </div>
 
