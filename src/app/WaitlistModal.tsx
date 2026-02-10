@@ -79,7 +79,7 @@ export default function WaitlistModal({
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[100] flex items-center justify-center px-4"
+      className="fixed inset-0 z-100 flex items-center justify-center px-4"
       onClick={handleClose}
     >
       {/* Backdrop */}
@@ -88,7 +88,7 @@ export default function WaitlistModal({
       {/* Modal */}
       <div
         ref={panelRef}
-        className="relative w-full max-w-md rounded-2xl border border-white/[0.1] bg-white/[0.04] backdrop-blur-2xl p-8 sm:p-10 shadow-2xl"
+        className="relative w-full max-w-md rounded-2xl border border-white/10 bg-white/4 backdrop-blur-2xl p-8 sm:p-10 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -133,7 +133,7 @@ export default function WaitlistModal({
                 placeholder="you@example.com"
                 required
                 autoFocus
-                className="w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3.5 text-sm text-foreground placeholder:text-muted/60 outline-none focus:border-accent-light/40 focus:ring-1 focus:ring-accent-light/20 transition-all"
+                className="w-full rounded-xl border border-white/8 bg-white/4 px-4 py-3.5 text-sm text-foreground placeholder:text-muted/60 outline-none focus:border-accent-light/40 focus:ring-1 focus:ring-accent-light/20 transition-all"
               />
 
               {/* Honeypot — invisible to humans, bots auto-fill it */}

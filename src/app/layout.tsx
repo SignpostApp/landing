@@ -56,6 +56,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://signpost.cv",
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/signpost-logo.png",
+  },
   openGraph: {
     title: "Learn ASL Online — Free AI Sign Language Feedback | Signpost",
     description:
