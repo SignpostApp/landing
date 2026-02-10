@@ -558,7 +558,7 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="hero-sub text-base sm:text-lg md:text-xl text-muted max-w-xl leading-relaxed mb-6 sm:mb-8 px-4">
+            <p className="hero-sub font-subtext text-base sm:text-lg md:text-xl text-muted max-w-xl leading-relaxed mb-6 sm:mb-8 px-4">
               Learn ASL faster than ever with real-time AI feedback. Your hands are the instrument — we help you play.
             </p>
 
@@ -784,7 +784,7 @@ export default function Home() {
           <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl gradient-text-warm mb-8">
             Ready to start signing?
           </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="font-subtext text-lg text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
             Experience real-time AI feedback on your ASL signing. No sign-up required for the demo — just open, sign, and learn.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
