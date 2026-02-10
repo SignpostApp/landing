@@ -34,7 +34,7 @@ const garamond = EB_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://signpost.cv"),
-  title: "Learn ASL Online — Free AI Sign Language Feedback | Signpost",
+  title: "Signpost — Learn ASL Online with Free AI Sign Language Feedback",
   description:
     "Learn American Sign Language online with real-time AI feedback. Signpost uses computer vision to track your hand signs, correct your form instantly, and teach ASL fingerspelling through a structured curriculum. Free demo — no sign-up required.",
   keywords: [
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Learn ASL Online — Free AI Sign Language Feedback | Signpost",
+    title: "Signpost — Learn ASL Online with Free AI Sign Language Feedback",
     description:
       "Learn American Sign Language with real-time AI feedback powered by computer vision. Free demo available — no sign-up required.",
     url: "https://signpost.cv",
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Learn ASL Online — Free AI Sign Language Feedback | Signpost",
+    title: "Signpost — Learn ASL Online with Free AI Sign Language Feedback",
     description:
       "Master American Sign Language with real-time AI feedback. Computer vision tracks your signs and corrects your form instantly.",
     images: ["https://signpost.cv/og-image.png"],
