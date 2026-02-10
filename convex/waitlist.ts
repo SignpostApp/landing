@@ -6,25 +6,48 @@ const RATE_LIMIT_WINDOW_MS = 60_000;
 const GLOBAL_RATE_LIMIT = 10;
 const DOMAIN_RATE_LIMIT = 3;
 const REQUEST_MAX_SKEW_MS = 30_000;
-const RATE_LIMIT_ERROR_MESSAGE = "Too many sign-ups right now. Please try again in a minute.";
+const RATE_LIMIT_ERROR_MESSAGE = "Too many sign-ups right now";
+const BLOCKED_DOMAINS = new Set([
+  "mailinator.com",
+  "guerrillamail.com",
+  "tempmail.com",
+  "throwaway.email",
+  "yopmail.com",
+]);
+const RATE_LIMIT_BUCKET_PREFIX = "bucket";
 
 async function enforceRateLimit(ctx: MutationCtx, key: string, limit: number, now: number) {
   const oneMinuteAgo = now - RATE_LIMIT_WINDOW_MS;
 
-  // SECURITY: Insert first so this request is counted inside the same transaction window.
-  await ctx.db.insert("rateLimits", {
-    key,
-    createdAt: now,
-  });
-
-  const recentEntries = await ctx.db
+  // SECURITY: Use one row per key and patch it transactionally to avoid TOCTOU races.
+  const bucketKey = `${RATE_LIMIT_BUCKET_PREFIX}:${key}`;
+  const bucket = await ctx.db
     .query("rateLimits")
-    .withIndex("by_key_createdAt", (q) => q.eq("key", key).gte("createdAt", oneMinuteAgo))
-    .take(limit + 1);
+    .withIndex("by_key", (q) => q.eq("key", bucketKey))
+    .first();
 
-  if (recentEntries.length > limit) {
+  const recentTimestamps = (bucket?.timestamps ?? []).filter((timestamp) => timestamp >= oneMinuteAgo);
+
+  if (recentTimestamps.length >= limit) {
     throw new Error(RATE_LIMIT_ERROR_MESSAGE);
   }
+
+  recentTimestamps.push(now);
+
+  if (bucket) {
+    await ctx.db.patch(bucket._id, {
+      timestamps: recentTimestamps,
+      updatedAt: now,
+    });
+    return;
+  }
+
+  await ctx.db.insert("rateLimits", {
+    key: bucketKey,
+    timestamps: recentTimestamps,
+    createdAt: now,
+    updatedAt: now,
+  });
 }
 
 export const join = mutation({
@@ -65,10 +88,14 @@ export const join = mutation({
       throw new Error("Invalid email address");
     }
 
+    // SECURITY: Normalize and validate the domain fragment before rate limiting/storage.
+    const domain = normalizedEmail.split("@")[1]?.replace(/\.+$/, "");
+    if (!domain || domain.length > 253) {
+      throw new Error("Invalid email address");
+    }
+
     // Block disposable/temp email domains
-    const blocked = ["mailinator.com", "guerrillamail.com", "tempmail.com", "throwaway.email", "yopmail.com"];
-    const domain = normalizedEmail.split("@")[1];
-    if (blocked.includes(domain)) {
+    if (BLOCKED_DOMAINS.has(domain)) {
       throw new Error("Please use a non-disposable email address");
     }
 
