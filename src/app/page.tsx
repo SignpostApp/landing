@@ -502,7 +502,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           NAVBAR
           ═══════════════════════════════════════════════════ */}
-      <nav className="site-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[rgba(5,5,8,0.8)] backdrop-blur-xl border-b border-white/[0.04]">
+      <nav className="site-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[rgba(5,5,8,0.8)] backdrop-blur-xl border-b border-white/4">
         <div className="grid grid-cols-3 items-center max-w-[1600px] mx-auto">
           <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors text-sm justify-self-start">
             <span className="hidden sm:inline">Try Demo</span>
@@ -511,10 +511,7 @@ export default function Home() {
 
           {/* Centered Logo — scroll to top */}
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="justify-self-center flex items-center group cursor-pointer" aria-label="Scroll to top">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted transition-transform group-hover:scale-110 group-hover:text-foreground">
-              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
+            <img src="/signpost-logo.png" alt="Signpost" width={28} height={28} className="transition-transform group-hover:scale-110 opacity-80 group-hover:opacity-100" />
           </button>
 
           <button onClick={() => setWaitlistOpen(true)} className="font-mono-upper hover:text-foreground transition-colors text-sm cursor-pointer justify-self-end">
