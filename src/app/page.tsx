@@ -357,7 +357,7 @@ export default function Home() {
       /* ── Accessibility: skip all motion when user prefers reduced motion ── */
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(
-          ".site-nav, .hero-badge, .hero-line, .hero-sub, .hero-cta, .hero-side-left, .hero-side-right, .hero-bottom-text, .feature-header, .feature-card, .how-header, .how-step, .founders-header, .founder-card, .stat-item, .cta-content",
+          ".site-nav, .hero-badge, .hero-line, .hero-sub, .hero-cta, .hero-side-left, .hero-side-right, .hero-bottom-text, .feature-header, .feature-card, .how-header, .how-step, .founders-header, .founder-card, .stat-item, .faq-header, .faq-item, .cta-content",
           { opacity: 1, y: 0, x: 0, scale: 1 },
         );
       });
@@ -413,6 +413,8 @@ export default function Home() {
         reveal(".founders-header", ".founders-header", { y: 60, opacity: 0 }, { duration: 1 });
         reveal(".founder-card", ".founders-cards", { y: 80, opacity: 0 }, { duration: 1, stagger: 0.25 });
         reveal(".stat-item", ".stats-section", { y: 40, opacity: 0, scale: 0.9 }, { duration: 0.8, stagger: 0.15, ease: "power2.out" });
+        reveal(".faq-header", ".faq-header", { y: 60, opacity: 0 }, { duration: 1 });
+        reveal(".faq-item", "#faq", { y: 40, opacity: 0 }, { duration: 0.8, stagger: 0.12 });
         reveal(".cta-content", ".cta-section", { y: 80, opacity: 0 }, { duration: 1.2 });
 
         ScrollTrigger.create({
@@ -472,6 +474,8 @@ export default function Home() {
         reveal(".founders-header", ".founders-header", { y: 30, opacity: 0 }, { duration: 0.7 });
         reveal(".founder-card", ".founders-cards", { y: 40, opacity: 0 }, { duration: 0.7, stagger: 0.15 });
         reveal(".stat-item", ".stats-section", { y: 20, opacity: 0, scale: 0.95 }, { duration: 0.6, stagger: 0.1, ease: "power2.out" });
+        reveal(".faq-header", ".faq-header", { y: 30, opacity: 0 }, { duration: 0.7 });
+        reveal(".faq-item", "#faq", { y: 25, opacity: 0 }, { duration: 0.6, stagger: 0.08 });
         reveal(".cta-content", ".cta-section", { y: 40, opacity: 0 }, { duration: 0.8 });
 
         ScrollTrigger.create({
@@ -489,8 +493,12 @@ export default function Home() {
 
   return (
     <div ref={mainRef} className="relative min-h-screen overflow-x-hidden">
-      <canvas ref={canvasRef} id="star-canvas" />
+      <canvas ref={canvasRef} id="star-canvas" aria-hidden="true" />
 
+      {/* Visually-hidden H1 for SEO — Google reads this, users see the artistic headline */}
+      <h1 className="sr-only">Learn ASL Online — AI-Powered American Sign Language Learning App</h1>
+
+      <main>
       {/* ═══════════════════════════════════════════════════
           NAVBAR
           ═══════════════════════════════════════════════════ */}
@@ -501,13 +509,13 @@ export default function Home() {
             <span className="sm:hidden">Demo</span>
           </a>
 
-          {/* Centered Logo */}
-          <Link href="/" className="justify-self-center flex items-center group">
+          {/* Centered Logo — scroll to top */}
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="justify-self-center flex items-center group cursor-pointer" aria-label="Scroll to top">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted transition-transform group-hover:scale-110 group-hover:text-foreground">
               <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
-          </Link>
+          </button>
 
           <button onClick={() => setWaitlistOpen(true)} className="font-mono-upper hover:text-foreground transition-colors text-sm cursor-pointer justify-self-end">
             <span className="hidden sm:inline">Waitlist Sign Up →</span>
@@ -519,7 +527,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           MAIN / HERO SECTION
           ═══════════════════════════════════════════════════ */}
-      <section className="hero-section relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: "100dvh" }}>
+      <section aria-label="Hero — Learn ASL with AI" className="hero-section relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: "100dvh" }}>
         {/* Ambient glow */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[500px] rounded-full opacity-20 blur-[120px] sm:blur-[150px]"
           style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
@@ -542,11 +550,11 @@ export default function Home() {
           <div className="flex flex-col items-center text-center pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-10">
             {/* Badge */}
             <div className="hero-badge step-badge mb-4 sm:mb-6">
-              Launching Feb 2026
+              Launching MARCH 2026
             </div>
 
-            {/* Main headline */}
-            <h1 className="font-display mb-4 sm:mb-6 max-w-4xl">
+            {/* Artistic headline — visual only, h1 is visually hidden above for SEO */}
+            <p aria-hidden="true" className="font-display mb-4 sm:mb-6 max-w-4xl">
               <span className="hero-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground/90">
                 The most beautiful
               </span>
@@ -556,7 +564,7 @@ export default function Home() {
               <span className="hero-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl gradient-text mt-1 sm:mt-2">
                 is silence.
               </span>
-            </h1>
+            </p>
 
             <p className="hero-sub font-subtext text-base sm:text-lg md:text-xl text-muted max-w-xl leading-relaxed mb-6 sm:mb-8 px-4">
               Learn ASL faster than ever with real-time AI feedback. Your hands are the instrument — we help you play.
@@ -592,7 +600,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
       <div className="divider" />
 
-      <section id="features" className="relative py-32 lg:py-40 overflow-hidden">
+      <section id="features" aria-label="Features — Real-Time ASL Feedback, Curriculum, and Progress Tracking" className="relative py-32 lg:py-40 overflow-hidden">
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
           {/* Header */}
           <div className="feature-header text-center max-w-3xl mx-auto mb-20">
@@ -648,7 +656,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
       <div className="divider" />
 
-      <section id="how-it-works" className="relative py-32 lg:py-40 overflow-hidden">
+      <section id="how-it-works" aria-label="How to Learn ASL with Signpost" className="relative py-32 lg:py-40 overflow-hidden">
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
           <div className="how-header text-center max-w-3xl mx-auto mb-20">
             <p className="font-mono-upper mb-4">The process</p>
@@ -699,7 +707,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
       <div className="divider" />
 
-      <section id="team" className="relative py-32 lg:py-40 overflow-hidden">
+      <section id="team" aria-label="Meet the Signpost Team" className="relative py-32 lg:py-40 overflow-hidden">
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
           <div className="founders-header text-center max-w-3xl mx-auto mb-20">
             <p className="font-mono-upper mb-4">Our team</p>
@@ -774,7 +782,91 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
       <div className="divider" />
 
-      <section className="cta-section relative py-32 lg:py-40 overflow-hidden">
+      {/* ═══════════════════════════════════════════════════
+          FAQ — Targets featured snippets for "how to learn ASL"
+          ═══════════════════════════════════════════════════ */}
+      <section id="faq" aria-label="Frequently Asked Questions about Learning ASL" className="relative py-32 lg:py-40 overflow-hidden">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10">
+          <div className="faq-header text-center max-w-3xl mx-auto mb-16">
+            <p className="font-mono-upper mb-4">FAQ</p>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
+              Common questions about learning ASL
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "How do I learn ASL online?",
+                a: "Signpost lets you learn ASL online using just a webcam. Our AI-powered computer vision watches your hand signs in real-time and gives instant feedback on your form. Start with fingerspelling basics and progress through a structured curriculum to full conversational ASL.",
+              },
+              {
+                q: "Is Signpost free to use?",
+                a: "Yes — Signpost offers a free demo that requires no sign-up. Just open the app, turn on your webcam, and start signing. Our AI gives you real-time feedback immediately.",
+              },
+              {
+                q: "What do I need to start learning ASL with Signpost?",
+                a: "All you need is a computer or device with a webcam and a modern web browser. No downloads, installations, or special equipment required.",
+              },
+              {
+                q: "How is Signpost different from other ASL apps?",
+                a: "Unlike video-based ASL courses, Signpost uses computer vision AI to watch your actual hand signs and correct your form in real-time — like having a personal ASL tutor available 24/7 with sub-50ms feedback latency.",
+              },
+              {
+                q: "Can complete beginners use Signpost to learn sign language?",
+                a: "Absolutely. Signpost is designed for beginners with zero ASL experience. Our structured curriculum starts with the ASL alphabet and fingerspelling, then progresses to common signs and conversational ASL at your own pace.",
+              },
+            ].map((faq, i) => (
+              <div key={faq.q} className="faq-item glass-card rounded-2xl overflow-hidden">
+                <button
+                  className="w-full cursor-pointer p-6 font-medium text-lg text-foreground/90 flex items-center justify-between text-left"
+                  onClick={(e) => {
+                    const item = e.currentTarget.parentElement!;
+                    const body = item.querySelector('.faq-body') as HTMLElement;
+                    const icon = item.querySelector('.faq-icon') as HTMLElement;
+                    const isOpen = item.getAttribute('data-open') === 'true';
+
+                    if (isOpen) {
+                      // Close
+                      gsap.to(body, {
+                        height: 0,
+                        opacity: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut",
+                      });
+                      gsap.to(icon, { rotation: 0, duration: 0.3, ease: "power2.out" });
+                      item.setAttribute('data-open', 'false');
+                    } else {
+                      // Open
+                      gsap.set(body, { height: 'auto', opacity: 1 });
+                      const fullHeight = body.offsetHeight;
+                      gsap.fromTo(body,
+                        { height: 0, opacity: 0 },
+                        { height: fullHeight, opacity: 1, duration: 0.5, ease: "power3.out" }
+                      );
+                      gsap.to(icon, { rotation: 45, duration: 0.3, ease: "power2.out" });
+                      item.setAttribute('data-open', 'true');
+                    }
+                  }}
+                >
+                  {faq.q}
+                  <span className="faq-icon ml-4 text-muted text-xl leading-none select-none">+</span>
+                </button>
+                <div className="faq-body" style={{ height: 0, opacity: 0, overflow: 'hidden' }}>
+                  <p className="px-6 pb-6 text-muted leading-relaxed text-sm">{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
+          BOTTOM CTA
+          ═══════════════════════════════════════════════════ */}
+      <div className="divider" />
+
+      <section aria-label="Call to Action — Try ASL Demo" className="cta-section relative py-32 lg:py-40 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-20 blur-[120px]"
           style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
         />
@@ -804,13 +896,26 @@ export default function Home() {
       <div className="divider" />
 
       <footer className="relative py-12">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-10 text-center">
-          <p className="font-mono-upper">
-            &copy; {new Date().getFullYear()} Signpost
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <p className="font-mono-upper">
+              &copy; {new Date().getFullYear()} Signpost
+            </p>
+            <nav aria-label="Footer navigation" className="flex flex-wrap gap-6 justify-center">
+              <a href="#features" className="font-mono-upper hover:text-foreground transition-colors text-xs">Features</a>
+              <a href="#how-it-works" className="font-mono-upper hover:text-foreground transition-colors text-xs">How&nbsp;It&nbsp;Works</a>
+              <a href="#faq" className="font-mono-upper hover:text-foreground transition-colors text-xs">FAQ</a>
+              <a href="#team" className="font-mono-upper hover:text-foreground transition-colors text-xs">Team</a>
+              <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors text-xs">Demo</a>
+            </nav>
+          </div>
+          <p className="text-center text-xs text-muted/50 mt-6">
+            Signpost is the fastest way to learn American Sign Language online. AI-powered real-time feedback on ASL fingerspelling and signs.
           </p>
         </div>
       </footer>
 
+      </main>
       <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </div>
   );
