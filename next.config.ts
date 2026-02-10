@@ -1,14 +1,19 @@
 import type { NextConfig } from "next";
 
+const convexHttpsOrigin = "https://opulent-zebra-261.convex.cloud";
+const convexWssOrigin = "wss://opulent-zebra-261.convex.cloud";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
   "font-src 'self' data:",
   "img-src 'self' data: blob:",
   "object-src 'none'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  // SECURITY: Next.js injects inline runtime scripts for hydration.
+  "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'",
+  // SECURITY: Inline styles are required by framework/runtime styling paths.
   "style-src 'self' 'unsafe-inline'",
-  "connect-src 'self' https: wss:",
+  `connect-src 'self' ${convexHttpsOrigin} ${convexWssOrigin}`,
   "frame-ancestors 'none'",
   "form-action 'self'",
   "upgrade-insecure-requests",
@@ -32,6 +37,15 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/_src",
+        destination: "/",
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     const headers = [...securityHeaders];
 
