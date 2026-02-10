@@ -132,6 +132,7 @@ body {
 .stat-item,
 .cta-content {
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 /* ═══════════════ Star Canvas ═══════════════ */
@@ -162,6 +163,7 @@ body {
   appearance: none;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .btn-primary {

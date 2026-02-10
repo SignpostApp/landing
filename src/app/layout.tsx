@@ -18,12 +18,12 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Signpost — The Duolingo for ASL",
+  title: "Signpost — Learn ASL Fast",
   description:
     "Learn American Sign Language faster than ever with real-time AI feedback. Powered by computer vision.",
   keywords: ["ASL", "American Sign Language", "AI", "learning", "sign language", "education", "Signpost"],
   openGraph: {
-    title: "Signpost — The Duolingo for ASL",
+    title: "Signpost — Learn ASL Fast",
     description: "Learn ASL faster than ever with real-time AI feedback.",
     url: "https://signpost.cv",
     siteName: "Signpost",

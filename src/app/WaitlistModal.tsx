@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
+import gsap from "gsap";
 
 export default function WaitlistModal({
   open,
@@ -16,6 +17,38 @@ export default function WaitlistModal({
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "cooldown">("idle");
   const [message, setMessage] = useState("");
   const joinWaitlist = useMutation(api.waitlist.join);
+
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  /* ── GSAP entrance / exit ── */
+  useEffect(() => {
+    if (!open) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3, ease: "power2.out" },
+      );
+      gsap.fromTo(
+        panelRef.current,
+        { opacity: 0, scale: 0.95, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: "power2.out", delay: 0.05, force3D: true },
+      );
+    });
+
+    return () => ctx.revert();
+  }, [open]);
+
+  const handleClose = useCallback(() => {
+    const tl = gsap.timeline({
+      onComplete: onClose,
+      defaults: { ease: "power2.in" },
+    });
+    tl.to(panelRef.current, { opacity: 0, scale: 0.95, y: 12, duration: 0.2, force3D: true })
+      .to(overlayRef.current, { opacity: 0, duration: 0.2 }, "-=0.1");
+  }, [onClose]);
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent) => {
@@ -45,21 +78,23 @@ export default function WaitlistModal({
 
   return (
     <div
+      ref={overlayRef}
       className="fixed inset-0 z-[100] flex items-center justify-center px-4"
-      onClick={onClose}
+      onClick={handleClose}
     >
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
       {/* Modal */}
       <div
+        ref={panelRef}
         className="relative w-full max-w-md rounded-2xl border border-white/[0.1] bg-white/[0.04] backdrop-blur-2xl p-8 sm:p-10 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-muted hover:text-foreground transition-colors"
+          onClick={handleClose}
+          className="absolute top-4 right-4 text-muted hover:text-foreground transition-colors cursor-pointer"
           aria-label="Close"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

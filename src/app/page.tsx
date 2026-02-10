@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import WaitlistModal from "./WaitlistModal";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -103,6 +104,9 @@ export default function Home() {
         });
       };
 
+      /* ── GPU-accelerate all transforms (gsap-master recommendation) ── */
+      gsap.defaults({ force3D: true });
+
       /* ── HERO intro timeline (plays immediately, no ScrollTrigger) ── */
       const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
@@ -177,12 +181,12 @@ export default function Home() {
           </a>
 
           {/* Centered Logo */}
-          <a href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center group">
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center group">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted transition-transform group-hover:scale-110 group-hover:text-foreground">
               <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
-          </a>
+          </Link>
 
           <button onClick={() => setWaitlistOpen(true)} className="font-mono-upper hover:text-foreground transition-colors text-sm cursor-pointer">
             Waitlist Sign Up →
@@ -425,7 +429,7 @@ export default function Home() {
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
             {[
-              { value: "200+", label: "Students Enrolled" },
+              { value: "200+", label: "Users" },
               { value: "99.9%", label: "Accuracy Rate" },
               { value: "<50ms", label: "Feedback Latency" },
               { value: "24/7", label: "Feedback Availability" },
