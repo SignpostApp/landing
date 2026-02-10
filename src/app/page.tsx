@@ -488,7 +488,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div ref={mainRef} className="relative min-h-screen">
+    <div ref={mainRef} className="relative min-h-screen overflow-x-hidden">
       <canvas ref={canvasRef} id="star-canvas" />
 
       {/* ═══════════════════════════════════════════════════
@@ -519,7 +519,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           MAIN / HERO SECTION
           ═══════════════════════════════════════════════════ */}
-      <section className="hero-section relative flex flex-col items-center justify-center" style={{ minHeight: "100dvh" }}>
+      <section className="hero-section relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: "100dvh" }}>
         {/* Ambient glow */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[500px] rounded-full opacity-20 blur-[120px] sm:blur-[150px]"
           style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
@@ -592,7 +592,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
       <div className="divider" />
 
-      <section id="features" className="relative py-32 lg:py-40 overflow-x-clip">
+      <section id="features" className="relative py-32 lg:py-40 overflow-hidden">
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
           {/* Header */}
           <div className="feature-header text-center max-w-3xl mx-auto mb-20">
@@ -605,7 +605,7 @@ export default function Home() {
           {/* Cards */}
           <div className="feature-cards grid md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col min-h-[420px]">
+            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left min-h-[420px]">
               <div className="step-badge mb-8">01 — CV</div>
               <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
                 Real-Time<br />Feedback
@@ -617,7 +617,7 @@ export default function Home() {
             </div>
 
             {/* Card 2 */}
-            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col min-h-[420px]">
+            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left min-h-[420px]">
               <div className="step-badge mb-8">02 — ED</div>
               <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
                 Structured<br />Curriculum
@@ -629,7 +629,7 @@ export default function Home() {
             </div>
 
             {/* Card 3 */}
-            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col min-h-[420px]">
+            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left min-h-[420px]">
               <div className="step-badge mb-8">03 — DA</div>
               <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
                 Progress<br />Tracking
@@ -648,7 +648,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
       <div className="divider" />
 
-      <section id="how-it-works" className="relative py-32 lg:py-40 overflow-x-clip">
+      <section id="how-it-works" className="relative py-32 lg:py-40 overflow-hidden">
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
           <div className="how-header text-center max-w-3xl mx-auto mb-20">
             <p className="font-mono-upper mb-4">The process</p>
@@ -699,7 +699,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
       <div className="divider" />
 
-      <section id="team" className="relative py-32 lg:py-40 overflow-x-clip">
+      <section id="team" className="relative py-32 lg:py-40 overflow-hidden">
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
           <div className="founders-header text-center max-w-3xl mx-auto mb-20">
             <p className="font-mono-upper mb-4">Our team</p>
@@ -710,7 +710,7 @@ export default function Home() {
 
           <div className="founders-cards grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Jerry */}
-            <div className="founder-card glass-card rounded-2xl p-10 flex flex-col">
+            <div className="founder-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left">
               <div className="step-badge mb-6">Co-Founder &middot; CEO</div>
               <h3 className="text-3xl sm:text-4xl font-light tracking-tight mb-2">Jerry Xiao</h3>
               <p className="text-accent-light text-sm mb-6">Northeastern University &middot; CS</p>
@@ -718,14 +718,14 @@ export default function Home() {
                 Full-stack engineer who joined to prove the product works — learning ASL exclusively through Signpost with zero prior knowledge. Previously boosted Rule Your Own Game Inc. MRR from $5k to $40k through frontend monetization.
               </p>
               <div className="flex-1" />
-              <div className="flex gap-4 mt-4">
+              <div className="flex gap-4 mt-4 justify-center md:justify-start">
                 <a href="https://www.linkedin.com/in/xiaojerry/" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">LinkedIn</a>
                 <a href="https://github.com/undeemed" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">GitHub</a>
               </div>
             </div>
 
             {/* Max */}
-            <div className="founder-card glass-card rounded-2xl p-10 flex flex-col">
+            <div className="founder-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left">
               <div className="step-badge mb-6">Co-Founder &middot; CTO</div>
               <h3 className="text-3xl sm:text-4xl font-light tracking-tight mb-2">Max Castagnoli</h3>
               <p className="text-accent-light text-sm mb-6">Edison High School &middot; Senior</p>
@@ -733,7 +733,7 @@ export default function Home() {
                 Built the computer vision pipeline from scratch. Has lived the ASL learning problem for 2+ years — his daily class yields only ~8 learned signs because the teacher can&apos;t give feedback to 30 students simultaneously.
               </p>
               <div className="flex-1" />
-              <div className="flex gap-4 mt-4">
+              <div className="flex gap-4 mt-4 justify-center md:justify-start">
                 <a href="https://www.linkedin.com/in/max-castagnoli-1b18b923b/" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">LinkedIn</a>
                 <a href="https://github.com/98ping" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">GitHub</a>
               </div>
@@ -747,7 +747,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
       <div className="divider" />
 
-      <section className="stats-section relative py-12 overflow-x-clip">
+      <section className="stats-section relative py-12 overflow-hidden">
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
             {[
@@ -756,7 +756,7 @@ export default function Home() {
               { value: "<50ms", label: "Feedback Latency" },
               { value: "24/7", label: "Feedback Availability" },
             ].map((stat) => (
-              <div key={stat.label} className="stat-item px-8">
+              <div key={stat.label} className="stat-item px-4 sm:px-8">
                 <div className="text-4xl sm:text-5xl lg:text-6xl font-light gradient-text mb-2 font-display">
                   {stat.value}
                 </div>
@@ -774,7 +774,7 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
       <div className="divider" />
 
-      <section className="cta-section relative py-32 lg:py-40 overflow-x-clip">
+      <section className="cta-section relative py-32 lg:py-40 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-20 blur-[120px]"
           style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
         />
@@ -787,7 +787,7 @@ export default function Home() {
           <p className="font-subtext text-lg text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
             Experience real-time AI feedback on your ASL signing. No sign-up required for the demo — just open, sign, and learn.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="btn-filled">
               Try the Demo
             </a>
