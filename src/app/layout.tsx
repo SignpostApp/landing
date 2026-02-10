@@ -192,6 +192,8 @@ const jsonLd = {
     },
   ],
 };
+// SECURITY: Escape "<" to prevent accidental script-breaking injection if this JSON-LD is ever made dynamic.
+const safeJsonLd = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
 
 export default function RootLayout({
   children,
@@ -203,7 +205,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd }}
         />
       </head>
       <body className={`${inter.variable} ${playfair.variable} ${outfit.variable} ${garamond.variable} antialiased noise`}>
@@ -212,4 +214,3 @@ export default function RootLayout({
     </html>
   );
 }
-
