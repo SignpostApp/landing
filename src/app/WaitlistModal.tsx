@@ -5,6 +5,13 @@ import { useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import gsap from "gsap";
 
+const SAFE_SERVER_MESSAGES = new Set([
+  "Invalid email address",
+  "Please use a non-disposable email address",
+  "Too many sign-ups right now",
+  "Request expired. Please try again.",
+]);
+
 export default function WaitlistModal({
   open,
   onClose,
@@ -68,7 +75,12 @@ export default function WaitlistModal({
         setEmail("");
       } catch (err: unknown) {
         setStatus("error");
-        setMessage(err instanceof Error ? err.message : "Something went wrong. Try again.");
+        // SECURITY: Avoid exposing unexpected backend errors to clients.
+        setMessage(
+          err instanceof Error && SAFE_SERVER_MESSAGES.has(err.message)
+            ? err.message
+            : "Something went wrong. Try again.",
+        );
         // Cooldown after error to prevent spam retries
         setTimeout(() => {
           setStatus("cooldown");
@@ -135,6 +147,7 @@ export default function WaitlistModal({
                   setEmail(e.target.value);
                   if (status === "error" || status === "cooldown") setStatus("idle");
                 }}
+                maxLength={254}
                 placeholder="you@example.com"
                 required
                 autoFocus

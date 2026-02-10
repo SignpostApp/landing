@@ -37,10 +37,14 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: {
+    // SECURITY: Restrict Next.js image optimization to local assets only.
+    remotePatterns: [],
+  },
   async redirects() {
     return [
       {
-        source: "/_src",
+        source: "/_src/:path*",
         destination: "/",
         permanent: false,
       },
