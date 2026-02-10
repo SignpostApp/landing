@@ -38,17 +38,18 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
     if (!ctx) return;
 
     /* ── constants ── */
-    const STAR_COUNT = 220;
+    const STAR_COUNT = 160;
     const GOLDEN_ANGLE = 137.508 * (Math.PI / 180);
-    const CURSOR_FOLLOW_STRENGTH = 0.06; // gentle attraction toward cursor
+    const CURSOR_FOLLOW_STRENGTH = 0.06;
     const CURSOR_FOLLOW_RADIUS = 300;
+    const CURSOR_FOLLOW_RADIUS_SQ = CURSOR_FOLLOW_RADIUS * CURSOR_FOLLOW_RADIUS;
     const IDLE_DELAY = 2000;
-    const VORTEX_LERP = 0.004; // how fast stars spiral inward (slow & gravitational)
+    const VORTEX_LERP = 0.004;
     const VORTEX_RADIUS_SCALE = 0.6;
-    const VORTEX_ATTRACT_RADIUS = 400; // only attract stars within this px of cursor
-    const CONSUME_RADIUS = 8; // star is "eaten" by black hole
-    const EXPLOSION_FORCE = 18; // outward velocity on click
-    const FRICTION = 0.96; // velocity decay per frame
+    const VORTEX_ATTRACT_RADIUS_SQ = 400 * 400;
+    const CONSUME_RADIUS_SQ = 64; // 8²
+    const EXPLOSION_FORCE = 18;
+    const FRICTION = 0.96;
 
     /* ── mutable state ── */
     let animId: number;
@@ -57,8 +58,8 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
     let lastActivityTime = Date.now();
     let vortexProgress = 0;
     let isIdle = false;
+    let isVisible = true;
 
-    // explosion shockwave
     let shockwave = { active: false, x: 0, y: 0, radius: 0, opacity: 0 };
 
     const stars: Star[] = [];
@@ -67,13 +68,12 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
     function makeStar(w: number, h: number, fromEdge = false): Star {
       let x: number, y: number;
       if (fromEdge) {
-        // spawn at a random edge
         const edge = Math.floor(Math.random() * 4);
         switch (edge) {
-          case 0: x = Math.random() * w; y = -5; break;       // top
-          case 1: x = w + 5; y = Math.random() * h; break;    // right
-          case 2: x = Math.random() * w; y = h + 5; break;    // bottom
-          default: x = -5; y = Math.random() * h; break;      // left
+          case 0: x = Math.random() * w; y = -5; break;
+          case 1: x = w + 5; y = Math.random() * h; break;
+          case 2: x = Math.random() * w; y = h + 5; break;
+          default: x = -5; y = Math.random() * h; break;
         }
       } else {
         x = Math.random() * w;
@@ -87,7 +87,7 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
         baseSpeed: Math.random() * 0.3 + 0.05,
         spiralTargetX: 0,
         spiralTargetY: 0,
-        attractable: Math.random() > 0.4, // 60% attractable, 40% background
+        attractable: Math.random() > 0.4,
       };
     }
 
@@ -105,6 +105,16 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
     }
     resize();
     window.addEventListener("resize", resize);
+
+    /* ── visibility API — pause when tab is hidden ── */
+    function onVisibilityChange() {
+      isVisible = !document.hidden;
+      if (isVisible) {
+        lastActivityTime = Date.now(); // reset idle timer
+        animId = requestAnimationFrame(draw);
+      }
+    }
+    document.addEventListener("visibilitychange", onVisibilityChange);
 
     /* ── create initial stars ── */
     for (let i = 0; i < STAR_COUNT; i++) {
@@ -143,18 +153,15 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
       const ey = e.clientY;
       markActive();
 
-      // blast all stars outward from click point
       for (const star of stars) {
         const dx = star.x - ex;
         const dy = star.y - ey;
         const dist = Math.max(1, Math.sqrt(dx * dx + dy * dy));
-        // force inversely proportional to distance (closer = stronger)
         const force = EXPLOSION_FORCE * Math.max(0.3, 1 - dist / 600);
         star.vx += (dx / dist) * force;
         star.vy += (dy / dist) * force;
       }
 
-      // trigger shockwave ring
       shockwave = { active: true, x: ex, y: ey, radius: 0, opacity: 0.6 };
     }
     window.addEventListener("click", onClick);
@@ -170,8 +177,14 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
       },
     });
 
+    /* ── pre-allocate opacity buckets for batched drawing ── */
+    const OPACITY_BUCKETS = 20;
+    const buckets: number[][] = Array.from({ length: OPACITY_BUCKETS }, () => []);
+
     /* ── main draw loop ── */
     function draw() {
+      if (!isVisible) return; // stop rendering when tab is hidden
+
       const w = canvas!.width;
       const h = canvas!.height;
       ctx!.clearRect(0, 0, w, h);
@@ -196,16 +209,18 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
       const speedMult = 1 + Math.min(5, scrollVelocity / 600);
       scrollVelocity *= 0.92;
 
-      /* ── update & draw each star ── */
+      /* ── clear opacity buckets ── */
+      for (let b = 0; b < OPACITY_BUCKETS; b++) buckets[b].length = 0;
+
+      /* ── update each star ── */
       for (let i = 0; i < stars.length; i++) {
         const star = stars[i];
 
-        /* ─ apply & decay velocity (from explosions) ─ */
+        /* ─ apply & decay velocity ─ */
         star.x += star.vx;
         star.y += star.vy;
         star.vx *= FRICTION;
         star.vy *= FRICTION;
-        // zero out tiny velocities
         if (Math.abs(star.vx) < 0.01) star.vx = 0;
         if (Math.abs(star.vy) < 0.01) star.vy = 0;
 
@@ -213,81 +228,93 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
         star.opacity += (Math.random() - 0.5) * 0.012;
         star.opacity = Math.max(0.05, Math.min(0.7, star.opacity));
 
-        // distance from cursor (used for radius gating)
-        const distFromCursor = Math.sqrt((star.x - cx) ** 2 + (star.y - cy) ** 2);
-        const inRange = star.attractable && distFromCursor < VORTEX_ATTRACT_RADIUS;
+        /* ─ squared distance from cursor (avoid sqrt) ─ */
+        const dxC = star.x - cx;
+        const dyC = star.y - cy;
+        const distFromCursorSq = dxC * dxC + dyC * dyC;
+        const inRange = star.attractable && distFromCursorSq < VORTEX_ATTRACT_RADIUS_SQ;
 
         if (vortexProgress > 0.01 && inRange) {
-          /* ─ VORTEX MODE (only attractable stars within radius) ─ */
           const lerpAmt = VORTEX_LERP * vortexProgress;
           star.x += (star.spiralTargetX - star.x) * lerpAmt;
           star.y += (star.spiralTargetY - star.y) * lerpAmt;
 
-          // swirl rotation
           const dx = star.x - cx;
           const dy = star.y - cy;
           const rotSpeed = 0.0015 * vortexProgress;
-          star.x = cx + dx * Math.cos(rotSpeed) - dy * Math.sin(rotSpeed);
-          star.y = cy + dx * Math.sin(rotSpeed) + dy * Math.cos(rotSpeed);
+          const cosR = Math.cos(rotSpeed);
+          const sinR = Math.sin(rotSpeed);
+          star.x = cx + dx * cosR - dy * sinR;
+          star.y = cy + dx * sinR + dy * cosR;
 
-          /* ─ consume: star reached the center → respawn at edge ─ */
-          const distToCenter = Math.sqrt((star.x - cx) ** 2 + (star.y - cy) ** 2);
-          if (distToCenter < CONSUME_RADIUS && vortexProgress > 0.5) {
+          const distToCenterSq = (star.x - cx) ** 2 + (star.y - cy) ** 2;
+          if (distToCenterSq < CONSUME_RADIUS_SQ && vortexProgress > 0.5) {
             const fresh = makeStar(w, h, true);
             star.x = fresh.x;
             star.y = fresh.y;
             star.vx = 0;
             star.vy = 0;
             star.r = fresh.r;
-            star.opacity = 0.05; // fade in naturally
+            star.opacity = 0.05;
             star.baseSpeed = fresh.baseSpeed;
           }
         } else {
-          /* ─ NORMAL MODE (background stars + out-of-range stars) ─ */
-          // gentle cursor following (only attractable, paused while scrolling)
           if (star.attractable && mouse.x !== -9999 && scrollVelocity < 50) {
             const dx = cx - star.x;
             const dy = cy - star.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < CURSOR_FOLLOW_RADIUS && dist > 30) {
+            const distSq = dx * dx + dy * dy;
+            if (distSq < CURSOR_FOLLOW_RADIUS_SQ && distSq > 900) {
+              const dist = Math.sqrt(distSq);
               const pull = CURSOR_FOLLOW_STRENGTH * (1 - dist / CURSOR_FOLLOW_RADIUS);
               star.vx += (dx / dist) * pull;
               star.vy += (dy / dist) * pull;
             }
           }
 
-          // upward drift modulated by scroll speed
           star.y -= star.baseSpeed * speedMult;
 
-          // wrap around
           if (star.y < -5) { star.y = h + 5; star.x = Math.random() * w; }
           if (star.y > h + 5) { star.y = -5; star.x = Math.random() * w; }
           if (star.x < -5) { star.x = w + 5; }
           if (star.x > w + 5) { star.x = -5; }
         }
 
-        /* ─ draw star ─ */
+        /* ─ compute draw properties ─ */
         let drawOpacity = star.opacity;
         let drawRadius = star.r;
 
-        // vortex glow for stars near center
         if (vortexProgress > 0.3) {
-          const dist = Math.sqrt((star.x - cx) ** 2 + (star.y - cy) ** 2);
-          const glow = Math.max(0, 1 - dist / 200) * vortexProgress;
-          drawOpacity = Math.min(0.9, drawOpacity + glow * 0.4);
-          drawRadius = star.r + glow * 1.2;
+          const distSq = (star.x - cx) ** 2 + (star.y - cy) ** 2;
+          if (distSq < 40000) { // only calc glow within 200px
+            const glow = Math.max(0, 1 - Math.sqrt(distSq) / 200) * vortexProgress;
+            drawOpacity = Math.min(0.9, drawOpacity + glow * 0.4);
+            drawRadius = star.r + glow * 1.2;
+          }
         }
 
-        // explosion flash: boost opacity briefly when velocity is high
-        const vel = Math.sqrt(star.vx * star.vx + star.vy * star.vy);
-        if (vel > 2) {
+        const velSq = star.vx * star.vx + star.vy * star.vy;
+        if (velSq > 4) {
+          const vel = Math.sqrt(velSq);
           drawOpacity = Math.min(0.95, drawOpacity + vel * 0.03);
           drawRadius = star.r + Math.min(vel * 0.15, 2);
         }
 
+        /* ─ bucket by opacity for batched rendering ─ */
+        const bucketIdx = Math.min(OPACITY_BUCKETS - 1, Math.floor(drawOpacity * OPACITY_BUCKETS));
+        buckets[bucketIdx].push(star.x, star.y, drawRadius);
+      }
+
+      /* ── batched star rendering — one fillStyle per bucket ── */
+      for (let b = 0; b < OPACITY_BUCKETS; b++) {
+        const bucket = buckets[b];
+        if (bucket.length === 0) continue;
+        const opacity = ((b + 0.5) / OPACITY_BUCKETS).toFixed(2);
+        ctx!.fillStyle = `rgba(200,200,220,${opacity})`;
         ctx!.beginPath();
-        ctx!.arc(star.x, star.y, drawRadius, 0, Math.PI * 2);
-        ctx!.fillStyle = `rgba(200, 200, 220, ${drawOpacity})`;
+        for (let j = 0; j < bucket.length; j += 3) {
+          ctx!.moveTo(bucket[j] + bucket[j + 2], bucket[j + 1]);
+          ctx!.arc(bucket[j], bucket[j + 1], bucket[j + 2], 0, Math.PI * 2);
+        }
         ctx!.fill();
       }
 
@@ -295,9 +322,9 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
       if (vortexProgress > 0.2) {
         const glowRadius = 40 + vortexProgress * 60;
         const gradient = ctx!.createRadialGradient(cx, cy, 0, cx, cy, glowRadius);
-        gradient.addColorStop(0, `rgba(99, 102, 241, ${0.15 * vortexProgress})`);
-        gradient.addColorStop(0.5, `rgba(168, 85, 247, ${0.08 * vortexProgress})`);
-        gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+        gradient.addColorStop(0, `rgba(99,102,241,${(0.15 * vortexProgress).toFixed(3)})`);
+        gradient.addColorStop(0.5, `rgba(168,85,247,${(0.08 * vortexProgress).toFixed(3)})`);
+        gradient.addColorStop(1, "rgba(0,0,0,0)");
         ctx!.beginPath();
         ctx!.arc(cx, cy, glowRadius, 0, Math.PI * 2);
         ctx!.fillStyle = gradient;
@@ -313,7 +340,7 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
         } else {
           ctx!.beginPath();
           ctx!.arc(shockwave.x, shockwave.y, shockwave.radius, 0, Math.PI * 2);
-          ctx!.strokeStyle = `rgba(168, 85, 247, ${shockwave.opacity})`;
+          ctx!.strokeStyle = `rgba(168,85,247,${shockwave.opacity})`;
           ctx!.lineWidth = 2;
           ctx!.stroke();
         }
@@ -328,6 +355,7 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("click", onClick);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       scrollTrigger.kill();
     };
   }, [canvasRef]);
@@ -357,7 +385,7 @@ export default function Home() {
       /* ── Accessibility: skip all motion when user prefers reduced motion ── */
       mm.add("(prefers-reduced-motion: reduce)", () => {
         gsap.set(
-          ".site-nav, .hero-badge, .hero-line, .hero-sub, .hero-cta, .hero-side-left, .hero-side-right, .hero-bottom-text, .feature-header, .feature-card, .how-header, .how-step, .founders-header, .founder-card, .stat-item, .faq-header, .faq-item, .cta-content",
+          ".site-nav, .hero-badge, .hero-line, .hero-logo, .hero-sub, .hero-cta, .hero-side-left, .hero-side-right, .hero-bottom-text, .feature-header, .feature-card, .how-header, .how-step, .founders-header, .founder-card, .stat-item, .faq-header, .faq-item, .cta-content",
           { opacity: 1, y: 0, x: 0, scale: 1 },
         );
       });
@@ -392,6 +420,7 @@ export default function Home() {
         heroTl
           .fromTo(".hero-badge", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, delay: 0.3 })
           .fromTo(".hero-line", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, stagger: 0.15 }, "-=0.6")
+          .fromTo(".hero-logo", { y: 40, opacity: 0, scale: 0.8 }, { y: 0, opacity: 1, scale: 1, duration: 1, ease: "power2.out" }, "-=0.6")
           .fromTo(".hero-sub", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, "-=0.6")
           .fromTo(".hero-cta", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, "-=0.5")
           .fromTo(".hero-side-left", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 1 }, "-=1")
@@ -455,6 +484,7 @@ export default function Home() {
         heroTl
           .fromTo(".hero-badge", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, delay: 0.2 })
           .fromTo(".hero-line", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, "-=0.4")
+          .fromTo(".hero-logo", { y: 20, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }, "-=0.4")
           .fromTo(".hero-sub", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, "-=0.4")
           .fromTo(".hero-cta", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 }, "-=0.3")
           .fromTo(".hero-bottom-text", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.3");
@@ -551,7 +581,7 @@ export default function Home() {
             </div>
 
             {/* Artistic headline — visual only, h1 is visually hidden above for SEO */}
-            <p aria-hidden="true" className="font-display mb-4 sm:mb-6 max-w-4xl">
+            <p aria-hidden="true" className="font-display max-w-4xl">
               <span className="hero-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground/90">
                 The most beautiful
               </span>
@@ -563,8 +593,16 @@ export default function Home() {
               </span>
             </p>
 
-            <p className="hero-sub font-subtext text-base sm:text-lg md:text-xl text-muted max-w-xl leading-relaxed mb-6 sm:mb-8 px-4">
-              Learn ASL faster than ever with real-time AI feedback. Your hands are the instrument — we help you play.
+            <img
+              src="/signpost-logo.png"
+              alt="Signpost"
+              width={120}
+              height={120}
+              className="hero-logo mx-auto block mt-8 mb-8 sm:mt-10 sm:mb-10"
+            />
+
+            <p className="hero-sub font-subtitle text-base sm:text-lg md:text-xl text-muted max-w-2xl leading-relaxed mb-6 sm:mb-8 px-4 italic">
+              Learn ASL faster than ever with real-time AI Computer Vision feedback. Your hands are the instrument — we help you play.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
@@ -578,7 +616,7 @@ export default function Home() {
           </div>
 
           {/* Scroll-down arrow */}
-          <div className="hero-bottom-text flex flex-col items-center mt-auto pt-12 sm:pt-16">
+          <div className="hero-bottom-text flex flex-col items-center pt-4 sm:pt-6">
             <a href="#features" className="mb-6 sm:mb-8 animate-bounce">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-muted">
                 <path d="M7 10l5 5 5-5" />
@@ -610,36 +648,36 @@ export default function Home() {
           {/* Cards */}
           <div className="feature-cards grid md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left min-h-[420px]">
+            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col justify-center items-center text-center md:items-start md:text-left">
               <div className="step-badge mb-8">01 — CV</div>
               <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
                 Real-Time<br />Feedback
               </h3>
-              <div className="flex-1" />
+              
               <p className="text-muted leading-relaxed text-sm">
                 Our computer vision pipeline tracks your hand positioning in real-time, providing instant corrections on form and movement. No waiting, no guessing — just immediate, actionable feedback.
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left min-h-[420px]">
+            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col justify-center items-center text-center md:items-start md:text-left">
               <div className="step-badge mb-8">02 — ED</div>
               <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
                 Structured<br />Curriculum
               </h3>
-              <div className="flex-1" />
+              
               <p className="text-muted leading-relaxed text-sm">
                 Progress through a carefully designed curriculum from fingerspelling basics to full conversational ASL. Lessons adapt to your pace with data-driven difficulty scaling.
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left min-h-[420px]">
+            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col justify-center items-center text-center md:items-start md:text-left">
               <div className="step-badge mb-8">03 — DA</div>
               <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
                 Progress<br />Tracking
               </h3>
-              <div className="flex-1" />
+              
               <p className="text-muted leading-relaxed text-sm">
                 Track your fluency with objective, data-driven metrics. We provide the first standardized benchmark for ASL proficiency — your personal TOEFL for sign language.
               </p>
@@ -720,7 +758,7 @@ export default function Home() {
               <h3 className="text-3xl sm:text-4xl font-light tracking-tight mb-2">Jerry Xiao</h3>
               <p className="text-accent-light text-sm mb-6">Northeastern University &middot; CS</p>
               <p className="text-muted leading-relaxed text-sm mb-6">
-                Full-stack engineer who joined to prove the product works — learning ASL exclusively through Signpost with zero prior knowledge. Previously boosted Rule Your Own Game Inc. MRR from $5k to $40k through frontend monetization.
+                Full-stack and Swift engineer who joined to prove the product works — learning ASL exclusively through Signpost with zero prior knowledge. Previously collaborated with Rule Your Own Game Inc. to support 3M+ monthly visits through integrated monetization and web infrastructure.
               </p>
               <div className="flex-1" />
               <div className="flex gap-4 mt-4 justify-center md:justify-start">
@@ -733,9 +771,9 @@ export default function Home() {
             <div className="founder-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left">
               <div className="step-badge mb-6">Co-Founder &middot; CTO</div>
               <h3 className="text-3xl sm:text-4xl font-light tracking-tight mb-2">Max Castagnoli</h3>
-              <p className="text-accent-light text-sm mb-6">Edison High School &middot; Senior</p>
+              <p className="text-accent-light text-sm mb-6">Software Engineer &middot; 6 Years of Experience</p>
               <p className="text-muted leading-relaxed text-sm mb-6">
-                Built the computer vision pipeline from scratch. Has lived the ASL learning problem for 2+ years — his daily class yields only ~8 learned signs because the teacher can&apos;t give feedback to 30 students simultaneously.
+                Built the computer vision pipeline from scratch. Has lived the ASL learning problem for 2+ years — his daily class yields only ~8 learned signs because the teacher can&apos;t give feedback to 30 students simultaneously. Previously at Rule Your Own Game Inc., open-sourced the ArchMC minigames framework, which has handled 10M+ games across 50+ servers.
               </p>
               <div className="flex-1" />
               <div className="flex gap-4 mt-4 justify-center md:justify-start">
