@@ -69,6 +69,12 @@ body {
   letter-spacing: 0.01em;
 }
 
+.font-subtitle {
+  font-family: var(--font-subtitle), "EB Garamond", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
 /* ═══════════════ Gradient Text ═══════════════ */
 .gradient-text {
   background: linear-gradient(135deg, #818cf8, #a855f7, #06b6d4);

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Outfit } from "next/font/google";
+import { Inter, Playfair_Display, Outfit, EB_Garamond } from "next/font/google";
 import ConvexClientProvider from "./ConvexClientProvider";
 import "./globals.css";
 
@@ -22,6 +22,14 @@ const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "500"],
+});
+
+const garamond = EB_Garamond({
+  variable: "--font-subtitle",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -194,7 +202,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} ${outfit.variable} antialiased noise`}>
+      <body className={`${inter.variable} ${playfair.variable} ${outfit.variable} ${garamond.variable} antialiased noise`}>
         <ConvexClientProvider>{children}</ConvexClientProvider>
       </body>
     </html>
