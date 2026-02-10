@@ -20,7 +20,7 @@
 
 /* ═══════════════ Base ═══════════════ */
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth removed — conflicts with GSAP ScrollTrigger */
 }
 
 body {
@@ -133,6 +133,17 @@ body {
 .cta-content {
   opacity: 0;
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ═══════════════ Contain layout for animated sections ═══════════════ */
+.feature-cards,
+.how-steps,
+.founders-cards,
+.stats-section,
+.cta-section {
+  contain: layout style paint;
 }
 
 /* ═══════════════ Star Canvas ═══════════════ */
