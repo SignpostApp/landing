@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter");
+}
+
+@theme inline {
+  --color-background: #050508;
+  --color-foreground: #e8e8ed;
+  --color-muted: #7a7a8a;
+  --color-accent: #6366f1;
+  --color-accent-light: #818cf8;
+  --color-accent-2: #a855f7;
+  --color-accent-3: #06b6d4;
+  --color-card: rgba(255, 255, 255, 0.03);
+  --color-card-border: rgba(255, 255, 255, 0.06);
+  --font-sans: var(--font-inter);
+}
+
+/* ═══════════════ Base ═══════════════ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050508;
+  color: #e8e8ed;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+/* ═══════════════ Typography ═══════════════ */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.font-mono-upper {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ═══════════════ Gradient Text ═══════════════ */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8, #a855f7, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-bottom: 0.15em;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #e8e8ed 30%, rgba(99, 102, 241, 0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-bottom: 0.15em;
+}
+
+/* ═══════════════ Glass Card ═══════════════ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(99, 102, 241, 0.2);
+  transform: translateY(-8px);
+  box-shadow:
+    0 30px 80px -20px rgba(99, 102, 241, 0.12),
+    0 0 0 1px rgba(99, 102, 241, 0.1);
+}
+
+/* ═══════════════ Noise Texture ═══════════════ */
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════ Divider Line ═══════════════ */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255 ,255, 255, 0.08), transparent);
+}
+
+/* ═══════════════ Scroll-hidden: prevent flash before GSAP loads ═══════════════ */
+.site-nav,
+.hero-badge,
+.hero-line,
+.hero-sub,
+.hero-cta,
+.hero-side-left,
+.hero-side-right,
+.hero-bottom-text,
+.feature-header,
+.feature-card,
+.how-header,
+.how-step,
+.founders-header,
+.founder-card,
+.stat-item,
+.cta-content {
+  opacity: 0;
+}
+
+/* ═══════════════ Star Canvas ═══════════════ */
+#star-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ═══════════════ CTA Button ═══════════════ */
+.btn-primary,
+.btn-filled {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: #fff;
+  background: transparent;
+}
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+}
+
+.btn-filled {
+  color: #fff;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+}
+.btn-filled:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 60px rgba(99, 102, 241, 0.3);
+  transform: scale(1.03);
+}
+
+/* ═══════════════ Feature number badge ═══════════════ */
+.step-badge {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  padding: 0.25rem 1rem;
+  display: inline-block;
+}
