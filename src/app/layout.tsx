@@ -65,8 +65,12 @@ export const metadata: Metadata = {
     canonical: "https://signpost.cv",
   },
   icons: {
-    icon: "/favicon.ico?v=2",
-    apple: "/signpost-logo.png",
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon-180.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Learn ASL Online — Free AI Sign Language Feedback | Signpost",

@@ -57,7 +57,12 @@ export default function WaitlistModal({
 
       setStatus("loading");
       try {
-        const result = await joinWaitlist({ email: email.trim(), website: honeypot || undefined });
+        // SECURITY: Timestamp is validated server-side to reject stale/replayed submissions.
+        const result = await joinWaitlist({
+          email: email.trim(),
+          website: honeypot || undefined,
+          timestamp: Date.now(),
+        });
         setStatus("success");
         setMessage(result.message);
         setEmail("");
