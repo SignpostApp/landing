@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     canonical: "https://signpost.cv",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.ico?v=2",
     apple: "/signpost-logo.png",
   },
   openGraph: {
