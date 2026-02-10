@@ -851,6 +851,10 @@ export default function Home() {
                 q: "Can complete beginners use Signpost to learn sign language?",
                 a: "Absolutely. Signpost is designed for beginners with zero ASL experience. Our structured curriculum starts with the ASL alphabet and fingerspelling, then progresses to common signs and conversational ASL at your own pace.",
               },
+              {
+                q: "Is my webcam data private and secure?",
+                a: "Your privacy is our top priority. All hand-tracking runs entirely in your browser — your webcam feed is never sent to our servers, recorded, or stored. The only data we save server-side is hand landmark coordinates (numerical joint positions, not images or video) to improve our recognition models over time. No webcam footage ever leaves your device.",
+              },
             ].map((faq, i) => (
               <div key={faq.q} className="faq-item glass-card rounded-2xl overflow-hidden">
                 <button
