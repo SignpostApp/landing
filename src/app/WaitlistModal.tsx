@@ -222,12 +222,12 @@ export default function WaitlistModal({
         ) : (
           <>
             {/* ── Tab Switcher ── */}
-            <div className="flex gap-1 mb-7 p-0.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+            <div className="flex gap-1 mb-7 p-0.5 rounded-xl bg-white/3 border border-white/6">
               <button
                 onClick={() => handleTabSwitch("join")}
                 className={`flex-1 py-2 text-xs font-medium tracking-wide uppercase rounded-[10px] transition-all duration-300 cursor-pointer ${
                   tab === "join"
-                    ? "bg-white/[0.08] text-foreground shadow-sm"
+                    ? "bg-white/8 text-foreground shadow-sm"
                     : "text-muted hover:text-foreground/70"
                 }`}
               >
@@ -237,7 +237,7 @@ export default function WaitlistModal({
                 onClick={() => handleTabSwitch("check")}
                 className={`flex-1 py-2 text-xs font-medium tracking-wide uppercase rounded-[10px] transition-all duration-300 cursor-pointer ${
                   tab === "check"
-                    ? "bg-white/[0.08] text-foreground shadow-sm"
+                    ? "bg-white/8 text-foreground shadow-sm"
                     : "text-muted hover:text-foreground/70"
                 }`}
               >
@@ -348,13 +348,13 @@ export default function WaitlistModal({
                       out of {checkResult.total.toLocaleString()} on the waitlist
                     </p>
 
-                    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 mb-6">
+                    <div className="rounded-xl border border-white/6 bg-white/2 p-4 mb-6">
                       {/* Progress bar */}
                       <div className="flex justify-between text-[0.65rem] text-muted mb-2 uppercase tracking-widest">
                         <span>Position</span>
                         <span>{checkResult.position} / {checkResult.total}</span>
                       </div>
-                      <div className="w-full h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                      <div className="w-full h-1.5 rounded-full bg-white/6 overflow-hidden">
                         <div
                           className="h-full rounded-full transition-all duration-700 ease-out"
                           style={{

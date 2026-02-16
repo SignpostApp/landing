@@ -1,8 +1,5 @@
 import type { NextConfig } from "next";
 
-const convexHttpsOrigin = "https://opulent-zebra-261.convex.cloud";
-const convexWssOrigin = "wss://opulent-zebra-261.convex.cloud";
-
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -13,7 +10,7 @@ const contentSecurityPolicy = [
   "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'",
   // SECURITY: Inline styles are required by framework/runtime styling paths.
   "style-src 'self' 'unsafe-inline'",
-  `connect-src 'self' ${convexHttpsOrigin} ${convexWssOrigin}`,
+  "connect-src 'self'",
   "frame-ancestors 'none'",
   "form-action 'self'",
   "upgrade-insecure-requests",
