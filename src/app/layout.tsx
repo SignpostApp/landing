@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next"
 import { Inter, Playfair_Display, Outfit, EB_Garamond } from "next/font/google";
-import ConvexClientProvider from "./ConvexClientProvider";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -210,7 +210,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${playfair.variable} ${outfit.variable} ${garamond.variable} antialiased noise`}>
-        <ConvexClientProvider>{children}</ConvexClientProvider>
+        {children}
         <Analytics />
       </body>
     </html>
