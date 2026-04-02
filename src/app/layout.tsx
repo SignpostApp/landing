@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next"
-import { Inter, Playfair_Display, Outfit, EB_Garamond } from "next/font/google";
+import { Inter, Playfair_Display, Outfit } from "next/font/google";
 
 import "./globals.css";
 
@@ -25,19 +25,13 @@ const outfit = Outfit({
   weight: ["300", "400", "500"],
 });
 
-const garamond = EB_Garamond({
-  variable: "--font-subtitle",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
-});
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://signpost.cv"),
   title: "Signpost — Learn ASL Online with Free AI Sign Language Feedback",
   description:
-    "Learn American Sign Language online with real-time AI feedback. Signpost uses computer vision to track your hand signs, correct your form instantly, and teach ASL fingerspelling through a structured curriculum. Free demo — no sign-up required.",
+    "Learn American Sign Language online with real-time AI feedback. Signpost uses computer vision to track your hand signs, correct your form instantly, and teach ASL fingerspelling through a structured curriculum. Free demo with no sign-up required.",
   keywords: [
     "learn ASL",
     "learn ASL online",
@@ -209,7 +203,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: safeJsonLd }}
         />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} ${outfit.variable} ${garamond.variable} antialiased noise`}>
+      <body className={`${inter.variable} ${playfair.variable} ${outfit.variable} antialiased noise`}>
         {children}
         <Analytics />
       </body>

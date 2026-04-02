@@ -19,9 +19,7 @@
 }
 
 /* ═══════════════ Base ═══════════════ */
-html {
-  /* scroll-behavior: smooth removed — conflicts with GSAP ScrollTrigger */
-}
+
 
 body {
   background: #050508;
@@ -69,11 +67,7 @@ body {
   letter-spacing: 0.01em;
 }
 
-.font-subtitle {
-  font-family: var(--font-subtitle), "EB Garamond", Georgia, serif;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-}
+
 
 /* ═══════════════ Gradient Text ═══════════════ */
 .gradient-text {

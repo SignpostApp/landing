@@ -612,7 +612,7 @@ export default function Home() {
                 className="hero-logo mx-auto block mt-8 mb-8 sm:mt-10 sm:mb-10"
               />
 
-              <p className="hero-sub font-subtitle text-base sm:text-lg md:text-xl text-muted max-w-2xl leading-relaxed mb-6 sm:mb-8 px-4 italic">
+              <p className="hero-sub font-subtext text-base sm:text-lg md:text-xl text-muted max-w-2xl leading-relaxed mb-6 sm:mb-8 px-4">
                 Learn ASL faster than ever with real-time AI Computer Vision feedback and a structured curriculum. Your fingers are your voice, we just help you find it.
               </p>
 
