@@ -529,441 +529,441 @@ export default function Home() {
       <h1 className="sr-only">Learn ASL Online — AI-Powered American Sign Language Learning App</h1>
 
       <main>
-      {/* ═══════════════════════════════════════════════════
+        {/* ═══════════════════════════════════════════════════
           NAVBAR
           ═══════════════════════════════════════════════════ */}
-      <nav className="site-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[rgba(5,5,8,0.8)] backdrop-blur-xl border-b border-white/4">
-        <div className="grid grid-cols-3 items-center max-w-[1600px] mx-auto">
-          <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors text-sm justify-self-start">
-            <span className="hidden sm:inline">Try Demo</span>
-            <span className="sm:hidden">Demo</span>
-          </a>
+        <nav className="site-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[rgba(5,5,8,0.8)] backdrop-blur-xl border-b border-white/4">
+          <div className="grid grid-cols-3 items-center max-w-[1600px] mx-auto">
+            <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors text-sm justify-self-start">
+              <span className="hidden sm:inline">Try Demo</span>
+              <span className="sm:hidden">Demo</span>
+            </a>
 
-          {/* Centered Logo — scroll to top */}
-          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="justify-self-center flex items-center group cursor-pointer" aria-label="Scroll to top">
-            <Image src="/signpost-logo.png" alt="Signpost" width={28} height={28} className="transition-transform group-hover:scale-110 opacity-80 group-hover:opacity-100" />
-          </button>
+            {/* Centered Logo — scroll to top */}
+            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="justify-self-center flex items-center group cursor-pointer" aria-label="Scroll to top">
+              <Image src="/signpost-logo.png" alt="Signpost" width={28} height={28} className="transition-transform group-hover:scale-110 opacity-80 group-hover:opacity-100" />
+            </button>
 
-          <button onClick={() => setWaitlistOpen(true)} className="font-mono-upper hover:text-foreground transition-colors text-sm cursor-pointer justify-self-end">
-            <span className="hidden sm:inline">Waitlist Sign Up →</span>
-            <span className="sm:hidden">Waitlist →</span>
-          </button>
-        </div>
-      </nav>
+            <button onClick={() => setWaitlistOpen(true)} className="font-mono-upper hover:text-foreground transition-colors text-sm cursor-pointer justify-self-end">
+              <span className="hidden sm:inline">Waitlist Sign Up →</span>
+              <span className="sm:hidden">Waitlist →</span>
+            </button>
+          </div>
+        </nav>
 
-      {/* ═══════════════════════════════════════════════════
+        {/* ═══════════════════════════════════════════════════
           MAIN / HERO SECTION
           ═══════════════════════════════════════════════════ */}
-      <section aria-label="Hero — Learn ASL with AI" className="hero-section relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: "100dvh" }}>
-        {/* Ambient glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[500px] rounded-full opacity-20 blur-[120px] sm:blur-[150px]"
-          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
-        />
+        <section aria-label="Hero — Learn ASL with AI" className="hero-section relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: "100dvh" }}>
+          {/* Ambient glow */}
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[500px] rounded-full opacity-20 blur-[120px] sm:blur-[150px]"
+            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
+          />
 
-        <div className="hero-content relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-10">
-          {/* Side floating text */}
-          <div className="hidden xl:block absolute left-10 top-1/2 -translate-y-1/2">
-            <p className="hero-side-left font-mono-upper" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
-              CV-Powered Learning
-            </p>
-          </div>
-          <div className="hidden xl:block absolute right-10 top-1/2 -translate-y-1/2">
-            <p className="hero-side-right font-mono-upper" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
-              Real-Time Feedback
-            </p>
-          </div>
-
-          {/* Center content */}
-          <div className="flex flex-col items-center text-center pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-10">
-            {/* Badge */}
-            <div className="hero-badge inline-flex flex-nowrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-              <span className="step-badge shrink-0 whitespace-nowrap">Launching MARCH 2026</span>
-              <a
-                href="https://github.com/SignpostApp/landing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="step-badge inline-flex! shrink-0 items-center gap-1.5 whitespace-nowrap hover:border-white/25 hover:text-foreground transition-all"
-              >
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 opacity-70">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                Github
-              </a>
+          <div className="hero-content relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-10">
+            {/* Side floating text */}
+            <div className="hidden xl:block absolute left-10 top-1/2 -translate-y-1/2">
+              <p className="hero-side-left font-mono-upper" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
+                CV-Powered Learning
+              </p>
+            </div>
+            <div className="hidden xl:block absolute right-10 top-1/2 -translate-y-1/2">
+              <p className="hero-side-right font-mono-upper" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
+                Real-Time Feedback
+              </p>
             </div>
 
-            {/* Artistic headline — visual only, h1 is visually hidden above for SEO */}
-            <p aria-hidden="true" className="font-display max-w-4xl">
-              <span className="hero-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground/90">
-                The most beautiful
-              </span>
-              <span className="hero-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground/90">
-                sound in the world
-              </span>
-              <span className="hero-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl gradient-text mt-1 sm:mt-2">
-                is silence.
-              </span>
+            {/* Center content */}
+            <div className="flex flex-col items-center text-center pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-10">
+              {/* Badge */}
+              <div className="hero-badge inline-flex flex-nowrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <span className="step-badge shrink-0 whitespace-nowrap">Launching MARCH 2026</span>
+                <a
+                  href="https://github.com/SignpostApp/landing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="step-badge inline-flex! shrink-0 items-center gap-1.5 whitespace-nowrap hover:border-white/25 hover:text-foreground transition-all"
+                >
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 opacity-70">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                  Github
+                </a>
+              </div>
+
+              {/* Artistic headline — visual only, h1 is visually hidden above for SEO */}
+              <p aria-hidden="true" className="font-display max-w-4xl">
+                <span className="hero-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground/90">
+                  Have a personal ASL teacher
+                </span>
+                <span className="hero-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground/90">
+                  that lives entirely
+                </span>
+                <span className="hero-line block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl gradient-text mt-1 sm:mt-2">
+                  in your browser.
+                </span>
+              </p>
+
+              <Image
+                src="/signpost-logo.png"
+                alt="Signpost"
+                width={120}
+                height={120}
+                className="hero-logo mx-auto block mt-8 mb-8 sm:mt-10 sm:mb-10"
+              />
+
+              <p className="hero-sub font-subtitle text-base sm:text-lg md:text-xl text-muted max-w-2xl leading-relaxed mb-6 sm:mb-8 px-4 italic">
+                Learn ASL faster than ever with real-time AI Computer Vision feedback and a structured curriculum. Your fingers are your voice, we just help you find it.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
+                <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="hero-cta btn-filled text-center">
+                  Try the Demo
+                </a>
+                <button onClick={() => setWaitlistOpen(true)} className="hero-cta btn-primary text-center cursor-pointer">
+                  Waitlist Sign Up →
+                </button>
+              </div>
+            </div>
+
+            {/* Scroll-down arrow */}
+            <div className="hero-bottom-text flex flex-col items-center pt-4 sm:pt-6">
+              <a href="#features" className="mb-6 sm:mb-8 animate-bounce">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-muted">
+                  <path d="M7 10l5 5 5-5" />
+                </svg>
+              </a>
+              <p className="text-center font-mono-upper pb-8 sm:pb-10 max-w-md mx-auto leading-relaxed">
+                We are building the AI platform that<br />
+                turns anyone into an ASL signer without the need for a teacher.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+          FEATURES
+          ═══════════════════════════════════════════════════ */}
+        <div className="divider" />
+
+        <section id="features" aria-label="Features — Real-Time ASL Feedback, Curriculum, and Progress Tracking" className="relative py-32 lg:py-40 overflow-hidden">
+          <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
+            {/* Header */}
+            <div className="feature-header text-center max-w-3xl mx-auto mb-20">
+              <p className="font-mono-upper mb-4">What we build</p>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
+                Everything you need to master ASL
+              </h2>
+            </div>
+
+            {/* Cards */}
+            <div className="feature-cards grid md:grid-cols-3 gap-6">
+              {/* Card 1 */}
+              <div className="feature-card glass-card rounded-2xl p-10 flex flex-col justify-center items-center text-center md:items-start md:text-left">
+                <div className="step-badge mb-8">01 — CV</div>
+                <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
+                  Real-Time<br />Feedback
+                </h3>
+
+                <p className="text-muted leading-relaxed text-sm">
+                  Our computer vision pipeline tracks your hand positioning in real-time, providing instant corrections on form and movement. No waiting and no guessing on correctness, just immediate feedback.
+                </p>
+              </div>
+
+              {/* Card 2 */}
+              <div className="feature-card glass-card rounded-2xl p-10 flex flex-col justify-center items-center text-center md:items-start md:text-left">
+                <div className="step-badge mb-8">02 — ED</div>
+                <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
+                  Structured<br />Curriculum
+                </h3>
+
+                <p className="text-muted leading-relaxed text-sm">
+                  Progress through a carefully designed curriculum from fingerspelling basics to full conversational ASL. These lessons are audited using resources from actual textbooks in school, we just bring them to you.
+                </p>
+              </div>
+
+              {/* Card 3 */}
+              <div className="feature-card glass-card rounded-2xl p-10 flex flex-col justify-center items-center text-center md:items-start md:text-left">
+                <div className="step-badge mb-8">03 — DA</div>
+                <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
+                  Progress<br />Tracking
+                </h3>
+
+                <p className="text-muted leading-relaxed text-sm">
+                  Track your fluency with objective, data-driven metrics. We provide the first standardized benchmark for ASL proficiency — your personal TOEFL for sign language.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+          HOW IT WORKS
+          ═══════════════════════════════════════════════════ */}
+        <div className="divider" />
+
+        <section id="how-it-works" aria-label="How to Learn ASL with Signpost" className="relative py-32 lg:py-40 overflow-hidden">
+          <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
+            <div className="how-header text-center max-w-3xl mx-auto mb-20">
+              <p className="font-mono-upper mb-4">The process</p>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
+                Start signing in three steps
+              </h2>
+            </div>
+
+            <div className="how-steps grid md:grid-cols-3 gap-12 lg:gap-16">
+              {/* Step 1 */}
+              <div className="how-step text-center">
+                <div className="mx-auto mb-8 w-24 h-24 rounded-full border border-white/10 flex items-center justify-center">
+                  <span className="text-4xl font-light text-foreground/40">01</span>
+                </div>
+                <h3 className="text-xl font-medium mb-4 uppercase tracking-wider">Sign Up</h3>
+                <p className="text-muted leading-relaxed text-sm max-w-xs mx-auto">
+                  Create your free account. All you need is a webcam and the desire to learn. No credit card required.
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="how-step text-center">
+                <div className="mx-auto mb-8 w-24 h-24 rounded-full border border-white/10 flex items-center justify-center">
+                  <span className="text-4xl font-light text-foreground/40">02</span>
+                </div>
+                <h3 className="text-xl font-medium mb-4 uppercase tracking-wider">Practice with AI</h3>
+                <p className="text-muted leading-relaxed text-sm max-w-xs mx-auto">
+                  Turn on your webcam and start signing. Our AI watches your hands and gives instant feedback on every gesture. You immediately know if you are signing the right way.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="how-step text-center">
+                <div className="mx-auto mb-8 w-24 h-24 rounded-full border border-white/10 flex items-center justify-center">
+                  <span className="text-4xl font-light text-foreground/40">03</span>
+                </div>
+                <h3 className="text-xl font-medium mb-4 uppercase tracking-wider">Master ASL</h3>
+                <p className="text-muted leading-relaxed text-sm max-w-xs mx-auto">
+                  Build fluency lesson by lesson. Track your progress and earn certifications that prove your skill.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+          FOUNDERS
+          ═══════════════════════════════════════════════════ */}
+        <div className="divider" />
+
+        <section id="team" aria-label="Meet the Signpost Team" className="relative py-32 lg:py-40 overflow-hidden">
+          <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
+            <div className="founders-header text-center max-w-4xl mx-auto mb-20">
+              <p className="font-mono-upper mb-4">Our team</p>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
+                Built by students, for students
+              </h2>
+            </div>
+
+            <div className="founders-cards grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Jerry */}
+              <div className="founder-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left">
+                <div className="step-badge mb-6">Co-Founder &middot; CEO</div>
+                <h3 className="text-3xl sm:text-4xl font-light tracking-tight mb-2">Jerry Xiao</h3>
+                <p className="text-accent-light text-sm mb-6">Northeastern University &middot; CS</p>
+                <p className="text-muted leading-relaxed text-sm mb-6">
+                  Full-stack and Swift engineer who joined to prove the product works — learning ASL exclusively through Signpost with zero prior knowledge. Previously collaborated with Rule Your Own Game Inc. to support 3M+ monthly visits through integrated monetization and web infrastructure.
+                </p>
+                <div className="flex-1" />
+                <div className="flex gap-4 mt-4 justify-center md:justify-start">
+                  <a href="https://www.linkedin.com/in/xiaojerry/" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">LinkedIn</a>
+                  <a href="https://github.com/undeemed" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">GitHub</a>
+                </div>
+              </div>
+
+              {/* Max */}
+              <div className="founder-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left">
+                <div className="step-badge mb-6">Co-Founder &middot; CTO</div>
+                <h3 className="text-3xl sm:text-4xl font-light tracking-tight mb-2">Max Castagnoli</h3>
+                <p className="text-accent-light text-sm mb-6">Software Engineer &middot; 6 Years of Experience</p>
+                <p className="text-muted leading-relaxed text-sm mb-6">
+                  Built the computer vision pipeline from scratch. Has lived withinthe ASL learning problem for 2+ years — his daily class yields little amounts learned signs because the teacher can&apos;t give feedback to 30 students simultaneously. Previously at Rule Your Own Game Inc., open-sourced a minigames framework, which has handled 10M+ games across 50+ servers.
+                </p>
+                <div className="flex-1" />
+                <div className="flex gap-4 mt-4 justify-center md:justify-start">
+                  <a href="https://www.linkedin.com/in/max-castagnoli-1b18b923b/" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">LinkedIn</a>
+                  <a href="https://github.com/98ping" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+          STATS
+          ═══════════════════════════════════════════════════ */}
+        <div className="divider" />
+
+        <section className="stats-section relative py-12 overflow-hidden">
+          <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
+              {[
+                { value: "200+", label: "Testers" },
+                { value: "99%", label: "Accuracy Rate" },
+                { value: "<100ms", label: "Feedback Latency" },
+                { value: "24/7", label: "Feedback Availability" },
+              ].map((stat) => (
+                <div key={stat.label} className="stat-item px-4 sm:px-8">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-light gradient-text mb-2 font-display">
+                    {stat.value}
+                  </div>
+                  <div className="font-mono-upper">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+          BOTTOM CTA
+          ═══════════════════════════════════════════════════ */}
+        <div className="divider" />
+
+        {/* ═══════════════════════════════════════════════════
+          FAQ — Targets featured snippets for "how to learn ASL"
+          ═══════════════════════════════════════════════════ */}
+        <section id="faq" aria-label="Frequently Asked Questions about Learning ASL" className="relative py-32 lg:py-40 overflow-hidden">
+          <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10">
+            <div className="faq-header text-center max-w-3xl mx-auto mb-16">
+              <p className="font-mono-upper mb-4">FAQ</p>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
+                Common questions about learning ASL
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  q: "How do I learn ASL online?",
+                  a: "Signpost lets you learn ASL online using just a webcam. Our AI-powered computer vision watches your hand signs in real-time and gives instant feedback on your form. Start with fingerspelling basics and progress through a structured curriculum to full conversational ASL.",
+                },
+                {
+                  q: "Is Signpost free to use?",
+                  a: "Yes — Signpost offers a free demo that requires no sign-up. Just open the app, turn on your webcam, and start signing. Our AI gives you real-time feedback immediately.",
+                },
+                {
+                  q: "What do I need to start learning ASL with Signpost?",
+                  a: "All you need is a computer or device with a webcam and a modern web browser. No downloads, installations, or special equipment required.",
+                },
+                {
+                  q: "How is Signpost different from other ASL apps?",
+                  a: "Unlike video-based ASL courses, Signpost uses computer vision AI to watch your actual hand signs and correct your form in real-time — like having a personal ASL tutor available 24/7 with sub-50ms feedback latency.",
+                },
+                {
+                  q: "Can complete beginners use Signpost to learn sign language?",
+                  a: "Absolutely. Signpost is designed for beginners with zero ASL experience. Our structured curriculum starts with the ASL alphabet and fingerspelling, then progresses to common signs and conversational ASL at your own pace.",
+                },
+                {
+                  q: "Is my webcam data private and secure?",
+                  a: "Your privacy is our top priority. All hand-tracking runs entirely in your browser — your webcam feed is never sent to our servers, recorded, or stored. The only data we save server-side is hand landmark coordinates (numerical joint positions, not images or video) to improve our recognition models over time. No webcam footage ever leaves your device.",
+                },
+              ].map((faq) => (
+                <div key={faq.q} className="faq-item glass-card rounded-2xl overflow-hidden">
+                  <button
+                    className="w-full cursor-pointer p-6 font-medium text-lg text-foreground/90 flex items-center justify-between text-left"
+                    onClick={(e) => {
+                      const item = e.currentTarget.parentElement!;
+                      const body = item.querySelector('.faq-body') as HTMLElement;
+                      const icon = item.querySelector('.faq-icon') as HTMLElement;
+                      const isOpen = item.getAttribute('data-open') === 'true';
+
+                      if (isOpen) {
+                        // Close
+                        gsap.to(body, {
+                          height: 0,
+                          opacity: 0,
+                          duration: 0.4,
+                          ease: "power2.inOut",
+                        });
+                        gsap.to(icon, { rotation: 0, duration: 0.3, ease: "power2.out" });
+                        item.setAttribute('data-open', 'false');
+                      } else {
+                        // Open
+                        gsap.set(body, { height: 'auto', opacity: 1 });
+                        const fullHeight = body.offsetHeight;
+                        gsap.fromTo(body,
+                          { height: 0, opacity: 0 },
+                          { height: fullHeight, opacity: 1, duration: 0.5, ease: "power3.out" }
+                        );
+                        gsap.to(icon, { rotation: 45, duration: 0.3, ease: "power2.out" });
+                        item.setAttribute('data-open', 'true');
+                      }
+                    }}
+                  >
+                    {faq.q}
+                    <span className="faq-icon ml-4 text-muted text-xl leading-none select-none">+</span>
+                  </button>
+                  <div className="faq-body" style={{ height: 0, opacity: 0, overflow: 'hidden' }}>
+                    <p className="px-6 pb-6 text-muted leading-relaxed text-sm">{faq.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+          BOTTOM CTA
+          ═══════════════════════════════════════════════════ */}
+        <div className="divider" />
+
+        <section aria-label="Call to Action — Try ASL Demo" className="cta-section relative py-32 lg:py-40 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-20 blur-[120px]"
+            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
+          />
+
+          <div className="cta-content relative z-10 max-w-4xl mx-auto px-6 lg:px-10 text-center">
+            <p className="font-mono-upper mb-6">See it live</p>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl gradient-text-warm mb-8">
+              Ready to start signing?
+            </h2>
+            <p className="font-subtext text-lg text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
+              Experience real-time AI feedback on your ASL signing. No sign-up required for the demo — just open, sign, and learn.
             </p>
-
-            <Image
-              src="/signpost-logo.png"
-              alt="Signpost"
-              width={120}
-              height={120}
-              className="hero-logo mx-auto block mt-8 mb-8 sm:mt-10 sm:mb-10"
-            />
-
-            <p className="hero-sub font-subtitle text-base sm:text-lg md:text-xl text-muted max-w-2xl leading-relaxed mb-6 sm:mb-8 px-4 italic">
-              Learn ASL faster than ever with real-time AI Computer Vision feedback. Your fingers are the instrument — we help you play.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
-              <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="hero-cta btn-filled text-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="btn-filled">
                 Try the Demo
               </a>
-              <button onClick={() => setWaitlistOpen(true)} className="hero-cta btn-primary text-center cursor-pointer">
+              <button onClick={() => setWaitlistOpen(true)} className="btn-primary cursor-pointer">
                 Waitlist Sign Up →
               </button>
             </div>
           </div>
+        </section>
 
-          {/* Scroll-down arrow */}
-          <div className="hero-bottom-text flex flex-col items-center pt-4 sm:pt-6">
-            <a href="#features" className="mb-6 sm:mb-8 animate-bounce">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-muted">
-                <path d="M7 10l5 5 5-5" />
-              </svg>
-            </a>
-            <p className="text-center font-mono-upper pb-8 sm:pb-10 max-w-md mx-auto leading-relaxed">
-              We are building the AI platform that<br />
-              turns anyone into an ASL signer
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          FEATURES
-          ═══════════════════════════════════════════════════ */}
-      <div className="divider" />
-
-      <section id="features" aria-label="Features — Real-Time ASL Feedback, Curriculum, and Progress Tracking" className="relative py-32 lg:py-40 overflow-hidden">
-        <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
-          {/* Header */}
-          <div className="feature-header text-center max-w-3xl mx-auto mb-20">
-            <p className="font-mono-upper mb-4">What we build</p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
-              Everything you need to master ASL
-            </h2>
-          </div>
-
-          {/* Cards */}
-          <div className="feature-cards grid md:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col justify-center items-center text-center md:items-start md:text-left">
-              <div className="step-badge mb-8">01 — CV</div>
-              <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
-                Real-Time<br />Feedback
-              </h3>
-              
-              <p className="text-muted leading-relaxed text-sm">
-                Our computer vision pipeline tracks your hand positioning in real-time, providing instant corrections on form and movement. No waiting, no guessing — just immediate, actionable feedback.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col justify-center items-center text-center md:items-start md:text-left">
-              <div className="step-badge mb-8">02 — ED</div>
-              <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
-                Structured<br />Curriculum
-              </h3>
-              
-              <p className="text-muted leading-relaxed text-sm">
-                Progress through a carefully designed curriculum from fingerspelling basics to full conversational ASL. Lessons adapt to your pace with data-driven difficulty scaling.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="feature-card glass-card rounded-2xl p-10 flex flex-col justify-center items-center text-center md:items-start md:text-left">
-              <div className="step-badge mb-8">03 — DA</div>
-              <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-6 uppercase">
-                Progress<br />Tracking
-              </h3>
-              
-              <p className="text-muted leading-relaxed text-sm">
-                Track your fluency with objective, data-driven metrics. We provide the first standardized benchmark for ASL proficiency — your personal TOEFL for sign language.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          HOW IT WORKS
-          ═══════════════════════════════════════════════════ */}
-      <div className="divider" />
-
-      <section id="how-it-works" aria-label="How to Learn ASL with Signpost" className="relative py-32 lg:py-40 overflow-hidden">
-        <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
-          <div className="how-header text-center max-w-3xl mx-auto mb-20">
-            <p className="font-mono-upper mb-4">The process</p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
-              Start signing in three steps
-            </h2>
-          </div>
-
-          <div className="how-steps grid md:grid-cols-3 gap-12 lg:gap-16">
-            {/* Step 1 */}
-            <div className="how-step text-center">
-              <div className="mx-auto mb-8 w-24 h-24 rounded-full border border-white/10 flex items-center justify-center">
-                <span className="text-4xl font-light text-foreground/40">01</span>
-              </div>
-              <h3 className="text-xl font-medium mb-4 uppercase tracking-wider">Sign Up</h3>
-              <p className="text-muted leading-relaxed text-sm max-w-xs mx-auto">
-                Create your free account. All you need is a webcam and the desire to learn. No credit card required.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="how-step text-center">
-              <div className="mx-auto mb-8 w-24 h-24 rounded-full border border-white/10 flex items-center justify-center">
-                <span className="text-4xl font-light text-foreground/40">02</span>
-              </div>
-              <h3 className="text-xl font-medium mb-4 uppercase tracking-wider">Practice with AI</h3>
-              <p className="text-muted leading-relaxed text-sm max-w-xs mx-auto">
-                Turn on your webcam and start signing. Our AI watches your hands and gives instant corrections on every gesture.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="how-step text-center">
-              <div className="mx-auto mb-8 w-24 h-24 rounded-full border border-white/10 flex items-center justify-center">
-                <span className="text-4xl font-light text-foreground/40">03</span>
-              </div>
-              <h3 className="text-xl font-medium mb-4 uppercase tracking-wider">Master ASL</h3>
-              <p className="text-muted leading-relaxed text-sm max-w-xs mx-auto">
-                Build fluency lesson by lesson. Track your progress and earn certifications that prove your skill.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          FOUNDERS
-          ═══════════════════════════════════════════════════ */}
-      <div className="divider" />
-
-      <section id="team" aria-label="Meet the Signpost Team" className="relative py-32 lg:py-40 overflow-hidden">
-        <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
-          <div className="founders-header text-center max-w-4xl mx-auto mb-20">
-            <p className="font-mono-upper mb-4">Our team</p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
-              Built by students, for students
-            </h2>
-          </div>
-
-          <div className="founders-cards grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Jerry */}
-            <div className="founder-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left">
-              <div className="step-badge mb-6">Co-Founder &middot; CEO</div>
-              <h3 className="text-3xl sm:text-4xl font-light tracking-tight mb-2">Jerry Xiao</h3>
-              <p className="text-accent-light text-sm mb-6">Northeastern University &middot; CS</p>
-              <p className="text-muted leading-relaxed text-sm mb-6">
-                Full-stack and Swift engineer who joined to prove the product works — learning ASL exclusively through Signpost with zero prior knowledge. Previously collaborated with Rule Your Own Game Inc. to support 3M+ monthly visits through integrated monetization and web infrastructure.
-              </p>
-              <div className="flex-1" />
-              <div className="flex gap-4 mt-4 justify-center md:justify-start">
-                <a href="https://www.linkedin.com/in/xiaojerry/" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">LinkedIn</a>
-                <a href="https://github.com/undeemed" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">GitHub</a>
-              </div>
-            </div>
-
-            {/* Max */}
-            <div className="founder-card glass-card rounded-2xl p-10 flex flex-col items-center text-center md:items-start md:text-left">
-              <div className="step-badge mb-6">Co-Founder &middot; CTO</div>
-              <h3 className="text-3xl sm:text-4xl font-light tracking-tight mb-2">Max Castagnoli</h3>
-              <p className="text-accent-light text-sm mb-6">Software Engineer &middot; 6 Years of Experience</p>
-              <p className="text-muted leading-relaxed text-sm mb-6">
-                Built the computer vision pipeline from scratch. Has lived the ASL learning problem for 2+ years — his daily class yields only ~8 learned signs because the teacher can&apos;t give feedback to 30 students simultaneously. Previously at Rule Your Own Game Inc., open-sourced the ArchMC minigames framework, which has handled 10M+ games across 50+ servers.
-              </p>
-              <div className="flex-1" />
-              <div className="flex gap-4 mt-4 justify-center md:justify-start">
-                <a href="https://www.linkedin.com/in/max-castagnoli-1b18b923b/" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">LinkedIn</a>
-                <a href="https://github.com/98ping" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors">GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          STATS
-          ═══════════════════════════════════════════════════ */}
-      <div className="divider" />
-
-      <section className="stats-section relative py-12 overflow-hidden">
-        <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
-            {[
-              { value: "200+", label: "Testers" },
-              { value: "99.9%", label: "Accuracy Rate" },
-              { value: "<50ms", label: "Feedback Latency" },
-              { value: "24/7", label: "Feedback Availability" },
-            ].map((stat) => (
-              <div key={stat.label} className="stat-item px-4 sm:px-8">
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-light gradient-text mb-2 font-display">
-                  {stat.value}
-                </div>
-                <div className="font-mono-upper">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          BOTTOM CTA
-          ═══════════════════════════════════════════════════ */}
-      <div className="divider" />
-
-      {/* ═══════════════════════════════════════════════════
-          FAQ — Targets featured snippets for "how to learn ASL"
-          ═══════════════════════════════════════════════════ */}
-      <section id="faq" aria-label="Frequently Asked Questions about Learning ASL" className="relative py-32 lg:py-40 overflow-hidden">
-        <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-10">
-          <div className="faq-header text-center max-w-3xl mx-auto mb-16">
-            <p className="font-mono-upper mb-4">FAQ</p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm">
-              Common questions about learning ASL
-            </h2>
-          </div>
-
-          <div className="space-y-4">
-            {[
-              {
-                q: "How do I learn ASL online?",
-                a: "Signpost lets you learn ASL online using just a webcam. Our AI-powered computer vision watches your hand signs in real-time and gives instant feedback on your form. Start with fingerspelling basics and progress through a structured curriculum to full conversational ASL.",
-              },
-              {
-                q: "Is Signpost free to use?",
-                a: "Yes — Signpost offers a free demo that requires no sign-up. Just open the app, turn on your webcam, and start signing. Our AI gives you real-time feedback immediately.",
-              },
-              {
-                q: "What do I need to start learning ASL with Signpost?",
-                a: "All you need is a computer or device with a webcam and a modern web browser. No downloads, installations, or special equipment required.",
-              },
-              {
-                q: "How is Signpost different from other ASL apps?",
-                a: "Unlike video-based ASL courses, Signpost uses computer vision AI to watch your actual hand signs and correct your form in real-time — like having a personal ASL tutor available 24/7 with sub-50ms feedback latency.",
-              },
-              {
-                q: "Can complete beginners use Signpost to learn sign language?",
-                a: "Absolutely. Signpost is designed for beginners with zero ASL experience. Our structured curriculum starts with the ASL alphabet and fingerspelling, then progresses to common signs and conversational ASL at your own pace.",
-              },
-              {
-                q: "Is my webcam data private and secure?",
-                a: "Your privacy is our top priority. All hand-tracking runs entirely in your browser — your webcam feed is never sent to our servers, recorded, or stored. The only data we save server-side is hand landmark coordinates (numerical joint positions, not images or video) to improve our recognition models over time. No webcam footage ever leaves your device.",
-              },
-            ].map((faq) => (
-              <div key={faq.q} className="faq-item glass-card rounded-2xl overflow-hidden">
-                <button
-                  className="w-full cursor-pointer p-6 font-medium text-lg text-foreground/90 flex items-center justify-between text-left"
-                  onClick={(e) => {
-                    const item = e.currentTarget.parentElement!;
-                    const body = item.querySelector('.faq-body') as HTMLElement;
-                    const icon = item.querySelector('.faq-icon') as HTMLElement;
-                    const isOpen = item.getAttribute('data-open') === 'true';
-
-                    if (isOpen) {
-                      // Close
-                      gsap.to(body, {
-                        height: 0,
-                        opacity: 0,
-                        duration: 0.4,
-                        ease: "power2.inOut",
-                      });
-                      gsap.to(icon, { rotation: 0, duration: 0.3, ease: "power2.out" });
-                      item.setAttribute('data-open', 'false');
-                    } else {
-                      // Open
-                      gsap.set(body, { height: 'auto', opacity: 1 });
-                      const fullHeight = body.offsetHeight;
-                      gsap.fromTo(body,
-                        { height: 0, opacity: 0 },
-                        { height: fullHeight, opacity: 1, duration: 0.5, ease: "power3.out" }
-                      );
-                      gsap.to(icon, { rotation: 45, duration: 0.3, ease: "power2.out" });
-                      item.setAttribute('data-open', 'true');
-                    }
-                  }}
-                >
-                  {faq.q}
-                  <span className="faq-icon ml-4 text-muted text-xl leading-none select-none">+</span>
-                </button>
-                <div className="faq-body" style={{ height: 0, opacity: 0, overflow: 'hidden' }}>
-                  <p className="px-6 pb-6 text-muted leading-relaxed text-sm">{faq.a}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
-          BOTTOM CTA
-          ═══════════════════════════════════════════════════ */}
-      <div className="divider" />
-
-      <section aria-label="Call to Action — Try ASL Demo" className="cta-section relative py-32 lg:py-40 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-20 blur-[120px]"
-          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
-        />
-
-        <div className="cta-content relative z-10 max-w-4xl mx-auto px-6 lg:px-10 text-center">
-          <p className="font-mono-upper mb-6">See it live</p>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl gradient-text-warm mb-8">
-            Ready to start signing?
-          </h2>
-          <p className="font-subtext text-lg text-muted max-w-2xl mx-auto mb-12 leading-relaxed">
-            Experience real-time AI feedback on your ASL signing. No sign-up required for the demo — just open, sign, and learn.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="btn-filled">
-              Try the Demo
-            </a>
-            <button onClick={() => setWaitlistOpen(true)} className="btn-primary cursor-pointer">
-              Waitlist Sign Up →
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════
+        {/* ═══════════════════════════════════════════════════
           FOOTER
           ═══════════════════════════════════════════════════ */}
-      <div className="divider" />
+        <div className="divider" />
 
-      <footer className="relative py-12">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="font-mono-upper">
-              &copy; {new Date().getFullYear()} Signpost
+        <footer className="relative py-12">
+          <div className="max-w-[1600px] mx-auto px-6 lg:px-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <p className="font-mono-upper">
+                &copy; {new Date().getFullYear()} Signpost
+              </p>
+              <nav aria-label="Footer navigation" className="flex flex-wrap gap-6 justify-center">
+                <a href="#features" className="font-mono-upper hover:text-foreground transition-colors text-xs">Features</a>
+                <a href="#how-it-works" className="font-mono-upper hover:text-foreground transition-colors text-xs">How&nbsp;It&nbsp;Works</a>
+                <a href="#faq" className="font-mono-upper hover:text-foreground transition-colors text-xs">FAQ</a>
+                <a href="#team" className="font-mono-upper hover:text-foreground transition-colors text-xs">Team</a>
+                <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors text-xs">Demo</a>
+              </nav>
+            </div>
+            <p className="text-center text-xs text-muted/50 mt-6">
+              Signpost is the fastest way to learn American Sign Language online. AI-powered real-time feedback on ASL fingerspelling and signs.
             </p>
-            <nav aria-label="Footer navigation" className="flex flex-wrap gap-6 justify-center">
-              <a href="#features" className="font-mono-upper hover:text-foreground transition-colors text-xs">Features</a>
-              <a href="#how-it-works" className="font-mono-upper hover:text-foreground transition-colors text-xs">How&nbsp;It&nbsp;Works</a>
-              <a href="#faq" className="font-mono-upper hover:text-foreground transition-colors text-xs">FAQ</a>
-              <a href="#team" className="font-mono-upper hover:text-foreground transition-colors text-xs">Team</a>
-              <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors text-xs">Demo</a>
-            </nav>
           </div>
-          <p className="text-center text-xs text-muted/50 mt-6">
-            Signpost is the fastest way to learn American Sign Language online. AI-powered real-time feedback on ASL fingerspelling and signs.
-          </p>
-        </div>
-      </footer>
+        </footer>
 
       </main>
       <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
