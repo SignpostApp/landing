@@ -19,9 +19,7 @@
 }
 
 /* ═══════════════ Base ═══════════════ */
-html {
-  /* scroll-behavior: smooth removed — conflicts with GSAP ScrollTrigger */
-}
+
 
 body {
   background: #050508;
@@ -69,11 +67,7 @@ body {
   letter-spacing: 0.01em;
 }
 
-.font-subtitle {
-  font-family: var(--font-subtitle), "EB Garamond", Georgia, serif;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-}
+
 
 /* ═══════════════ Gradient Text ═══════════════ */
 .gradient-text {
@@ -220,4 +214,52 @@ body {
   border-radius: 100px;
   padding: 0.25rem 1rem;
   display: inline-block;
+}
+/* ═══════════════ Large Footer ═══════════════ */
+.footer-link {
+  font-family: var(--font-subtext), "Outfit", sans-serif;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+}
+.footer-link:hover {
+  color: var(--color-foreground);
+  transform: translateX(4px);
+}
+.footer-header {
+  font-family: var(--font-subtext), "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-foreground);
+  margin-bottom: 1.5rem;
+}
+.footer-status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-family: "SF Mono", "Fira Code", monospace;
+  color: #22c55e;
+}
+.footer-status-dot {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
 }
