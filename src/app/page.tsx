@@ -563,12 +563,12 @@ export default function Home() {
           <div className="hero-content relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-10">
             {/* Side floating text */}
             <div className="hidden xl:block absolute left-10 top-1/2 -translate-y-1/2">
-              <p className="hero-side-left font-mono-upper" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
+              <p className="hero-side-left font-subtext text-[10px] tracking-[0.2em] uppercase opacity-50" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
                 CV-Powered Learning
               </p>
             </div>
             <div className="hidden xl:block absolute right-10 top-1/2 -translate-y-1/2">
-              <p className="hero-side-right font-mono-upper" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
+              <p className="hero-side-right font-subtext text-[10px] tracking-[0.2em] uppercase opacity-50" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
                 Real-Time Feedback
               </p>
             </div>
@@ -577,12 +577,12 @@ export default function Home() {
             <div className="flex flex-col items-center text-center pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-10">
               {/* Badge */}
               <div className="hero-badge inline-flex flex-nowrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <span className="step-badge shrink-0 whitespace-nowrap">Launching MARCH 2026</span>
+                <span className="step-badge shrink-0 whitespace-nowrap font-subtext font-medium border-white/20">Launching March 2026</span>
                 <a
                   href="https://github.com/SignpostApp/landing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="step-badge inline-flex! shrink-0 items-center gap-1.5 whitespace-nowrap hover:border-white/25 hover:text-foreground transition-all"
+                  className="step-badge inline-flex! shrink-0 items-center gap-1.5 whitespace-nowrap font-subtext font-medium border-white/20 hover:border-white/40 hover:text-foreground transition-all"
                 >
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 opacity-70">
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
@@ -612,7 +612,7 @@ export default function Home() {
                 className="hero-logo mx-auto block mt-8 mb-8 sm:mt-10 sm:mb-10"
               />
 
-              <p className="hero-sub font-subtext text-base sm:text-lg md:text-xl text-muted max-w-2xl leading-relaxed mb-6 sm:mb-8 px-4">
+              <p className="hero-sub font-subtext text-base sm:text-lg md:text-xl text-muted/90 font-light max-w-2xl leading-relaxed mb-6 sm:mb-8 px-4">
                 Learn ASL faster than ever with real-time AI Computer Vision feedback and a structured curriculum. Your fingers are your voice, we just help you find it.
               </p>
 
@@ -633,7 +633,7 @@ export default function Home() {
                   <path d="M7 10l5 5 5-5" />
                 </svg>
               </a>
-              <p className="text-center font-mono-upper pb-8 sm:pb-10 max-w-md mx-auto leading-relaxed">
+              <p className="text-center font-subtext text-sm sm:text-base pb-8 sm:pb-10 max-w-md mx-auto leading-relaxed text-muted/80">
                 We are building the AI platform that<br />
                 turns anyone into an ASL signer without the need for a teacher.
               </p>
@@ -945,23 +945,97 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
         <div className="divider" />
 
-        <footer className="relative py-12">
-          <div className="max-w-[1600px] mx-auto px-6 lg:px-10">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <p className="font-mono-upper">
-                &copy; {new Date().getFullYear()} Signpost
-              </p>
-              <nav aria-label="Footer navigation" className="flex flex-wrap gap-6 justify-center">
-                <a href="#features" className="font-mono-upper hover:text-foreground transition-colors text-xs">Features</a>
-                <a href="#how-it-works" className="font-mono-upper hover:text-foreground transition-colors text-xs">How&nbsp;It&nbsp;Works</a>
-                <a href="#faq" className="font-mono-upper hover:text-foreground transition-colors text-xs">FAQ</a>
-                <a href="#team" className="font-mono-upper hover:text-foreground transition-colors text-xs">Team</a>
-                <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors text-xs">Demo</a>
-              </nav>
+        <footer id="site-footer" className="relative pt-24 pb-12 overflow-hidden border-t border-white/5 bg-[rgba(5,5,8,0.3)]">
+          {/* Ambient glow in footer */}
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]"
+            style={{ background: "radial-gradient(circle, rgba(168,85,247,0.15), transparent 70%)" }}
+          />
+
+          <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
+            {/* Top Section: Multi-column links */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-20">
+              
+              {/* Brand Column */}
+              <div className="col-span-2 lg:col-span-1">
+                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-flex items-center group mb-6" aria-label="Scroll to top">
+                  <Image src="/signpost-logo.png" alt="Signpost" width={32} height={32} className="opacity-90 group-hover:opacity-100 transition-opacity" />
+                  <span className="ml-3 font-display text-xl tracking-tight">Signpost</span>
+                </button>
+                <p className="font-subtext text-sm text-muted/80 leading-relaxed mb-8 max-w-[200px]">
+                  Master American Sign Language with real-time AI feedback and a structured curriculum.
+                </p>
+                <div className="flex gap-4">
+                  <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-muted hover:text-foreground hover:border-white/30 transition-all">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                  </a>
+                  <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-muted hover:text-foreground hover:border-white/30 transition-all">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.24.24-.31.31l.215-3.05 5.55-5.01c.241-.213-.053-.332-.37-.123l-6.86 4.318-2.96-.924c-.643-.201-.655-.643.134-.951l11.57-4.46c.534-.196 1.002.128.841.918z"/></svg>
+                  </a>
+                  <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-muted hover:text-foreground hover:border-white/30 transition-all">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.727.079-3.415.446-4.64 1.671-1.226 1.225-1.592 2.913-1.671 4.64-.058 1.281-.072 1.688-.072 4.947s.014 3.667.072 4.947c.079 1.726.446 3.414 1.671 4.64 1.225 1.226 2.913 1.592 4.64 1.671 1.281.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.726-.079 3.414-.446 4.64-1.671 1.226-1.225 1.592-2.913 1.671-4.64.058-1.281.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.079-1.727-.446-3.415-1.671-4.64-1.225-1.226-2.913-1.592-4.64-1.671-1.281-.058-1.688-.072-4.947-.072z"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Column 2: Product */}
+              <div className="flex flex-col gap-4">
+                <h4 className="footer-header">Product</h4>
+                <a href="#features" className="footer-link">Features</a>
+                <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="footer-link">Live Demo</a>
+                <a href="#" className="footer-link">Curriculum</a>
+                <a href="#" className="footer-link">Benchmarking</a>
+                <a href="#" className="footer-link">Mobile App</a>
+              </div>
+
+              {/* Column 3: Company */}
+              <div className="flex flex-col gap-4">
+                <h4 className="footer-header">Company</h4>
+                <a href="#team" className="footer-link">About Us</a>
+                <a href="#team" className="footer-link">Our Team</a>
+                <a href="#" className="footer-link">Careers</a>
+                <a href="#" className="footer-link">Press Kit</a>
+                <a href="#" className="footer-link">Contact</a>
+              </div>
+
+              {/* Column 4: Resources */}
+              <div className="flex flex-col gap-4">
+                <h4 className="footer-header">Resources</h4>
+                <a href="#faq" className="footer-link">Help Center</a>
+                <a href="#" className="footer-link">ASL Dictionary</a>
+                <a href="#" className="footer-link">Blog</a>
+                <a href="#" className="footer-link">Community</a>
+                <a href="#" className="footer-link">Documentation</a>
+              </div>
+
+              {/* Column 5: Legal */}
+              <div className="flex flex-col gap-4">
+                <h4 className="footer-header">Legal</h4>
+                <a href="#" className="footer-link">Privacy Policy</a>
+                <a href="#" className="footer-link">Terms of Service</a>
+                <a href="#" className="footer-link">Cookie Policy</a>
+                <a href="#" className="footer-link">GDPR</a>
+                <a href="#" className="footer-link">Security</a>
+              </div>
+
             </div>
-            <p className="text-center text-xs text-muted/50 mt-6">
-              Signpost is the fastest way to learn American Sign Language online. AI-powered real-time feedback on ASL fingerspelling and signs.
-            </p>
+
+            {/* Bottom Bar */}
+            <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                <p className="font-subtext text-xs text-muted/60">
+                  &copy; {new Date().getFullYear()} Signpost App, Inc.
+                </p>
+                <div className="footer-status-indicator">
+                  <div className="footer-status-dot" />
+                  <span>Systems Operational</span>
+                </div>
+              </div>
+              
+              <div className="flex gap-6">
+                <p className="font-mono-upper text-[10px] opacity-40">Built with Computer Vision</p>
+                <p className="font-mono-upper text-[10px] opacity-40">Latency: sub-50ms</p>
+              </div>
+            </div>
           </div>
         </footer>
 
