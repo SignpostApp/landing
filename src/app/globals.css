@@ -263,3 +263,77 @@ body {
   50% { opacity: 0.5; transform: scale(1.2); }
   100% { opacity: 1; transform: scale(1); }
 }
+
+/* ═══════════════ Legal Pages ═══════════════ */
+.legal-section {
+  margin-bottom: 3rem;
+}
+
+.legal-heading {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground);
+  margin-bottom: 1.25rem;
+  padding-top: 0.5rem;
+}
+
+.legal-subheading {
+  font-family: var(--font-subtext), "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(232, 232, 237, 0.85);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+.legal-body {
+  font-family: var(--font-subtext), "Outfit", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.legal-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.legal-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-subtext), "Outfit", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--color-muted);
+}
+
+.legal-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.5);
+}
+
+.legal-list.list-decimal {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.legal-list.list-decimal li::before {
+  display: none;
+}
+
+.legal-list.list-decimal li {
+  padding-left: 0.25rem;
+}
