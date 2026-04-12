@@ -577,7 +577,7 @@ export default function Home() {
             <div className="flex flex-col items-center text-center pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-10">
               {/* Badge */}
               <div className="hero-badge inline-flex flex-nowrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <span className="step-badge shrink-0 whitespace-nowrap font-subtext font-medium border-white/20">Launching March 2026</span>
+                <span className="step-badge shrink-0 whitespace-nowrap font-subtext font-medium border-white/20">Launching Summer 2026</span>
                 <a
                   href="https://github.com/SignpostApp/landing"
                   target="_blank"
@@ -945,85 +945,82 @@ export default function Home() {
           ═══════════════════════════════════════════════════ */}
         <div className="divider" />
 
-        <footer id="site-footer" className="relative pt-24 pb-12 overflow-hidden border-t border-white/5 bg-[rgba(5,5,8,0.3)]">
+        <footer id="site-footer" className="relative pt-24 pb-8 overflow-hidden border-t border-white/5 bg-[rgba(5,5,8,0.3)]">
           {/* Ambient glow in footer */}
           <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]"
             style={{ background: "radial-gradient(circle, rgba(168,85,247,0.15), transparent 70%)" }}
           />
+          <div className="absolute bottom-1/3 left-0 w-[300px] h-[300px] rounded-full opacity-8 blur-[120px]"
+            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.12), transparent 70%)" }}
+          />
 
           <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
-            {/* Top Section: Multi-column links */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-20">
 
-              {/* Brand Column */}
-              <div className="col-span-2 lg:col-span-1">
-                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-flex items-center group mb-6" aria-label="Scroll to top">
-                  <Image src="/signpost-logo.png" alt="Signpost" width={32} height={32} className="opacity-90 group-hover:opacity-100 transition-opacity" />
-                  <span className="ml-3 font-display text-xl tracking-tight">Signpost</span>
-                </button>
-                <p className="font-subtext text-sm text-muted/80 leading-relaxed mb-8 max-w-[200px]">
-                  Master American Sign Language with real-time AI feedback and a structured curriculum.
+            {/* ── Top zone: tagline left, link columns right ── */}
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-16 lg:mb-24">
+
+              {/* Tagline */}
+              <div className="lg:max-w-[280px] shrink-0">
+                <p className="font-display text-xl sm:text-2xl text-foreground/90 leading-snug">
+                  Master your voice<br />without one.
                 </p>
-                <div className="flex gap-4">
-                  <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-muted hover:text-foreground hover:border-white/30 transition-all">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" /></svg>
-                  </a>
-                  <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-muted hover:text-foreground hover:border-white/30 transition-all">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.24.24-.31.31l.215-3.05 5.55-5.01c.241-.213-.053-.332-.37-.123l-6.86 4.318-2.96-.924c-.643-.201-.655-.643.134-.951l11.57-4.46c.534-.196 1.002.128.841.918z" /></svg>
-                  </a>
-                  <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-muted hover:text-foreground hover:border-white/30 transition-all">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.727.079-3.415.446-4.64 1.671-1.226 1.225-1.592 2.913-1.671 4.64-.058 1.281-.072 1.688-.072 4.947s.014 3.667.072 4.947c.079 1.726.446 3.414 1.671 4.64 1.225 1.226 2.913 1.592 4.64 1.671 1.281.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.726-.079 3.414-.446 4.64-1.671 1.226-1.225 1.592-2.913 1.671-4.64.058-1.281.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.079-1.727-.446-3.415-1.671-4.64-1.225-1.226-2.913-1.592-4.64-1.671-1.281-.058-1.688-.072-4.947-.072z" /></svg>
-                  </a>
+              </div>
+
+              {/* Link columns — no headers, flat Antigravity style */}
+              <div className="flex flex-wrap gap-x-16 gap-y-8 lg:ml-auto">
+
+                {/* Col 1 */}
+                <div className="flex flex-col gap-3">
+                  <a href="#features" className="footer-link">Features</a>
+                  <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="footer-link">Live Demo</a>
+                  <a href="#how-it-works" className="footer-link">How It Works</a>
+                  <a href="#faq" className="footer-link">FAQ</a>
                 </div>
-              </div>
 
-              {/* Column 2: Product */}
-              <div className="flex flex-col gap-4">
-                <h4 className="footer-header">Product</h4>
-                <a href="#features" className="footer-link">Features</a>
-                <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="footer-link">Live Demo</a>
-              </div>
+                {/* Col 2 */}
+                <div className="flex flex-col gap-3">
+                  <a href="#team" className="footer-link">About Us</a>
+                  <a href="#team" className="footer-link">Our Team</a>
+                  <a href="https://github.com/SignpostApp" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
+                </div>
 
-              {/* Column 3: Company */}
-              <div className="flex flex-col gap-4">
-                <h4 className="footer-header">Company</h4>
-                <a href="#team" className="footer-link">About Us</a>
-                <a href="#team" className="footer-link">Our Team</a>
-                <a href="#" className="footer-link">Press Kit</a>
-                <a href="#" className="footer-link">Contact</a>
-              </div>
+                {/* Col 3 */}
+                <div className="flex flex-col gap-3">
+                  <a href="/legal/privacy" className="footer-link">Privacy</a>
+                  <a href="/legal/terms" className="footer-link">Terms</a>
+                  <a href="/legal/cookies" className="footer-link">Cookies</a>
+                  <a href="/legal/gdpr" className="footer-link">GDPR</a>
+                  <a href="/legal/security" className="footer-link">Security</a>
+                </div>
 
-              {/* Column 4: Resources */}
-              <div className="flex flex-col gap-4">
-                <h4 className="footer-header">Resources</h4>
-                <a href="#faq" className="footer-link">Help Center</a>
-                <a href="#" className="footer-link">Documentation</a>
               </div>
-
-              {/* Column 5: Legal */}
-              <div className="flex flex-col gap-4">
-                <h4 className="footer-header">Legal</h4>
-                <a href="/legal/privacy" className="footer-link">Privacy Policy</a>
-                <a href="/legal/terms" className="footer-link">Terms of Service</a>
-                <a href="/legal/cookies" className="footer-link">Cookie Policy</a>
-                <a href="/legal/gdpr" className="footer-link">GDPR</a>
-                <a href="/legal/security" className="footer-link">Security</a>
-              </div>
-
             </div>
 
-            {/* Bottom Bar */}
-            <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-                <p className="font-subtext text-xs text-muted/60">
+            {/* ── Giant brand text ── */}
+            <div className="mb-12 lg:mb-16 select-none" aria-hidden="true">
+              <p className="footer-brand-text font-display text-[clamp(4rem,15vw,14rem)] leading-[0.85] tracking-tighter font-normal gradient-text-warm opacity-90">
+                Signpost.cv
+              </p>
+            </div>
+
+            {/* ── Bottom bar: logo left, links right ── */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-white/5">
+              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-flex items-center gap-2 group" aria-label="Scroll to top">
+                <Image src="/signpost-logo.png" alt="Signpost" width={20} height={20} className="opacity-60 group-hover:opacity-100 transition-opacity" />
+                <span className="font-subtext text-xs text-muted/50 group-hover:text-muted transition-colors">Signpost</span>
+              </button>
+
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+                <p className="font-subtext text-xs text-muted/40">
                   &copy; {new Date().getFullYear()} Signpost App, Inc.
                 </p>
-              </div>
-
-              <div className="flex gap-6">
-                <p className="font-mono-upper text-[10px] opacity-40">Built with Computer Vision</p>
+                <span className="hidden sm:inline text-white/10">|</span>
+                <a href="/legal/privacy" className="font-subtext text-xs text-muted/40 hover:text-muted transition-colors">Privacy</a>
+                <a href="/legal/terms" className="font-subtext text-xs text-muted/40 hover:text-muted transition-colors">Terms</a>
+                <a href="/legal/security" className="font-subtext text-xs text-muted/40 hover:text-muted transition-colors">Security</a>
               </div>
             </div>
+
           </div>
         </footer>
 
