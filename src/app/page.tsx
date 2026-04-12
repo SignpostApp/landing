@@ -1003,11 +1003,11 @@ export default function Home() {
               {/* Column 5: Legal */}
               <div className="flex flex-col gap-4">
                 <h4 className="footer-header">Legal</h4>
-                <a href="#" className="footer-link">Privacy Policy</a>
-                <a href="#" className="footer-link">Terms of Service</a>
-                <a href="#" className="footer-link">Cookie Policy</a>
-                <a href="#" className="footer-link">GDPR</a>
-                <a href="#" className="footer-link">Security</a>
+                <a href="/legal/privacy" className="footer-link">Privacy Policy</a>
+                <a href="/legal/terms" className="footer-link">Terms of Service</a>
+                <a href="/legal/cookies" className="footer-link">Cookie Policy</a>
+                <a href="/legal/gdpr" className="footer-link">GDPR</a>
+                <a href="/legal/security" className="footer-link">Security</a>
               </div>
 
             </div>
