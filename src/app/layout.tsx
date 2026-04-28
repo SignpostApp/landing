@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script";
 import { Inter, Playfair_Display, Outfit } from "next/font/google";
 
 import "./globals.css";
@@ -204,6 +205,18 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${playfair.variable} ${outfit.variable} antialiased noise`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-7DW69BDLXM"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-7DW69BDLXM');
+          `}
+        </Script>
         {children}
         <Analytics />
       </body>
