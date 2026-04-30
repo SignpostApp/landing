@@ -322,8 +322,8 @@ function useStarCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
       if (vortexProgress > 0.2) {
         const glowRadius = 40 + vortexProgress * 60;
         const gradient = ctx!.createRadialGradient(cx, cy, 0, cx, cy, glowRadius);
-        gradient.addColorStop(0, `rgba(99,102,241,${(0.15 * vortexProgress).toFixed(3)})`);
-        gradient.addColorStop(0.5, `rgba(168,85,247,${(0.08 * vortexProgress).toFixed(3)})`);
+        gradient.addColorStop(0, `rgba(37,99,235,${(0.18 * vortexProgress).toFixed(3)})`);
+        gradient.addColorStop(0.5, `rgba(96,165,250,${(0.1 * vortexProgress).toFixed(3)})`);
         gradient.addColorStop(1, "rgba(0,0,0,0)");
         ctx!.beginPath();
         ctx!.arc(cx, cy, glowRadius, 0, Math.PI * 2);
@@ -532,7 +532,7 @@ export default function Home() {
         {/* ═══════════════════════════════════════════════════
           NAVBAR
           ═══════════════════════════════════════════════════ */}
-        <nav className="site-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[rgba(5,5,8,0.8)] backdrop-blur-xl border-b border-white/4">
+        <nav className="site-nav fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-10 py-2 sm:py-2.5 bg-[rgba(5,5,8,0.8)] backdrop-blur-xl border-b border-white/4">
           <div className="grid grid-cols-3 items-center max-w-[1600px] mx-auto">
             <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="font-mono-upper hover:text-foreground transition-colors text-sm justify-self-start">
               <span className="hidden sm:inline">Try Demo</span>
@@ -541,7 +541,9 @@ export default function Home() {
 
             {/* Centered Logo — scroll to top */}
             <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="justify-self-center flex items-center group cursor-pointer" aria-label="Scroll to top">
-              <Image src="/signpost-logo.png" alt="Signpost" width={28} height={28} className="transition-transform group-hover:scale-110 opacity-80 group-hover:opacity-100" />
+              <div className="relative w-[110px] h-[26px] overflow-hidden transition-transform group-hover:scale-105 opacity-80 group-hover:opacity-100">
+                <Image src="/text-logo.png" alt="Signpost" fill sizes="110px" className="object-cover" />
+              </div>
             </button>
 
             <button onClick={() => setWaitlistOpen(true)} className="font-mono-upper hover:text-foreground transition-colors text-sm cursor-pointer justify-self-end">
@@ -557,22 +559,10 @@ export default function Home() {
         <section aria-label="Hero — Learn ASL with AI" className="hero-section relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: "100dvh" }}>
           {/* Ambient glow */}
           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[500px] rounded-full opacity-20 blur-[120px] sm:blur-[150px]"
-            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%)" }}
           />
 
           <div className="hero-content relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-10">
-            {/* Side floating text */}
-            <div className="hidden xl:block absolute left-10 top-1/2 -translate-y-1/2">
-              <p className="hero-side-left font-subtext text-[10px] tracking-[0.2em] uppercase opacity-50" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
-                CV-Powered Learning
-              </p>
-            </div>
-            <div className="hidden xl:block absolute right-10 top-1/2 -translate-y-1/2">
-              <p className="hero-side-right font-subtext text-[10px] tracking-[0.2em] uppercase opacity-50" style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
-                Real-Time Feedback
-              </p>
-            </div>
-
             {/* Center content */}
             <div className="flex flex-col items-center text-center pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-10">
               {/* Badge */}
@@ -604,15 +594,7 @@ export default function Home() {
                 </span>
               </p>
 
-              <Image
-                src="/signpost-logo.png"
-                alt="Signpost"
-                width={120}
-                height={120}
-                className="hero-logo mx-auto block mt-8 mb-8 sm:mt-10 sm:mb-10"
-              />
-
-              <p className="hero-sub font-subtext text-base sm:text-lg md:text-xl text-muted/90 font-light max-w-2xl leading-relaxed mb-6 sm:mb-8 px-4">
+              <p className="hero-sub font-subtext text-base sm:text-lg md:text-xl text-muted/90 font-light max-w-2xl leading-relaxed mt-8 sm:mt-10 mb-6 sm:mb-8 px-4">
                 Learn ASL faster than ever with real-time AI Computer Vision feedback and a structured curriculum. Your fingers are your voice, we just help you find it.
               </p>
 
@@ -621,7 +603,7 @@ export default function Home() {
                   Try the Demo
                 </a>
                 <button onClick={() => setWaitlistOpen(true)} className="hero-cta btn-primary text-center cursor-pointer">
-                  Waitlist Sign Up →
+                  Waitlist Sign Up
                 </button>
               </div>
             </div>
@@ -918,7 +900,7 @@ export default function Home() {
 
         <section aria-label="Call to Action — Try ASL Demo" className="cta-section relative py-32 lg:py-40 overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full opacity-20 blur-[120px]"
-            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%)" }}
           />
 
           <div className="cta-content relative z-10 max-w-4xl mx-auto px-6 lg:px-10 text-center">
@@ -951,7 +933,7 @@ export default function Home() {
             style={{ background: "radial-gradient(circle, rgba(168,85,247,0.15), transparent 70%)" }}
           />
           <div className="absolute bottom-1/3 left-0 w-[300px] h-[300px] rounded-full opacity-8 blur-[120px]"
-            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.12), transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, rgba(37,99,235,0.14), transparent 70%)" }}
           />
 
           <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-10">
@@ -1006,7 +988,7 @@ export default function Home() {
             {/* ── Bottom bar: logo left, links right ── */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-white/5">
               <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-flex items-center gap-2 group" aria-label="Scroll to top">
-                <Image src="/signpost-logo.png" alt="Signpost" width={20} height={20} className="opacity-60 group-hover:opacity-100 transition-opacity" />
+                <Image src="/text-logo.png" alt="Signpost" width={50} height={37} className="opacity-60 group-hover:opacity-100 transition-opacity" />
                 <span className="font-subtext text-xs text-muted/50 group-hover:text-muted transition-colors">Signpost</span>
               </button>
 

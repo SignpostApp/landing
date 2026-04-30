@@ -1,36 +1,31 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Inter";
-  src: local("Inter");
-}
-
 @theme inline {
-  --color-background: #050508;
-  --color-foreground: #e8e8ed;
-  --color-muted: #7a7a8a;
-  --color-accent: #6366f1;
-  --color-accent-light: #818cf8;
-  --color-accent-2: #a855f7;
-  --color-accent-3: #06b6d4;
+  --color-background: #05060a;
+  --color-foreground: #f0f1f5;
+  --color-muted: #6e7180;
+  --color-accent: #2563eb;
+  --color-accent-light: #60a5fa;
+  --color-accent-2: #3b82f6;
+  --color-accent-3: #93c5fd;
   --color-card: rgba(255, 255, 255, 0.03);
   --color-card-border: rgba(255, 255, 255, 0.06);
-  --font-sans: var(--font-inter);
 }
 
 /* ═══════════════ Base ═══════════════ */
 
 
 body {
-  background: #050508;
-  color: #e8e8ed;
+  background: #05060a;
+  color: #f0f1f5;
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-feature-settings: "ss01", "ss02", "cv11";
   overflow-x: hidden;
   cursor: default;
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(37, 99, 235, 0.35);
   color: #fff;
 }
 
@@ -47,31 +42,32 @@ body {
 
 /* ═══════════════ Typography ═══════════════ */
 .font-display {
-  font-family: var(--font-display), Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.08;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
 }
 
 .font-mono-upper {
-  font-family: "SF Mono", "Fira Code", monospace;
+  font-family: var(--font-mono), "SF Mono", "JetBrains Mono", monospace;
   font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-muted);
 }
 
 .font-subtext {
-  font-family: var(--font-subtext), "Outfit", system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-weight: 400;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.005em;
 }
 
 
 
 /* ═══════════════ Gradient Text ═══════════════ */
 .gradient-text {
-  background: linear-gradient(135deg, #818cf8, #a855f7, #06b6d4);
+  background: linear-gradient(135deg, #60a5fa 0%, #2563eb 60%, #1e40af 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -79,7 +75,7 @@ body {
 }
 
 .gradient-text-warm {
-  background: linear-gradient(135deg, #e8e8ed 30%, rgba(99, 102, 241, 0.7));
+  background: linear-gradient(180deg, #f0f1f5 0%, #f0f1f5 55%, rgba(96, 165, 250, 0.85) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -92,15 +88,16 @@ body {
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(99, 102, 241, 0.2);
-  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(37, 99, 235, 0.25);
+  transform: translateY(-6px);
   box-shadow:
-    0 30px 80px -20px rgba(99, 102, 241, 0.12),
-    0 0 0 1px rgba(99, 102, 241, 0.1);
+    0 30px 80px -20px rgba(37, 99, 235, 0.18),
+    0 0 0 1px rgba(37, 99, 235, 0.12);
 }
 
 /* ═══════════════ Noise Texture ═══════════════ */
@@ -168,57 +165,61 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 1rem 2.5rem;
-  font-size: 0.8rem;
+  padding: 0.95rem 2rem;
+  font-size: 0.875rem;
   line-height: 1;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 100px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
   -webkit-appearance: none;
   appearance: none;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none;
 }
 
 .btn-primary {
-  color: #fff;
-  background: transparent;
+  color: #f0f1f5;
+  background: rgba(255, 255, 255, 0.02);
 }
 .btn-primary:hover {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 24px -8px rgba(37, 99, 235, 0.25);
 }
 
 .btn-filled {
   color: #fff;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
+  background: #13c93e;
 }
 .btn-filled:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 60px rgba(99, 102, 241, 0.3);
-  transform: scale(1.03);
+  background: #47d35c;
+  box-shadow: 0 4px 0px -8px rgb(101, 224, 126), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
 }
 
 /* ═══════════════ Feature number badge ═══════════════ */
 .step-badge {
-  font-family: "SF Mono", "Fira Code", monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  font-family: var(--font-mono), "SF Mono", "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-muted);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 100px;
-  padding: 0.25rem 1rem;
+  padding: 0.4rem 0.9rem;
   display: inline-block;
 }
 /* ═══════════════ Large Footer ═══════════════ */
 .footer-link {
-  font-family: var(--font-subtext), "Outfit", sans-serif;
-  font-size: 0.85rem;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: -0.005em;
   color: var(--color-muted);
   transition: all 0.3s ease;
   text-decoration: none;
@@ -230,10 +231,10 @@ body {
   transform: translateX(4px);
 }
 .footer-header {
-  font-family: var(--font-subtext), "Outfit", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-mono), "SF Mono", "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-foreground);
   margin-bottom: 1.5rem;
@@ -246,8 +247,9 @@ body {
   background: rgba(34, 197, 94, 0.1);
   border: 1px solid rgba(34, 197, 94, 0.2);
   border-radius: 100px;
-  font-size: 0.65rem;
-  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.7rem;
+  font-family: var(--font-mono), "SF Mono", "JetBrains Mono", monospace;
+  letter-spacing: 0.05em;
   color: #22c55e;
 }
 .footer-status-dot {
@@ -270,31 +272,32 @@ body {
 }
 
 .legal-heading {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: -0.025em;
   color: var(--color-foreground);
   margin-bottom: 1.25rem;
   padding-top: 0.5rem;
 }
 
 .legal-subheading {
-  font-family: var(--font-subtext), "Outfit", sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1rem;
-  font-weight: 500;
-  color: rgba(232, 232, 237, 0.85);
+  font-weight: 600;
+  color: rgba(240, 241, 245, 0.9);
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
 }
 
 .legal-body {
-  font-family: var(--font-subtext), "Outfit", sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.9rem;
-  line-height: 1.8;
+  line-height: 1.75;
   color: var(--color-muted);
   margin-bottom: 1rem;
+  letter-spacing: -0.005em;
 }
 
 .legal-list {
@@ -308,9 +311,10 @@ body {
   position: relative;
   padding-left: 1.25rem;
   margin-bottom: 0.75rem;
-  font-family: var(--font-subtext), "Outfit", sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.9rem;
   line-height: 1.75;
+  letter-spacing: -0.005em;
   color: var(--color-muted);
 }
 
@@ -322,7 +326,7 @@ body {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: rgba(99, 102, 241, 0.5);
+  background: rgba(37, 99, 235, 0.6);
 }
 
 .legal-list.list-decimal {
