@@ -1,29 +1,22 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script";
-import { Inter, Playfair_Display, Outfit } from "next/font/google";
+import { DM_Sans, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-display",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const outfit = Outfit({
-  variable: "--font-subtext",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500"],
+  weight: ["400", "500"],
 });
 
 
@@ -204,7 +197,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: safeJsonLd }}
         />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} ${outfit.variable} antialiased noise`}>
+      <body className={`${dmSans.variable} ${jetbrainsMono.variable} antialiased noise`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7DW69BDLXM"
           strategy="afterInteractive"

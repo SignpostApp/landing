@@ -359,7 +359,7 @@ export default function WaitlistModal({
                           className="h-full rounded-full transition-all duration-700 ease-out"
                           style={{
                             width: `${Math.max(4, (1 - (checkResult.position - 1) / Math.max(checkResult.total, 1)) * 100)}%`,
-                            background: "linear-gradient(90deg, #6366f1, #a855f7)",
+                            background: "linear-gradient(90deg, #2563eb, #60a5fa)",
                           }}
                         />
                       </div>

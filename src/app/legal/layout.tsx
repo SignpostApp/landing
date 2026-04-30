@@ -10,28 +10,21 @@ export default function LegalLayout({ children }: { children: ReactNode }) {
         className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full opacity-15 blur-[140px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(99,102,241,0.18), transparent 70%)",
+            "radial-gradient(circle, rgba(37,99,235,0.22), transparent 70%)",
         }}
       />
 
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[rgba(5,5,8,0.85)] backdrop-blur-xl border-b border-white/4">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-10 py-2 sm:py-2.5 bg-[rgba(5,5,8,0.85)] backdrop-blur-xl border-b border-white/4">
         <div className="flex items-center justify-between max-w-[1600px] mx-auto">
           <Link
             href="/"
             className="inline-flex items-center gap-3 group"
             aria-label="Back to Signpost home"
           >
-            <Image
-              src="/signpost-logo.png"
-              alt="Signpost"
-              width={24}
-              height={24}
-              className="opacity-80 group-hover:opacity-100 transition-opacity"
-            />
-            <span className="font-display text-base tracking-tight hidden sm:inline">
-              Signpost
-            </span>
+            <div className="relative w-[110px] h-[26px] overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity">
+              <Image src="/text-logo.png" alt="Signpost" fill sizes="110px" className="object-cover" />
+            </div>
           </Link>
 
           <Link
