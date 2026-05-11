@@ -47,6 +47,13 @@ const STATS = [
   { value: "24/7", label: "Feedback Availability" },
 ];
 
+
+const LTI_CAROUSEL_IMAGES = [
+  { src: "/icons/canvas.png", alt: "LTI integration screenshot 2" },
+  { src: "/icons/blackboard.png", alt: "LTI integration screenshot 1" },
+  { src: "/icons/Schoology.png", alt: "LTI integration screenshot 3" }
+];
+
 const FAQS = [
   {
     q: "How do I learn ASL online?",
@@ -77,6 +84,15 @@ const FAQS = [
 export default function WhiteLandingPage() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [ltiSlide, setLtiSlide] = useState(0);
+
+  useEffect(() => {
+    if (LTI_CAROUSEL_IMAGES.length <= 1) return;
+    const id = setInterval(() => {
+      setLtiSlide((s) => (s + 1) % LTI_CAROUSEL_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, []);
 
   // Override the globally dark body bg so overscroll/bounce stays white on this route
   useEffect(() => {
@@ -112,10 +128,14 @@ export default function WhiteLandingPage() {
             className="justify-self-center flex items-center group cursor-pointer"
             aria-label="Scroll to top"
           >
-            <span className="font-semibold tracking-tight text-slate-900 text-[1.05rem] group-hover:text-blue-600 transition-colors">
-              signpost
-            </span>
-            <span className="ml-1 inline-block w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5" aria-hidden="true" />
+            <Image
+              src="/text-logo.png"
+              alt="Signpost"
+              width={200}
+              height={48}
+              priority
+              className="h-12 w-auto -my-2.5 group-hover:opacity-80 transition-opacity"
+            />
           </button>
 
           <button
@@ -290,6 +310,40 @@ export default function WhiteLandingPage() {
                   <p className="text-slate-600 leading-relaxed text-sm max-w-xs mx-auto">{step.body}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ LTI 1.3 INTEGRATION ═══ */}
+        <section className="relative py-24 lg:py-32 border-t border-slate-100">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+            <div className="text-center max-w-3xl mx-auto">
+              <p className="text-[0.7rem] font-mono uppercase tracking-[0.18em] text-slate-500 mb-4">For educators</p>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900 mb-6">
+                Teach easily with <span className="text-slate-400">LTI 1.3 Integration</span>
+              </h2>
+              <p className="text-slate-600 leading-relaxed text-base sm:text-lg max-w-2xl mx-auto">
+                Signpost will ship with full LTI 1.3 integration so you can seamlessly connect it with your school&apos;s preferred LMS!
+              </p>
+            </div>
+
+            {/* Fade carousel */}
+            <div className="mt-10 flex justify-center">
+              <div className="relative h-40 w-88">
+                {LTI_CAROUSEL_IMAGES.map((img, i) => (
+                  <Image
+                    key={img.src}
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="192px"
+                    className={`object-contain transition-opacity duration-1000 ease-in-out ${
+                      i === ltiSlide ? "opacity-100" : "opacity-0"
+                    }`}
+                    priority={i === 0}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -506,7 +560,7 @@ export default function WhiteLandingPage() {
                 className="inline-flex items-center gap-2 group cursor-pointer"
                 aria-label="Scroll to top"
               >
-                <Image src="/text-logo.png" alt="Signpost" width={50} height={37} className="opacity-60 group-hover:opacity-90 transition-opacity invert" />
+                <Image src="/text-logo.png" alt="Signpost" width={50} height={37} className="opacity-60 group-hover:opacity-90 transition-opacity" />
                 <span className="text-xs text-slate-400 group-hover:text-slate-600 transition-colors">Signpost</span>
               </button>
 
