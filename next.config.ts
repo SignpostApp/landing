@@ -34,6 +34,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  devIndicators: false,
   images: {
     // SECURITY: Restrict Next.js image optimization to local assets only.
     remotePatterns: [],
