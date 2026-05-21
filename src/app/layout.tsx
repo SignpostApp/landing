@@ -23,9 +23,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://signpost.cv"),
-  title: "Signpost — Learn ASL Online with Free AI Sign Language Feedback",
+  title: "Signpost | Starting Learning ASL Online for Free",
   description:
-    "Learn American Sign Language online with real-time AI feedback. Signpost uses computer vision to track your hand signs, correct your form instantly, and teach ASL fingerspelling through a structured curriculum. Free demo with no sign-up required.",
+    "Learn American Sign Language online with real-time AI/ML feedback. Signpost uses computer vision to track your hand signs, correct your form instantly, and teach ASL fingerspelling through a structured curriculum. Free demo with no sign-up required!",
   keywords: [
     "learn ASL",
     "learn ASL online",
@@ -74,13 +74,13 @@ export const metadata: Metadata = {
         url: "https://signpost.cv/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Signpost — Learn ASL with AI feedback",
+        alt: "Signpost | Learn ASL with AI feedback",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Signpost — Learn ASL Online with Free AI Sign Language Feedback",
+    title: "Signpost | Learn ASL Online with Free AI Sign Language Feedback",
     description:
       "Master American Sign Language with real-time AI feedback. Computer vision tracks your signs and corrects your form instantly.",
     images: ["https://signpost.cv/og-image.png"],
@@ -109,8 +109,8 @@ const jsonLd = {
       description:
         "AI-powered American Sign Language learning platform using computer vision for real-time feedback.",
       founders: [
-        { "@type": "Person", name: "Jerry Xiao", jobTitle: "CEO" },
-        { "@type": "Person", name: "Max Castagnoli", jobTitle: "CTO" },
+        { "@type": "Person", name: "Jerry Xiao", jobTitle: "CTO" },
+        { "@type": "Person", name: "Max Castagnoli", jobTitle: "CEO" },
       ],
     },
     {
