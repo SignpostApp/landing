@@ -208,7 +208,7 @@ export default function WhiteWaitlistModal({
               <>
                 <h3 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2 text-slate-900">Join the waitlist</h3>
                 <p className="text-slate-500 text-sm mb-8 leading-relaxed">
-                  Be the first to know when Signpost launches. We&apos;ll notify you — no spam, ever.
+                  Be the first to know when Signpost launches. We&apos;ll notify you and never spam you.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
