@@ -1,5 +1,9 @@
 import type { NextConfig } from "next";
 
+// Dev-only allowance so impeccable live mode can load. Guarded by NODE_ENV.
+const __impeccableLiveDev =
+  process.env.NODE_ENV === "development" ? " http://localhost:8400" : "";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -7,10 +11,10 @@ const contentSecurityPolicy = [
   "img-src 'self' data: blob:",
   "object-src 'none'",
   // SECURITY: Next.js injects inline runtime scripts for hydration.
-  "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'",
+  `script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'${__impeccableLiveDev}`,
   // SECURITY: Inline styles are required by framework/runtime styling paths.
   "style-src 'self' 'unsafe-inline'",
-  "connect-src 'self'",
+  `connect-src 'self'${__impeccableLiveDev}`,
   "frame-ancestors 'none'",
   "form-action 'self'",
   "upgrade-insecure-requests",

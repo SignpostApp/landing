@@ -207,8 +207,8 @@ export default function WhiteWaitlistModal({
             {tab === "join" && (
               <>
                 <h3 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2 text-slate-900">Join the waitlist</h3>
-                <p className="text-slate-500 text-sm mb-8 leading-relaxed">
-                  Be the first to know when Signpost launches. We&apos;ll notify you and never spam you.
+                <p className="text-slate-600 text-sm mb-8 leading-relaxed">
+                  We&apos;ll email you once when Signpost opens for early access. That&apos;s the only email you&apos;ll get from us.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -243,12 +243,26 @@ export default function WhiteWaitlistModal({
                     disabled={status === "loading" || status === "cooldown"}
                     className="w-full rounded-xl bg-slate-900 text-white py-3.5 text-sm font-semibold hover:bg-slate-800 active:bg-slate-950 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                   >
-                    {status === "loading" ? "Joining..." : status === "cooldown" ? "Wait a moment..." : "Get Early Access →"}
+                    {status === "loading" ? "Joining..." : status === "cooldown" ? "Try again shortly" : "Join the waitlist"}
                   </button>
                 </form>
 
-                <p className="text-slate-400 text-[0.65rem] text-center mt-5">
-                  By signing up you agree to our terms. Your email is stored securely.
+                <p className="text-slate-500 text-xs text-center mt-5">
+                  By joining you agree to our{" "}
+                  <a
+                    href="/legal/terms"
+                    className="underline underline-offset-2 hover:text-slate-900 transition-colors"
+                  >
+                    terms
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    href="/legal/privacy"
+                    className="underline underline-offset-2 hover:text-slate-900 transition-colors"
+                  >
+                    privacy policy
+                  </a>
+                  . Your email is stored to notify you at launch, nothing else.
                 </p>
               </>
             )}
@@ -258,8 +272,8 @@ export default function WhiteWaitlistModal({
                 {!checkSubmitted ? (
                   <>
                     <h3 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2 text-slate-900">Check your spot</h3>
-                    <p className="text-slate-500 text-sm mb-8 leading-relaxed">
-                      Enter the email you signed up with to see your position.
+                    <p className="text-slate-600 text-sm mb-8 leading-relaxed">
+                      Enter the email you signed up with to see where you are in line.
                     </p>
 
                     <form onSubmit={handleCheck} className="space-y-4">
@@ -277,7 +291,7 @@ export default function WhiteWaitlistModal({
                         type="submit"
                         className="w-full rounded-xl bg-slate-900 text-white py-3.5 text-sm font-semibold hover:bg-slate-800 transition-all cursor-pointer"
                       >
-                        Look up →
+                        Find my spot
                       </button>
                     </form>
                   </>

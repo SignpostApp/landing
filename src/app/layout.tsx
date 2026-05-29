@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script";
-import { DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Geist, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const geist = Geist({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
@@ -359,14 +359,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd }}
         />
       </head>
-      <body className={`${dmSans.variable} ${jetbrainsMono.variable} antialiased noise`}>
+      <body className={`${geist.variable} ${jetbrainsMono.variable} antialiased`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7DW69BDLXM"
           strategy="afterInteractive"
