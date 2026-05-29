@@ -41,3 +41,8 @@ convex/_generated/
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+
+# agent tooling (local-only; not part of the project)
+.claude/
+.impeccable/
+.gemini/

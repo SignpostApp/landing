@@ -371,6 +371,18 @@ export default function Home() {
 
   useStarCanvas(canvasRef);
 
+  // Override the globally light body bg so the dark variant's overscroll/bounce stays dark.
+  useEffect(() => {
+    const prevBg = document.body.style.background;
+    const prevColor = document.body.style.color;
+    document.body.style.background = "#05060a";
+    document.body.style.color = "#f0f1f5";
+    return () => {
+      document.body.style.background = prevBg;
+      document.body.style.color = prevColor;
+    };
+  }, []);
+
   useEffect(() => {
     // Kill any stale ScrollTriggers from HMR
     ScrollTrigger.getAll().forEach((t) => t.kill());
