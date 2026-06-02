@@ -517,6 +517,7 @@ export default function WhiteLandingPage() {
                 <div className="flex flex-col gap-3">
                   <p className="text-xs font-semibold text-slate-900 mb-1">Company</p>
                   <a href="#team" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">About</a>
+                  <a href="/blog" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">Blog</a>
                   <a href="https://github.com/SignpostApp" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">GitHub</a>
                 </div>
 

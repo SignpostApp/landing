@@ -215,3 +215,108 @@ body {
 .legal-list.list-decimal li {
   padding-left: 0.25rem;
 }
+
+/* ═══════════════ Blog ═══════════════
+   Article typography for posts under /blog. Body copy uses slate-700 (#334155)
+   on the #fcfcfd surface to stay comfortably above WCAG 2.2 AA contrast. */
+.blog-prose {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  color: #334155;
+}
+
+.blog-prose > * + * {
+  margin-top: 1.3rem;
+}
+
+.blog-prose h2 {
+  font-size: 1.55rem;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--color-ink);
+  margin-top: 2.75rem;
+}
+
+.blog-prose h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  margin-top: 2.1rem;
+}
+
+.blog-prose p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.blog-prose strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.blog-prose a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+.blog-prose a:hover {
+  color: var(--color-accent-strong);
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+.blog-prose li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-top: 0.6rem;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.blog-prose ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.55);
+}
+
+.blog-prose ol {
+  counter-reset: blog-item;
+}
+.blog-prose ol > li {
+  counter-increment: blog-item;
+}
+.blog-prose ol > li::before {
+  content: counter(blog-item) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-accent);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.blog-prose blockquote {
+  border-left: 3px solid rgba(37, 99, 235, 0.4);
+  padding-left: 1.25rem;
+  margin-left: 0;
+}
+.blog-prose blockquote p {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #475569;
+}
