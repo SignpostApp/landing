@@ -313,26 +313,40 @@ export default function WhiteLandingPage() {
               {/* All three LMS partners shown at once: the section's heading promises
                   "the LMS your school already runs," so the visitor needs to see the full
                   set at a glance to verify their own LMS is supported. */}
-              <ul
-                role="list"
-                aria-label="Signpost integrates with Canvas, Blackboard, and Schoology"
-                className="flex items-center justify-around gap-4 sm:gap-8 lg:gap-10 rounded-2xl border border-slate-200 bg-white px-6 sm:px-8 py-10 shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
-              >
-                {LMS_LOGOS.map((logo) => (
-                  <li
-                    key={logo.src}
-                    className="flex-1 flex items-center justify-center min-w-0"
-                  >
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={160}
-                      height={48}
-                      className="h-7 sm:h-8 lg:h-9 w-auto object-contain"
-                    />
-                  </li>
-                ))}
-              </ul>
+              <div className="relative rounded-2xl border border-slate-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_24px_60px_-30px_rgba(15,23,42,0.18)] overflow-hidden">
+                {/* Subtle inner gradient gives the panel weight without competing with the logos */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-60"
+                  style={{
+                    background:
+                      "radial-gradient(60% 80% at 50% 0%, rgba(59,130,246,0.06), transparent 70%)",
+                  }}
+                  aria-hidden="true"
+                />
+                <p className="relative text-[0.7rem] uppercase tracking-[0.18em] text-slate-500 font-medium px-8 pt-7">
+                  Integrates with
+                </p>
+                <ul
+                  role="list"
+                  aria-label="Signpost integrates with Canvas, Blackboard, and Schoology"
+                  className="relative flex items-center justify-around gap-4 sm:gap-6 lg:gap-8 px-6 sm:px-8 pt-8 pb-12 lg:pt-10 lg:pb-14"
+                >
+                  {LMS_LOGOS.map((logo) => (
+                    <li
+                      key={logo.src}
+                      className="flex-1 flex items-center justify-center min-w-0"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={200}
+                        height={64}
+                        className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -503,6 +517,7 @@ export default function WhiteLandingPage() {
                 <div className="flex flex-col gap-3">
                   <p className="text-xs font-semibold text-slate-900 mb-1">Company</p>
                   <a href="#team" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">About</a>
+                  <a href="/blog" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">Blog</a>
                   <a href="https://github.com/SignpostApp" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">GitHub</a>
                 </div>
 
