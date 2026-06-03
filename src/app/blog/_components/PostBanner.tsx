@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Post, Tint } from "../posts";
+import { bannerAlt, bannerSrc } from "../posts";
 
 /**
  * Banner / header image for a post. The displayed area is a fixed 12:5 (2.4:1)
@@ -33,15 +34,16 @@ export default function PostBanner({
 }) {
   const [a, b] = TINTS[post.tint];
   const radius = rounded ? "rounded-2xl" : "";
+  const src = bannerSrc(post);
 
-  if (post.image) {
+  if (src) {
     return (
       <div
         className={`relative w-full aspect-[12/5] overflow-hidden border border-slate-200 bg-slate-100 ${radius}`}
       >
         <Image
-          src={post.image}
-          alt={post.imageAlt}
+          src={src}
+          alt={bannerAlt(post)}
           fill
           priority={priority}
           sizes={sizes}

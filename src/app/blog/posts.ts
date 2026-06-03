@@ -50,6 +50,24 @@ export const AUTHOR = {
   url: "https://www.linkedin.com/in/max-castagnoli-1b18b923b/",
 };
 
+/**
+ * Shared header/banner used at the top of every post and on every index card.
+ * A post can still override it by setting its own `image` field below.
+ */
+export const DEFAULT_BANNER = "/blog/banner.png";
+export const DEFAULT_BANNER_ALT =
+  "Signpost — learn American Sign Language online with real-time AI feedback.";
+
+/** Resolves a post's banner path: its own `image`, else the shared default. */
+export function bannerSrc(post: Post): string {
+  return post.image ?? DEFAULT_BANNER;
+}
+
+/** Alt text matching whatever bannerSrc() returns. */
+export function bannerAlt(post: Post): string {
+  return post.image ? post.imageAlt : DEFAULT_BANNER_ALT;
+}
+
 /* Newest first. The index re-sorts by date, but keep this ordered for sanity. */
 export const POSTS: Post[] = [
   {
