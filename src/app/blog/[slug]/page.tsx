@@ -139,8 +139,12 @@ export default async function BlogPostPage({
         </div>
 
         {/* ═══ BANNER ═══ */}
-        <div className="max-w-5xl mx-auto px-6 lg:px-10 mt-8 sm:mt-10">
-          <PostBanner post={post} priority />
+        <div className="max-w-3xl mx-auto px-6 lg:px-10 mt-8 sm:mt-10">
+          <PostBanner
+            post={post}
+            priority
+            sizes="(max-width: 768px) 100vw, 768px"
+          />
         </div>
 
         {/* ═══ BODY ═══ */}

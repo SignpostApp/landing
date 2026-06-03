@@ -4,68 +4,65 @@ import Link from "next/link";
 
 export default function LegalLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      {/* Ambient glow — top */}
-      <div
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full opacity-15 blur-[140px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(37,99,235,0.22), transparent 70%)",
-        }}
-      />
-
+    <div className="min-h-screen flex flex-col bg-[#fcfcfd] text-slate-900 antialiased">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-10 py-2 sm:py-2.5 bg-[rgba(5,5,8,0.85)] backdrop-blur-xl border-b border-white/4">
-        <div className="flex items-center justify-between max-w-[1600px] mx-auto">
+      <nav className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
+        <div className="flex items-center justify-between max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-10 py-3 sm:py-3.5">
           <Link
             href="/"
-            className="inline-flex items-center gap-3 group"
-            aria-label="Back to Signpost home"
+            className="flex items-center group shrink-0"
+            aria-label="Signpost home"
           >
-            <div className="relative w-[110px] h-[26px] overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity">
-              <Image src="/text-logo.png" alt="Signpost" fill sizes="110px" className="object-cover" />
-            </div>
+            <Image
+              src="/text-logo.png"
+              alt="Signpost"
+              width={200}
+              height={48}
+              priority
+              className="h-11 w-auto -my-2 group-hover:opacity-80 transition-opacity"
+            />
           </Link>
 
           <Link
             href="/"
-            className="font-mono-upper hover:text-foreground transition-colors text-sm"
+            className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
           >
-            ← Back to Home
+            ← Back to home
           </Link>
         </div>
       </nav>
 
       {/* Page content */}
-      <main className="relative z-10 pt-28 sm:pt-32 pb-24 max-w-4xl mx-auto px-6 lg:px-10">
+      <main className="flex-1 w-full max-w-4xl mx-auto px-6 lg:px-10 pt-16 sm:pt-20 pb-24">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="relative border-t border-white/5 bg-[rgba(5,5,8,0.3)] py-12">
-        <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            <p className="font-subtext text-xs text-muted/60">
-              &copy; {new Date().getFullYear()} Signpost App, Inc.
-            </p>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center">
-              <Link href="/legal/privacy" className="footer-link text-xs">
-                Privacy
-              </Link>
-              <Link href="/legal/terms" className="footer-link text-xs">
-                Terms
-              </Link>
-              <Link href="/legal/cookies" className="footer-link text-xs">
-                Cookies
-              </Link>
-              <Link href="/legal/gdpr" className="footer-link text-xs">
-                GDPR
-              </Link>
-              <Link href="/legal/security" className="footer-link text-xs">
-                Security
-              </Link>
-            </div>
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-12">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <Link href="/" className="flex items-center" aria-label="Signpost home">
+              <Image
+                src="/text-logo.png"
+                alt="Signpost"
+                width={150}
+                height={36}
+                className="h-8 w-auto"
+              />
+            </Link>
+
+            <nav className="flex flex-wrap gap-x-6 gap-y-2">
+              <Link href="/legal/privacy" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Privacy</Link>
+              <Link href="/legal/terms" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Terms</Link>
+              <Link href="/legal/cookies" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Cookies</Link>
+              <Link href="/legal/gdpr" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">GDPR</Link>
+              <Link href="/legal/security" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">Security</Link>
+            </nav>
           </div>
+
+          <p className="mt-8 text-xs text-slate-400">
+            &copy; {new Date().getFullYear()} Signpost App, Inc.
+          </p>
         </div>
       </footer>
     </div>

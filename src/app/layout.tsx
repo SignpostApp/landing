@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script";
 import { Geist, JetBrains_Mono } from "next/font/google";
@@ -18,6 +18,11 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
   weight: ["400", "500"],
 });
+
+export const viewport: Viewport = {
+  colorScheme: "light",
+  themeColor: "#fcfcfd",
+};
 
 const SITE_URL = "https://signpost.cv";
 const SITE_NAME = "Signpost";
