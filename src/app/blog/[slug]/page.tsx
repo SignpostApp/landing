@@ -5,6 +5,8 @@ import PostBanner from "../_components/PostBanner";
 import PostBody from "../_components/PostBody";
 import {
   AUTHOR,
+  bannerAlt,
+  bannerSrc,
   formatDate,
   getAllPosts,
   getOtherPosts,
@@ -13,7 +15,6 @@ import {
 } from "../posts";
 
 const SITE_URL = "https://signpost.cv";
-const OG_FALLBACK = `${SITE_URL}/og-image.png`;
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -29,7 +30,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = `${SITE_URL}/blog/${post.slug}`;
-  const ogImage = post.image ? `${SITE_URL}${post.image}` : OG_FALLBACK;
+  const ogImage = `${SITE_URL}${bannerSrc(post)}`;
 
   return {
     title: post.title,
@@ -44,7 +45,7 @@ export async function generateMetadata({
       locale: "en_US",
       publishedTime: post.date,
       authors: [AUTHOR.name],
-      images: [{ url: ogImage, width: 1200, height: 630, alt: post.imageAlt }],
+      images: [{ url: ogImage, width: 2400, height: 1000, alt: bannerAlt(post) }],
     },
     twitter: {
       card: "summary_large_image",
@@ -81,7 +82,7 @@ export default async function BlogPostPage({
         datePublished: post.date,
         dateModified: post.date,
         inLanguage: "en-US",
-        image: post.image ? `${SITE_URL}${post.image}` : OG_FALLBACK,
+        image: `${SITE_URL}${bannerSrc(post)}`,
         author: {
           "@type": "Person",
           name: AUTHOR.name,
