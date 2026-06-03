@@ -14,6 +14,13 @@
 
 /* ═══════════════ Base ═══════════════ */
 
+/* Force light rendering everywhere: pins UA chrome (scrollbars, form controls)
+   and the first-paint canvas to light, so no page flashes dark under an OS
+   dark-mode preference. The site is light-theme only. */
+html {
+  color-scheme: light;
+}
+
 body {
   background: #fcfcfd;
   color: #0f172a;
@@ -71,10 +78,9 @@ body {
   }
 }
 
-/* ═══════════════ Dark variant compatibility ═══════════════
-   The /darklanding route uses its own dark scheme via inline classes and the
-   classes below. Keep these for that route only; the main landing does not use them.
-*/
+/* ═══════════════ Card surface ═══════════════
+   Glass-card surface used by the legal pages (privacy, terms, etc.).
+   The light-theme override lives in the Legal Pages section below. */
 .glass-card {
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(40px);
@@ -90,54 +96,6 @@ body {
   box-shadow:
     0 30px 80px -20px rgba(37, 99, 235, 0.18),
     0 0 0 1px rgba(37, 99, 235, 0.12);
-}
-
-.divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-}
-
-.site-nav,
-.hero-badge,
-.hero-line,
-.hero-sub,
-.hero-cta,
-.hero-side-left,
-.hero-side-right,
-.hero-bottom-text,
-.feature-header,
-.feature-card,
-.how-header,
-.how-step,
-.founders-header,
-.founder-card,
-.stat-item,
-.cta-content {
-  opacity: 0;
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.feature-cards,
-.how-steps,
-.founders-cards,
-.stats-section,
-.cta-section {
-  contain: layout style paint;
-}
-
-#star-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-@keyframes pulse {
-  0% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-  100% { opacity: 1; transform: scale(1); }
 }
 
 /* ═══════════════ Legal Pages ═══════════════ */
@@ -214,6 +172,27 @@ body {
 
 .legal-list.list-decimal li {
   padding-left: 0.25rem;
+}
+
+/* Light-theme overrides for legacy classes still used inside legal article
+   content. Scoped to .legal-page so the dark /darklanding route (which reuses
+   .glass-card) is left untouched. Makes content links distinguishable (WCAG)
+   and gives cards a real light surface instead of a near-invisible dark one. */
+.legal-page a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+.legal-page a:hover {
+  color: var(--color-accent-strong);
+}
+.legal-page .glass-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 12px 40px -24px rgba(15, 23, 42, 0.18);
 }
 
 /* ═══════════════ Blog ═══════════════
