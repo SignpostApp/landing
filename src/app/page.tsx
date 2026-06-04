@@ -312,7 +312,10 @@ export default function WhiteLandingPage() {
 
               {/* All three LMS partners shown at once: the section's heading promises
                   "the LMS your school already runs," so the visitor needs to see the full
-                  set at a glance to verify their own LMS is supported. */}
+                  set at a glance to verify their own LMS is supported. The three brand
+                  marks have wildly different aspect ratios and visual weights, so each
+                  gets its own equal-width cell with a vertical divider — the structure
+                  reads as intentional instead of the logos fighting each other. */}
               <div className="relative rounded-2xl border border-slate-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_24px_60px_-30px_rgba(15,23,42,0.18)] overflow-hidden">
                 {/* Subtle inner gradient gives the panel weight without competing with the logos */}
                 <div
@@ -323,25 +326,34 @@ export default function WhiteLandingPage() {
                   }}
                   aria-hidden="true"
                 />
-                <p className="relative text-[0.7rem] uppercase tracking-[0.18em] text-slate-500 font-medium px-8 pt-7">
-                  Integrates with
-                </p>
+
+                {/* Header: centered label flanked by hairlines */}
+                <div className="relative flex items-center gap-4 px-8 pt-7 pb-6">
+                  <span className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-200" aria-hidden="true" />
+                  <p className="text-[0.7rem] uppercase tracking-[0.2em] text-slate-500 font-medium shrink-0">
+                    Integrates with
+                  </p>
+                  <span className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-200" aria-hidden="true" />
+                </div>
+
                 <ul
                   role="list"
                   aria-label="Signpost integrates with Canvas, Blackboard, and Schoology"
-                  className="relative flex items-center justify-around gap-4 sm:gap-6 lg:gap-8 px-6 sm:px-8 pt-8 pb-12 lg:pt-10 lg:pb-14"
+                  className="relative grid grid-cols-3 border-t border-slate-200/70"
                 >
-                  {LMS_LOGOS.map((logo) => (
+                  {LMS_LOGOS.map((logo, i) => (
                     <li
                       key={logo.src}
-                      className="flex-1 flex items-center justify-center min-w-0"
+                      className={`flex items-center justify-center h-24 sm:h-28 px-4 ${
+                        i > 0 ? "border-l border-slate-200/70" : ""
+                      }`}
                     >
                       <Image
                         src={logo.src}
                         alt={logo.alt}
                         width={200}
                         height={64}
-                        className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
+                        className="max-h-10 sm:max-h-11 w-auto object-contain"
                       />
                     </li>
                   ))}
@@ -356,7 +368,7 @@ export default function WhiteLandingPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="max-w-2xl mb-14 lg:mb-20">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em] text-slate-900 text-balance">
-                Built by two students who lived the problem.
+                Built by ASL students, tested by ASL educators
               </h2>
             </div>
 
@@ -364,33 +376,23 @@ export default function WhiteLandingPage() {
               {/* Jerry */}
               <article className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.12)] flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
-                  <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Jerry Xiao</h3>
-                  <p className="text-xs text-slate-500 shrink-0">Co-founder, CEO</p>
+                  <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Built by ASL Students</h3>
+                  <p className="text-xs text-slate-500 shrink-0">Max and Jerry</p>
                 </div>
-                <p className="text-blue-600 text-sm mb-6">Northeastern University, Computer Science</p>
                 <p className="text-slate-600 leading-relaxed text-[0.95rem] mb-7 flex-1">
-                  Full-stack and Swift engineer. Learning ASL from zero, using only Signpost: the canary that proves the product teaches non-signers. Previously helped Rule Your Own Game Inc. support 3M+ monthly visits through web infrastructure and integrated monetization.
+                  This entire startup was built by students who lived through this problem in their respective ASL classes and have a shared passion for improving learning through technology.
                 </p>
-                <div className="flex gap-5 mt-auto">
-                  <a href="https://www.linkedin.com/in/xiaojerry/" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">LinkedIn</a>
-                  <a href="https://github.com/undeemed" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">GitHub</a>
-                </div>
               </article>
 
               {/* Max */}
               <article className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.12)] flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
-                  <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Max Castagnoli</h3>
-                  <p className="text-xs text-slate-500 shrink-0">Co-founder, CTO</p>
+                  <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Tested by ASL educators</h3>
+                  <p className="text-xs text-slate-500 shrink-0">Both Deaf and hearing</p>
                 </div>
-                <p className="text-blue-600 text-sm mb-6">Software engineer, 6 years shipping production code</p>
                 <p className="text-slate-600 leading-relaxed text-[0.95rem] mb-7 flex-1">
-                  Built the computer vision pipeline from scratch. Has lived with the ASL learning problem for two years: his daily class teaches only a handful of new signs each session because one teacher cannot give feedback to thirty students at once. Previously at Rule Your Own Game Inc.; open-sourced a minigames framework that has handled 10M+ games across 50+ servers.
+                  The available lessons and product layout has been tested and approved by ASL educators who are both Deaf and hearing. We have made sure that our platform is not only useful, but also provides the correct content.
                 </p>
-                <div className="flex gap-5 mt-auto">
-                  <a href="https://www.linkedin.com/in/max-castagnoli-1b18b923b/" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">LinkedIn</a>
-                  <a href="https://github.com/98ping" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-slate-900 transition-colors">GitHub</a>
-                </div>
               </article>
             </div>
           </div>

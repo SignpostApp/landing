@@ -14,6 +14,14 @@
 
 /* ═══════════════ Base ═══════════════ */
 
+/* Belt-and-suspenders kill switch for the Next.js dev overlay element.
+   next.config.ts already sets devIndicators: false, but the runtime still
+   injects <nextjs-portal>, and a stale dev process can keep showing it.
+   The element doesn't exist in production builds, so this is a no-op there. */
+nextjs-portal {
+  display: none !important;
+}
+
 /* Force light rendering everywhere: pins UA chrome (scrollbars, form controls)
    and the first-paint canvas to light, so no page flashes dark under an OS
    dark-mode preference. The site is light-theme only. */
