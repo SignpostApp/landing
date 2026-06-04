@@ -312,7 +312,10 @@ export default function WhiteLandingPage() {
 
               {/* All three LMS partners shown at once: the section's heading promises
                   "the LMS your school already runs," so the visitor needs to see the full
-                  set at a glance to verify their own LMS is supported. */}
+                  set at a glance to verify their own LMS is supported. The three brand
+                  marks have wildly different aspect ratios and visual weights, so each
+                  gets its own equal-width cell with a vertical divider — the structure
+                  reads as intentional instead of the logos fighting each other. */}
               <div className="relative rounded-2xl border border-slate-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_24px_60px_-30px_rgba(15,23,42,0.18)] overflow-hidden">
                 {/* Subtle inner gradient gives the panel weight without competing with the logos */}
                 <div
@@ -323,25 +326,34 @@ export default function WhiteLandingPage() {
                   }}
                   aria-hidden="true"
                 />
-                <p className="relative text-[0.7rem] uppercase tracking-[0.18em] text-slate-500 font-medium px-8 pt-7">
-                  Integrates with
-                </p>
+
+                {/* Header: centered label flanked by hairlines */}
+                <div className="relative flex items-center gap-4 px-8 pt-7 pb-6">
+                  <span className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-200" aria-hidden="true" />
+                  <p className="text-[0.7rem] uppercase tracking-[0.2em] text-slate-500 font-medium shrink-0">
+                    Integrates with
+                  </p>
+                  <span className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-200" aria-hidden="true" />
+                </div>
+
                 <ul
                   role="list"
                   aria-label="Signpost integrates with Canvas, Blackboard, and Schoology"
-                  className="relative flex items-center justify-around gap-4 sm:gap-6 lg:gap-8 px-6 sm:px-8 pt-8 pb-12 lg:pt-10 lg:pb-14"
+                  className="relative grid grid-cols-3 border-t border-slate-200/70"
                 >
-                  {LMS_LOGOS.map((logo) => (
+                  {LMS_LOGOS.map((logo, i) => (
                     <li
                       key={logo.src}
-                      className="flex-1 flex items-center justify-center min-w-0"
+                      className={`flex items-center justify-center h-24 sm:h-28 px-4 ${
+                        i > 0 ? "border-l border-slate-200/70" : ""
+                      }`}
                     >
                       <Image
                         src={logo.src}
                         alt={logo.alt}
                         width={200}
                         height={64}
-                        className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
+                        className="max-h-10 sm:max-h-11 w-auto object-contain"
                       />
                     </li>
                   ))}
