@@ -10,6 +10,13 @@ import {
 
 const SITE_URL = "https://signpost.cv";
 
+// Branded social card for the blog index (the dynamic /og route).
+const BLOG_OG_IMAGE = `${SITE_URL}/og?title=${encodeURIComponent(
+  "The Signpost ASL Learning Blog",
+)}&subtitle=${encodeURIComponent(
+  "Honest, practical guides to learning American Sign Language — from the alphabet to building real skill at home.",
+)}`;
+
 export const metadata: Metadata = {
   title: "ASL Learning Blog — Tips for Learning Sign Language",
   description:
@@ -23,12 +30,21 @@ export const metadata: Metadata = {
     siteName: "Signpost",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: BLOG_OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "The Signpost ASL Learning Blog",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ASL Learning Blog | Signpost",
     description:
       "Practical, honest guides to learning American Sign Language, from the ASL alphabet to building real skill at home.",
+    images: [BLOG_OG_IMAGE],
   },
 };
 
