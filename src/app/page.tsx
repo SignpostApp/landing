@@ -132,12 +132,12 @@ export default function WhiteLandingPage() {
       <main>
         {/* ═══ HERO ═══ */}
         <section className="relative overflow-hidden" aria-label="Learn ASL online with Signpost">
-          {/* Atmospheric backdrop */}
+          {/* Single, restrained top wash — no floating orbs */}
           <div
-            className="pointer-events-none absolute inset-0 -z-0 opacity-70"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[520px] -z-0"
             style={{
               background:
-                "radial-gradient(900px 500px at 20% 10%, rgba(59,130,246,0.10), transparent 60%), radial-gradient(800px 500px at 85% 40%, rgba(37,99,235,0.08), transparent 60%)",
+                "linear-gradient(180deg, rgba(37,99,235,0.05) 0%, rgba(37,99,235,0) 100%)",
             }}
             aria-hidden="true"
           />
@@ -147,20 +147,17 @@ export default function WhiteLandingPage() {
               {/* LEFT: text content */}
               <div className="flex flex-col items-start text-left">
                 {/* Launching badge */}
-                <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm mb-7">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 mb-7">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
                   Launching Summer 2026
                 </span>
 
                 {/* Headline (visible H1 for SEO) */}
-                <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold tracking-[-0.03em] leading-[1.02] text-slate-900 text-balance max-w-[18ch]">
+                <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold tracking-[-0.035em] leading-[1.04] text-slate-900 text-balance max-w-[18ch]">
                   Learn ASL with real-time feedback on every sign.
                 </h1>
 
-                <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed mt-7 mb-10 text-pretty">
+                <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed mt-6 mb-9 text-pretty">
                   Signpost watches your hands through your webcam and corrects your form in under 100 milliseconds. The free demo opens in your browser; the full app is launching this summer.
                 </p>
 
@@ -169,10 +166,10 @@ export default function WhiteLandingPage() {
                   href="https://demo.signpost.cv"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-7 py-3.5 text-sm font-semibold transition-[transform,box-shadow,background-color] duration-200 shadow-[0_1px_2px_rgba(37,99,235,0.15),0_10px_28px_-10px_rgba(37,99,235,0.55)] hover:shadow-[0_1px_2px_rgba(37,99,235,0.15),0_16px_36px_-10px_rgba(37,99,235,0.7)] hover:-translate-y-0.5"
+                  className="group inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-6 py-3.5 text-sm font-semibold transition-colors duration-150"
                 >
                   Try the free demo
-                  <span aria-hidden>→</span>
+                  <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">→</span>
                 </a>
 
                 {/* Secondary text link */}
@@ -188,16 +185,6 @@ export default function WhiteLandingPage() {
                   with a floating live-tracking chip to signal that the AI is watching. */}
               <div className="relative w-full flex justify-center lg:justify-end">
                 <div className="relative w-full max-w-[400px] lg:max-w-[440px]">
-                  {/* Soft brand-color glow */}
-                  <div
-                    className="absolute -inset-10 -z-10 blur-3xl opacity-60"
-                    style={{
-                      background:
-                        "radial-gradient(closest-side, rgba(59,130,246,0.35), transparent 75%)",
-                    }}
-                    aria-hidden="true"
-                  />
-
                   {/* The actual app UI */}
                   <Image
                     src="/demo-ss.png"
@@ -205,16 +192,13 @@ export default function WhiteLandingPage() {
                     width={1857}
                     height={3096}
                     priority
-                    className="relative w-full h-auto drop-shadow-[0_40px_70px_rgba(15,23,42,0.30)]"
+                    className="relative w-full h-auto drop-shadow-[0_30px_60px_rgba(15,23,42,0.18)]"
                   />
 
                   {/* Floating activity chip: anchors the latency / live-tracking claim
                       next to the product so the visitor reads the visual as alive. */}
-                  <div className="absolute -left-3 sm:-left-6 lg:-left-10 top-[22%] hidden sm:flex items-center gap-2.5 rounded-xl bg-white/95 backdrop-blur-sm border border-slate-200 px-3.5 py-2.5 shadow-[0_12px_30px_-8px_rgba(15,23,42,0.22)]">
-                    <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-70" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-600" />
-                    </span>
+                  <div className="absolute -left-3 sm:-left-6 lg:-left-10 top-[22%] hidden sm:flex items-center gap-2.5 rounded-xl bg-white border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-blue-600" aria-hidden="true" />
                     <div className="leading-tight">
                       <div className="text-[0.7rem] text-slate-500">Hand tracking</div>
                       <div className="text-sm font-semibold tabular-nums text-slate-900">
@@ -225,7 +209,7 @@ export default function WhiteLandingPage() {
 
                   {/* Floating confidence chip: secondary social-proof signal on the
                       opposite side, suggesting accuracy without an unfalsifiable %. */}
-                  <div className="absolute -right-3 sm:-right-6 lg:-right-10 bottom-[18%] hidden md:flex items-center gap-2.5 rounded-xl bg-white/95 backdrop-blur-sm border border-slate-200 px-3.5 py-2.5 shadow-[0_12px_30px_-8px_rgba(15,23,42,0.22)]">
+                  <div className="absolute -right-3 sm:-right-6 lg:-right-10 bottom-[18%] hidden md:flex items-center gap-2.5 rounded-xl bg-white border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
                     <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-100">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                         <path d="M2.5 7.5L5.5 10.5L11.5 4" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -246,7 +230,8 @@ export default function WhiteLandingPage() {
         <section id="features" className="relative py-24 lg:py-32 border-t border-slate-100" aria-label="What you get with Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="max-w-2xl mb-14 lg:mb-20">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em] text-slate-900 text-balance">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Why Signpost</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 Three things every ASL app has been missing.
               </h2>
             </div>
@@ -255,7 +240,7 @@ export default function WhiteLandingPage() {
               {FEATURES.map((f) => (
                 <div
                   key={f.title}
-                  className="group relative rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.12)]"
+                  className="group relative rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-colors duration-200 hover:border-slate-300"
                 >
                   <h3 className="text-lg sm:text-xl font-semibold tracking-tight mb-4 text-slate-900">
                     {f.title}
@@ -271,7 +256,8 @@ export default function WhiteLandingPage() {
         <section id="how-it-works" className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="How to start learning ASL with Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="max-w-2xl mb-14 lg:mb-20">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em] text-slate-900 text-balance">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">How it works</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 From zero to your first signed conversation in three steps.
               </h2>
               <p className="mt-5 text-slate-600 leading-relaxed text-base sm:text-lg text-pretty">
@@ -302,7 +288,8 @@ export default function WhiteLandingPage() {
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
               <div className="max-w-xl">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em] text-slate-900 text-balance mb-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">For schools</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance mb-5">
                   Drops into the LMS your school already runs.
                 </h2>
                 <p className="text-slate-600 leading-relaxed text-base sm:text-lg text-pretty">
@@ -367,14 +354,15 @@ export default function WhiteLandingPage() {
         <section id="team" className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="About the Signpost team">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="max-w-2xl mb-14 lg:mb-20">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em] text-slate-900 text-balance">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Who we are</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 Built by ASL students, tested by ASL educators
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-5 lg:gap-6 max-w-5xl">
               {/* Jerry */}
-              <article className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.12)] flex flex-col">
+              <article className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-colors duration-200 hover:border-slate-300 flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
                   <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Built by ASL Students</h3>
                   <p className="text-xs text-slate-500 shrink-0">Max and Jerry</p>
@@ -385,7 +373,7 @@ export default function WhiteLandingPage() {
               </article>
 
               {/* Max */}
-              <article className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.12)] flex flex-col">
+              <article className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-colors duration-200 hover:border-slate-300 flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
                   <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Tested by ASL educators</h3>
                   <p className="text-xs text-slate-500 shrink-0">Both Deaf and hearing</p>
@@ -402,7 +390,8 @@ export default function WhiteLandingPage() {
         <section id="faq" className="relative py-24 lg:py-32 border-t border-slate-100" aria-label="Frequently asked questions about learning ASL">
           <div className="max-w-3xl mx-auto px-6 lg:px-10">
             <div className="mb-12 lg:mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em] text-slate-900 text-balance">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">FAQ</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 Questions, answered honestly.
               </h2>
             </div>
@@ -413,8 +402,8 @@ export default function WhiteLandingPage() {
                 return (
                   <div
                     key={faq.q}
-                    className={`rounded-2xl border bg-white overflow-hidden transition-[border-color,box-shadow] duration-200 ${
-                      isOpen ? "border-slate-300 shadow-[0_8px_30px_-10px_rgba(15,23,42,0.10)]" : "border-slate-200"
+                    className={`rounded-xl border bg-white overflow-hidden transition-colors duration-200 ${
+                      isOpen ? "border-slate-300" : "border-slate-200"
                     }`}
                   >
                     <button
@@ -424,8 +413,8 @@ export default function WhiteLandingPage() {
                     >
                       <h3 className="text-base sm:text-lg font-medium text-balance pr-4">{faq.q}</h3>
                       <span
-                        className={`ml-4 flex items-center justify-center w-7 h-7 rounded-full border border-slate-200 text-slate-500 text-lg leading-none select-none transition-transform duration-300 shrink-0 ${
-                          isOpen ? "rotate-45 bg-slate-900 border-slate-900 text-white" : ""
+                        className={`ml-4 flex items-center justify-center w-6 h-6 text-slate-400 text-xl leading-none select-none transition-transform duration-300 shrink-0 ${
+                          isOpen ? "rotate-45 text-slate-900" : ""
                         }`}
                         aria-hidden="true"
                       >
@@ -448,17 +437,9 @@ export default function WhiteLandingPage() {
         </section>
 
         {/* ═══ CTA ═══ */}
-        <section className="relative py-24 lg:py-32 border-t border-slate-100 overflow-hidden" aria-label="Start learning ASL now">
-          <div
-            className="pointer-events-none absolute inset-0 opacity-70"
-            style={{
-              background:
-                "radial-gradient(700px 400px at 50% 50%, rgba(59,130,246,0.08), transparent 65%)",
-            }}
-            aria-hidden="true"
-          />
+        <section className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="Start learning ASL now">
           <div className="relative max-w-3xl mx-auto px-6 lg:px-10 text-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em] text-slate-900 mb-5 text-balance">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 mb-5 text-balance">
               Sign your first ASL letters in under five minutes.
             </h2>
             <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto mb-10 leading-relaxed text-pretty">
@@ -469,14 +450,14 @@ export default function WhiteLandingPage() {
                 href="https://demo.signpost.cv"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-7 py-3.5 text-sm font-semibold transition-[transform,box-shadow,background-color] duration-200 shadow-[0_1px_2px_rgba(37,99,235,0.15),0_10px_28px_-10px_rgba(37,99,235,0.55)] hover:shadow-[0_1px_2px_rgba(37,99,235,0.15),0_16px_36px_-10px_rgba(37,99,235,0.7)] hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-6 py-3.5 text-sm font-semibold transition-colors duration-150"
               >
                 Try the free demo
-                <span aria-hidden>→</span>
+                <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">→</span>
               </a>
               <button
                 onClick={() => setWaitlistOpen(true)}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-slate-900 border border-slate-200 px-7 py-3.5 text-sm font-semibold transition-[background-color,border-color] hover:border-slate-300 hover:bg-slate-50 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-slate-900 border border-slate-200 px-6 py-3.5 text-sm font-semibold transition-colors hover:border-slate-300 hover:bg-slate-50 cursor-pointer"
               >
                 Join the waitlist
               </button>
