@@ -28,7 +28,11 @@ const SITE_URL = "https://signpost.cv";
 const SITE_NAME = "Signpost";
 const SITE_TITLE = "Learn ASL Online for Free with AI Feedback | Signpost";
 const SITE_DESCRIPTION =
-  "Learn American Sign Language at home with free, AI-powered lessons. Signpost watches your hands through your webcam and tells you instantly if your signs are right. Start with the ASL alphabet and build up to full conversations. No sign-up needed for the demo.";
+  "Learn American Sign Language at home with free AI lessons that watch your hands through your webcam and correct your signs in real time. No sign-up to try.";
+
+// Google Search Console token. Set GOOGLE_SITE_VERIFICATION in the environment,
+// or verify the property through the existing GA4 tag instead (no token needed).
+const GSC_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -111,7 +115,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: `${SITE_URL}/og-image.png`,
+        url: `${SITE_URL}/og`,
         width: 1200,
         height: 630,
         alt: "Signpost: learn American Sign Language online for free with AI feedback",
@@ -123,7 +127,7 @@ export const metadata: Metadata = {
     title: "Learn ASL Online for Free with AI Feedback | Signpost",
     description:
       "Free American Sign Language lessons that watch your hands through your webcam and correct your signs in real time. Built for beginners. No sign-up needed for the demo.",
-    images: [`${SITE_URL}/og-image.png`],
+    images: [`${SITE_URL}/og`],
   },
   robots: {
     index: true,
@@ -136,10 +140,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    // Add Google Search Console verification token here if needed.
-    // google: "your-verification-code",
-  },
+  verification: GSC_VERIFICATION ? { google: GSC_VERIFICATION } : undefined,
 };
 
 /* JSON-LD structured data: helps Google understand the site, the product, the FAQ, the course, and the steps to get started. */
@@ -161,7 +162,12 @@ const jsonLd = {
       name: SITE_NAME,
       legalName: "Signpost App, Inc.",
       url: SITE_URL,
-      logo: `${SITE_URL}/signpost-logo.png`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/signpost-logo.png`,
+        width: 1280,
+        height: 771,
+      },
       description:
         "Signpost is an AI-powered American Sign Language learning platform. It uses computer vision to watch your hand signs through a webcam and give real-time feedback so you can learn ASL on your own at home.",
       foundingDate: "2024",
@@ -188,12 +194,6 @@ const jsonLd = {
         price: "0",
         priceCurrency: "USD",
         description: "Free demo available with no sign-up required.",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        ratingCount: "200",
-        bestRating: "5",
       },
     },
     {
