@@ -118,9 +118,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
+        // Rendered at 2× (2400×1260) so the card stays sharp after social
+        // platforms re-compress it and display it on high-DPI screens. Still
+        // 1.91:1, so every platform shows the large card.
         url: `${SITE_URL}/og`,
-        width: 1200,
-        height: 630,
+        width: 2400,
+        height: 1260,
         alt: "Signpost: learn American Sign Language online for free with AI feedback",
       },
     ],

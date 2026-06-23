@@ -1,11 +1,22 @@
 import { ImageResponse } from "next/og";
 
 /**
- * Dynamic Open Graph / social card — a branded 1200×630 image so links to the
- * site show the value prop instead of a bare logo photo. Read by social
- * scrapers, so it lives at /og (crawlable; not under /api, which robots
- * disallows). Pass ?title= and ?subtitle= to customize per page.
+ * Dynamic Open Graph / social card — a branded image so links to the site show
+ * the value prop instead of a bare logo photo. Read by social scrapers, so it
+ * lives at /og (crawlable; not under /api, which robots disallows). Pass
+ * ?title= and ?subtitle= to customize per page.
+ *
+ * The design is authored in 1200×630 logical units (the OG standard) but
+ * rendered at SCALE× so the output is genuinely high-resolution. Facebook,
+ * Discord, iMessage, etc. each make their own re-compressed thumbnail and then
+ * display it on high-DPI (Retina / phone) screens; a 1× 1200px source goes soft
+ * after that round-trip. A 2× source survives recompression and stays crisp.
+ * Layout stays 1.91:1, so every platform still shows the large card.
  */
+const SCALE = 2;
+const OG_WIDTH = 1200;
+const OG_HEIGHT = 630;
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const title =
@@ -30,10 +41,21 @@ export async function GET(request: Request) {
 
   return new ImageResponse(
     (
+      // Outer canvas is the full scaled size; the inner div is authored at
+      // 1200×630 and scaled up so the design code stays at familiar numbers.
       <div
         style={{
-          height: "100%",
-          width: "100%",
+          display: "flex",
+          width: OG_WIDTH * SCALE,
+          height: OG_HEIGHT * SCALE,
+        }}
+      >
+      <div
+        style={{
+          transformOrigin: "top left",
+          transform: `scale(${SCALE})`,
+          height: OG_HEIGHT,
+          width: OG_WIDTH,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -155,10 +177,11 @@ export async function GET(request: Request) {
           </span>
         </div>
       </div>
+      </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      width: OG_WIDTH * SCALE,
+      height: OG_HEIGHT * SCALE,
       headers: {
         "cache-control": "public, max-age=86400, s-maxage=86400",
       },
