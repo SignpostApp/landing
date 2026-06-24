@@ -75,7 +75,7 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
           </div>
 
           <p className="mt-8 text-xs text-slate-400">
-            &copy; {new Date().getFullYear()} Signpost App, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} Matrix Studios Software. All rights reserved.
           </p>
         </div>
       </footer>

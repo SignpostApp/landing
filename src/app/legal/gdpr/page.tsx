@@ -26,7 +26,7 @@ export default function GDPRPage() {
         <p className="legal-body">
           The General Data Protection Regulation (GDPR) is a European Union
           regulation that gives individuals control over their personal data.
-          Even though Signpost App, Inc. is based in the United States, we
+          Even though Matrix Studios Software is based in the United States, we
           serve users worldwide — including the EU and EEA — and we are
           committed to fulfilling our obligations under the GDPR.
         </p>
@@ -47,14 +47,14 @@ export default function GDPRPage() {
       <section className="legal-section">
         <h2 className="legal-heading">1. Data Controller</h2>
         <p className="legal-body">
-          Signpost App, Inc. acts as the data controller for personal data
+          Matrix Studios Software acts as the data controller for personal data
           processed through the Platform. This means we determine the purposes
           and means of processing your personal data.
         </p>
         <div className="glass-card rounded-2xl p-8 mt-6 mb-4">
           <p className="text-foreground font-medium mb-2">Data Controller</p>
           <p className="text-muted text-sm leading-relaxed">
-            Signpost App, Inc.
+            Matrix Studios Software
             <br />
             Email:{" "}
             <a
@@ -317,7 +317,7 @@ export default function GDPRPage() {
       <section className="legal-section">
         <h2 className="legal-heading">9. Contact Our Data Protection Team</h2>
         <div className="glass-card rounded-2xl p-8 mt-6">
-          <p className="text-foreground font-medium mb-2">Signpost App, Inc.</p>
+          <p className="text-foreground font-medium mb-2">Matrix Studios Software</p>
           <p className="text-muted text-sm leading-relaxed">
             Data Protection Inquiries
             <br />

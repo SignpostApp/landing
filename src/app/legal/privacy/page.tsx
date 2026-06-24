@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy — Signpost",
   description:
-    "How Signpost collects, uses, and protects your personal data while you learn ASL with our AI-powered platform.",
+    "How Signpost collects, uses, and protects your personal data while you learn ASL with our machine-learning-powered platform.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
       {/* Intro */}
       <section className="legal-section">
         <p className="legal-body">
-          Signpost App, Inc. (&ldquo;Signpost,&rdquo; &ldquo;we,&rdquo;
+          Matrix Studios Software (&ldquo;Signpost,&rdquo; &ldquo;we,&rdquo;
           &ldquo;our,&rdquo; or &ldquo;us&rdquo;) operates the Signpost
           platform at{" "}
           <a
@@ -258,7 +258,7 @@ export default function PrivacyPolicyPage() {
           time.
         </p>
         <div className="glass-card rounded-2xl p-8 mt-6">
-          <p className="text-foreground font-medium mb-2">Signpost App, Inc.</p>
+          <p className="text-foreground font-medium mb-2">Matrix Studios Software</p>
           <p className="text-muted text-sm leading-relaxed">
             Email:{" "}
             <a

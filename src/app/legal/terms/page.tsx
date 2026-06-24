@@ -25,7 +25,7 @@ export default function TermsOfServicePage() {
       <section className="legal-section">
         <p className="legal-body">
           Welcome to Signpost. These Terms of Service (&ldquo;Terms&rdquo;)
-          form a legally binding agreement between you and Signpost App, Inc.
+          form a legally binding agreement between you and Matrix Studios Software
           (&ldquo;Signpost,&rdquo; &ldquo;we,&rdquo; &ldquo;our&rdquo;)
           governing your access to and use of our website, demo application,
           and any related services (together, the &ldquo;Platform&rdquo;).
@@ -127,7 +127,7 @@ export default function TermsOfServicePage() {
         <p className="legal-body">
           The Signpost name, logo, website design, computer vision models,
           curriculum content, and all underlying technology are the property of
-          Signpost App, Inc. or its licensors and are protected by intellectual
+          Matrix Studios Software or its licensors and are protected by intellectual
           property laws.
         </p>
         <p className="legal-body">
@@ -197,8 +197,8 @@ export default function TermsOfServicePage() {
       <section className="legal-section">
         <h2 className="legal-heading">7. Limitation of Liability</h2>
         <p className="legal-body">
-          To the maximum extent permitted by applicable law, Signpost App,
-          Inc., its founders, employees, and affiliates shall not be liable for
+          To the maximum extent permitted by applicable law, Matrix Studios
+          Software, its founders, employees, and affiliates shall not be liable for
           any indirect, incidental, special, consequential, or punitive
           damages arising out of or relating to your use of the Platform. Our
           total liability for any claim arising from these Terms is limited to
@@ -211,7 +211,7 @@ export default function TermsOfServicePage() {
       <section className="legal-section">
         <h2 className="legal-heading">8. Indemnification</h2>
         <p className="legal-body">
-          You agree to indemnify and hold harmless Signpost App, Inc. from any
+          You agree to indemnify and hold harmless Matrix Studios Software from any
           claims, damages, losses, or expenses (including reasonable
           attorneys&rsquo; fees) arising out of your violation of these Terms
           or your misuse of the Platform.
@@ -260,7 +260,7 @@ export default function TermsOfServicePage() {
           Need clarification on anything? Don&rsquo;t hesitate to reach out.
         </p>
         <div className="glass-card rounded-2xl p-8 mt-6">
-          <p className="text-foreground font-medium mb-2">Signpost App, Inc.</p>
+          <p className="text-foreground font-medium mb-2">Matrix Studios Software</p>
           <p className="text-muted text-sm leading-relaxed">
             Email:{" "}
             <a
