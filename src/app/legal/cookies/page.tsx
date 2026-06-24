@@ -24,7 +24,7 @@ export default function CookiePolicyPage() {
       <section className="legal-section">
         <p className="legal-body">
           This Cookie Policy explains what cookies and similar tracking
-          technologies Signpost App, Inc. (&ldquo;Signpost&rdquo;) uses, why
+          technologies Matrix Studios Software (&ldquo;Signpost&rdquo;) uses, why
           we use them, and what choices you have. We believe in keeping things
           minimal — we only set cookies that are actually necessary for the
           site to function or that help us understand how to improve the
@@ -187,7 +187,7 @@ export default function CookiePolicyPage() {
       <section className="legal-section">
         <h2 className="legal-heading">7. Questions?</h2>
         <div className="glass-card rounded-2xl p-8 mt-6">
-          <p className="text-foreground font-medium mb-2">Signpost App, Inc.</p>
+          <p className="text-foreground font-medium mb-2">Matrix Studios Software</p>
           <p className="text-muted text-sm leading-relaxed">
             Email:{" "}
             <a

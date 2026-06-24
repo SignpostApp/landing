@@ -305,7 +305,7 @@ export default function SecurityPage() {
       <section className="legal-section">
         <h2 className="legal-heading">Report a Concern</h2>
         <div className="glass-card rounded-2xl p-8 mt-6">
-          <p className="text-foreground font-medium mb-2">Signpost App, Inc.</p>
+          <p className="text-foreground font-medium mb-2">Matrix Studios Software</p>
           <p className="text-muted text-sm leading-relaxed">
             Security:{" "}
             <a

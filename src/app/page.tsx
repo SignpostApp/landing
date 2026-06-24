@@ -6,7 +6,7 @@ import WhiteWaitlistModal from "./WhiteWaitlistModal";
 
 const FEATURES = [
   {
-    title: "Real-time computer vision",
+    title: "Real-time feedback",
     body: "Signpost grades every sign as you make it. Feedback returns in under 100 milliseconds, so you know on the same gesture whether your hand shape, position, and motion are right.",
   },
   {
@@ -28,7 +28,7 @@ const STEPS = [
   {
     n: "02",
     title: "Turn on your webcam",
-    body: "Allow camera access and start signing. The AI watches every gesture and tells you within 100ms whether your hand shape, position, and motion match the target sign.",
+    body: "Allow camera access and start signing. The machine learning model watches every gesture and tells you within 100ms whether your hand shape, position, and motion match the target sign.",
   },
   {
     n: "03",
@@ -47,11 +47,11 @@ const LMS_LOGOS = [
 const FAQS = [
   {
     q: "How do I learn ASL online?",
-    a: "Signpost lets you learn American Sign Language online using just a webcam. Our AI-powered computer vision watches your hand signs in real time and gives instant feedback on your form. Start with the ASL alphabet and fingerspelling, then work through a structured curriculum to full conversational ASL at your own pace.",
+    a: "Signpost lets you learn American Sign Language online using just a webcam. Our machine-learning-powered computer vision watches your hand signs in real time and gives instant feedback on your form. Start with the ASL alphabet and fingerspelling, then work through a structured curriculum to full conversational ASL at your own pace.",
   },
   {
     q: "Is Signpost free to use?",
-    a: "Yes. Signpost offers a free demo that requires no sign-up. Just open the app, turn on your webcam, and start signing. The AI gives you real-time feedback immediately.",
+    a: "Yes. Signpost offers a free demo that requires no sign-up. Just open the app, turn on your webcam, and start signing. The machine learning model gives you real-time feedback immediately.",
   },
   {
     q: "What do I need to start learning ASL with Signpost?",
@@ -59,7 +59,7 @@ const FAQS = [
   },
   {
     q: "How is Signpost different from other ASL apps?",
-    a: "Most ASL apps only show you videos to copy. Signpost uses computer vision AI to watch your actual hand signs and correct your form in real time, so it works like a personal ASL tutor that is available 24/7 with under 100 milliseconds of feedback delay.",
+    a: "Most ASL apps only show you videos to copy. Signpost uses machine-learning-powered computer vision to watch your actual hand signs and correct your form in real time, so it works like a personal ASL tutor that is available 24/7 with under 100 milliseconds of feedback delay.",
   },
   {
     q: "Can complete beginners use Signpost to learn sign language?",
@@ -75,11 +75,11 @@ const FAQS = [
   },
   {
     q: "Can I learn ASL by myself at home?",
-    a: "Yes. Signpost is designed for self-teaching at home. The AI plays the role of a tutor by watching your signs through your webcam and correcting your form so you don't build bad habits.",
+    a: "Yes. Signpost is designed for self-teaching at home. The machine learning model plays the role of a tutor by watching your signs through your webcam and correcting your form so you don't build bad habits.",
   },
   {
     q: "Does Signpost teach the ASL alphabet and fingerspelling?",
-    a: "Yes. The first lessons in Signpost cover the full ASL alphabet and fingerspelling drills. You can practice each letter and the AI will tell you in real time whether your hand shape matches.",
+    a: "Yes. The first lessons in Signpost cover the full ASL alphabet and fingerspelling drills. You can practice each letter and the machine learning model will tell you in real time whether your hand shape matches.",
   },
   {
     q: "Is my webcam data private and secure?",
@@ -112,7 +112,7 @@ export default function WhiteLandingPage() {
           >
             <Image
               src="/text-logo.png"
-              alt="Signpost: learn ASL online for free with AI feedback"
+              alt="Signpost: learn ASL online for free with machine learning feedback"
               width={200}
               height={48}
               priority
@@ -182,7 +182,7 @@ export default function WhiteLandingPage() {
               </div>
 
               {/* RIGHT: phone-as-centerpiece — the actual product UI as the hero artifact,
-                  with a floating live-tracking chip to signal that the AI is watching. */}
+                  with a floating live-tracking chip to signal that the machine learning model is watching. */}
               <div className="relative w-full flex justify-center lg:justify-end">
                 <div className="relative w-full max-w-[400px] lg:max-w-[440px]">
                   {/* The actual app UI */}
@@ -392,7 +392,7 @@ export default function WhiteLandingPage() {
             <div className="mb-12 lg:mb-16">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">FAQ</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
-                Questions, answered honestly.
+                Frequently Asked Questions
               </h2>
             </div>
 
@@ -443,7 +443,7 @@ export default function WhiteLandingPage() {
               Sign your first ASL letters in under five minutes.
             </h2>
             <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto mb-10 leading-relaxed text-pretty">
-              Open the demo, turn on your webcam, and start fingerspelling. The AI corrects every letter in real time. No sign-up, no download.
+              Open the demo, turn on your webcam, and start fingerspelling. The machine learning model corrects every letter in real time. No sign-up, no download.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <a
@@ -481,10 +481,10 @@ export default function WhiteLandingPage() {
                   className="h-9 w-auto mb-5"
                 />
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  An AI-powered way to learn American Sign Language at home, with real-time feedback on every sign.
+                  A machine-learning-powered way to learn American Sign Language at home, with real-time feedback on every sign.
                 </p>
                 <p className="mt-5 text-xs text-slate-400">
-                  Signpost App, Inc. &middot; San Francisco
+                  Matrix Studios Software &middot; Huntington Beach
                 </p>
               </div>
 
@@ -517,7 +517,7 @@ export default function WhiteLandingPage() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-slate-200">
               <p className="text-xs text-slate-400">
-                &copy; {new Date().getFullYear()} Signpost App, Inc. All rights reserved.
+                &copy; {new Date().getFullYear()} Matrix Studios Software. All rights reserved.
               </p>
               <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

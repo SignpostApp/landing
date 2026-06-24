@@ -24,7 +24,7 @@ export async function GET(request: Request) {
     "Learn ASL with real-time feedback on every sign.";
   const subtitle =
     searchParams.get("subtitle")?.slice(0, 200) ||
-    "Free, AI-powered American Sign Language lessons that watch your hands through your webcam and correct your signs in real time.";
+    "Free, machine-learning-powered American Sign Language lessons that watch your hands through your webcam and correct your signs in real time.";
 
   // Load the Signpost logo (public/favicon.png) as a data URL so Satori can
   // embed it. Falls back to a solid mark if the asset can't be read.

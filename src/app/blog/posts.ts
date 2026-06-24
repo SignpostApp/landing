@@ -56,7 +56,7 @@ export const AUTHOR = {
  */
 export const DEFAULT_BANNER = "/blog/banner.png";
 export const DEFAULT_BANNER_ALT =
-  "Signpost — learn American Sign Language online with real-time AI feedback.";
+  "Signpost — learn American Sign Language online with real-time machine learning feedback.";
 
 /** Resolves a post's banner path: its own `image`, else the shared default. */
 export function bannerSrc(post: Post): string {

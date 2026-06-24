@@ -26,9 +26,9 @@ export const viewport: Viewport = {
 
 const SITE_URL = "https://signpost.cv";
 const SITE_NAME = "Signpost";
-const SITE_TITLE = "Learn ASL Online for Free with AI Feedback | Signpost";
+const SITE_TITLE = "Learn ASL Online for Free with Machine Learning Feedback | Signpost";
 const SITE_DESCRIPTION =
-  "Learn American Sign Language at home with free AI lessons that watch your hands through your webcam and correct your signs in real time. No sign-up to try.";
+  "Learn American Sign Language at home with free machine learning lessons that watch your hands through your webcam and correct your signs in real time. No sign-up to try.";
 
 // Google Search Console token. Set GOOGLE_SITE_VERIFICATION in the environment,
 // or verify the property through the existing GA4 tag instead (no token needed).
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  authors: [{ name: "Signpost App, Inc.", url: SITE_URL }],
-  creator: "Signpost App, Inc.",
-  publisher: "Signpost App, Inc.",
+  authors: [{ name: "Matrix Studios Software", url: SITE_URL }],
+  creator: "Matrix Studios Software",
+  publisher: "Matrix Studios Software",
   category: "education",
   keywords: [
     "learn ASL",
@@ -77,10 +77,10 @@ export const metadata: Metadata = {
     "ASL practice",
     "ASL practice app",
     "ASL tutor",
-    "AI ASL tutor",
-    "AI sign language",
-    "AI sign language tutor",
-    "AI sign language teacher",
+    "machine learning ASL tutor",
+    "machine learning sign language",
+    "machine learning sign language tutor",
+    "machine learning sign language teacher",
     "sign language feedback",
     "real-time ASL feedback",
     "best way to learn ASL",
@@ -109,9 +109,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Learn ASL Online for Free with AI Feedback | Signpost",
+    title: "Learn ASL Online for Free with Machine Learning Feedback | Signpost",
     description:
-      "Learn American Sign Language at home with free, AI-powered lessons that watch your hands and correct you in real time. No sign-up needed for the demo.",
+      "Learn American Sign Language at home with free, machine-learning-powered lessons that watch your hands and correct you in real time. No sign-up needed for the demo.",
     url: SITE_URL,
     siteName: SITE_NAME,
     type: "website",
@@ -124,13 +124,13 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og`,
         width: 2400,
         height: 1260,
-        alt: "Signpost: learn American Sign Language online for free with AI feedback",
+        alt: "Signpost: learn American Sign Language online for free with machine learning feedback",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Learn ASL Online for Free with AI Feedback | Signpost",
+    title: "Learn ASL Online for Free with Machine Learning Feedback | Signpost",
     description:
       "Free American Sign Language lessons that watch your hands through your webcam and correct your signs in real time. Built for beginners. No sign-up needed for the demo.",
     images: [`${SITE_URL}/og`],
@@ -166,7 +166,7 @@ const jsonLd = {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
-      legalName: "Signpost App, Inc.",
+      legalName: "Matrix Studios Software",
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
@@ -175,7 +175,7 @@ const jsonLd = {
         height: 771,
       },
       description:
-        "Signpost is an AI-powered American Sign Language learning platform. It uses computer vision to watch your hand signs through a webcam and give real-time feedback so you can learn ASL on your own at home.",
+        "Signpost is a machine-learning-powered American Sign Language learning platform. It uses computer vision to watch your hand signs through a webcam and give real-time feedback so you can learn ASL on your own at home.",
       foundingDate: "2024",
       founders: [
         { "@type": "Person", name: "Jerry Xiao", jobTitle: "Co-Founder and CEO" },
@@ -193,7 +193,7 @@ const jsonLd = {
       operatingSystem: "Web",
       url: SITE_URL,
       description:
-        "Learn American Sign Language online with real-time AI feedback. Signpost uses computer vision to watch your hand signs through a webcam and gives instant corrections, so you know exactly what you are signing right and what to fix.",
+        "Learn American Sign Language online with real-time machine learning feedback. Signpost uses computer vision to watch your hand signs through a webcam and gives instant corrections, so you know exactly what you are signing right and what to fix.",
       browserRequirements: "Requires a modern web browser with webcam access.",
       offers: {
         "@type": "Offer",
@@ -207,7 +207,7 @@ const jsonLd = {
       "@id": `${SITE_URL}/#course`,
       name: "Learn American Sign Language with Signpost",
       description:
-        "A structured online American Sign Language course that takes you from the ASL alphabet and fingerspelling all the way to full conversational signing. Every lesson uses AI computer vision to watch your hands and give instant feedback on your form.",
+        "A structured online American Sign Language course that takes you from the ASL alphabet and fingerspelling all the way to full conversational signing. Every lesson uses machine-learning-powered computer vision to watch your hands and give instant feedback on your form.",
       provider: { "@id": `${SITE_URL}/#organization` },
       url: SITE_URL,
       inLanguage: "en-US",
@@ -235,7 +235,7 @@ const jsonLd = {
       "@id": `${SITE_URL}/#how-to-learn-asl`,
       name: "How to learn American Sign Language at home with Signpost",
       description:
-        "Step-by-step guide to teaching yourself ASL using a webcam and real-time AI feedback.",
+        "Step-by-step guide to teaching yourself ASL using a webcam and real-time machine learning feedback.",
       totalTime: "PT15M",
       tool: [
         { "@type": "HowToTool", name: "Computer or phone with a webcam" },
@@ -256,7 +256,7 @@ const jsonLd = {
         {
           "@type": "HowToStep",
           name: "Start with the ASL alphabet",
-          text: "Practice fingerspelling the ASL alphabet. The AI watches your hand and tells you instantly whether you are forming each letter correctly.",
+          text: "Practice fingerspelling the ASL alphabet. The machine learning model watches your hand and tells you instantly whether you are forming each letter correctly.",
         },
         {
           "@type": "HowToStep",
@@ -274,7 +274,7 @@ const jsonLd = {
           name: "How do I learn ASL online?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "You can learn American Sign Language online with Signpost using just a webcam. Our AI watches your hand signs in real time and gives instant feedback on your form. Start with the ASL alphabet and fingerspelling, then work through a structured curriculum to full conversational ASL at your own pace.",
+            text: "You can learn American Sign Language online with Signpost using just a webcam. Our machine learning model watches your hand signs in real time and gives instant feedback on your form. Start with the ASL alphabet and fingerspelling, then work through a structured curriculum to full conversational ASL at your own pace.",
           },
         },
         {
@@ -282,7 +282,7 @@ const jsonLd = {
           name: "Is Signpost free to use?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes. Signpost offers a free demo that requires no sign-up. Just open the app, turn on your webcam, and start signing. The AI gives you real-time feedback immediately.",
+            text: "Yes. Signpost offers a free demo that requires no sign-up. Just open the app, turn on your webcam, and start signing. The machine learning model gives you real-time feedback immediately.",
           },
         },
         {
@@ -330,7 +330,7 @@ const jsonLd = {
           name: "What is the best free app to learn ASL?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Signpost is one of the only free ASL apps that uses AI to watch your hands and tell you if your signs are right. The free demo runs in your browser with no sign-up, so you can try it out and decide for yourself.",
+            text: "Signpost is one of the only free ASL apps that uses machine learning to watch your hands and tell you if your signs are right. The free demo runs in your browser with no sign-up, so you can try it out and decide for yourself.",
           },
         },
         {
@@ -338,7 +338,7 @@ const jsonLd = {
           name: "Can I learn ASL by myself at home?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes. Signpost is designed for self-teaching at home. The AI plays the role of a tutor by watching your signs through your webcam and correcting your form so you do not build bad habits.",
+            text: "Yes. Signpost is designed for self-teaching at home. The machine learning model plays the role of a tutor by watching your signs through your webcam and correcting your form so you do not build bad habits.",
           },
         },
         {
@@ -346,7 +346,7 @@ const jsonLd = {
           name: "Does Signpost teach the ASL alphabet and fingerspelling?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes. The first lessons in Signpost cover the full ASL alphabet and fingerspelling drills. You can practice each letter and the AI will tell you in real time whether your hand shape matches.",
+            text: "Yes. The first lessons in Signpost cover the full ASL alphabet and fingerspelling drills. You can practice each letter and the machine learning model will tell you in real time whether your hand shape matches.",
           },
         },
         {

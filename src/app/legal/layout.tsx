@@ -61,7 +61,7 @@ export default function LegalLayout({ children }: { children: ReactNode }) {
           </div>
 
           <p className="mt-8 text-xs text-slate-400">
-            &copy; {new Date().getFullYear()} Signpost App, Inc.
+            &copy; {new Date().getFullYear()} Matrix Studios Software
           </p>
         </div>
       </footer>
