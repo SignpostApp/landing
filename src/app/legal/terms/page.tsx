@@ -197,8 +197,8 @@ export default function TermsOfServicePage() {
       <section className="legal-section">
         <h2 className="legal-heading">7. Limitation of Liability</h2>
         <p className="legal-body">
-          To the maximum extent permitted by applicable law, Signpost App,
-          Inc., its founders, employees, and affiliates shall not be liable for
+          To the maximum extent permitted by applicable law, Matrix Studios
+          Software, its founders, employees, and affiliates shall not be liable for
           any indirect, incidental, special, consequential, or punitive
           damages arising out of or relating to your use of the Platform. Our
           total liability for any claim arising from these Terms is limited to
