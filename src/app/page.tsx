@@ -297,25 +297,17 @@ export default function WhiteLandingPage() {
                 </p>
               </div>
 
-              {/* All three LMS partners shown at once: the section's heading promises
-                  "the LMS your school already runs," so the visitor needs to see the full
-                  set at a glance to verify their own LMS is supported. The three brand
-                  marks have wildly different aspect ratios and visual weights, so each
-                  gets its own equal-width cell with a vertical divider — the structure
-                  reads as intentional instead of the logos fighting each other. */}
-              <div className="relative rounded-2xl border border-slate-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_24px_60px_-30px_rgba(15,23,42,0.18)] overflow-hidden">
-                {/* Subtle inner gradient gives the panel weight without competing with the logos */}
-                <div
-                  className="absolute inset-0 pointer-events-none opacity-60"
-                  style={{
-                    background:
-                      "radial-gradient(60% 80% at 50% 0%, rgba(59,130,246,0.06), transparent 70%)",
-                  }}
-                  aria-hidden="true"
-                />
-
-                {/* Header: centered label flanked by hairlines */}
-                <div className="relative flex items-center gap-4 px-8 pt-7 pb-6">
+              {/* Integration partners crossfade one at a time — Canvas, then
+                  Blackboard, then Schoology — each fading in, holding, and out.
+                  A single centered stage (no box) keeps every brand mark
+                  presented at a consistent size despite their very different
+                  aspect ratios. The fade is pure CSS (one keyframe, staggered
+                  per-logo via inline animation-delay); reduced-motion users get
+                  all three laid out statically in a row — see .lms-stage in
+                  globals.css. */}
+              <div className="lg:pl-6">
+                {/* Eyebrow: centered label flanked by hairlines */}
+                <div className="flex items-center gap-4 mb-8 sm:mb-10">
                   <span className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-200" aria-hidden="true" />
                   <p className="text-[0.7rem] uppercase tracking-[0.2em] text-slate-500 font-medium shrink-0">
                     Integrates with
@@ -326,21 +318,20 @@ export default function WhiteLandingPage() {
                 <ul
                   role="list"
                   aria-label="Signpost integrates with Canvas, Blackboard, and Schoology"
-                  className="relative grid grid-cols-3 border-t border-slate-200/70"
+                  className="lms-stage h-20 sm:h-24"
                 >
                   {LMS_LOGOS.map((logo, i) => (
                     <li
                       key={logo.src}
-                      className={`flex items-center justify-center h-24 sm:h-28 px-4 ${
-                        i > 0 ? "border-l border-slate-200/70" : ""
-                      }`}
+                      className="lms-logo"
+                      style={{ animationDelay: `${i * 3}s` }}
                     >
                       <Image
                         src={logo.src}
                         alt={logo.alt}
                         width={200}
                         height={64}
-                        className="max-h-10 sm:max-h-11 w-auto object-contain"
+                        className="max-h-11 sm:max-h-14 w-auto object-contain"
                       />
                     </li>
                   ))}
