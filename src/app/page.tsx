@@ -454,7 +454,7 @@ export default function WhiteLandingPage() {
               </button>
             </div>
             <p className="mt-8 text-sm text-slate-500">
-              200+ students already signed up for the spring pilot.
+              4,000+ users have already started signing, why not you?
             </p>
           </div>
         </section>
