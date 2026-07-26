@@ -11,7 +11,7 @@ const FEATURES = [
   },
   {
     title: "A built-out ASL curriculum",
-    body: "We don't just show important words, we teach culture and mearning alongside the words. Start with the ASL alphabet and fingerspelling and work up to full conversational American Sign Language, lesson by lesson.",
+    body: "We don't just show important words, we teach culture and meaning alongside the words. Start with the ASL alphabet and fingerspelling and work up to full conversational American Sign Language, lesson by lesson.",
   },
   {
     title: "Free forever, actually",
