@@ -3,6 +3,8 @@ import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script";
 import { Geist, JetBrains_Mono } from "next/font/google";
 
+import AttributionCapture from "./AttributionCapture";
+
 import "./globals.css";
 
 const geist = Geist({
@@ -390,6 +392,7 @@ export default function RootLayout({
             gtag('config', 'G-7DW69BDLXM');
           `}
         </Script>
+        <AttributionCapture />
         {children}
         <Analytics />
       </body>

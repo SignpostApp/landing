@@ -11,6 +11,30 @@ const BLOCKED_DOMAINS = new Set([
 
 const REQUEST_MAX_SKEW_MS = 30_000;
 
+// The site this signup came from. Kept as the leading segment of `source` so
+// existing rows (written as a bare "signpost.cv") stay comparable: the landing
+// page's signups are still `source LIKE 'signpost.cv%'`.
+const SOURCE_SITE = "signpost.cv";
+// Mirrors the shape produced by lib/attribution.ts — "google/cpc/asl-launch",
+// "ref:reddit.com", or "direct".
+const ATTRIBUTION_PATTERN = /^[a-z0-9._:/-]{1,100}$/;
+
+/**
+ * Folds the client-supplied channel into the stored `source` value. Anything
+ * unrecognised degrades to the bare site name rather than being trusted — this
+ * value is attacker-controlled and lands in a DB column.
+ */
+function resolveSource(raw: unknown): string {
+    if (typeof raw !== "string") return SOURCE_SITE;
+
+    const value = raw.toLowerCase().trim();
+    if (!value || value === "direct" || !ATTRIBUTION_PATTERN.test(value)) {
+        return SOURCE_SITE;
+    }
+
+    return `${SOURCE_SITE}/${value}`;
+}
+
 // In-memory rate limiting (resets on cold start, fine for Vercel)
 const rateBuckets = new Map<string, number[]>();
 
@@ -28,7 +52,7 @@ function enforceRateLimit(key: string, limit: number, now: number) {
 
 export async function POST(request: NextRequest) {
     try {
-        const { email, website, timestamp } = await request.json();
+        const { email, website, timestamp, attribution } = await request.json();
 
         // Honeypot — if filled, silently succeed
         if (website) {
@@ -106,13 +130,31 @@ export async function POST(request: NextRequest) {
         }
 
         const sql = getDb();
+        const source = resolveSource(attribution);
 
-        const result = (await sql`
-            INSERT INTO waitlist (email, source)
-            VALUES (${normalizedEmail}, ${"signpost.cv"})
-            ON CONFLICT (email) DO NOTHING
-            RETURNING id
-        `) as Record<string, unknown>[];
+        let result: Record<string, unknown>[];
+        try {
+            result = (await sql`
+                INSERT INTO waitlist (email, source)
+                VALUES (${normalizedEmail}, ${source})
+                ON CONFLICT (email) DO NOTHING
+                RETURNING id
+            `) as Record<string, unknown>[];
+        } catch (sourceError) {
+            // The `source` column may be narrower than the attribution string
+            // on the deployed schema. Never lose a signup over analytics
+            // metadata — retry with the bare site name.
+            console.error(
+                "[/api/waitlist/join] Insert with attribution failed, retrying without:",
+                sourceError
+            );
+            result = (await sql`
+                INSERT INTO waitlist (email, source)
+                VALUES (${normalizedEmail}, ${SOURCE_SITE})
+                ON CONFLICT (email) DO NOTHING
+                RETURNING id
+            `) as Record<string, unknown>[];
+        }
 
         if (result.length === 0) {
             // Already on the list — return success silently (don't reveal to user)

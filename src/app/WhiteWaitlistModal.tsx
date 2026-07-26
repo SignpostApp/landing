@@ -2,6 +2,8 @@
 
 import { useState, useCallback, useEffect } from "react";
 
+import { getAttribution } from "@/lib/attribution";
+
 const SAFE_SERVER_MESSAGES = new Set([
   "Invalid email address",
   "Please use a non-disposable email address",
@@ -69,6 +71,7 @@ export default function WhiteWaitlistModal({
             email: email.trim(),
             website: honeypot || undefined,
             timestamp: Date.now(),
+            attribution: getAttribution(),
           }),
         });
         const data = await res.json();
