@@ -7,28 +7,28 @@ import WhiteWaitlistModal from "./WhiteWaitlistModal";
 const FEATURES = [
   {
     title: "Real-time feedback",
-    body: "Signpost grades every sign as you make it. Feedback returns in under 100 milliseconds, so you know on the same gesture whether your hand shape, position, and motion are right.",
+    body: "Signpost grades every sign as you perform it. This enables you to start learning ASL at an accelerated rate compared to traditional learning measures.",
   },
   {
-    title: "A real ASL curriculum",
-    body: "Built from classroom textbooks, not vocabulary lists. Start with the ASL alphabet and fingerspelling and work up to full conversational American Sign Language, lesson by lesson.",
+    title: "A built-out ASL curriculum",
+    body: "We don't just show important words, we teach culture and mearning alongside the words. Start with the ASL alphabet and fingerspelling and work up to full conversational American Sign Language, lesson by lesson.",
   },
   {
-    title: "Objective progress tracking",
-    body: "Every sign you make is graded against the same model. The result is the first consistent, data-backed measure of ASL proficiency: a TOEFL-style benchmark you can point at.",
+    title: "Free forever, actually",
+    body: "You can visit every single one of our units for free, forever. You can learn ASL for entirely free as long as you want! Plans are cosmetic and for helpfulness only, not for limiting learning behind paywalls.",
   },
 ];
 
 const STEPS = [
   {
     n: "01",
-    title: "Open the demo",
-    body: "Visit demo.signpost.cv in any modern browser. Hand tracking runs locally on your device, so a webcam is all you need to start.",
+    title: "Open the app",
+    body: "Visit demo.signpost.cv in any modern browser. Hand tracking runs locally on your device, so a webcam is all you need to start. Or, you can opt for traditional learning methods using videos.",
   },
   {
     n: "02",
     title: "Turn on your webcam",
-    body: "Allow camera access and start signing. The machine learning model watches every gesture and tells you within 100ms whether your hand shape, position, and motion match the target sign.",
+    body: "Allow camera access and start signing. Our machine learning model watches every gesture and tells you within 100ms whether your hand shape, position, and motion match the target sign.",
   },
   {
     n: "03",
