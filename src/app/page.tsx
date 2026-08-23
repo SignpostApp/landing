@@ -356,7 +356,7 @@ export default function WhiteLandingPage() {
               <article className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-colors duration-200 hover:border-slate-300 flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
                   <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Built by ASL Students</h3>
-                  <p className="text-xs text-slate-500 shrink-0">Max and Jerry</p>
+                  <p className="text-xs text-slate-500 shrink-0">Max, Jerry, and Rhiley</p>
                 </div>
                 <p className="text-slate-600 leading-relaxed text-[0.95rem] mb-7 flex-1">
                   This entire startup was built by students who lived through this problem in their respective ASL classes and have a shared passion for improving learning through technology.
