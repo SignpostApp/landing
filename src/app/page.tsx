@@ -165,10 +165,6 @@ export default function WhiteLandingPage() {
               {/* LEFT: text content */}
               <div className="flex flex-col items-start text-left">
                 {/* Launching badge */}
-                <span data-hero-item className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 mb-7">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
-                  Launching 2026
-                </span>
 
                 {/* Headline (visible H1 for SEO) */}
                 <h1 data-hero-heading className="text-[2.5rem] sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold tracking-[-0.035em] leading-[1.04] text-slate-900 text-balance max-w-[18ch]">
