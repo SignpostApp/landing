@@ -1,8 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import WhiteWaitlistModal from "./WhiteWaitlistModal";
+import { useLandingAnimations } from "./useLandingAnimations";
+
+const TESTIMONIAL = {
+  quote:
+    "My school never offered ASL classes, but Signpost has helped me tremendously in learning how to communicate with the Deaf community!",
+  name: "R.C",
+  detail: "Student of West Baton Rouge Schools",
+};
 
 const FEATURES = [
   {
@@ -90,11 +98,21 @@ const FAQS = [
 export default function WhiteLandingPage() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const pageRef = useRef<HTMLDivElement | null>(null);
+
+  useLandingAnimations(pageRef);
 
   return (
-    <div className="min-h-screen bg-[#fcfcfd] text-slate-900 antialiased">
+    <div ref={pageRef} className="min-h-screen bg-[#fcfcfd] text-slate-900 antialiased">
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html:
+            "<style>[data-hero-heading],[data-hero-item],[data-hero-visual],[data-hero-chip],[data-reveal],[data-reveal-group] > *{opacity:1 !important}</style>",
+        }}
+      />
+
       {/* ═══ NAVBAR ═══ */}
-      <nav className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
+      <nav data-nav className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
         <div className="grid grid-cols-3 items-center max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-10 py-3 sm:py-3.5">
           <a
             href="https://demo.signpost.cv"
@@ -131,7 +149,7 @@ export default function WhiteLandingPage() {
 
       <main>
         {/* ═══ HERO ═══ */}
-        <section className="relative overflow-hidden" aria-label="Learn ASL online with Signpost">
+        <section data-hero className="relative overflow-hidden" aria-label="Learn ASL online with Signpost">
           {/* Single, restrained top wash — no floating orbs */}
           <div
             className="pointer-events-none absolute inset-x-0 top-0 h-[520px] -z-0"
@@ -147,33 +165,35 @@ export default function WhiteLandingPage() {
               {/* LEFT: text content */}
               <div className="flex flex-col items-start text-left">
                 {/* Launching badge */}
-                <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 mb-7">
+                <span data-hero-item className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 mb-7">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
-                  Launching Summer 2026
+                  Launching 2026
                 </span>
 
                 {/* Headline (visible H1 for SEO) */}
-                <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold tracking-[-0.035em] leading-[1.04] text-slate-900 text-balance max-w-[18ch]">
+                <h1 data-hero-heading className="text-[2.5rem] sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-semibold tracking-[-0.035em] leading-[1.04] text-slate-900 text-balance max-w-[18ch]">
                   Learn ASL with real-time feedback on every sign.
                 </h1>
 
-                <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed mt-6 mb-9 text-pretty">
-                  Signpost watches your hands through your webcam and corrects your form in under 100 milliseconds. The free demo opens in your browser; the full app is launching this summer.
+                <p data-hero-item className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed mt-6 mb-9 text-pretty">
+                  Signpost watches your hands through your webcam and corrects your form in under 100 milliseconds. The free demo opens in your browser; the full app is launching in 2026.
                 </p>
 
                 {/* Primary CTA */}
                 <a
+                  data-hero-item
                   href="https://demo.signpost.cv"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-6 py-3.5 text-sm font-semibold transition-colors duration-150"
                 >
-                  Try the free demo
+                  Try our product
                   <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">→</span>
                 </a>
 
                 {/* Secondary text link */}
                 <button
+                  data-hero-item
                   onClick={() => setWaitlistOpen(true)}
                   className="mt-4 text-sm text-slate-500 hover:text-slate-900 transition-colors cursor-pointer underline-offset-4 hover:underline"
                 >
@@ -184,9 +204,10 @@ export default function WhiteLandingPage() {
               {/* RIGHT: phone-as-centerpiece — the actual product UI as the hero artifact,
                   with a floating live-tracking chip to signal that the machine learning model is watching. */}
               <div className="relative w-full flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-[400px] lg:max-w-[440px]">
+                <div data-hero-visual className="relative w-full max-w-[400px] lg:max-w-[440px]">
                   {/* The actual app UI */}
                   <Image
+                    data-hero-parallax
                     src="/demo-ss.png"
                     alt="Signpost mobile app showing the ASL alphabet curriculum and lesson progress"
                     width={1857}
@@ -197,7 +218,7 @@ export default function WhiteLandingPage() {
 
                   {/* Floating activity chip: anchors the latency / live-tracking claim
                       next to the product so the visitor reads the visual as alive. */}
-                  <div className="absolute -left-3 sm:-left-6 lg:-left-10 top-[22%] hidden sm:flex items-center gap-2.5 rounded-xl bg-white border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
+                  <div data-hero-chip className="absolute -left-3 sm:-left-6 lg:-left-10 top-[22%] hidden sm:flex items-center gap-2.5 rounded-xl bg-white border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
                     <span className="h-2 w-2 shrink-0 rounded-full bg-blue-600" aria-hidden="true" />
                     <div className="leading-tight">
                       <div className="text-[0.7rem] text-slate-500">Hand tracking</div>
@@ -209,7 +230,7 @@ export default function WhiteLandingPage() {
 
                   {/* Floating confidence chip: secondary social-proof signal on the
                       opposite side, suggesting accuracy without an unfalsifiable %. */}
-                  <div className="absolute -right-3 sm:-right-6 lg:-right-10 bottom-[18%] hidden md:flex items-center gap-2.5 rounded-xl bg-white border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
+                  <div data-hero-chip className="absolute -right-3 sm:-right-6 lg:-right-10 bottom-[18%] hidden md:flex items-center gap-2.5 rounded-xl bg-white border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
                     <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-100">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                         <path d="M2.5 7.5L5.5 10.5L11.5 4" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -226,17 +247,46 @@ export default function WhiteLandingPage() {
           </div>
         </section>
 
+        <section className="relative border-t border-slate-100 bg-white" aria-label="What learners say about Signpost">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
+            <div data-reveal className="max-w-4xl grid gap-6 lg:grid-cols-[9rem_1fr] lg:gap-14 lg:items-start">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 lg:pt-2.5">
+                From a learner
+              </p>
+
+              <figure>
+                <blockquote className="text-xl sm:text-2xl lg:text-[1.6rem] font-medium tracking-[-0.02em] leading-[1.45] text-slate-900 text-balance">
+                  &ldquo;{TESTIMONIAL.quote}&rdquo;
+                </blockquote>
+
+                <figcaption className="mt-7 flex items-center gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-blue-50 text-sm font-semibold text-blue-600"
+                  >
+                    {TESTIMONIAL.name.trim().charAt(0)}
+                  </span>
+                  <span className="leading-tight">
+                    <span className="block text-sm font-semibold text-slate-900">{TESTIMONIAL.name}</span>
+                    <span className="block text-xs text-slate-500">{TESTIMONIAL.detail}</span>
+                  </span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
         {/* ═══ FEATURES ═══ */}
         <section id="features" className="relative py-24 lg:py-32 border-t border-slate-100" aria-label="What you get with Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-            <div className="max-w-2xl mb-14 lg:mb-20">
+            <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Why Signpost</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 Three things every ASL app has been missing.
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-5 lg:gap-6">
+            <div data-reveal-group className="grid md:grid-cols-3 gap-5 lg:gap-6">
               {FEATURES.map((f) => (
                 <div
                   key={f.title}
@@ -255,7 +305,7 @@ export default function WhiteLandingPage() {
         {/* ═══ HOW IT WORKS ═══ */}
         <section id="how-it-works" className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="How to start learning ASL with Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-            <div className="max-w-2xl mb-14 lg:mb-20">
+            <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">How it works</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 From zero to your first signed conversation in three steps.
@@ -265,7 +315,7 @@ export default function WhiteLandingPage() {
               </p>
             </div>
 
-            <ol className="grid md:grid-cols-3 gap-12 lg:gap-14 max-w-5xl">
+            <ol data-reveal-group className="grid md:grid-cols-3 gap-12 lg:gap-14 max-w-5xl">
               {STEPS.map((step, i) => (
                 <li key={step.n} className="relative pt-6">
                   {/* Top accent: small number + connector tick */}
@@ -287,7 +337,7 @@ export default function WhiteLandingPage() {
         <section className="relative py-24 lg:py-32 border-t border-slate-100" aria-label="Signpost for teachers and schools">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
-              <div className="max-w-xl">
+              <div data-reveal className="max-w-xl">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">For schools</p>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance mb-5">
                   Drops into the LMS your school already runs.
@@ -305,7 +355,7 @@ export default function WhiteLandingPage() {
                   per-logo via inline animation-delay); reduced-motion users get
                   all three laid out statically in a row — see .lms-stage in
                   globals.css. */}
-              <div className="lg:pl-6">
+              <div data-reveal className="lg:pl-6">
                 {/* Eyebrow: centered label flanked by hairlines */}
                 <div className="flex items-center gap-4 mb-8 sm:mb-10">
                   <span className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-200" aria-hidden="true" />
@@ -344,14 +394,14 @@ export default function WhiteLandingPage() {
         {/* ═══ FOUNDERS ═══ */}
         <section id="team" className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="About the Signpost team">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-            <div className="max-w-2xl mb-14 lg:mb-20">
+            <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Who we are</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 Built by ASL students, tested by ASL educators
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-5 lg:gap-6 max-w-5xl">
+            <div data-reveal-group className="grid md:grid-cols-2 gap-5 lg:gap-6 max-w-5xl">
               {/* Jerry */}
               <article className="rounded-2xl border border-slate-200 bg-white p-8 lg:p-10 transition-colors duration-200 hover:border-slate-300 flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
@@ -380,7 +430,7 @@ export default function WhiteLandingPage() {
         {/* ═══ FAQ ═══ */}
         <section id="faq" className="relative py-24 lg:py-32 border-t border-slate-100" aria-label="Frequently asked questions about learning ASL">
           <div className="max-w-3xl mx-auto px-6 lg:px-10">
-            <div className="mb-12 lg:mb-16">
+            <div data-reveal className="mb-12 lg:mb-16">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">FAQ</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 Frequently Asked Questions
@@ -393,6 +443,7 @@ export default function WhiteLandingPage() {
                 return (
                   <div
                     key={faq.q}
+                    data-reveal
                     className={`rounded-xl border bg-white overflow-hidden transition-colors duration-200 ${
                       isOpen ? "border-slate-300" : "border-slate-200"
                     }`}
@@ -429,7 +480,7 @@ export default function WhiteLandingPage() {
 
         {/* ═══ CTA ═══ */}
         <section className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="Start learning ASL now">
-          <div className="relative max-w-3xl mx-auto px-6 lg:px-10 text-center">
+          <div data-reveal className="relative max-w-3xl mx-auto px-6 lg:px-10 text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 mb-5 text-balance">
               Sign your first ASL letters in under five minutes.
             </h2>
@@ -443,7 +494,7 @@ export default function WhiteLandingPage() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-6 py-3.5 text-sm font-semibold transition-colors duration-150"
               >
-                Try the free demo
+                Try our product
                 <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">→</span>
               </a>
               <button
