@@ -64,10 +64,10 @@ export default function TermsOfServicePage() {
           under your account. If you suspect that your account has been
           compromised, notify us immediately at{" "}
           <a
-            href="mailto:support@signpost.cv"
+            href="mailto:signpostcv@gmail.com"
             className="text-accent-light hover:underline"
           >
-            support@signpost.cv
+            signpostcv@gmail.com
           </a>
           .
         </p>
@@ -264,10 +264,10 @@ export default function TermsOfServicePage() {
           <p className="text-muted text-sm leading-relaxed">
             Email:{" "}
             <a
-              href="mailto:legal@signpost.cv"
+              href="mailto:signpostcv@gmail.com"
               className="text-accent-light hover:underline"
             >
-              legal@signpost.cv
+              signpostcv@gmail.com
             </a>
           </p>
         </div>

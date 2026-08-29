@@ -206,10 +206,10 @@ export default function SecurityPage() {
           <li>
             Email{" "}
             <a
-              href="mailto:security@signpost.cv"
+              href="mailto:signpostcv@gmail.com"
               className="text-accent-light hover:underline"
             >
-              security@signpost.cv
+              signpostcv@gmail.com
             </a>{" "}
             with a clear description of the vulnerability, steps to reproduce,
             and potential impact.
@@ -309,18 +309,18 @@ export default function SecurityPage() {
           <p className="text-muted text-sm leading-relaxed">
             Security:{" "}
             <a
-              href="mailto:security@signpost.cv"
+              href="mailto:signpostcv@gmail.com"
               className="text-accent-light hover:underline"
             >
-              security@signpost.cv
+              signpostcv@gmail.com
             </a>
             <br />
             Privacy:{" "}
             <a
-              href="mailto:privacy@signpost.cv"
+              href="mailto:signpostcv@gmail.com"
               className="text-accent-light hover:underline"
             >
-              privacy@signpost.cv
+              signpostcv@gmail.com
             </a>
           </p>
         </div>

@@ -191,10 +191,10 @@ export default function CookiePolicyPage() {
           <p className="text-muted text-sm leading-relaxed">
             Email:{" "}
             <a
-              href="mailto:privacy@signpost.cv"
+              href="mailto:signpostcv@gmail.com"
               className="text-accent-light hover:underline"
             >
-              privacy@signpost.cv
+              signpostcv@gmail.com
             </a>
           </p>
         </div>
