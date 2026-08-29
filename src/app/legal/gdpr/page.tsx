@@ -58,10 +58,10 @@ export default function GDPRPage() {
             <br />
             Email:{" "}
             <a
-              href="mailto:privacy@signpost.cv"
+              href="mailto:signpostcv@gmail.com"
               className="text-accent-light hover:underline"
             >
-              privacy@signpost.cv
+              signpostcv@gmail.com
             </a>
           </p>
         </div>
@@ -216,10 +216,10 @@ export default function GDPRPage() {
         <p className="legal-body">
           To exercise any of these rights, contact us at{" "}
           <a
-            href="mailto:privacy@signpost.cv"
+            href="mailto:signpostcv@gmail.com"
             className="text-accent-light hover:underline"
           >
-            privacy@signpost.cv
+            signpostcv@gmail.com
           </a>
           . We will respond within 30 days, as required by the GDPR. If your
           request is complex or we receive a large number of requests, we may
@@ -255,10 +255,10 @@ export default function GDPRPage() {
           You may request a copy of the relevant transfer mechanisms by
           emailing{" "}
           <a
-            href="mailto:privacy@signpost.cv"
+            href="mailto:signpostcv@gmail.com"
             className="text-accent-light hover:underline"
           >
-            privacy@signpost.cv
+            signpostcv@gmail.com
           </a>
           .
         </p>
@@ -323,10 +323,10 @@ export default function GDPRPage() {
             <br />
             Email:{" "}
             <a
-              href="mailto:privacy@signpost.cv"
+              href="mailto:signpostcv@gmail.com"
               className="text-accent-light hover:underline"
             >
-              privacy@signpost.cv
+              signpostcv@gmail.com
             </a>
           </p>
         </div>

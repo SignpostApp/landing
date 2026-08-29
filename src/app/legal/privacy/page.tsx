@@ -185,10 +185,10 @@ export default function PrivacyPolicyPage() {
           If you believe we have inadvertently collected data from a child
           under 13 without appropriate consent, please contact us at{" "}
           <a
-            href="mailto:privacy@signpost.cv"
+            href="mailto:signpostcv@gmail.com"
             className="text-accent-light hover:underline"
           >
-            privacy@signpost.cv
+            signpostcv@gmail.com
           </a>{" "}
           and we will delete the data promptly.
         </p>
@@ -211,10 +211,10 @@ export default function PrivacyPolicyPage() {
         <p className="legal-body">
           To exercise any of these rights, email us at{" "}
           <a
-            href="mailto:privacy@signpost.cv"
+            href="mailto:signpostcv@gmail.com"
             className="text-accent-light hover:underline"
           >
-            privacy@signpost.cv
+            signpostcv@gmail.com
           </a>
           . We aim to respond within 15 business days.
         </p>
@@ -262,10 +262,10 @@ export default function PrivacyPolicyPage() {
           <p className="text-muted text-sm leading-relaxed">
             Email:{" "}
             <a
-              href="mailto:privacy@signpost.cv"
+              href="mailto:signpostcv@gmail.com"
               className="text-accent-light hover:underline"
             >
-              privacy@signpost.cv
+              signpostcv@gmail.com
             </a>
           </p>
         </div>
