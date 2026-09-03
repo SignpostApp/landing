@@ -531,7 +531,7 @@ export default function WhiteLandingPage() {
                     alt="Matrix Studios Software"
                     width={512}
                     height={512}
-                    className="h-8 w-8 shrink-0 grayscale opacity-70"
+                    className="h-5 w-5 shrink-0 grayscale opacity-70"
                   />
                   <div className="text-xs text-slate-400 leading-relaxed">
                     <p>Matrix Studios Software</p>
