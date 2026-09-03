@@ -521,30 +521,15 @@ export default function WhiteLandingPage() {
                 <p className="text-sm text-slate-600 leading-relaxed">
                   A machine-learning-powered way to learn American Sign Language at home, with real-time feedback on every sign.
                 </p>
-                <div className="mt-5 flex items-start gap-2.5 text-slate-400">
-                  <svg
-                    viewBox="-3 7 66 66"
-                    aria-hidden="true"
-                    className="h-4 w-4 shrink-0 mt-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M30 10 L60 25 L60 55 L30 70 L0 55 L0 25 Z" />
-                    <path d="M30 40 L30 10 M30 40 L60 55 M30 40 L0 55" />
-                    <g fill="currentColor" stroke="none">
-                      <circle cx="30" cy="10" r="2.5" />
-                      <circle cx="60" cy="25" r="2.5" />
-                      <circle cx="60" cy="55" r="2.5" />
-                      <circle cx="30" cy="70" r="2.5" />
-                      <circle cx="0" cy="55" r="2.5" />
-                      <circle cx="0" cy="25" r="2.5" />
-                      <circle cx="30" cy="40" r="2.5" />
-                    </g>
-                  </svg>
-                  <div className="text-xs leading-relaxed">
+                <div className="mt-5 flex items-start gap-3">
+                  <Image
+                    src="/matrix-studios-logo.png"
+                    alt="Matrix Studios Software"
+                    width={512}
+                    height={512}
+                    className="h-8 w-8 shrink-0 grayscale opacity-70"
+                  />
+                  <div className="text-xs text-slate-400 leading-relaxed">
                     <p>Matrix Studios Software</p>
                     <p>5904 Warner Ave Unit #524, Huntington Beach, CA 92649</p>
                   </div>
