@@ -535,7 +535,7 @@ export default function WhiteLandingPage() {
                   />
                   <div className="text-xs text-slate-400 leading-relaxed">
                     <p>Matrix Studios Software</p>
-                    <p>5904 Warner Ave Unit #524, Huntington Beach, CA 92649</p>
+                    <p>1968 S. Coast Hwy #3479, Laguna Beach, CA 92651</p>
                   </div>
                 </div>
               </div>
