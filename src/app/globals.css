@@ -741,18 +741,6 @@ html {
   border: 1px solid rgba(226, 232, 240, 0.9);
   background: #f8fafc;
   color: #64748b;
-  transition:
-    color 0.24s var(--ease-out-quint),
-    background-color 0.24s var(--ease-out-quint),
-    border-color 0.24s var(--ease-out-quint),
-    transform 0.4s var(--ease-out-expo);
-}
-
-.nav-item:hover .nav-item-tile {
-  color: #2563eb;
-  background: #eff6ff;
-  border-color: rgba(37, 99, 235, 0.22);
-  transform: translateY(-1px);
 }
 
 .nav-item-head {
@@ -779,16 +767,6 @@ html {
 .nav-item-glyph {
   flex-shrink: 0;
   color: #94a3b8;
-  opacity: 0;
-  transform: translateX(-3px);
-  transition:
-    opacity 0.24s var(--ease-out-quint),
-    transform 0.4s var(--ease-out-expo);
-}
-
-.nav-item:hover .nav-item-glyph {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 /* ── Feature card ── */
@@ -902,7 +880,7 @@ html {
   position: fixed;
   inset: 0;
   z-index: 30;
-  background: rgba(15, 23, 42, 0.06);
+  background: rgba(15, 23, 42, 0.02);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.35s var(--ease-out-quint), visibility 0s linear 0.35s;

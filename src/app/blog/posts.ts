@@ -72,9 +72,9 @@ export function bannerAlt(post: Post): string {
 export const POSTS: Post[] = [
   {
     slug: "how-real-time-sign-feedback-works",
-    title: "How Real-Time Sign Feedback Works",
+    title: "How Our Feedback Engine Works",
     description:
-      "A look under the hood at how Signpost watches your hands through a webcam and grades an ASL sign in under 100 milliseconds, entirely on your own device.",
+      "A look under the hood at how Signpost is able to recognize what you are signing",
     excerpt:
       "Every sign you make is scored before you have finished thinking about it. Here is what actually happens between your hand and that result.",
     category: "Under the Hood",
@@ -111,9 +111,9 @@ export const POSTS: Post[] = [
   },
   {
     slug: "learn-asl-on-your-own",
-    title: "How to Learn ASL on Your Own, Without a Class",
+    title: "How Signpost Enables You To Self-Teach ASL",
     description:
-      "A practical guide to teaching yourself American Sign Language at home: how to structure practice, what to learn first, and how to check your own form.",
+      "A practical guide to how our product allows you to teach yourself ASL with no outside assistance.",
     excerpt:
       "Teaching yourself ASL is genuinely possible, but the parts that make or break it are not the parts most people focus on. Here is how to structure it.",
     category: "Self-Teaching",
@@ -124,7 +124,7 @@ export const POSTS: Post[] = [
     body: [
       {
         type: "p",
-        text: "Most people who want to learn ASL do not have a class available to them. They have an interest, a laptop, and whatever time they can carve out in the evening. That is a completely workable starting point, but self-teaching fails for predictable reasons, and almost all of them come down to practicing without knowing whether you are practicing correctly.",
+        text: "Most people who want to learn ASL do not have a class available to them. They have an interest, a laptop, and whatever time they can carve out in the evening. That is a completely workable starting point, but self-teaching fails for predictable reasons, and almost all of them come down to practicing without the feedback of an actual instructor.",
       },
       { type: "h2", text: "Start with the alphabet, but do not stop there" },
       {
@@ -140,9 +140,9 @@ export const POSTS: Post[] = [
   },
   {
     slug: "asl-for-homeschoolers",
-    title: "Teaching ASL in a Homeschool: A Parent's Guide",
+    title: "How Signpost Can Work Alongside Your Homeschool Program",
     description:
-      "How to add American Sign Language to a homeschool curriculum: what to teach first, how to track progress, and how to give feedback without knowing ASL yourself.",
+      "How to add American Sign Language to a homeschool curriculum by using our platform.",
     excerpt:
       "ASL is one of the most practical languages you can add to a homeschool, and one of the hardest to assess if you do not sign yourself. Here is how to handle both.",
     category: "For Families",
@@ -153,7 +153,7 @@ export const POSTS: Post[] = [
     body: [
       {
         type: "p",
-        text: "American Sign Language is an appealing homeschool subject: it counts as a foreign language credit in most states, it is immediately useful, and it suits kinesthetic learners who struggle with a spoken second language. The hard part is not choosing it. The hard part is teaching a language you may not know.",
+        text: "American Sign Language is an appealing homeschool subject: it counts as a foreign language credit in most states, it is immediately useful, and it suits some learners who struggle with a spoken second language. The hard part is not choosing it. The hard part is teaching a language you may not know yourself.",
       },
       { type: "h2", text: "The assessment problem" },
       {
@@ -171,7 +171,7 @@ export const POSTS: Post[] = [
     slug: "asl-for-schools-and-districts",
     title: "Bringing ASL to Your School or District",
     description:
-      "How schools add American Sign Language without hiring a full-time instructor: LTI 1.3 rostering into Canvas, Blackboard, or Schoology, and how progress is measured.",
+      "How schools add American Sign Language instruction as a tool for educators and students.",
     excerpt:
       "Most schools that want to offer ASL cannot staff it. Here is what it takes to run a credible ASL course when a certified instructor is not available.",
     category: "For Schools",
@@ -182,7 +182,7 @@ export const POSTS: Post[] = [
     body: [
       {
         type: "p",
-        text: "Demand for ASL in secondary schools has outrun the supply of certified instructors by a wide margin. Districts that want to offer it are usually stuck between an unstaffed course and no course at all.",
+        text: "Demand for ASL in secondary schools has outrun the supply of certified instructors by a wide margin. Districts that want to offer it are usually stuck between an unstaffed course and no course at all. Signpost is allowing schools and districts to arm one teacher with enough tooling to teach hundreds of kids at different skill levels.",
       },
       { type: "h2", text: "Fitting into what you already run" },
       {
@@ -198,7 +198,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "asl-for-educators",
-    title: "Signpost for ASL Educators: Feedback That Scales",
+    title: "Signpost for ASL Educators: Feedback That Scales Alongside Your Class",
     description:
       "How ASL teachers use real-time sign feedback to extend practice beyond class time, catch form errors earlier, and spend contact hours on language rather than drills.",
     excerpt:
@@ -211,7 +211,7 @@ export const POSTS: Post[] = [
     body: [
       {
         type: "p",
-        text: "Every ASL instructor runs into the same ceiling. Correction is the highest-value thing you do, and it is the thing you have the least time for. With a full class, each student gets a few seconds of individual attention, and the rest of their practice happens unsupervised.",
+        text: "Every ASL instructor runs into the same ceiling. Correction is the highest-value thing you do, and it is the thing you have the least time for. With a full class, each student gets a few seconds of individual attention, and the rest of their practice happens unsupervised and often uncorrectly.",
       },
       { type: "h2", text: "Where the model helps, and where it does not" },
       {
@@ -227,9 +227,9 @@ export const POSTS: Post[] = [
   },
   {
     slug: "learn-asl-when-your-school-doesnt-offer-it",
-    title: "When Your School Doesn't Offer ASL",
+    title: "How Signpost Brings ASL To Underexposed Students",
     description:
-      "What to do when your school has no American Sign Language class: how to learn it anyway, how to keep it consistent, and how to know your signing is correct.",
+      "How Signpost is able to help students learn ASL by giving them easy lessons and straightforward feedback.",
     excerpt:
       "Wanting to learn ASL and having nowhere to learn it is the most common story we hear. It does not have to end there.",
     category: "Learning ASL",

@@ -36,23 +36,6 @@ function ExternalGlyph() {
   );
 }
 
-function ArrowGlyph() {
-  return (
-    <svg
-      viewBox="0 0 12 12"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className="nav-item-glyph h-3 w-3"
-    >
-      <path d="M2.5 6h7M6.6 3l3 3-3 3" />
-    </svg>
-  );
-}
-
 function MenuItem({
   link,
   compact,
@@ -65,7 +48,7 @@ function MenuItem({
   const body = compact ? (
     <>
       <span className="nav-item-label">{link.label}</span>
-      {link.external ? <ExternalGlyph /> : <ArrowGlyph />}
+      {link.external ? <ExternalGlyph /> : null}
     </>
   ) : (
     <>
@@ -75,7 +58,7 @@ function MenuItem({
       <span className="min-w-0">
         <span className="nav-item-head">
           <span className="nav-item-label">{link.label}</span>
-          {link.external ? <ExternalGlyph /> : <ArrowGlyph />}
+          {link.external ? <ExternalGlyph /> : null}
         </span>
         {link.desc ? <span className="nav-item-desc">{link.desc}</span> : null}
       </span>
