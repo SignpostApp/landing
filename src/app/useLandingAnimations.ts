@@ -140,19 +140,6 @@ export function useLandingAnimations(root: RefObject<HTMLElement | null>) {
             );
           });
 
-        const nav = scope.querySelector<HTMLElement>("[data-nav]");
-
-        if (nav) {
-          ScrollTrigger.create({
-            start: 14,
-            end: () => ScrollTrigger.maxScroll(window),
-            onToggle: (self) => nav.classList.toggle("is-scrolled", self.isActive),
-          });
-        }
-
-        return () => {
-          nav?.classList.remove("is-scrolled");
-        };
       }
     );
 

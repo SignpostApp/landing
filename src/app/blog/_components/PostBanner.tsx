@@ -23,23 +23,19 @@ const TINTS: Record<Tint, [string, string]> = {
 export default function PostBanner({
   post,
   priority = false,
-  rounded = true,
   sizes = "(max-width: 1024px) 100vw, 1024px",
 }: {
   post: Post;
   priority?: boolean;
-  /** Apply rounded-2xl corners. Set false when a parent already clips. */
-  rounded?: boolean;
   sizes?: string;
 }) {
   const [a, b] = TINTS[post.tint];
-  const radius = rounded ? "rounded-2xl" : "";
   const src = bannerSrc(post);
 
   if (src) {
     return (
       <div
-        className={`relative w-full aspect-[12/5] overflow-hidden border border-slate-200 bg-slate-100 ${radius}`}
+        className={"relative w-full aspect-[12/5] overflow-hidden border border-slate-200 bg-slate-100"}
       >
         <Image
           src={src}
@@ -55,7 +51,7 @@ export default function PostBanner({
 
   return (
     <div
-      className={`relative w-full aspect-[12/5] overflow-hidden border border-slate-200 ${radius}`}
+      className="relative w-full aspect-[12/5] overflow-hidden border border-slate-200"
       style={{
         background: [
           `radial-gradient(120% 140% at 0% 0%, rgba(${a},0.20), transparent 55%)`,
