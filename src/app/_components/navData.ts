@@ -27,19 +27,19 @@ export const NAV_MENUS: NavMenu[] = [
     feature: "demo",
     links: [
       {
-        label: "Real-time feedback",
-        desc: "How every sign gets graded in under 100 ms.",
+        label: "Real-time Feedback Engine",
+        desc: "A machine learning model trained to work with ASL.",
         href: "/blog/how-real-time-sign-feedback-works",
         icon: "bolt",
       },
       {
-        label: "The ASL curriculum",
-        desc: "Alphabet and fingerspelling to conversation.",
+        label: "Standard ASL Curriculum",
+        desc: "Alphabet to conversations over 30+ units.",
         href: "/#curriculum",
         icon: "hand",
       },
       {
-        label: "Privacy by design",
+        label: "Privacy By Design",
         desc: "Hand tracking runs on your device, not ours.",
         href: "/legal/security",
         icon: "shield",
@@ -61,13 +61,13 @@ export const NAV_MENUS: NavMenu[] = [
       },
       {
         label: "For homeschoolers",
-        desc: "Add ASL to your curriculum, credit included.",
+        desc: "Add ASL as a new language in your curriculum.",
         href: "/blog/asl-for-homeschoolers",
         icon: "home",
       },
       {
         label: "For schools and districts",
-        desc: "LTI 1.3 into the LMS you already run.",
+        desc: "Empowering educators and students alike.",
         href: "/blog/asl-for-schools-and-districts",
         icon: "building",
       },
@@ -79,7 +79,7 @@ export const NAV_MENUS: NavMenu[] = [
       },
       {
         label: "For students without a class",
-        desc: "When your school doesn't offer ASL.",
+        desc: "Allowing underexposed students access to ASL feedback.",
         href: "/blog/learn-asl-when-your-school-doesnt-offer-it",
         icon: "chat",
       },
