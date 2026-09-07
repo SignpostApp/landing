@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import PostBanner from "./_components/PostBanner";
 import {
   AUTHOR,
   formatDate,
@@ -107,19 +106,12 @@ export default function BlogIndexPage() {
 
         {/* ═══ POST GRID ═══ */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 pb-24 lg:pb-32">
-          {posts.map((post, i) => (
+          {posts.map((post) => (
             <article key={post.slug} className="group flex flex-col">
               <Link
                 href={`/blog/${post.slug}`}
-                className="flex flex-col h-full rounded-2xl border border-slate-200 bg-white overflow-hidden transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.15)]"
+                className="flex flex-col h-full border border-slate-200 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-18px_rgba(15,23,42,0.18)]"
               >
-                <PostBanner
-                  post={post}
-                  rounded={false}
-                  priority={i === 0}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-
                 <div className="flex flex-col flex-1 p-6 lg:p-7">
                   <div className="flex items-center gap-2 text-xs text-slate-500 mb-3">
                     <span className="font-medium text-blue-600">{post.category}</span>

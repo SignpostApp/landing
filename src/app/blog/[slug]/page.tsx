@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import PostBanner from "../_components/PostBanner";
 import PostBody from "../_components/PostBody";
 import {
   AUTHOR,
@@ -138,22 +137,13 @@ export default async function BlogPostPage({
           </div>
         </div>
 
-        {/* ═══ BANNER ═══ */}
-        <div className="max-w-3xl mx-auto px-6 lg:px-10 mt-8 sm:mt-10">
-          <PostBanner
-            post={post}
-            priority
-            sizes="(max-width: 768px) 100vw, 768px"
-          />
-        </div>
-
         {/* ═══ BODY ═══ */}
         <div className="max-w-3xl mx-auto px-6 lg:px-10 mt-12 sm:mt-14">
           <PostBody blocks={post.body} />
 
           {/* ═══ AUTHOR ═══ */}
           <div className="mt-14 pt-8 border-t border-slate-200">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-7">
+            <div className="border border-slate-200 p-6 sm:p-7">
               <div className="flex items-center gap-2 mb-2">
                 <p className="font-semibold text-slate-900">{AUTHOR.name}</p>
                 <span className="text-xs text-slate-500">&middot; {AUTHOR.role}</span>
@@ -165,7 +155,7 @@ export default async function BlogPostPage({
           </div>
 
           {/* ═══ CTA ═══ */}
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-[#f8fafc] p-7 sm:p-9 text-center">
+          <div className="mt-10 border border-slate-200 p-7 sm:p-9 text-center">
             <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 text-balance">
               Stop practicing in the dark.
             </h2>
@@ -178,7 +168,7 @@ export default async function BlogPostPage({
               href="https://demo.signpost.cv"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-6 py-3 text-sm font-semibold transition-[transform,box-shadow,background-color] duration-200 shadow-[0_1px_2px_rgba(37,99,235,0.15),0_10px_28px_-10px_rgba(37,99,235,0.55)] hover:-translate-y-0.5"
+              className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-6 py-3 text-sm font-semibold transition-[transform,box-shadow,background-color] duration-200 shadow-[0_1px_2px_rgba(37,99,235,0.15),0_10px_28px_-10px_rgba(37,99,235,0.55)] hover:-translate-y-0.5"
             >
               Try the free demo
               <span aria-hidden>→</span>
@@ -197,13 +187,8 @@ export default async function BlogPostPage({
                 <Link
                   key={other.slug}
                   href={`/blog/${other.slug}`}
-                  className="group flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.15)]"
+                  className="group flex flex-col border border-slate-200 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-18px_rgba(15,23,42,0.18)]"
                 >
-                  <PostBanner
-                    post={other}
-                    rounded={false}
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
                   <div className="p-6">
                     <span className="text-xs font-medium text-blue-600">
                       {other.category}

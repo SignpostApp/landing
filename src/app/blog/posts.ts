@@ -71,6 +71,190 @@ export function bannerAlt(post: Post): string {
 /* Newest first. The index re-sorts by date, but keep this ordered for sanity. */
 export const POSTS: Post[] = [
   {
+    slug: "how-real-time-sign-feedback-works",
+    title: "How Real-Time Sign Feedback Works",
+    description:
+      "A look under the hood at how Signpost watches your hands through a webcam and grades an ASL sign in under 100 milliseconds, entirely on your own device.",
+    excerpt:
+      "Every sign you make is scored before you have finished thinking about it. Here is what actually happens between your hand and that result.",
+    category: "Under the Hood",
+    tint: "blue",
+    date: "2026-09-06",
+    imageAlt:
+      "Hand landmark tracking overlaid on a webcam view of a person signing in American Sign Language.",
+    body: [
+      {
+        type: "p",
+        text: "The core claim behind Signpost is simple to state and harder to build: you sign, and within about a tenth of a second you know whether you got it right. This post walks through what happens in that tenth of a second.",
+      },
+      { type: "h2", text: "From webcam frame to hand landmarks" },
+      {
+        type: "p",
+        text: "Every frame from your webcam is passed to a hand-tracking model that returns a set of numerical landmarks: the coordinates of each joint in your hand. Nothing about this step leaves your device. The image itself is discarded immediately; what moves forward is a small array of numbers describing where your fingers are.",
+      },
+      { type: "h2", text: "From landmarks to a graded sign" },
+      {
+        type: "p",
+        text: "A sign in ASL is not a single pose. It is a handshape, a location relative to your body, an orientation, and often a movement over time. The model compares all of those against the target sign and produces a score, which is why a near-miss reads as a near-miss rather than silently passing.",
+      },
+      { type: "h2", text: "Why latency is the whole game" },
+      {
+        type: "p",
+        text: "Feedback that arrives a second late is not feedback, it is a grade. To correct a motor skill, the signal has to land while you can still feel what your hand was doing. That is the reason the entire pipeline runs locally instead of round-tripping to a server, and it is the reason the target is under 100 milliseconds rather than under a second.",
+      },
+      { type: "h2", text: "What we store, and what we do not" },
+      {
+        type: "p",
+        text: "Your webcam feed is never uploaded, recorded, or stored. The only data saved server-side is numerical landmark coordinates used to improve recognition, never images or video. More detail is in our [security overview](/legal/security).",
+      },
+    ],
+  },
+  {
+    slug: "learn-asl-on-your-own",
+    title: "How to Learn ASL on Your Own, Without a Class",
+    description:
+      "A practical guide to teaching yourself American Sign Language at home: how to structure practice, what to learn first, and how to check your own form.",
+    excerpt:
+      "Teaching yourself ASL is genuinely possible, but the parts that make or break it are not the parts most people focus on. Here is how to structure it.",
+    category: "Self-Teaching",
+    tint: "blue",
+    date: "2026-09-03",
+    imageAlt:
+      "A person practicing American Sign Language at home in front of a laptop webcam.",
+    body: [
+      {
+        type: "p",
+        text: "Most people who want to learn ASL do not have a class available to them. They have an interest, a laptop, and whatever time they can carve out in the evening. That is a completely workable starting point, but self-teaching fails for predictable reasons, and almost all of them come down to practicing without knowing whether you are practicing correctly.",
+      },
+      { type: "h2", text: "Start with the alphabet, but do not stop there" },
+      {
+        type: "p",
+        text: "The manual alphabet is the natural first step, and it is worth learning properly rather than quickly. Clean handshapes early save you from unlearning bad ones later. The full breakdown is in [how to learn the ASL alphabet](/blog/how-to-learn-the-asl-alphabet).",
+      },
+      { type: "h2", text: "The piece self-teachers are missing" },
+      {
+        type: "p",
+        text: "In a classroom, an instructor catches your errors within seconds. Alone, nothing catches them at all. That gap is the single biggest reason self-taught signers plateau, and it is the gap Signpost was built to close: your webcam watches your hands and tells you, in real time, whether the sign you made is the sign you meant.",
+      },
+    ],
+  },
+  {
+    slug: "asl-for-homeschoolers",
+    title: "Teaching ASL in a Homeschool: A Parent's Guide",
+    description:
+      "How to add American Sign Language to a homeschool curriculum: what to teach first, how to track progress, and how to give feedback without knowing ASL yourself.",
+    excerpt:
+      "ASL is one of the most practical languages you can add to a homeschool, and one of the hardest to assess if you do not sign yourself. Here is how to handle both.",
+    category: "For Families",
+    tint: "indigo",
+    date: "2026-08-27",
+    imageAlt:
+      "A parent and child learning American Sign Language together at a kitchen table.",
+    body: [
+      {
+        type: "p",
+        text: "American Sign Language is an appealing homeschool subject: it counts as a foreign language credit in most states, it is immediately useful, and it suits kinesthetic learners who struggle with a spoken second language. The hard part is not choosing it. The hard part is teaching a language you may not know.",
+      },
+      { type: "h2", text: "The assessment problem" },
+      {
+        type: "p",
+        text: "With a written language you can check a worksheet. With ASL, correctness lives in handshape, position, and movement, and a parent who does not sign has no reliable way to tell a correct sign from a near-miss. Video courses do not solve this, because they only show what the sign should look like, never what your student actually did.",
+      },
+      { type: "h2", text: "What to teach first" },
+      {
+        type: "p",
+        text: "Start with the manual alphabet and fingerspelling, then move to high-frequency everyday vocabulary before attempting sentence structure. Short daily practice beats long weekly sessions, and receptive practice (reading signs) needs as much time as expressive practice (producing them).",
+      },
+    ],
+  },
+  {
+    slug: "asl-for-schools-and-districts",
+    title: "Bringing ASL to Your School or District",
+    description:
+      "How schools add American Sign Language without hiring a full-time instructor: LTI 1.3 rostering into Canvas, Blackboard, or Schoology, and how progress is measured.",
+    excerpt:
+      "Most schools that want to offer ASL cannot staff it. Here is what it takes to run a credible ASL course when a certified instructor is not available.",
+    category: "For Schools",
+    tint: "sky",
+    date: "2026-08-20",
+    imageAlt:
+      "A classroom of students practicing American Sign Language on their laptops.",
+    body: [
+      {
+        type: "p",
+        text: "Demand for ASL in secondary schools has outrun the supply of certified instructors by a wide margin. Districts that want to offer it are usually stuck between an unstaffed course and no course at all.",
+      },
+      { type: "h2", text: "Fitting into what you already run" },
+      {
+        type: "p",
+        text: "Signpost ships with full LTI 1.3 support, so lessons are placed directly into Canvas, Blackboard, or Schoology. Students roster automatically and grades flow back into the gradebook your teachers already use. There is no separate account system to administer.",
+      },
+      { type: "h2", text: "Measuring progress honestly" },
+      {
+        type: "p",
+        text: "Because every sign a student performs is scored by the model, progress is measured on actual signing rather than on multiple-choice recall. That gives a department head something defensible to report, and gives students feedback on the days a teacher cannot reach everyone.",
+      },
+    ],
+  },
+  {
+    slug: "asl-for-educators",
+    title: "Signpost for ASL Educators: Feedback That Scales",
+    description:
+      "How ASL teachers use real-time sign feedback to extend practice beyond class time, catch form errors earlier, and spend contact hours on language rather than drills.",
+    excerpt:
+      "No ASL teacher can watch thirty pairs of hands at once. The question is what students practice on the days you cannot correct them.",
+    category: "For Educators",
+    tint: "cyan",
+    date: "2026-08-13",
+    imageAlt:
+      "An ASL instructor teaching a class of students in a language classroom.",
+    body: [
+      {
+        type: "p",
+        text: "Every ASL instructor runs into the same ceiling. Correction is the highest-value thing you do, and it is the thing you have the least time for. With a full class, each student gets a few seconds of individual attention, and the rest of their practice happens unsupervised.",
+      },
+      { type: "h2", text: "Where the model helps, and where it does not" },
+      {
+        type: "p",
+        text: "Signpost is not a replacement for an instructor, and we do not present it as one. It handles the mechanical layer, whether a handshape, location, and movement match the target sign, so that class time can go to the things a model cannot teach: register, cultural context, facial grammar, and real conversation.",
+      },
+      { type: "h2", text: "Built with teachers, not at them" },
+      {
+        type: "p",
+        text: "The curriculum and lesson order were reviewed by ASL educators who are both Deaf and hearing. If something in the sequence does not match how you teach, we want to hear it.",
+      },
+    ],
+  },
+  {
+    slug: "learn-asl-when-your-school-doesnt-offer-it",
+    title: "When Your School Doesn't Offer ASL",
+    description:
+      "What to do when your school has no American Sign Language class: how to learn it anyway, how to keep it consistent, and how to know your signing is correct.",
+    excerpt:
+      "Wanting to learn ASL and having nowhere to learn it is the most common story we hear. It does not have to end there.",
+    category: "Learning ASL",
+    tint: "violet",
+    date: "2026-08-06",
+    imageAlt:
+      "A student practicing American Sign Language alone with a laptop webcam.",
+    body: [
+      {
+        type: "p",
+        text: "The most common message we get is some version of the same sentence: my school does not offer ASL, but I want to learn it. Usually the person has already tried an app or a few video series, made some early progress, and then stalled.",
+      },
+      { type: "h2", text: "Why the stall happens" },
+      {
+        type: "p",
+        text: "It is rarely motivation. It is that nothing in a video course tells you when you are wrong. You copy a sign, it feels close enough, and you move on. Weeks later the errors have set, and there is no way to tell which of the hundred signs you know are actually readable.",
+      },
+      { type: "h2", text: "What changes with feedback" },
+      {
+        type: "p",
+        text: "Practicing with something that watches your hands turns an open loop into a closed one. You find out within a fraction of a second whether the sign registered, which is the same information a classroom gives you, without the classroom.",
+      },
+    ],
+  },
+  {
     slug: "how-to-learn-the-asl-alphabet",
     title: "How to Learn the ASL Alphabet: A Practical Guide to Fingerspelling",
     description:

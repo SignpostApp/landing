@@ -3,6 +3,8 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import WhiteWaitlistModal from "./WhiteWaitlistModal";
+import SiteHeader from "./_components/SiteHeader";
+import SiteFooter from "./_components/SiteFooter";
 import { useLandingAnimations } from "./useLandingAnimations";
 
 const TESTIMONIAL = {
@@ -111,41 +113,7 @@ export default function WhiteLandingPage() {
         }}
       />
 
-      {/* ═══ NAVBAR ═══ */}
-      <nav data-nav className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
-        <div className="grid grid-cols-3 items-center max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-10 py-3 sm:py-3.5">
-          <a
-            href="https://demo.signpost.cv"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors justify-self-start"
-          >
-            Try the demo
-          </a>
-
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="justify-self-center flex items-center group cursor-pointer"
-            aria-label="Scroll to top"
-          >
-            <Image
-              src="/text-logo.png"
-              alt="Signpost: learn ASL online for free with machine learning feedback"
-              width={200}
-              height={48}
-              priority
-              className="h-12 w-auto -my-2.5 group-hover:opacity-80 transition-opacity"
-            />
-          </button>
-
-          <button
-            onClick={() => setWaitlistOpen(true)}
-            className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors cursor-pointer justify-self-end"
-          >
-            Join waitlist
-          </button>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <main>
         {/* ═══ HERO ═══ */}
@@ -243,7 +211,7 @@ export default function WhiteLandingPage() {
           </div>
         </section>
 
-        <section className="relative border-t border-slate-100 bg-white" aria-label="What learners say about Signpost">
+        <section id="learners" className="relative scroll-mt-24 border-t border-slate-100 bg-white" aria-label="What learners say about Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
             <div data-reveal className="max-w-4xl grid gap-6 lg:grid-cols-[9rem_1fr] lg:gap-14 lg:items-start">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 lg:pt-2.5">
@@ -273,7 +241,7 @@ export default function WhiteLandingPage() {
         </section>
 
         {/* ═══ FEATURES ═══ */}
-        <section id="features" className="relative py-24 lg:py-32 border-t border-slate-100" aria-label="What you get with Signpost">
+        <section id="features" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="What you get with Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Why Signpost</p>
@@ -299,7 +267,7 @@ export default function WhiteLandingPage() {
         </section>
 
         {/* ═══ HOW IT WORKS ═══ */}
-        <section id="how-it-works" className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="How to start learning ASL with Signpost">
+        <section id="how-it-works" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="How to start learning ASL with Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">How it works</p>
@@ -311,8 +279,8 @@ export default function WhiteLandingPage() {
               </p>
             </div>
 
-            <ol data-reveal-group className="grid md:grid-cols-3 gap-12 lg:gap-14 max-w-5xl">
-              {STEPS.map((step, i) => (
+            <ol id="curriculum" data-reveal-group className="scroll-mt-32 grid md:grid-cols-3 gap-12 lg:gap-14 max-w-5xl">
+              {STEPS.map((step) => (
                 <li key={step.n} className="relative pt-6">
                   {/* Top accent: small number + connector tick */}
                   <div className="absolute -top-px left-0 right-0 flex items-center gap-3">
@@ -330,7 +298,7 @@ export default function WhiteLandingPage() {
         </section>
 
         {/* ═══ LTI 1.3 INTEGRATION ═══ */}
-        <section className="relative py-24 lg:py-32 border-t border-slate-100" aria-label="Signpost for teachers and schools">
+        <section id="schools" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="Signpost for teachers and schools">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
               <div data-reveal className="max-w-xl">
@@ -388,7 +356,7 @@ export default function WhiteLandingPage() {
         </section>
 
         {/* ═══ FOUNDERS ═══ */}
-        <section id="team" className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="About the Signpost team">
+        <section id="team" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="About the Signpost team">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Who we are</p>
@@ -424,7 +392,7 @@ export default function WhiteLandingPage() {
         </section>
 
         {/* ═══ FAQ ═══ */}
-        <section id="faq" className="relative py-24 lg:py-32 border-t border-slate-100" aria-label="Frequently asked questions about learning ASL">
+        <section id="faq" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="Frequently asked questions about learning ASL">
           <div className="max-w-3xl mx-auto px-6 lg:px-10">
             <div data-reveal className="mb-12 lg:mb-16">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">FAQ</p>
@@ -506,76 +474,7 @@ export default function WhiteLandingPage() {
           </div>
         </section>
 
-        {/* ═══ FOOTER ═══ */}
-        <footer className="relative pt-20 pb-8 border-t border-slate-200 bg-white">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-            <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 mb-16">
-              <div className="max-w-sm">
-                <Image
-                  src="/text-logo.png"
-                  alt="Signpost"
-                  width={150}
-                  height={36}
-                  className="h-9 w-auto mb-5"
-                />
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  A machine-learning-powered way to learn American Sign Language at home, with real-time feedback on every sign.
-                </p>
-                <div className="mt-5 flex items-start gap-3">
-                  <Image
-                    src="/matrix-studios-logo.png"
-                    alt="Matrix Studios Software"
-                    width={512}
-                    height={512}
-                    className="h-5 w-5 shrink-0 grayscale opacity-70"
-                  />
-                  <div className="text-xs text-slate-400 leading-relaxed">
-                    <p>Matrix Studios Software</p>
-                    <p>1968 S. Coast Hwy #3479, Laguna Beach, CA 92651</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-10 lg:justify-self-end">
-                <div className="flex flex-col gap-3">
-                  <p className="text-xs font-semibold text-slate-900 mb-1">Product</p>
-                  <a href="#features" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">Features</a>
-                  <a href="https://demo.signpost.cv" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">Try the demo</a>
-                  <a href="#how-it-works" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">How it works</a>
-                  <a href="#faq" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">FAQ</a>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <p className="text-xs font-semibold text-slate-900 mb-1">Company</p>
-                  <a href="#team" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">About</a>
-                  <a href="/blog" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">Blog</a>
-                  <a href="https://github.com/SignpostApp" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">GitHub</a>
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <p className="text-xs font-semibold text-slate-900 mb-1">Legal</p>
-                  <a href="/legal/privacy" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">Privacy</a>
-                  <a href="/legal/terms" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">Terms</a>
-                  <a href="/legal/cookies" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">Cookies</a>
-                  <a href="/legal/gdpr" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">GDPR</a>
-                  <a href="/legal/security" className="text-sm text-slate-500 hover:text-slate-900 transition-colors w-fit">Security</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-slate-200">
-              <p className="text-xs text-slate-400">
-                &copy; {new Date().getFullYear()} Matrix Studios Software. All rights reserved.
-              </p>
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="text-xs text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
-              >
-                Back to top ↑
-              </button>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </main>
 
       <WhiteWaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
