@@ -11,7 +11,10 @@ export type IconName =
   | "help"
   | "hand"
   | "home"
-  | "code";
+  | "code"
+  | "cpu"
+  | "book"
+  | "lock";
 
 const PATHS: Record<IconName, React.ReactNode> = {
   bolt: <path d="M13 3 5.5 13H10l-1 8 7.5-10H12l1-8Z" />,
@@ -72,6 +75,26 @@ const PATHS: Record<IconName, React.ReactNode> = {
     </>
   ),
   code: <path d="m8.4 8.2-4.6 3.9 4.6 3.9M15.6 8.2l4.6 3.9-4.6 3.9M13.6 4.4 10.4 19.6" />,
+  cpu: (
+    <>
+      <rect x="6.5" y="6.5" width="11" height="11" rx="1.6" />
+      <rect x="9.6" y="9.6" width="4.8" height="4.8" rx=".6" />
+      <path d="M9.5 3.5v3M14.5 3.5v3M9.5 17.5v3M14.5 17.5v3M3.5 9.5h3M3.5 14.5h3M17.5 9.5h3M17.5 14.5h3" />
+    </>
+  ),
+  book: (
+    <>
+      <path d="M4.5 5.2A1.7 1.7 0 0 1 6.2 3.5h11.6a.7.7 0 0 1 .7.7v13.1H6.2a1.7 1.7 0 0 0-1.7 1.7V5.2Z" />
+      <path d="M4.5 19a1.7 1.7 0 0 0 1.7 1.7h12.3v-3.4" />
+    </>
+  ),
+  lock: (
+    <>
+      <rect x="5.2" y="10.4" width="13.6" height="10.1" rx="1.8" />
+      <path d="M8.2 10.4V7.6a3.8 3.8 0 0 1 7.6 0v2.8" />
+      <path d="M12 14.6v2.2" />
+    </>
+  ),
 };
 
 export function NavIcon({ name }: { name: IconName }) {
