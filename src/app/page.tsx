@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import WhiteWaitlistModal from "./WhiteWaitlistModal";
 import SiteHeader from "./_components/SiteHeader";
 import SiteFooter from "./_components/SiteFooter";
@@ -367,6 +368,14 @@ export default function WhiteLandingPage() {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 Built by ASL students, tested by ASL educators
               </h2>
+
+              <Link
+                href="/blog/our-origin-story"
+                className="group mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-[rgb(50,209,74)] hover:bg-[rgb(43,184,64)] active:bg-[rgb(37,161,56)] text-slate-900 px-6 py-3.5 text-sm font-semibold transition-colors duration-150"
+              >
+                Read About our Story
+                <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">&rarr;</span>
+              </Link>
             </div>
 
             <div data-reveal-group className="grid md:grid-cols-2 gap-5 lg:gap-6 max-w-5xl">
