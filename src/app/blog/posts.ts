@@ -71,6 +71,38 @@ export function bannerAlt(post: Post): string {
 /* Newest first. The index re-sorts by date, but keep this ordered for sanity. */
 export const POSTS: Post[] = [
   {
+    slug: "our-origin-story",
+    title: "Signpost's Origin Story and Mission",
+    description:
+      "How Signpost came to be and the steps that we are taking to improve American Sign Language for the future.",
+    excerpt:
+      "Signpost came from very humble beginnings, but those beginnings, we hope, will carry us to a future where learning ASL is as easy as learning any other language.",
+    category: "About Us",
+    tint: "blue",
+    date: "2026-09-10",
+    imageAlt: "",
+    body: [
+      { type: "h2", text: "Who We Are" },
+      {
+        type: "p",
+        text: "Signpost is a small company started by me, Max, one of my good friends, Jerry, and a longtime software development partner of mine, Rhiley. I came up with the concept in the shower one night during my Senior year of high school. I had an ASL test the next day on one of our ASL 2 units, and I thought, \"I feel like someone could cheat on ASL tests if they had some way to understand what was being signed in real time,\" and that's where this entire idea was born. I hopped onto my computer and wrote the prototype of our machine learning model. It couldn't do gestures at all and was literally just a hold-and-guess model, but it actually worked. Ever since that day, I have been more and more interested in this concept and have gotten others, who have no ASL knowledge at all, to learn using this tool and give me feedback as we go.",
+      },
+      { type: "h2", text: "Our Mission" },
+      {
+        type: "p",
+        text: "When I originally made Signpost, I noticed a gap in how ASL learning was translated to students. Finding an instructor who could sit with you one-on-one was ruining the total productivity of each individual student. There is one teacher for 30-35 students, and traditional practice methods of ASL are not nearly advanced enough to be meaningful practice. I saw firsthand how some students would just not practice at all because they were unsupervised, and I always felt bad for my teacher because there was nothing she could really do about it.",
+      },
+      {
+        type: "p",
+        text: "Ever since then, we have been working on a way to bring Signpost into the classroom as a tool for students, educators, and people who just want a platform to learn on. We see so many innovations nowadays that are trying to take Deaf people out of their comfortable environment. We are currently in a world where \"AI translation tools\" and \"Auto-translating gloves\" are cool things, sure, but they are costly, and I believe they defeat the point of why the Deaf community is such a strong place. We shouldn't take people out of the Deaf community to accommodate them in a hearing world; we should give people resources to help them better understand the Deaf community.",
+      },
+      {
+        type: "p",
+        text: "We are not here to do this for the money, fame, or because we think that someday we are going to exit this company and sell it to some language giant and basically just take away the core principles of why we started this in the first place. We genuinely see a place where a tool like Signpost can empower without overriding the good that the Deaf community has done, and we strive to keep this true.",
+      },
+    ],
+  },
+  {
     slug: "how-real-time-sign-feedback-works",
     title: "How Our Feedback Engine Works",
     description:
@@ -326,11 +358,11 @@ export const POSTS: Post[] = [
   },
   {
     slug: "how-long-does-it-take-to-learn-asl",
-    title: "How Long Does It Take to Learn ASL? An Honest Answer",
+    title: "How Long Does It Normally Take to Learn ASL?",
     description:
       "How long does it take to learn ASL? An honest look at realistic timelines, what 'fluent' really means, and the one factor that decides how fast you progress.",
     excerpt:
-      "It is the first question almost everyone asks, and the honest answer is “it depends.” Here is what it actually depends on, and the one variable you control.",
+      "It is the first question almost everyone asks, and the honest answer is “it depends.” Here is what it actually depends on, how you can accelerate, and where the bottlenecks are.",
     category: "Getting Started",
     tint: "indigo",
     date: "2026-05-21",
@@ -340,7 +372,7 @@ export const POSTS: Post[] = [
     body: [
       {
         type: "p",
-        text: "It is the first question almost everyone asks before they start: how long is this going to take? It is a fair question, and it deserves a real answer instead of a motivational one. The honest response is that it depends, but that is only a useful answer if we are specific about what it depends on. So let us break down what actually shapes the timeline of learning American Sign Language, and what you can do about it.",
+        text: "It is the first question almost everyone asks before they start: how long is this going to take? It is a fair question, and it deserves a real answer instead of an aspirational one. The honest response is that it depends, but that is only a useful answer if we are specific about what it depends on. So let us break down what actually shapes the timeline of learning American Sign Language, and what you can do about it.",
       },
       { type: "h2", text: "First, define what “learning ASL” even means" },
       {
@@ -351,7 +383,7 @@ export const POSTS: Post[] = [
         type: "p",
         text: "This is the same problem that makes “how good are you at ASL” hard to answer honestly. Without a shared definition of the goal, every estimate is really a guess about which goal you mean. So before you ask how long it takes, decide what you are actually aiming for.",
       },
-      { type: "h2", text: "Rough ranges, with honest caveats" },
+      { type: "h2", text: "An actual rough range for a beginner learner" },
       {
         type: "p",
         text: "With that said, here are some general ranges. Treat them as rough guides, not promises. The alphabet and basic fingerspelling can come together in a few hours of focused practice. A working set of everyday vocabulary and the ability to hold a simple, patient conversation usually takes a few months of regular practice. Becoming genuinely conversational, where you can follow a Deaf signer moving at natural speed, is more often a matter of a year or more, the same ballpark as reaching conversational ability in any spoken second language.",
@@ -397,7 +429,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "is-asl-hard-to-learn",
-    title: "Is ASL Hard to Learn? The Real Reasons Beginners Get Stuck",
+    title: "Is ASL Hard to Learn? How beginners often get stuck",
     description:
       "Is ASL hard to learn? Not the way people think. The five parts of every sign, why beginners stall, and the real obstacle that holds most learners back.",
     excerpt:
