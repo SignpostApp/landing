@@ -367,7 +367,7 @@ export default function WhiteLandingPage() {
 
               <Link
                 href="/blog/our-origin-story"
-                className="group mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-[rgb(50,209,74)] hover:bg-[rgb(43,184,64)] active:bg-[rgb(37,161,56)] text-slate-900 px-6 py-3.5 text-sm font-semibold transition-colors duration-150"
+                className="group mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-[rgb(50,209,74)] hover:bg-[rgb(43,184,64)] active:bg-[rgb(37,161,56)] text-white px-6 py-3.5 text-sm font-semibold transition-colors duration-150"
               >
                 Read About our Story
                 <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">&rarr;</span>
