@@ -12,7 +12,10 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
   {
     title: "Product",
     links: [
-      { label: "Real-time feedback", href: "/blog/how-real-time-sign-feedback-works" },
+      {
+        label: "Real-time feedback",
+        href: "/blog/how-real-time-sign-feedback-works",
+      },
       { label: "How it works", href: "/#how-it-works" },
       { label: "Try the demo", href: DEMO_URL, external: true },
       { label: "FAQ", href: "/#faq" },
@@ -23,7 +26,10 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
     links: [
       { label: "For self-learners", href: "/blog/learn-asl-on-your-own" },
       { label: "For homeschoolers", href: "/blog/asl-for-homeschoolers" },
-      { label: "For schools", href: "/blog/asl-for-schools-and-districts" },
+      {
+        label: "For schools",
+        href: "/blog/asl-for-schools-and-districts",
+      },
       { label: "For educators", href: "/blog/asl-for-educators" },
     ],
   },
@@ -32,7 +38,11 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
     links: [
       { label: "About", href: "/#team" },
       { label: "Blog", href: "/blog" },
-      { label: "GitHub", href: "https://github.com/SignpostApp", external: true },
+      {
+        label: "GitHub",
+        href: "https://github.com/SignpostApp",
+        external: true,
+      },
     ],
   },
   {
@@ -65,23 +75,30 @@ export default function SiteFooter() {
                 className="h-12 w-auto -ml-1 mb-5"
               />
             </Link>
+
             <p className="text-sm text-slate-600 leading-relaxed">
               A machine-learning-powered way to learn American Sign Language at
               home, with real-time feedback on every sign.
             </p>
-            <div className="mt-5 flex items-start gap-3">
+
+            <a
+              href="https://matrixstudios.co"
+              aria-label="Matrix Studios Software"
+              className="mt-5 flex items-start gap-3 w-fit group"
+            >
               <Image
                 src="/matrix-studios-logo.png"
                 alt="Matrix Studios Software"
                 width={512}
                 height={512}
-                className="h-5 w-5 shrink-0 grayscale opacity-70"
+                className="h-5 w-5 shrink-0 grayscale opacity-70 group-hover:opacity-100 transition-opacity"
               />
-              <div className="text-xs text-slate-400 leading-relaxed">
+
+              <div className="text-xs text-slate-400 leading-relaxed group-hover:text-slate-500 transition-colors">
                 <p>Matrix Studios Software</p>
                 <p>1968 S. Coast Hwy #3479, Laguna Beach, CA 92651</p>
               </div>
-            </div>
+            </a>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10 lg:justify-self-end">
@@ -90,6 +107,7 @@ export default function SiteFooter() {
                 <p className="text-xs font-semibold text-slate-900 mb-1">
                   {column.title}
                 </p>
+
                 {column.links.map((link) =>
                   link.external ? (
                     <a
@@ -102,7 +120,11 @@ export default function SiteFooter() {
                       {link.label}
                     </a>
                   ) : (
-                    <Link key={link.label} href={link.href} className={linkClass}>
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className={linkClass}
+                    >
                       {link.label}
                     </Link>
                   )
@@ -114,14 +136,18 @@ export default function SiteFooter() {
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-slate-200">
           <p className="text-xs text-slate-400">
-            &copy; {new Date().getFullYear()} Matrix Studios Software. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Matrix Studios Software. All
+            rights reserved.
           </p>
+
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <StatusPill />
+
             <button
               type="button"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={() =>
+                window.scrollTo({ top: 0, behavior: "smooth" })
+              }
               className="text-xs text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
             >
               Back to top ↑
