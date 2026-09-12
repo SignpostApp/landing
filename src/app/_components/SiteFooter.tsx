@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import StatusPill from "./StatusPill";
 import { DEMO_URL } from "./navData";
 
 type FooterLink = { label: string; href: string; external?: boolean };
@@ -116,13 +117,16 @@ export default function SiteFooter() {
             &copy; {new Date().getFullYear()} Matrix Studios Software. All rights
             reserved.
           </p>
-          <button
-            type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xs text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
-          >
-            Back to top ↑
-          </button>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <StatusPill />
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-xs text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
+            >
+              Back to top ↑
+            </button>
+          </div>
         </div>
       </div>
     </footer>
