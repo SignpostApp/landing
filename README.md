@@ -32,6 +32,11 @@ Create `.env.local` with:
 
 ```bash
 DATABASE_URL=postgresql://<user>:<password>@<host>.neon.tech/<dbname>?sslmode=require
+
+# Optional PostHog analytics, proxied through /ingest on this origin.
+# Use the same project key as demo.signpost.cv so visitors carry over.
+NEXT_PUBLIC_POSTHOG_KEY=phc_...
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 ```
 
 ## Local Development

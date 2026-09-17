@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import posthog from "posthog-js";
 
 import { getAttribution } from "@/lib/attribution";
 
@@ -63,6 +64,7 @@ export default function WhiteWaitlistModal({
       if (!email.trim() || status === "cooldown") return;
 
       setStatus("loading");
+      const attribution = getAttribution();
       try {
         const res = await fetch("/api/waitlist/join", {
           method: "POST",
@@ -71,7 +73,7 @@ export default function WhiteWaitlistModal({
             email: email.trim(),
             website: honeypot || undefined,
             timestamp: Date.now(),
-            attribution: getAttribution(),
+            attribution,
           }),
         });
         const data = await res.json();
@@ -80,6 +82,7 @@ export default function WhiteWaitlistModal({
           throw new Error(data.error || "Something went wrong");
         }
 
+        posthog.capture("waitlist_joined", { attribution });
         setStatus("success");
         setMessage(data.message || "You're on the list!");
         setEmail("");
