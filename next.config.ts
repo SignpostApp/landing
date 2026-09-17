@@ -17,6 +17,9 @@ const ANALYTICS_CONNECT_SRC =
 const ANALYTICS_IMG_SRC =
   " https://*.google-analytics.com https://www.googletagmanager.com";
 
+const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
+const POSTHOG_ASSETS_HOST = POSTHOG_HOST.replace(".i.posthog.com", "-assets.i.posthog.com");
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -52,6 +55,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   devIndicators: false,
+  skipTrailingSlashRedirect: true,
   images: {
     // SECURITY: Restrict Next.js image optimization to local assets only.
     remotePatterns: [],
@@ -59,10 +63,22 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path((?!ingest/).+)/",
+        destination: "/:path",
+        permanent: true,
+      },
+      {
         source: "/_src/:path*",
         destination: "/",
         permanent: false,
       },
+    ];
+  },
+  async rewrites() {
+    return [
+      { source: "/ingest/static/:path*", destination: `${POSTHOG_ASSETS_HOST}/static/:path*` },
+      { source: "/ingest/array/:path*", destination: `${POSTHOG_ASSETS_HOST}/array/:path*` },
+      { source: "/ingest/:path*", destination: `${POSTHOG_HOST}/:path*` },
     ];
   },
   async headers() {
