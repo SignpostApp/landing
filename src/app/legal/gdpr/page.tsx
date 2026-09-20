@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "GDPR Compliance — Signpost",
+export const metadata = pageMetadata({
+  title: "GDPR Compliance",
   description:
     "How Signpost complies with the EU General Data Protection Regulation (GDPR) and your rights as a data subject.",
-};
+  path: "/legal/gdpr",
+});
 
 export default function GDPRPage() {
   return (

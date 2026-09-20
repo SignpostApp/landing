@@ -4,6 +4,13 @@ import Script from "next/script";
 import { Geist, JetBrains_Mono } from "next/font/google";
 
 import AttributionCapture from "./AttributionCapture";
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from "@/lib/seo";
 
 import "./globals.css";
 
@@ -26,12 +33,6 @@ export const viewport: Viewport = {
   themeColor: "#fcfcfd",
 };
 
-const SITE_URL = "https://signpost.cv";
-const SITE_NAME = "Signpost";
-const SITE_TITLE = "Learn ASL Online for Free with Machine Learning Feedback | Signpost";
-const SITE_DESCRIPTION =
-  "Learn American Sign Language at home with free machine learning lessons that watch your hands through your webcam and correct your signs in real time. No sign-up to try.";
-
 // Google Search Console token. Set GOOGLE_SITE_VERIFICATION in the environment,
 // or verify the property through the existing GA4 tag instead (no token needed).
 const GSC_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION;
@@ -39,7 +40,7 @@ const GSC_VERIFICATION = process.env.GOOGLE_SITE_VERIFICATION;
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: SITE_TITLE,
+    default: `${SITE_TITLE} | ${SITE_NAME}`,
     template: "%s | Signpost",
   },
   description: SITE_DESCRIPTION,
@@ -96,9 +97,6 @@ export const metadata: Metadata = {
     "Signpost ASL",
     "Signpost app",
   ],
-  alternates: {
-    canonical: SITE_URL,
-  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -111,31 +109,18 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Learn ASL Online for Free with Machine Learning Feedback | Signpost",
-    description:
-      "Learn American Sign Language at home with free, machine-learning-powered lessons that watch your hands and correct you in real time. No sign-up needed for the demo.",
-    url: SITE_URL,
+    title: `${SITE_TITLE} | ${SITE_NAME}`,
+    description: SITE_DESCRIPTION,
     siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        // Rendered at 2× (2400×1260) so the card stays sharp after social
-        // platforms re-compress it and display it on high-DPI screens. Still
-        // 1.91:1, so every platform shows the large card.
-        url: `${SITE_URL}/og`,
-        width: 2400,
-        height: 1260,
-        alt: "Signpost: learn American Sign Language online for free with machine learning feedback",
-      },
-    ],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Learn ASL Online for Free with Machine Learning Feedback | Signpost",
-    description:
-      "Free American Sign Language lessons that watch your hands through your webcam and correct your signs in real time. Built for beginners. No sign-up needed for the demo.",
-    images: [`${SITE_URL}/og`],
+    title: `${SITE_TITLE} | ${SITE_NAME}`,
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
   },
   robots: {
     index: true,
@@ -180,8 +165,28 @@ const jsonLd = {
         "Signpost is a machine-learning-powered American Sign Language learning platform. It uses computer vision to watch your hand signs through a webcam and give real-time feedback so you can learn ASL on your own at home.",
       foundingDate: "2024",
       founders: [
-        { "@type": "Person", name: "Jerry Xiao", jobTitle: "Co-Founder and CEO" },
-        { "@type": "Person", name: "Max Castagnoli", jobTitle: "Co-Founder and CTO" },
+        {
+          "@type": "Person",
+          "@id": `${SITE_URL}/#jerry-xiao`,
+          name: "Jerry Xiao",
+          jobTitle: "Co-Founder and CEO",
+          url: "https://www.linkedin.com/in/xiaojerry/",
+          sameAs: [
+            "https://www.linkedin.com/in/xiaojerry/",
+            "https://github.com/undeemed",
+          ],
+        },
+        {
+          "@type": "Person",
+          "@id": `${SITE_URL}/#max-castagnoli`,
+          name: "Max Castagnoli",
+          jobTitle: "Co-Founder and CTO",
+          url: "https://www.linkedin.com/in/max-castagnoli-1b18b923b/",
+          sameAs: [
+            "https://www.linkedin.com/in/max-castagnoli-1b18b923b/",
+            "https://github.com/98ping",
+          ],
+        },
       ],
       sameAs: [
         "https://github.com/SignpostApp",

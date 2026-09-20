@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Cookie Policy — Signpost",
+export const metadata = pageMetadata({
+  title: "Cookie Policy",
   description:
     "How Signpost uses cookies and similar technologies on its ASL learning platform.",
-};
+  path: "/legal/cookies",
+});
 
 export default function CookiePolicyPage() {
   return (

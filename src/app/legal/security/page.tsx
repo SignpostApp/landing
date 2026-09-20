@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Security — Signpost",
+export const metadata = pageMetadata({
+  title: "Security",
   description:
     "How Signpost protects student data, secures its infrastructure, and keeps your webcam footage on your device.",
-};
+  path: "/legal/security",
+});
 
 export default function SecurityPage() {
   return (

@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy — Signpost",
+export const metadata = pageMetadata({
+  title: "Privacy Policy",
   description:
     "How Signpost collects, uses, and protects your personal data while you learn ASL with our machine-learning-powered platform.",
-};
+  path: "/legal/privacy",
+});
 
 export default function PrivacyPolicyPage() {
   return (

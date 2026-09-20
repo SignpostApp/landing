@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Terms of Service — Signpost",
+export const metadata = pageMetadata({
+  title: "Terms of Service",
   description:
     "Terms governing your use of the Signpost ASL learning platform, including acceptable use, intellectual property, and liability.",
-};
+  path: "/legal/terms",
+});
 
 export default function TermsOfServicePage() {
   return (
