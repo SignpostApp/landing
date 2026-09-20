@@ -104,6 +104,7 @@ function FeatureCard({
             alt="The Signpost app showing an ASL lesson in progress"
             width={1857}
             height={3096}
+            sizes="280px"
             className="h-full w-full object-cover"
             style={{ objectPosition: "50% 24%" }}
           />

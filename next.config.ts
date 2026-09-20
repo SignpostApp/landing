@@ -63,6 +63,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.signpost.cv" }],
+        destination: "https://signpost.cv/:path*",
+        permanent: true,
+      },
+      {
         source: "/:path((?!ingest/).+)/",
         destination: "/:path",
         permanent: true,

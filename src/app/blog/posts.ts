@@ -41,6 +41,8 @@ export interface Post {
   image?: string;
   imageAlt: string;
   body: Block[];
+  updated?: string;
+  related?: string[];
 }
 
 export const AUTHOR = {
@@ -72,6 +74,7 @@ export function bannerAlt(post: Post): string {
 export const POSTS: Post[] = [
   {
     slug: "our-origin-story",
+    related: ["how-real-time-sign-feedback-works", "learn-asl-when-your-school-doesnt-offer-it"],
     title: "Signpost's Origin Story and Mission",
     description:
       "How Signpost came to be and the steps that we are taking to improve American Sign Language for the future.",
@@ -104,6 +107,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "how-real-time-sign-feedback-works",
+    related: ["why-watching-videos-isnt-enough-to-learn-asl", "how-to-learn-the-asl-alphabet"],
     title: "How Our Feedback Engine Works",
     description:
       "A look under the hood at how Signpost is able to recognize what you are signing",
@@ -143,6 +147,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "learn-asl-on-your-own",
+    related: ["best-way-to-learn-sign-language-at-home", "how-long-does-it-take-to-learn-asl"],
     title: "How Signpost Enables You To Self-Teach ASL",
     description:
       "A practical guide to how our product allows you to teach yourself ASL with no outside assistance.",
@@ -172,6 +177,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "asl-for-homeschoolers",
+    related: ["learn-asl-on-your-own", "how-to-learn-the-asl-alphabet"],
     title: "How Signpost Can Work Alongside Your Homeschool Program",
     description:
       "How to add American Sign Language to a homeschool curriculum by using our platform.",
@@ -201,6 +207,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "asl-for-schools-and-districts",
+    related: ["asl-for-educators", "learn-asl-when-your-school-doesnt-offer-it"],
     title: "Bringing ASL to Your School or District",
     description:
       "How schools add American Sign Language instruction as a tool for educators and students.",
@@ -230,6 +237,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "asl-for-educators",
+    related: ["asl-for-schools-and-districts", "how-real-time-sign-feedback-works"],
     title: "Signpost for ASL Educators: Feedback That Scales Alongside Your Class",
     description:
       "How ASL teachers use real-time sign feedback to extend practice beyond class time, catch form errors earlier, and spend contact hours on language rather than drills.",
@@ -259,6 +267,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "learn-asl-when-your-school-doesnt-offer-it",
+    related: ["learn-asl-on-your-own", "best-way-to-learn-sign-language-at-home"],
     title: "How Signpost Brings ASL To Underexposed Students",
     description:
       "How Signpost is able to help students learn ASL by giving them easy lessons and straightforward feedback.",
@@ -288,6 +297,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "how-to-learn-the-asl-alphabet",
+    related: ["is-asl-hard-to-learn", "how-long-does-it-take-to-learn-asl"],
     title: "How to Learn the ASL Alphabet: A Practical Guide to Fingerspelling",
     description:
       "Learn the ASL alphabet the right way: the 26 fingerspelling handshapes, the letters that trip beginners up, and how to actually get clear and fast.",
@@ -358,6 +368,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "how-long-does-it-take-to-learn-asl",
+    related: ["is-asl-hard-to-learn", "best-way-to-learn-sign-language-at-home"],
     title: "How Long Does It Normally Take to Learn ASL?",
     description:
       "How long does it take to learn ASL? An honest look at realistic timelines, what 'fluent' really means, and the one factor that decides how fast you progress.",
@@ -429,6 +440,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "is-asl-hard-to-learn",
+    related: ["how-long-does-it-take-to-learn-asl", "why-watching-videos-isnt-enough-to-learn-asl"],
     title: "Is ASL Hard to Learn? How beginners often get stuck",
     description:
       "Is ASL hard to learn? Not the way people think. The five parts of every sign, why beginners stall, and the real obstacle that holds most learners back.",
@@ -490,6 +502,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "best-way-to-learn-sign-language-at-home",
+    related: ["why-watching-videos-isnt-enough-to-learn-asl", "how-to-learn-the-asl-alphabet"],
     title: "The Best Way to Learn Sign Language at Home",
     description:
       "The best way to learn sign language at home without a classroom: how to choose resources, build a routine that sticks, and avoid the trap that stalls self-teachers.",
@@ -565,6 +578,7 @@ export const POSTS: Post[] = [
   },
   {
     slug: "why-watching-videos-isnt-enough-to-learn-asl",
+    related: ["best-way-to-learn-sign-language-at-home", "how-real-time-sign-feedback-works"],
     title: "Why Watching Videos Isn't Enough to Learn ASL",
     description:
       "Watching ASL videos trains your eyes but not your hands. Why real-time feedback is the missing piece when you learn sign language, and how to actually build skill.",
@@ -642,15 +656,17 @@ export function formatDate(iso: string): string {
   return `${MONTHS[m - 1]} ${d}, ${y}`;
 }
 
-/** Estimated reading time in whole minutes (~200 wpm). */
-export function readingMinutes(post: Post): number {
-  const words = post.body.reduce((n, b) => {
+export function wordCount(post: Post): number {
+  return post.body.reduce((n, b) => {
     if (b.type === "ul" || b.type === "ol") {
       return n + b.items.join(" ").split(/\s+/).filter(Boolean).length;
     }
     return n + b.text.split(/\s+/).filter(Boolean).length;
   }, 0);
-  return Math.max(1, Math.round(words / 200));
+}
+
+export function readingMinutes(post: Post): number {
+  return Math.max(1, Math.round(wordCount(post) / 200));
 }
 
 /** All posts, newest first. */
@@ -662,9 +678,23 @@ export function getPostBySlug(slug: string): Post | undefined {
   return POSTS.find((p) => p.slug === slug);
 }
 
-/** Up to `count` other posts, newest first, excluding `slug`. */
-export function getOtherPosts(slug: string, count = 2): Post[] {
-  return getAllPosts()
-    .filter((p) => p.slug !== slug)
-    .slice(0, count);
+export function getRelatedPosts(slug: string, count = 2): Post[] {
+  const post = getPostBySlug(slug);
+  if (!post) return [];
+
+  const candidates = [
+    ...(post.related ?? []).map((related) => getPostBySlug(related)),
+    ...getAllPosts().filter((p) => p.category === post.category),
+    ...getAllPosts(),
+  ];
+
+  const picked: Post[] = [];
+  for (const candidate of candidates) {
+    if (picked.length >= count) break;
+    if (!candidate || candidate.slug === slug) continue;
+    if (picked.some((p) => p.slug === candidate.slug)) continue;
+    picked.push(candidate);
+  }
+
+  return picked;
 }

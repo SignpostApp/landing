@@ -1,66 +1,27 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "./blog/posts";
+import { SITE_URL } from "@/lib/seo";
+
+const LEGAL_PAGES = ["privacy", "terms", "cookies", "gdpr", "security"];
+const LEGAL_UPDATED = new Date("2026-04-12");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://signpost.cv";
-  const lastModified = new Date();
-
-  const blogPosts: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  const posts = getAllPosts();
+  const latestPostDate = posts.reduce((latest, post) => {
+    const date = post.updated ?? post.date;
+    return date > latest ? date : latest;
+  }, posts[0].date);
 
   return [
-    {
-      url: baseUrl,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: "https://demo.signpost.cv",
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    ...blogPosts,
-    {
-      url: `${baseUrl}/legal/privacy`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/legal/terms`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/legal/cookies`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${baseUrl}/legal/gdpr`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${baseUrl}/legal/security`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    { url: SITE_URL },
+    { url: `${SITE_URL}/blog`, lastModified: new Date(latestPostDate) },
+    ...posts.map((post) => ({
+      url: `${SITE_URL}/blog/${post.slug}`,
+      lastModified: new Date(post.updated ?? post.date),
+    })),
+    ...LEGAL_PAGES.map((slug) => ({
+      url: `${SITE_URL}/legal/${slug}`,
+      lastModified: LEGAL_UPDATED,
+    })),
   ];
 }

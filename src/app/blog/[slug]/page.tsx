@@ -5,15 +5,27 @@ import PostBody from "../_components/PostBody";
 import {
   AUTHOR,
   bannerAlt,
-  bannerSrc,
   formatDate,
   getAllPosts,
-  getOtherPosts,
   getPostBySlug,
+  getRelatedPosts,
   readingMinutes,
+  wordCount,
+  type Post,
 } from "../posts";
+import { SITE_URL, ogImage, pageMetadata, type OgImage } from "@/lib/seo";
 
-const SITE_URL = "https://signpost.cv";
+function postOgImage(post: Post): OgImage {
+  if (post.image) {
+    return {
+      url: `${SITE_URL}${post.image}`,
+      width: 2400,
+      height: 1000,
+      alt: bannerAlt(post),
+    };
+  }
+  return ogImage(post.title, post.description);
+}
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -28,31 +40,18 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) return {};
 
-  const url = `${SITE_URL}/blog/${post.slug}`;
-  const ogImage = `${SITE_URL}${bannerSrc(post)}`;
-
-  return {
+  return pageMetadata({
     title: post.title,
     description: post.description,
-    alternates: { canonical: url },
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      url,
-      siteName: "Signpost",
-      type: "article",
-      locale: "en_US",
+    path: `/blog/${post.slug}`,
+    image: postOgImage(post),
+    article: {
       publishedTime: post.date,
+      modifiedTime: post.updated ?? post.date,
       authors: [AUTHOR.name],
-      images: [{ url: ogImage, width: 2400, height: 1000, alt: bannerAlt(post) }],
+      section: post.category,
     },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.description,
-      images: [ogImage],
-    },
-  };
+  });
 }
 
 export default async function BlogPostPage({
@@ -66,7 +65,7 @@ export default async function BlogPostPage({
 
   const url = `${SITE_URL}/blog/${post.slug}`;
   const minutes = readingMinutes(post);
-  const others = getOtherPosts(post.slug, 2);
+  const others = getRelatedPosts(post.slug, 2);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -79,17 +78,19 @@ export default async function BlogPostPage({
         url,
         mainEntityOfPage: url,
         datePublished: post.date,
-        dateModified: post.date,
+        dateModified: post.updated ?? post.date,
         inLanguage: "en-US",
-        image: `${SITE_URL}${bannerSrc(post)}`,
+        image: postOgImage(post).url,
         author: {
           "@type": "Person",
+          "@id": `${SITE_URL}/#max-castagnoli`,
           name: AUTHOR.name,
           url: AUTHOR.url,
+          sameAs: [AUTHOR.url],
         },
         publisher: { "@id": `${SITE_URL}/#organization` },
         articleSection: post.category,
-        wordCount: minutes * 200,
+        wordCount: wordCount(post),
       },
       {
         "@type": "BreadcrumbList",
@@ -145,7 +146,14 @@ export default async function BlogPostPage({
           <div className="mt-14 pt-8 border-t border-slate-200">
             <div className="border border-slate-200 p-6 sm:p-7">
               <div className="flex items-center gap-2 mb-2">
-                <p className="font-semibold text-slate-900">{AUTHOR.name}</p>
+                <a
+                  href={AUTHOR.url}
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                  className="font-semibold text-slate-900 hover:underline underline-offset-4"
+                >
+                  {AUTHOR.name}
+                </a>
                 <span className="text-xs text-slate-500">&middot; {AUTHOR.role}</span>
               </div>
               <p className="text-[0.95rem] text-slate-600 leading-relaxed">

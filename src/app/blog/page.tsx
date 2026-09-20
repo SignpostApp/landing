@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   AUTHOR,
@@ -6,46 +5,21 @@ import {
   getAllPosts,
   readingMinutes,
 } from "./posts";
+import { SITE_URL, ogImage, pageMetadata } from "@/lib/seo";
 
-const SITE_URL = "https://signpost.cv";
+const BLOG_TITLE = "ASL Learning Blog: Practical Sign Language Guides";
+const BLOG_DESCRIPTION =
+  "Practical, honest guides to learning American Sign Language: the ASL alphabet, realistic timelines, common mistakes, and how to actually build skill at home.";
 
-// Branded social card for the blog index (the dynamic /og route).
-const BLOG_OG_IMAGE = `${SITE_URL}/og?title=${encodeURIComponent(
-  "The Signpost ASL Learning Blog",
-)}&subtitle=${encodeURIComponent(
-  "Honest, practical guides to learning American Sign Language — from the alphabet to building real skill at home.",
-)}`;
-
-export const metadata: Metadata = {
-  title: "ASL Learning Blog — Tips for Learning Sign Language",
-  description:
-    "Practical, honest guides to learning American Sign Language: the ASL alphabet, realistic timelines, common mistakes, and how to actually build skill at home.",
-  alternates: { canonical: `${SITE_URL}/blog` },
-  openGraph: {
-    title: "ASL Learning Blog | Signpost",
-    description:
-      "Practical, honest guides to learning American Sign Language, from the ASL alphabet to building real skill at home.",
-    url: `${SITE_URL}/blog`,
-    siteName: "Signpost",
-    type: "website",
-    locale: "en_US",
-    images: [
-      {
-        url: BLOG_OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: "The Signpost ASL Learning Blog",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ASL Learning Blog | Signpost",
-    description:
-      "Practical, honest guides to learning American Sign Language, from the ASL alphabet to building real skill at home.",
-    images: [BLOG_OG_IMAGE],
-  },
-};
+export const metadata = pageMetadata({
+  title: BLOG_TITLE,
+  description: BLOG_DESCRIPTION,
+  path: "/blog",
+  image: ogImage(
+    "The Signpost ASL Learning Blog",
+    "Honest, practical guides to learning American Sign Language, from the alphabet to building real skill at home.",
+  ),
+});
 
 export default function BlogIndexPage() {
   const posts = getAllPosts();
@@ -57,7 +31,7 @@ export default function BlogIndexPage() {
         "@type": "Blog",
         "@id": `${SITE_URL}/blog#blog`,
         name: "Signpost ASL Learning Blog",
-        description: metadata.description,
+        description: BLOG_DESCRIPTION,
         url: `${SITE_URL}/blog`,
         inLanguage: "en-US",
         publisher: { "@id": `${SITE_URL}/#organization` },
