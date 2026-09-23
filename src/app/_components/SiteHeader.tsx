@@ -132,7 +132,7 @@ function FeatureCard({
     return (
       <div className="nav-feature">
         <p className="nav-feature-eyebrow">Integrates with</p>
-        <ul className="mt-4 flex flex-col gap-3.5">
+        <ul className="mt-4 flex items-center gap-5">
           {LMS_MARKS.map((mark) => (
             <li key={mark.src} className="nav-feature-mark">
               <Image

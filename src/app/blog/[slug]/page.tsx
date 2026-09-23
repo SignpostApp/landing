@@ -142,28 +142,8 @@ export default async function BlogPostPage({
         <div className="max-w-3xl mx-auto px-6 lg:px-10 mt-12 sm:mt-14">
           <PostBody blocks={post.body} />
 
-          {/* ═══ AUTHOR ═══ */}
-          <div className="mt-14 pt-8 border-t border-slate-200">
-            <div className="border border-slate-200 p-6 sm:p-7">
-              <div className="flex items-center gap-2 mb-2">
-                <a
-                  href={AUTHOR.url}
-                  target="_blank"
-                  rel="me noopener noreferrer"
-                  className="font-semibold text-slate-900 hover:underline underline-offset-4"
-                >
-                  {AUTHOR.name}
-                </a>
-                <span className="text-xs text-slate-500">&middot; {AUTHOR.role}</span>
-              </div>
-              <p className="text-[0.95rem] text-slate-600 leading-relaxed">
-                {AUTHOR.bio}
-              </p>
-            </div>
-          </div>
-
           {/* ═══ CTA ═══ */}
-          <div className="mt-10 border border-slate-200 p-7 sm:p-9 text-center">
+          <div className="mt-14 border border-slate-200 p-7 sm:p-9 text-center">
             <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 text-balance">
               Stop practicing in the dark.
             </h2>

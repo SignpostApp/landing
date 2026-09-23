@@ -47,8 +47,6 @@ export interface Post {
 
 export const AUTHOR = {
   name: "Max Castagnoli",
-  role: "Co-founder & CTO",
-  bio: "Max is the co-founder and CTO of Signpost. He built the computer vision pipeline that watches a learner's hands in real time, and has spent two years living the problem of learning ASL without enough feedback.",
   url: "https://www.linkedin.com/in/max-castagnoli-1b18b923b/",
 };
 
