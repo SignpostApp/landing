@@ -26,10 +26,10 @@ export default function SecurityPage() {
 
       {/* Core Principle */}
       <section className="legal-section">
-        <div className="glass-card rounded-2xl p-8 sm:p-10 border-accent/20">
+        <div className="border border-slate-200 bg-white p-8 sm:p-10">
           <div className="flex items-start gap-4">
             <div className="shrink-0 mt-1">
-              <div className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
+              <div className="w-10 h-10 bg-accent/10 border border-accent/20 flex items-center justify-center">
                 <svg
                   width="18"
                   height="18"
@@ -92,7 +92,7 @@ export default function SecurityPage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="glass-card rounded-xl p-6 hover:translate-y-0"
+              className="border border-slate-200 bg-white p-6"
             >
               <h3 className="text-foreground font-medium text-sm mb-2">
                 {item.title}
@@ -305,7 +305,7 @@ export default function SecurityPage() {
       {/* Contact */}
       <section className="legal-section">
         <h2 className="legal-heading">Report a Concern</h2>
-        <div className="glass-card rounded-2xl p-8 mt-6">
+        <div className="border border-slate-200 bg-white p-8 mt-6">
           <p className="text-foreground font-medium mb-2">Matrix Studios Software</p>
           <p className="text-muted text-sm leading-relaxed">
             Security:{" "}
