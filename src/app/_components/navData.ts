@@ -1,151 +1,238 @@
 import type { IconName } from "./navIcons";
 
-export type NavLink = {
-  label: string;
-  desc?: string;
+export type NavItem =
+  | {
+      type: "icon";
+      label: string;
+      desc: string;
+      href: string;
+      icon: IconName;
+      external?: boolean;
+    }
+  | { type: "link"; label: string; href: string; external?: boolean }
+  | { type: "tile"; label: string; desc: string; href: string; external?: boolean };
+
+export type NavSection = {
+  title: string;
+  items: NavItem[];
+};
+
+export type NavFeature = {
+  title: string;
+  desc: string;
   href: string;
-  icon?: IconName;
   external?: boolean;
+  visual: { type: "image"; src: string; position?: string } | { type: "logos" };
 };
 
 export type NavMenu = {
   id: string;
   label: string;
-  width: number;
-  columns: 1 | 2;
-  compact?: boolean;
-  links: NavLink[];
-  feature?: "demo" | "lms" | "blog";
+  divided?: boolean;
+  sections: NavSection[];
+  feature: NavFeature;
 };
+
+export type NavLink = {
+  label: string;
+  href: string;
+};
+
+export const DEMO_URL = "https://demo.signpost.cv";
 
 export const NAV_MENUS: NavMenu[] = [
   {
     id: "product",
     label: "Product",
-    width: 620,
-    columns: 1,
-    feature: "demo",
-    links: [
+    sections: [
       {
-        label: "Real-time Feedback Engine",
-        desc: "A machine learning model trained to work with ASL.",
-        href: "/blog/how-real-time-sign-feedback-works",
-        icon: "cpu",
+        title: "Learn",
+        items: [
+          {
+            type: "icon",
+            label: "Real-time Feedback Engine",
+            desc: "Corrections in under 100ms",
+            href: "/blog/how-real-time-sign-feedback-works",
+            icon: "cpu",
+          },
+          {
+            type: "icon",
+            label: "Standard ASL Curriculum",
+            desc: "Alphabet to conversation",
+            href: "/#curriculum",
+            icon: "book",
+          },
+        ],
       },
       {
-        label: "Standard ASL Curriculum",
-        desc: "Alphabet to conversations over 30+ units.",
-        href: "/#curriculum",
-        icon: "book",
+        title: "Platform",
+        items: [
+          {
+            type: "icon",
+            label: "Privacy By Design",
+            desc: "Your video stays local",
+            href: "/legal/security",
+            icon: "lock",
+          },
+          {
+            type: "icon",
+            label: "LMS Integrations",
+            desc: "LTI 1.3 for your school's LMS",
+            href: "/#schools",
+            icon: "grid",
+          },
+        ],
       },
       {
-        label: "Privacy By Design",
-        desc: "Hand tracking runs on your device, not ours.",
-        href: "/legal/security",
-        icon: "lock",
+        title: "Get started",
+        items: [
+          {
+            type: "icon",
+            label: "How It Works",
+            desc: "Your first sign in three steps",
+            href: "/#how-it-works",
+            icon: "steps",
+          },
+          {
+            type: "icon",
+            label: "Free Demo",
+            desc: "Opens in any browser",
+            href: DEMO_URL,
+            icon: "play",
+            external: true,
+          },
+        ],
       },
     ],
+    feature: {
+      title: "Try it in your browser",
+      desc: "No sign-up, no download. Turn on your webcam and sign your first letter in a couple of minutes.",
+      href: DEMO_URL,
+      external: true,
+      visual: { type: "image", src: "/demo-ss.png", position: "50% 24%" },
+    },
   },
   {
     id: "solutions",
     label: "Solutions",
-    width: 640,
-    columns: 1,
-    feature: "lms",
-    links: [
+    divided: true,
+    sections: [
       {
-        label: "For self-learners",
-        desc: "Teach yourself at home, at your own pace.",
-        href: "/blog/learn-asl-on-your-own",
-        icon: "user",
+        title: "For learners",
+        items: [
+          { type: "link", label: "Self-learners", href: "/blog/learn-asl-on-your-own" },
+          { type: "link", label: "Homeschoolers", href: "/blog/asl-for-homeschoolers" },
+          {
+            type: "link",
+            label: "Students without an ASL class",
+            href: "/blog/learn-asl-when-your-school-doesnt-offer-it",
+          },
+          {
+            type: "tile",
+            label: "Free for every learner",
+            desc: "Every unit is free, forever. Plans are cosmetic only.",
+            href: "/#features",
+          },
+        ],
       },
       {
-        label: "For homeschoolers",
-        desc: "Add ASL as a new language in your curriculum.",
-        href: "/blog/asl-for-homeschoolers",
-        icon: "home",
-      },
-      {
-        label: "For schools and districts",
-        desc: "Empowering educators and students alike.",
-        href: "/blog/asl-for-schools-and-districts",
-        icon: "building",
-      },
-      {
-        label: "For ASL educators",
-        desc: "Feedback that scales past your contact hours.",
-        href: "/blog/asl-for-educators",
-        icon: "users",
-      },
-      {
-        label: "For students without a class",
-        desc: "Allowing underexposed students access to ASL feedback.",
-        href: "/blog/learn-asl-when-your-school-doesnt-offer-it",
-        icon: "chat",
+        title: "For schools",
+        items: [
+          {
+            type: "link",
+            label: "Schools and districts",
+            href: "/blog/asl-for-schools-and-districts",
+          },
+          { type: "link", label: "ASL educators", href: "/blog/asl-for-educators" },
+        ],
       },
     ],
+    feature: {
+      title: "Works inside your school's LMS",
+      desc: "Full LTI 1.3 support, so lessons and grades land where your school already works.",
+      href: "/#schools",
+      visual: { type: "logos" },
+    },
   },
   {
     id: "resources",
     label: "Resources",
-    width: 640,
-    columns: 2,
-    feature: "blog",
-    links: [
+    divided: true,
+    sections: [
       {
-        label: "Blog",
-        desc: "Honest guides to learning ASL at home.",
-        href: "/blog",
-        icon: "doc",
+        title: "Guides",
+        items: [
+          {
+            type: "icon",
+            label: "ASL Alphabet Guide",
+            desc: "Fingerspelling from A to Z",
+            href: "/blog/how-to-learn-the-asl-alphabet",
+            icon: "hand",
+          },
+          {
+            type: "icon",
+            label: "How Long ASL Takes",
+            desc: "An honest beginner timeline",
+            href: "/blog/how-long-does-it-take-to-learn-asl",
+            icon: "clock",
+          },
+          {
+            type: "icon",
+            label: "Is ASL Hard to Learn?",
+            desc: "Where beginners get stuck",
+            href: "/blog/is-asl-hard-to-learn",
+            icon: "help",
+          },
+          {
+            type: "icon",
+            label: "Learning at Home",
+            desc: "Self-study that works",
+            href: "/blog/best-way-to-learn-sign-language-at-home",
+            icon: "home",
+          },
+          {
+            type: "icon",
+            label: "Why Videos Fall Short",
+            desc: "Watching isn't signing",
+            href: "/blog/why-watching-videos-isnt-enough-to-learn-asl",
+            icon: "play",
+          },
+        ],
       },
       {
-        label: "FAQ",
-        desc: "Answers to the questions we get most.",
-        href: "/#faq",
-        icon: "help",
+        title: "Company",
+        items: [
+          { type: "link", label: "About us", href: "/#team" },
+          { type: "link", label: "Our story", href: "/blog/our-origin-story" },
+          {
+            type: "link",
+            label: "GitHub",
+            href: "https://github.com/SignpostApp",
+            external: true,
+          },
+        ],
       },
       {
-        label: "ASL alphabet guide",
-        desc: "Fingerspelling, one letter at a time.",
-        href: "/blog/how-to-learn-the-asl-alphabet",
-        icon: "hand",
-      },
-      {
-        label: "GitHub",
-        desc: "Follow along with how Signpost is built.",
-        href: "https://github.com/SignpostApp",
-        icon: "code",
-        external: true,
+        title: "Legal",
+        items: [
+          { type: "link", label: "Privacy", href: "/legal/privacy" },
+          { type: "link", label: "Terms", href: "/legal/terms" },
+          { type: "link", label: "Security", href: "/legal/security" },
+        ],
       },
     ],
-  },
-  {
-    id: "company",
-    label: "Company",
-    width: 260,
-    columns: 1,
-    compact: true,
-    links: [
-      { label: "About us", href: "/#team" },
-      { label: "Blog", href: "/blog" },
-      { label: "Privacy", href: "/legal/privacy" },
-      { label: "Terms", href: "/legal/terms" },
-      { label: "Security", href: "/legal/security" },
-    ],
+    feature: {
+      title: "How our feedback engine works",
+      desc: "What happens between your hand and the score, all in under 100 milliseconds.",
+      href: "/blog/how-real-time-sign-feedback-works",
+      visual: { type: "image", src: "/blog/banner.png" },
+    },
   },
 ];
 
-export const FEATURED_POSTS = [
-  {
-    title: "How Long Does It Take to Learn ASL? An Honest Answer",
-    href: "/blog/how-long-does-it-take-to-learn-asl",
-    meta: "6 min read",
-  },
-  {
-    title: "Why Watching Videos Isn't Enough to Learn ASL",
-    href: "/blog/why-watching-videos-isnt-enough-to-learn-asl",
-    meta: "5 min read",
-  },
+export const NAV_LINKS: NavLink[] = [
+  { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export const LMS_MARKS = [
@@ -153,5 +240,3 @@ export const LMS_MARKS = [
   { src: "/icons/blackboard.png", alt: "Blackboard" },
   { src: "/icons/Schoology.png", alt: "Schoology" },
 ];
-
-export const DEMO_URL = "https://demo.signpost.cv";

@@ -401,48 +401,57 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ═══ FAQ ═══ */}
         <section id="faq" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="Frequently asked questions about learning ASL">
-          <div className="max-w-3xl mx-auto px-6 lg:px-10">
-            <div data-reveal className="mb-12 lg:mb-16">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">FAQ</p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
-                Frequently Asked Questions
-              </h2>
-            </div>
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+            <h2 data-reveal className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900">
+              FAQ
+            </h2>
 
-            <div className="space-y-3">
+            <div data-reveal-group className="mt-10 md:mt-12 lg:mt-16 border-y border-slate-300">
               {FAQS.map((faq, idx) => {
                 const isOpen = openFaq === idx;
                 return (
-                  <div
-                    key={faq.q}
-                    data-reveal
-                    className={`rounded-xl border bg-white overflow-hidden transition-colors duration-200 ${
-                      isOpen ? "border-slate-300" : "border-slate-200"
-                    }`}
-                  >
-                    <button
-                      className="w-full cursor-pointer p-5 sm:p-6 text-slate-900 flex items-center justify-between text-left hover:bg-slate-50/60 transition-colors"
-                      onClick={() => setOpenFaq(isOpen ? null : idx)}
-                      aria-expanded={isOpen}
-                    >
-                      <h3 className="text-base sm:text-lg font-medium text-balance pr-4">{faq.q}</h3>
-                      <span
-                        className={`ml-4 flex items-center justify-center w-6 h-6 text-slate-400 text-xl leading-none select-none transition-transform duration-300 shrink-0 ${
-                          isOpen ? "rotate-45 text-slate-900" : ""
-                        }`}
-                        aria-hidden="true"
+                  <div key={faq.q} className="border-t border-slate-300 first:border-t-0">
+                    <h3 className="flex">
+                      <button
+                        type="button"
+                        id={`faq-question-${idx}`}
+                        aria-controls={`faq-answer-${idx}`}
+                        aria-expanded={isOpen}
+                        onClick={() => setOpenFaq(isOpen ? null : idx)}
+                        className="group flex flex-1 cursor-pointer items-center justify-between gap-6 py-4 text-left text-base text-slate-900 text-balance"
                       >
-                        +
-                      </span>
-                    </button>
+                        {faq.q}
+                        <span
+                          aria-hidden="true"
+                          className="shrink-0 rounded-lg border border-slate-300 p-2 transition-colors duration-150 group-hover:border-slate-400 group-hover:bg-slate-50"
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className={`block h-5 w-5 transition-transform duration-150 ${isOpen ? "rotate-180" : ""}`}
+                          >
+                            <polyline points="6 9 12 15 18 9" />
+                          </svg>
+                        </span>
+                      </button>
+                    </h3>
                     <div
-                      className="overflow-hidden transition-[grid-template-rows] duration-300 ease-out grid"
+                      className="grid transition-[grid-template-rows] duration-200"
                       style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                     >
-                      <div className="overflow-hidden">
-                        <p className="px-5 sm:px-6 pb-6 text-slate-600 leading-relaxed text-[0.95rem]">{faq.a}</p>
+                      <div
+                        id={`faq-answer-${idx}`}
+                        role="region"
+                        aria-labelledby={`faq-question-${idx}`}
+                        inert={!isOpen}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-4 text-slate-600 text-balance lg:max-w-[62.5%]">{faq.a}</p>
                       </div>
                     </div>
                   </div>

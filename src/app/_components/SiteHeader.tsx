@@ -3,21 +3,71 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import WhiteWaitlistModal from "../WhiteWaitlistModal";
 import { NavIcon } from "./navIcons";
 import {
   DEMO_URL,
-  FEATURED_POSTS,
   LMS_MARKS,
+  NAV_LINKS,
   NAV_MENUS,
-  type NavLink,
-  type NavMenu,
+  type NavFeature,
+  type NavItem,
+  type NavSection,
 } from "./navData";
 
-const SHELL_GAP = 10;
-const OPEN_DELAY = 55;
-const CLOSE_DELAY = 170;
+const OPEN_DELAY = 70;
+const CLOSE_DELAY = 180;
+const CLICK_GRACE = 600;
+const CONTENT_EASE = "cubic-bezier(0.4, 0, 0.2, 1)";
+const CHEVRON_DOWN = "6 9 12 15 18 9";
+const CHEVRON_RIGHT = "9 6 15 12 9 18";
+const CHEVRON_LEFT = "15 18 9 12 15 6";
+
+type Frame = { opacity: number; transform: string };
+
+function slide(el: HTMLElement, from: Frame, to: Frame) {
+  const running = el.getAnimations();
+  let start = from;
+  if (running.length > 0) {
+    const style = getComputedStyle(el);
+    start = { opacity: Number(style.opacity), transform: style.transform };
+    running.forEach((animation) => animation.cancel());
+  }
+  el.animate(
+    [
+      { opacity: start.opacity, transform: start.transform },
+      { opacity: to.opacity, offset: 0.5 },
+      { opacity: to.opacity, transform: to.transform },
+    ],
+    { duration: 500, easing: CONTENT_EASE }
+  );
+}
+
+function focusables(root: HTMLElement | null) {
+  if (!root) return [];
+  return Array.from(
+    root.querySelectorAll<HTMLElement>("a[href], button:not([disabled])")
+  );
+}
+
+function ChevronIcon({ points, className }: { points: string; className: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <polyline points={points} />
+    </svg>
+  );
+}
 
 function ExternalGlyph() {
   return (
@@ -29,143 +79,185 @@ function ExternalGlyph() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className="nav-item-glyph h-3 w-3"
+      className="nav-external"
     >
       <path d="M4 8 8 4M4.6 4H8v3.4" />
     </svg>
   );
 }
 
-function MenuItem({
-  link,
-  compact,
+function NavAnchor({
+  href,
+  external,
+  className,
   onNavigate,
+  children,
 }: {
-  link: NavLink;
-  compact?: boolean;
+  href: string;
+  external?: boolean;
+  className: string;
   onNavigate: () => void;
+  children: React.ReactNode;
 }) {
-  const body = compact ? (
-    <>
-      <span className="nav-item-label">{link.label}</span>
-      {link.external ? <ExternalGlyph /> : null}
-    </>
-  ) : (
-    <>
-      <span className="nav-item-tile">
-        {link.icon ? <NavIcon name={link.icon} /> : null}
-      </span>
-      <span className="min-w-0">
-        <span className="nav-item-head">
-          <span className="nav-item-label">{link.label}</span>
-          {link.external ? <ExternalGlyph /> : null}
-        </span>
-        {link.desc ? <span className="nav-item-desc">{link.desc}</span> : null}
-      </span>
-    </>
-  );
-
-  const className = compact ? "nav-item nav-item-compact" : "nav-item";
-
-  if (link.external) {
+  if (external) {
     return (
       <a
-        className={className}
-        href={link.href}
+        href={href}
         target="_blank"
         rel="noopener noreferrer"
+        className={className}
         onClick={onNavigate}
       >
-        {body}
+        {children}
+        <span className="sr-only"> (opens in a new tab)</span>
       </a>
     );
   }
 
   return (
-    <Link className={className} href={link.href} onClick={onNavigate}>
-      {body}
+    <Link href={href} className={className} onClick={onNavigate}>
+      {children}
     </Link>
   );
 }
 
-function FeatureCard({
-  kind,
-  onNavigate,
-}: {
-  kind: NonNullable<NavMenu["feature"]>;
-  onNavigate: () => void;
-}) {
-  if (kind === "demo") {
+function MegaItem({ item, onNavigate }: { item: NavItem; onNavigate: () => void }) {
+  if (item.type === "icon") {
     return (
-      <div className="nav-feature">
-        <div className="nav-feature-shot">
-          <Image
-            src="/demo-ss.png"
-            alt="The Signpost app showing an ASL lesson in progress"
-            width={1857}
-            height={3096}
-            sizes="280px"
-            className="h-full w-full object-cover"
-            style={{ objectPosition: "50% 24%" }}
-          />
-        </div>
-        <p className="nav-feature-title">Try it in your browser</p>
-        <p className="nav-feature-body">
-          No sign-up, no download. Turn on your webcam and sign your first letter
-          in a couple of minutes.
-        </p>
-        <a
-          href={DEMO_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={onNavigate}
-          className="nav-feature-cta"
-        >
-          Open the demo
-          <span aria-hidden="true">→</span>
-        </a>
-      </div>
+      <NavAnchor
+        href={item.href}
+        external={item.external}
+        className="mega-icon-item"
+        onNavigate={onNavigate}
+      >
+        <span className="mega-badge">
+          <NavIcon name={item.icon} />
+        </span>
+        <span className="mega-icon-text">
+          <span className="mega-icon-label">
+            {item.label}
+            {item.external ? <ExternalGlyph /> : null}
+          </span>
+          <span className="mega-icon-desc">{item.desc}</span>
+        </span>
+      </NavAnchor>
     );
   }
 
-  if (kind === "lms") {
+  if (item.type === "tile") {
     return (
-      <div className="nav-feature">
-        <p className="nav-feature-eyebrow">Integrates with</p>
-        <ul className="mt-4 flex items-center gap-5">
-          {LMS_MARKS.map((mark) => (
-            <li key={mark.src} className="nav-feature-mark">
-              <Image
-                src={mark.src}
-                alt={mark.alt}
-                width={160}
-                height={48}
-                className="max-h-7 w-auto object-contain"
-              />
-            </li>
-          ))}
-        </ul>
-        <p className="nav-feature-body mt-4">
-          Full LTI 1.3 support, so lessons and grades land where your school
-          already works.
-        </p>
-      </div>
+      <NavAnchor
+        href={item.href}
+        external={item.external}
+        className="mega-tile"
+        onNavigate={onNavigate}
+      >
+        <span className="mega-tile-label">{item.label}</span>
+        <span className="mega-tile-desc">{item.desc}</span>
+      </NavAnchor>
     );
   }
 
   return (
-    <div className="nav-feature">
-      <p className="nav-feature-eyebrow">Latest writing</p>
-      <ul className="mt-3.5 flex flex-col gap-3">
-        {FEATURED_POSTS.map((post) => (
-          <li key={post.href}>
-            <Link href={post.href} onClick={onNavigate} className="nav-feature-post">
-              <span className="nav-feature-post-title">{post.title}</span>
-              <span className="nav-feature-post-meta">{post.meta}</span>
-            </Link>
+    <NavAnchor
+      href={item.href}
+      external={item.external}
+      className="mega-link"
+      onNavigate={onNavigate}
+    >
+      {item.label}
+      {item.external ? <ExternalGlyph /> : null}
+    </NavAnchor>
+  );
+}
+
+function MegaSection({
+  section,
+  onNavigate,
+}: {
+  section: NavSection;
+  onNavigate: () => void;
+}) {
+  const iconList = section.items.some((item) => item.type === "icon");
+
+  return (
+    <div className="mega-section">
+      <p className="mega-label">{section.title}</p>
+      <ul className={iconList ? "mega-icon-list" : "mega-link-list"}>
+        {section.items.map((item) => (
+          <li key={item.label}>
+            <MegaItem item={item} onNavigate={onNavigate} />
           </li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+function MegaFeature({
+  feature,
+  onNavigate,
+}: {
+  feature: NavFeature;
+  onNavigate: () => void;
+}) {
+  const { visual } = feature;
+
+  return (
+    <div className="mega-feature">
+      <p className="mega-label">Featured</p>
+      <NavAnchor
+        href={feature.href}
+        external={feature.external}
+        className="mega-feature-link"
+        onNavigate={onNavigate}
+      >
+        {visual.type === "image" ? (
+          <span className="mega-feature-visual">
+            <Image
+              src={visual.src}
+              alt=""
+              fill
+              loading="eager"
+              sizes="(min-width: 1024px) 240px, 100vw"
+              className="object-cover"
+              style={{ objectPosition: visual.position ?? "50% 50%" }}
+            />
+          </span>
+        ) : (
+          <span className="mega-feature-visual mega-feature-logos">
+            {LMS_MARKS.map((mark) => (
+              <Image
+                key={mark.src}
+                src={mark.src}
+                alt={mark.alt}
+                width={160}
+                height={48}
+                loading="eager"
+                className="h-9 w-auto max-w-[28%] object-contain"
+              />
+            ))}
+          </span>
+        )}
+        <span className="mega-feature-text">
+          <span className="mega-feature-title">
+            {feature.title}
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              className="mega-feature-arrow"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+          <span className="mega-feature-desc">{feature.desc}</span>
+        </span>
+      </NavAnchor>
     </div>
   );
 }
@@ -175,74 +267,33 @@ export default function SiteHeader({
 }: {
   variant?: "solid" | "plain";
 }) {
+  const pathname = usePathname();
   const [active, setActive] = useState<string | null>(null);
-  const [hovered, setHovered] = useState<string | null>(null);
+  const [shown, setShown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const [mobilePanel, setMobilePanel] = useState<string | null>(null);
   const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   const navRef = useRef<HTMLElement | null>(null);
   const barRef = useRef<HTMLDivElement | null>(null);
-  const rowRef = useRef<HTMLDivElement | null>(null);
-  const railRef = useRef<HTMLDivElement | null>(null);
-  const shellRef = useRef<HTMLDivElement | null>(null);
-  const pillRef = useRef<HTMLSpanElement | null>(null);
+  const listRef = useRef<HTMLUListElement | null>(null);
+  const megaRef = useRef<HTMLDivElement | null>(null);
   const progressRef = useRef<HTMLSpanElement | null>(null);
+  const burgerRef = useRef<HTMLButtonElement | null>(null);
+  const backRef = useRef<HTMLButtonElement | null>(null);
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const panelRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const rowRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
   const activeRef = useRef<string | null>(null);
+  const previousRef = useRef<string | null>(null);
   const heightsRef = useRef<Record<string, number>>({});
-  const dirRef = useRef(1);
-  const instantRef = useRef(true);
+  const hoverOpenedAt = useRef(0);
+  const focusNext = useRef<(() => HTMLElement | null | undefined) | null>(null);
   const openTimer = useRef<number | null>(null);
   const closeTimer = useRef<number | null>(null);
 
-  const applyShell = useCallback((id: string | null) => {
-    const shell = shellRef.current;
-    const rail = railRef.current;
-    if (!shell || !rail || !id) return;
-
-    const menu = NAV_MENUS.find((m) => m.id === id);
-    const trigger = triggerRefs.current[id];
-    if (!menu || !trigger) return;
-
-    const railBox = rail.getBoundingClientRect();
-    const triggerBox = trigger.getBoundingClientRect();
-    const style = getComputedStyle(rail);
-    const padLeft = parseFloat(style.paddingLeft) || 0;
-    const padRight = parseFloat(style.paddingRight) || 0;
-
-    const center = triggerBox.left - railBox.left + triggerBox.width / 2;
-    const min = padLeft;
-    const max = railBox.width - padRight - menu.width;
-    const x = Math.round(
-      Math.min(Math.max(center - menu.width / 2, min), Math.max(min, max))
-    );
-
-    shell.style.setProperty("--shell-x", `${x}px`);
-    shell.style.setProperty("--dir", String(dirRef.current));
-    shell.style.width = `${menu.width}px`;
-    shell.style.height = `${(heightsRef.current[id] ?? 0) + SHELL_GAP}px`;
-  }, []);
-
-  const applyPill = useCallback((id: string | null) => {
-    const pill = pillRef.current;
-    const row = rowRef.current;
-    if (!pill || !row) return;
-
-    const el = id ? triggerRefs.current[id] : null;
-    if (!el) {
-      pill.dataset.visible = "false";
-      return;
-    }
-
-    const rowBox = row.getBoundingClientRect();
-    const box = el.getBoundingClientRect();
-    pill.style.setProperty("--pill-x", `${Math.round(box.left - rowBox.left)}px`);
-    pill.style.setProperty("--pill-w", `${Math.round(box.width)}px`);
-    pill.dataset.visible = "true";
-  }, []);
+  const drilled = mobileOpen && mobilePanel !== null;
 
   const clearTimers = useCallback(() => {
     if (openTimer.current) window.clearTimeout(openTimer.current);
@@ -252,69 +303,103 @@ export default function SiteHeader({
   }, []);
 
   const openMenu = useCallback((id: string) => {
-    const current = activeRef.current;
-    if (current === id) return;
-    const from = NAV_MENUS.findIndex((m) => m.id === current);
-    const to = NAV_MENUS.findIndex((m) => m.id === id);
-    dirRef.current = current === null || to >= from ? 1 : -1;
-    instantRef.current = current === null;
+    if (activeRef.current === id) return;
     activeRef.current = id;
     setActive(id);
+    setShown(id);
   }, []);
 
   const closeMenu = useCallback(() => {
     clearTimers();
     activeRef.current = null;
     setActive(null);
-    setHovered(null);
   }, [clearTimers]);
 
-  useLayoutEffect(() => {
-    const shell = shellRef.current;
-    if (!shell || !active) return;
+  const scheduleClose = useCallback(() => {
+    clearTimers();
+    closeTimer.current = window.setTimeout(() => {
+      closeTimer.current = null;
+      activeRef.current = null;
+      setActive(null);
+    }, CLOSE_DELAY);
+  }, [clearTimers]);
 
-    if (!instantRef.current) {
-      applyShell(active);
-      return;
-    }
+  const cancelClose = useCallback(() => {
+    if (!closeTimer.current) return;
+    window.clearTimeout(closeTimer.current);
+    closeTimer.current = null;
+  }, []);
 
-    shell.dataset.instant = "true";
-    applyShell(active);
-    const raf = requestAnimationFrame(() => {
-      instantRef.current = false;
-      shell.dataset.instant = "false";
-    });
-    return () => cancelAnimationFrame(raf);
-  }, [active, applyShell]);
-
-  useLayoutEffect(() => {
-    applyPill(hovered ?? active);
-  }, [hovered, active, applyPill]);
+  const applyHeight = useCallback(() => {
+    const mega = megaRef.current;
+    if (!mega) return;
+    const id = activeRef.current;
+    mega.style.height = id ? `${heightsRef.current[id] ?? 0}px` : "";
+  }, []);
 
   useLayoutEffect(() => {
     const measure = () => {
-      let changed = false;
       for (const menu of NAV_MENUS) {
-        const el = panelRefs.current[menu.id];
-        if (!el) continue;
-        const h = el.offsetHeight;
-        if (h > 0 && heightsRef.current[menu.id] !== h) {
-          heightsRef.current[menu.id] = h;
-          changed = true;
-        }
+        const panel = panelRefs.current[menu.id];
+        if (panel) heightsRef.current[menu.id] = panel.offsetHeight;
       }
-      if (changed) applyShell(activeRef.current);
+      applyHeight();
     };
 
     measure();
 
-    const ro = new ResizeObserver(measure);
+    const observer = new ResizeObserver(measure);
     for (const menu of NAV_MENUS) {
-      const el = panelRefs.current[menu.id];
-      if (el) ro.observe(el);
+      const panel = panelRefs.current[menu.id];
+      if (panel) observer.observe(panel);
     }
-    return () => ro.disconnect();
-  }, [applyShell]);
+    return () => observer.disconnect();
+  }, [applyHeight]);
+
+  useLayoutEffect(() => {
+    applyHeight();
+
+    const previous = previousRef.current;
+    previousRef.current = active;
+    if (!active || previous === active) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const incoming = panelRefs.current[active];
+    if (!incoming) return;
+
+    if (!previous) {
+      slide(
+        incoming,
+        { opacity: 0, transform: "translateY(8px)" },
+        { opacity: 1, transform: "none" }
+      );
+      return;
+    }
+
+    const from = NAV_MENUS.findIndex((menu) => menu.id === previous);
+    const to = NAV_MENUS.findIndex((menu) => menu.id === active);
+    const dir = to > from ? 1 : -1;
+    const outgoing = panelRefs.current[previous];
+
+    if (outgoing) {
+      slide(
+        outgoing,
+        { opacity: 1, transform: "none" },
+        { opacity: 0, transform: `translateX(${-dir * 20}%)` }
+      );
+    }
+    slide(
+      incoming,
+      { opacity: 0, transform: `translateX(${dir * 20}%)` },
+      { opacity: 1, transform: "none" }
+    );
+  }, [active, applyHeight]);
+
+  useLayoutEffect(() => {
+    const target = focusNext.current;
+    focusNext.current = null;
+    target?.()?.focus();
+  }, [active, mobilePanel]);
 
   useLayoutEffect(() => {
     const nav = navRef.current;
@@ -326,19 +411,10 @@ export default function SiteHeader({
     };
     apply();
 
-    const ro = new ResizeObserver(apply);
-    ro.observe(bar);
-    return () => ro.disconnect();
+    const observer = new ResizeObserver(apply);
+    observer.observe(bar);
+    return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    const onResize = () => {
-      applyShell(activeRef.current);
-      applyPill(activeRef.current);
-    };
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, [applyShell, applyPill]);
 
   useEffect(() => {
     const nav = navRef.current;
@@ -376,15 +452,17 @@ export default function SiteHeader({
       if (e.key !== "Escape") return;
       const current = activeRef.current;
       if (current) {
-        const trigger = triggerRefs.current[current];
         closeMenu();
-        trigger?.focus();
+        triggerRefs.current[current]?.focus();
       }
-      setMobileOpen(false);
+      if (mobileOpen) {
+        setMobileOpen(false);
+        burgerRef.current?.focus();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [closeMenu]);
+  }, [closeMenu, mobileOpen]);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -395,45 +473,121 @@ export default function SiteHeader({
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      if (query.matches) setMobileOpen(false);
+    };
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
+
   useEffect(() => clearTimers, [clearTimers]);
 
   const handleTriggerEnter = useCallback(
     (id: string, pointerType: string) => {
       if (pointerType === "touch") return;
       clearTimers();
-      setHovered(id);
-      if (activeRef.current) {
+      const open = () => {
+        hoverOpenedAt.current = performance.now();
         openMenu(id);
+      };
+      if (activeRef.current) {
+        open();
         return;
       }
-      openTimer.current = window.setTimeout(() => openMenu(id), OPEN_DELAY);
+      openTimer.current = window.setTimeout(open, OPEN_DELAY);
     },
     [clearTimers, openMenu]
   );
 
-  const handleRailLeave = useCallback(() => {
-    clearTimers();
-    setHovered(null);
-    closeTimer.current = window.setTimeout(() => {
-      activeRef.current = null;
-      setActive(null);
-    }, CLOSE_DELAY);
-  }, [clearTimers]);
-
-  const handleRailEnter = useCallback(() => {
-    if (closeTimer.current) {
-      window.clearTimeout(closeTimer.current);
-      closeTimer.current = null;
-    }
+  const handleTriggerLeave = useCallback(() => {
+    if (!openTimer.current) return;
+    window.clearTimeout(openTimer.current);
+    openTimer.current = null;
   }, []);
+
+  const handleLinkEnter = useCallback(
+    (pointerType: string) => {
+      if (pointerType === "touch" || !activeRef.current) return;
+      scheduleClose();
+    },
+    [scheduleClose]
+  );
+
+  const handleRailLeave = useCallback(() => {
+    if (activeRef.current) scheduleClose();
+    else clearTimers();
+  }, [clearTimers, scheduleClose]);
 
   const handleBlur = useCallback(
     (e: React.FocusEvent<HTMLDivElement>) => {
       if (e.currentTarget.contains(e.relatedTarget as Node | null)) return;
-      closeMenu();
+      if (activeRef.current) closeMenu();
     },
     [closeMenu]
   );
+
+  const focusPanel = useCallback(
+    (id: string) => {
+      const first = () => focusables(panelRefs.current[id])[0];
+      if (activeRef.current === id) {
+        first()?.focus();
+        return;
+      }
+      focusNext.current = first;
+      openMenu(id);
+    },
+    [openMenu]
+  );
+
+  const handlePanelKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>, id: string) => {
+      if (e.key !== "Tab") return;
+      const items = focusables(e.currentTarget);
+      const index = items.indexOf(document.activeElement as HTMLElement);
+      const trigger = triggerRefs.current[id];
+
+      if (e.shiftKey && index === 0) {
+        e.preventDefault();
+        trigger?.focus();
+        return;
+      }
+
+      if (!e.shiftKey && index === items.length - 1) {
+        const order = focusables(listRef.current);
+        const next = trigger ? order[order.indexOf(trigger) + 1] : undefined;
+        if (!next) return;
+        e.preventDefault();
+        closeMenu();
+        next.focus();
+      }
+    },
+    [closeMenu]
+  );
+
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
+
+  const openMobile = () => {
+    closeMenu();
+    setMobilePanel(null);
+    setMobileOpen(true);
+  };
+
+  const enterPanel = (id: string) => {
+    focusNext.current = () => backRef.current;
+    setMobilePanel(id);
+  };
+
+  const leavePanel = () => {
+    const from = mobilePanel;
+    if (!from) return;
+    focusNext.current = () => rowRefs.current[from];
+    setMobilePanel(null);
+  };
+
+  const isCurrent = (href: string) =>
+    !href.includes("#") && (pathname === href || pathname.startsWith(`${href}/`));
 
   return (
     <>
@@ -442,184 +596,193 @@ export default function SiteHeader({
         data-nav
         data-scrolled="false"
         data-menu-open={active ? "true" : "false"}
+        data-mobile-open={mobileOpen ? "true" : "false"}
         data-variant={variant}
         className="sticky top-0 z-50"
       >
+        <div
+          className="nav-overlay"
+          data-open={active ? "true" : "false"}
+          aria-hidden="true"
+          onClick={closeMenu}
+        />
+
         <div ref={barRef} className="nav-bar">
           <div
-            ref={railRef}
-            className="relative mx-auto flex max-w-[1400px] items-center gap-4 px-4 py-3 sm:px-8 sm:py-3.5 lg:px-10"
-            onPointerEnter={handleRailEnter}
+            className="relative mx-auto flex max-w-[1400px] items-center gap-4 px-4 py-3 sm:px-8 sm:py-3.5 lg:px-10 lg:py-2.5"
+            onPointerEnter={cancelClose}
             onPointerLeave={handleRailLeave}
             onBlur={handleBlur}
           >
-            <Link
-              href="/"
-              className="nav-logo shrink-0"
-              aria-label="Signpost home"
-              onClick={closeMenu}
-            >
-              <Image
-                src="/text-logo.png"
-                alt="Signpost: learn ASL online for free with machine learning feedback"
-                width={280}
-                height={68}
-                priority
-                className="-my-4 h-16 w-auto sm:-my-5 sm:h-[4.5rem]"
-              />
-            </Link>
-
-            <div
-              ref={rowRef}
-              className="relative ml-2 hidden items-center lg:flex"
-              role="list"
-            >
-              <span
-                ref={pillRef}
-                className="nav-pill"
-                data-visible="false"
-                aria-hidden="true"
-              />
-              {NAV_MENUS.map((menu) => (
-                <button
-                  key={menu.id}
-                  ref={(el) => {
-                    triggerRefs.current[menu.id] = el;
-                  }}
-                  type="button"
-                  className="nav-trigger"
-                  data-active={active === menu.id ? "true" : "false"}
-                  aria-expanded={active === menu.id}
-                  aria-controls={`nav-panel-${menu.id}`}
-                  aria-haspopup="true"
-                  onPointerEnter={(e) => handleTriggerEnter(menu.id, e.pointerType)}
-                  onFocus={() => setHovered(menu.id)}
-                  onClick={() => {
-                    clearTimers();
-                    if (active === menu.id) closeMenu();
-                    else openMenu(menu.id);
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "ArrowDown") {
-                      e.preventDefault();
-                      openMenu(menu.id);
-                      window.setTimeout(() => {
-                        panelRefs.current[menu.id]
-                          ?.querySelector<HTMLElement>("a[href]")
-                          ?.focus();
-                      }, 40);
-                    }
-                  }}
-                >
-                  {menu.label}
-                  <svg
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    className="nav-chevron"
-                  >
-                    <path d="m3.2 4.6 2.8 2.8 2.8-2.8" />
-                  </svg>
-                </button>
-              ))}
-            </div>
-
-            <div className="ml-auto flex items-center gap-1 sm:gap-2">
-              <button
-                type="button"
+            <div className="nav-brand shrink-0">
+              <Link
+                href="/"
+                className="nav-logo"
+                data-hidden={drilled ? "true" : "false"}
+                aria-label="Signpost home"
+                aria-hidden={drilled ? true : undefined}
+                tabIndex={drilled ? -1 : undefined}
                 onClick={() => {
                   closeMenu();
-                  setWaitlistOpen(true);
+                  closeMobile();
                 }}
-                className="nav-ghost hidden sm:inline-flex"
               >
-                Join waitlist
+                <Image
+                  src="/text-logo.png"
+                  alt="Signpost: learn ASL online for free with machine learning feedback"
+                  width={280}
+                  height={68}
+                  priority
+                  className="-my-4 h-16 w-auto sm:-my-5 sm:h-[4.5rem]"
+                />
+              </Link>
+              <button
+                ref={backRef}
+                type="button"
+                className="nav-back"
+                data-visible={drilled ? "true" : "false"}
+                aria-hidden={drilled ? undefined : true}
+                tabIndex={drilled ? undefined : -1}
+                onClick={leavePanel}
+              >
+                <ChevronIcon points={CHEVRON_LEFT} className="h-4 w-4" />
+                Back
               </button>
+            </div>
 
-              <a
-                href={DEMO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="nav-cta"
-                onClick={closeMenu}
-              >
-                Try the demo
-                <span aria-hidden="true" className="nav-cta-arrow">
-                  →
-                </span>
-              </a>
+            <nav aria-label="Main" className="ml-2 hidden lg:block">
+              <ul ref={listRef} className="nav-list" data-open={active ? "true" : "false"}>
+                {NAV_MENUS.map((menu) => (
+                  <li key={menu.id}>
+                    <button
+                      ref={(el) => {
+                        triggerRefs.current[menu.id] = el;
+                      }}
+                      type="button"
+                      className="nav-trigger"
+                      data-state={active === menu.id ? "open" : "closed"}
+                      aria-expanded={active === menu.id}
+                      aria-controls={`nav-panel-${menu.id}`}
+                      onPointerEnter={(e) => handleTriggerEnter(menu.id, e.pointerType)}
+                      onPointerLeave={handleTriggerLeave}
+                      onClick={() => {
+                        clearTimers();
+                        if (activeRef.current !== menu.id) openMenu(menu.id);
+                        else if (performance.now() - hoverOpenedAt.current > CLICK_GRACE) {
+                          closeMenu();
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        const open = activeRef.current === menu.id;
+                        if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey && open)) {
+                          e.preventDefault();
+                          clearTimers();
+                          focusPanel(menu.id);
+                        }
+                      }}
+                    >
+                      {menu.label}
+                      <ChevronIcon points={CHEVRON_DOWN} className="nav-chevron" />
+                    </button>
+                  </li>
+                ))}
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="nav-trigger"
+                      aria-current={isCurrent(link.href) ? "page" : undefined}
+                      onPointerEnter={(e) => handleLinkEnter(e.pointerType)}
+                      onClick={closeMenu}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div className="ml-auto flex items-center gap-2">
+              <div className="nav-actions" data-hidden={mobileOpen ? "true" : "false"}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeMenu();
+                    setWaitlistOpen(true);
+                  }}
+                  className="nav-ghost hidden sm:inline-flex"
+                >
+                  Join waitlist
+                </button>
+
+                <a
+                  href={DEMO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nav-cta"
+                  onClick={closeMenu}
+                >
+                  Try the demo
+                </a>
+              </div>
 
               <button
+                ref={burgerRef}
                 type="button"
                 className="nav-burger"
+                data-open={mobileOpen ? "true" : "false"}
                 aria-expanded={mobileOpen}
                 aria-controls="nav-mobile-sheet"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
-                onClick={() => setMobileOpen((v) => !v)}
+                onClick={() => (mobileOpen ? closeMobile() : openMobile())}
               >
-                <span className="nav-burger-lines" data-open={mobileOpen ? "true" : "false"}>
-                  <span />
-                  <span />
-                </span>
+                <span className="nav-burger-line" />
+                <span className="nav-burger-line" />
+                <span className="nav-burger-line" />
               </button>
             </div>
 
-            <div className="nav-dropdown" aria-hidden={active ? undefined : true}>
-              <div
-                ref={shellRef}
-                className="nav-shell"
-                data-open={active ? "true" : "false"}
-                data-instant="true"
-              >
-                <div className="nav-surface">
-                  {NAV_MENUS.map((menu) => (
+            <div
+              ref={megaRef}
+              className="mega"
+              data-state={active ? "open" : "closed"}
+              onPointerEnter={cancelClose}
+            >
+              {NAV_MENUS.map((menu) => (
+                <div
+                  key={menu.id}
+                  id={`nav-panel-${menu.id}`}
+                  ref={(el) => {
+                    panelRefs.current[menu.id] = el;
+                  }}
+                  role="group"
+                  aria-label={`${menu.label} menu`}
+                  className="mega-panel"
+                  data-visible={shown === menu.id ? "true" : "false"}
+                  data-active={active === menu.id ? "true" : "false"}
+                  inert={active !== menu.id}
+                  onKeyDown={(e) => handlePanelKeyDown(e, menu.id)}
+                >
+                  <div className="mega-main">
                     <div
-                      key={menu.id}
-                      id={`nav-panel-${menu.id}`}
-                      ref={(el) => {
-                        panelRefs.current[menu.id] = el;
+                      className="mega-grid"
+                      data-divided={menu.divided ? "true" : "false"}
+                      style={{
+                        gridTemplateColumns: `repeat(${menu.sections.length}, minmax(0, 1fr))`,
                       }}
-                      className="nav-panel"
-                      data-active={active === menu.id ? "true" : "false"}
-                      style={{ width: `${menu.width}px` }}
-                      inert={active !== menu.id}
-                      aria-label={`${menu.label} menu`}
                     >
-                      <div
-                        className={
-                          menu.feature
-                            ? "grid grid-cols-[1fr_236px] gap-2 p-2"
-                            : "p-2"
-                        }
-                      >
-                        <div
-                          className={
-                            menu.columns === 2
-                              ? "grid grid-cols-2 gap-1"
-                              : "flex flex-col gap-0.5"
-                          }
-                        >
-                          {menu.links.map((link) => (
-                            <MenuItem
-                              key={link.label}
-                              link={link}
-                              compact={menu.compact}
-                              onNavigate={closeMenu}
-                            />
-                          ))}
-                        </div>
-                        {menu.feature ? (
-                          <FeatureCard kind={menu.feature} onNavigate={closeMenu} />
-                        ) : null}
-                      </div>
+                      {menu.sections.map((section) => (
+                        <MegaSection
+                          key={section.title}
+                          section={section}
+                          onNavigate={closeMenu}
+                        />
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                  <MegaFeature feature={menu.feature} onNavigate={closeMenu} />
                 </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -628,95 +791,95 @@ export default function SiteHeader({
 
         <div
           id="nav-mobile-sheet"
-          className="nav-sheet"
+          className="msheet"
           data-open={mobileOpen ? "true" : "false"}
           inert={!mobileOpen}
         >
-          <div className="nav-sheet-inner">
-            {NAV_MENUS.map((menu, i) => {
-              const open = mobileSection === menu.id;
-              return (
-                <div
-                  key={menu.id}
-                  className="nav-sheet-group"
-                  style={{ "--i": i } as React.CSSProperties}
-                >
-                  <button
-                    type="button"
-                    className="nav-sheet-trigger"
-                    aria-expanded={open}
-                    onClick={() => setMobileSection(open ? null : menu.id)}
-                  >
-                    {menu.label}
-                    <svg
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="nav-chevron"
-                      data-open={open ? "true" : "false"}
-                    >
-                      <path d="m3.2 4.6 2.8 2.8 2.8-2.8" />
-                    </svg>
-                  </button>
-                  <div className="nav-sheet-collapse" data-open={open ? "true" : "false"}>
-                    <div className="overflow-hidden">
-                      <div className="flex flex-col gap-0.5 pb-3">
-                        {menu.links.map((link) => (
-                          <MenuItem
-                            key={link.label}
-                            link={link}
-                            compact
-                            onNavigate={() => setMobileOpen(false)}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-
+          <nav aria-label="Mobile" className="msheet-panes">
             <div
-              className="nav-sheet-actions"
-              style={{ "--i": NAV_MENUS.length } as React.CSSProperties}
+              className="msheet-pane"
+              data-state={mobilePanel ? "before" : "active"}
+              inert={mobilePanel !== null}
             >
-              <a
-                href={DEMO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="nav-cta w-full justify-center"
-                onClick={() => setMobileOpen(false)}
-              >
-                Try the demo
-                <span aria-hidden="true" className="nav-cta-arrow">
-                  →
-                </span>
-              </a>
-              <button
-                type="button"
-                className="nav-sheet-secondary"
-                onClick={() => {
-                  setMobileOpen(false);
-                  setWaitlistOpen(true);
-                }}
-              >
-                Join the waitlist
-              </button>
+              <ul>
+                {NAV_MENUS.map((menu) => (
+                  <li key={menu.id}>
+                    <button
+                      ref={(el) => {
+                        rowRefs.current[menu.id] = el;
+                      }}
+                      type="button"
+                      className="msheet-row"
+                      aria-controls={`nav-mobile-${menu.id}`}
+                      onClick={() => enterPanel(menu.id)}
+                    >
+                      {menu.label}
+                      <ChevronIcon points={CHEVRON_RIGHT} className="h-5 w-5" />
+                    </button>
+                  </li>
+                ))}
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="msheet-row"
+                      aria-current={isCurrent(link.href) ? "page" : undefined}
+                      onClick={closeMobile}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
+
+            {NAV_MENUS.map((menu) => (
+              <div
+                key={menu.id}
+                id={`nav-mobile-${menu.id}`}
+                role="group"
+                aria-label={`${menu.label} menu`}
+                className="msheet-pane"
+                data-state={mobilePanel === menu.id ? "active" : "after"}
+                inert={mobilePanel !== menu.id}
+              >
+                <div className="msheet-sections">
+                  {menu.sections.map((section) => (
+                    <MegaSection
+                      key={section.title}
+                      section={section}
+                      onNavigate={closeMobile}
+                    />
+                  ))}
+                </div>
+                <MegaFeature feature={menu.feature} onNavigate={closeMobile} />
+              </div>
+            ))}
+          </nav>
+
+          <div className="msheet-actions">
+            <button
+              type="button"
+              className="msheet-btn msheet-btn-dark"
+              onClick={() => {
+                closeMobile();
+                setWaitlistOpen(true);
+              }}
+            >
+              Join waitlist
+            </button>
+            <a
+              href={DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="msheet-btn msheet-btn-primary"
+              onClick={closeMobile}
+            >
+              Try the demo
+            </a>
           </div>
         </div>
       </header>
-
-      <div
-        className="nav-scrim"
-        data-open={active ? "true" : "false"}
-        aria-hidden="true"
-        onClick={closeMenu}
-      />
 
       <WhiteWaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </>
