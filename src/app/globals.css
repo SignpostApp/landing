@@ -308,54 +308,6 @@ body {
   color: #475569;
 }
 
-/* ═══════════════ LMS integration crossfade ═══════════════
-   The "Integrates with" strip fades through Canvas → Blackboard → Schoology
-   one at a time. Every logo shares a single keyframe and is stacked on the
-   same spot (absolute, inset 0); each <li> carries an inline animation-delay
-   offset by a third of the cycle, so exactly one logo is featured at a time
-   with a soft crossfade at each handoff. */
-.lms-stage {
-  position: relative;
-}
-.lms-logo {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  animation: lmsFade 9s ease-in-out infinite;
-  will-change: opacity, transform;
-}
-
-@keyframes lmsFade {
-  0%   { opacity: 0; transform: translateY(8px); }
-  7%   { opacity: 1; transform: translateY(0); }
-  27%  { opacity: 1; transform: translateY(0); }
-  40%  { opacity: 0; transform: translateY(-8px); }
-  100% { opacity: 0; transform: translateY(-8px); }
-}
-
-/* Reduced motion: drop the cycling entirely and lay all three logos out in a
-   static row, so the full integration set stays visible at a glance. */
-@media (prefers-reduced-motion: reduce) {
-  .lms-stage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    height: auto;
-  }
-  .lms-logo {
-    position: relative;
-    inset: auto;
-    flex: 1 1 0;
-    opacity: 1;
-    animation: none;
-    transform: none;
-  }
-}
-
 [data-hero-heading],
 [data-hero-item],
 [data-hero-visual],
@@ -419,29 +371,6 @@ html {
   background: #fff;
   border-bottom-color: var(--nav-wash);
   box-shadow: none;
-}
-
-.nav-progress {
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  height: 2px;
-  width: 100%;
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  background: linear-gradient(90deg, rgba(37, 99, 235, 0.35), #2563eb);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-[data-nav][data-scrolled="true"] .nav-progress {
-  opacity: 1;
-}
-
-[data-nav][data-menu-open="true"] .nav-progress,
-[data-nav][data-mobile-open="true"] .nav-progress {
-  opacity: 0;
 }
 
 .nav-brand {

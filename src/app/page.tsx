@@ -1,4 +1,5 @@
 import LandingPage from "./LandingPage";
+import { formatDate, getAllPosts } from "./blog/posts";
 import { SITE_DESCRIPTION, SITE_TITLE, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -8,5 +9,15 @@ export const metadata = pageMetadata({
 });
 
 export default function Page() {
-  return <LandingPage />;
+  const latestPosts = getAllPosts()
+    .slice(0, 3)
+    .map(({ slug, title, category, date }) => ({
+      slug,
+      title,
+      category,
+      date,
+      dateLabel: formatDate(date),
+    }));
+
+  return <LandingPage latestPosts={latestPosts} />;
 }

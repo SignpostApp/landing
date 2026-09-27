@@ -6,7 +6,12 @@ import Link from "next/link";
 import WhiteWaitlistModal from "./WhiteWaitlistModal";
 import SiteHeader from "./_components/SiteHeader";
 import SiteFooter from "./_components/SiteFooter";
+import type { Post } from "./blog/posts";
 import { useLandingAnimations } from "./useLandingAnimations";
+
+type LatestPost = Pick<Post, "slug" | "title" | "category" | "date"> & {
+  dateLabel: string;
+};
 
 const TESTIMONIAL = {
   quote:
@@ -49,10 +54,38 @@ const STEPS = [
 ];
 
 
-const LMS_LOGOS = [
-  { src: "/icons/canvas.png", alt: "Canvas" },
-  { src: "/icons/blackboard.png", alt: "Blackboard" },
-  { src: "/icons/Schoology.png", alt: "Schoology" },
+const LMS_PLATFORMS = [
+  { src: "/icons/lms/canvas.svg", alt: "Canvas", width: 420, height: 107, className: "w-[68%]" },
+  { src: "/icons/lms/blackboard.png", alt: "Blackboard", width: 526, height: 74, className: "w-[70%]" },
+  { src: "/icons/lms/schoology.svg", alt: "Schoology", width: 330, height: 66, className: "w-[70%]" },
+  { src: "/icons/lms/google-classroom.svg", alt: "Google Classroom", width: 579, height: 500, className: "w-[40%]" },
+  { src: "/icons/lms/moodle.svg", alt: "Moodle", width: 1231, height: 315, className: "w-[62%]" },
+  { src: "/icons/lms/brightspace.png", alt: "D2L Brightspace", width: 800, height: 206, className: "w-[66%]" },
+];
+
+const STATS = [
+  {
+    label: "Feedback speed",
+    value: "<500",
+    unit: "ms",
+    detail: "to grade each sign as you make it",
+  },
+  {
+    label: "Curriculum",
+    value: "30+",
+    unit: "units",
+    detail: "from the alphabet to conversation",
+  },
+  {
+    label: "Learners",
+    value: "4,000+",
+    detail: "have already started signing",
+  },
+  {
+    label: "Price",
+    value: "$0",
+    detail: "to unlock every unit, forever",
+  },
 ];
 
 const FAQS = [
@@ -98,7 +131,7 @@ const FAQS = [
   },
 ];
 
-export default function LandingPage() {
+export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[] }) {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const pageRef = useRef<HTMLDivElement | null>(null);
@@ -242,6 +275,41 @@ export default function LandingPage() {
           </div>
         </section>
 
+        <section id="numbers" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-white" aria-label="Signpost by the numbers">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+            <h2 data-reveal className="mx-auto max-w-3xl text-center text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
+              Feedback you can measure. <span className="text-slate-500">Down to the millisecond.</span>
+            </h2>
+
+            <ul data-reveal-group className="mt-14 lg:mt-20 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:items-end">
+              {STATS.map((stat, idx) => {
+                const accent = idx % 2 === 0;
+                return (
+                  <li
+                    key={stat.label}
+                    className={`flex min-h-[13.5rem] flex-col justify-between rounded-[1.375rem] p-5 sm:p-6 ${
+                      accent
+                        ? "bg-blue-50 text-blue-600 lg:h-[20rem]"
+                        : "border border-slate-200/70 bg-slate-50 text-slate-500 lg:h-[20rem]"
+                    }`}
+                  >
+                    <p className="text-sm font-medium">{stat.label}</p>
+                    <div>
+                      <p className={`flex items-baseline gap-2 ${accent ? "" : "text-slate-900"}`}>
+                        <span className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-[-0.045em] tabular-nums">
+                          {stat.value}
+                        </span>
+                        {stat.unit ? <span className="text-sm font-medium">{stat.unit}</span> : null}
+                      </p>
+                      <p className="mt-2 text-sm leading-snug">{stat.detail}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+
         {/* ═══ FEATURES ═══ */}
         <section id="features" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="What you get with Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
@@ -302,52 +370,43 @@ export default function LandingPage() {
         {/* ═══ LTI 1.3 INTEGRATION ═══ */}
         <section id="schools" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="Signpost for teachers and schools">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-            <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-center">
-              <div data-reveal className="max-w-xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">For schools</p>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance mb-5">
-                  Drops into the LMS your school already runs.
-                </h2>
-                <p className="text-slate-600 leading-relaxed text-base sm:text-lg text-pretty">
-                  Signpost ships with full LTI 1.3 support. Teachers place lessons straight into Canvas, Blackboard, or Schoology gradebooks. Students roster automatically into the tools the school already uses.
-                </p>
+            <div data-reveal className="grid overflow-hidden rounded-2xl bg-[#f3f4f6] lg:grid-cols-2">
+              <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:p-14">
+                <div className="max-w-md">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">For schools</p>
+                  <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
+                    Drops into the LMS your school already runs.
+                  </h2>
+                  <p className="mt-6 text-slate-600 leading-relaxed text-base sm:text-lg text-pretty">
+                    Signpost ships with full LTI 1.3 support. Teachers place lessons straight into their course gradebooks, and students roster automatically into the tools the school already uses.
+                  </p>
+                  <Link
+                    href="/blog/asl-for-schools-and-districts"
+                    className="group mt-6 inline-flex items-center gap-2 text-slate-600 transition-colors hover:text-slate-900"
+                  >
+                    Signpost for schools
+                    <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">&rarr;</span>
+                  </Link>
+                </div>
               </div>
 
-              {/* Integration partners crossfade one at a time — Canvas, then
-                  Blackboard, then Schoology — each fading in, holding, and out.
-                  A single centered stage (no box) keeps every brand mark
-                  presented at a consistent size despite their very different
-                  aspect ratios. The fade is pure CSS (one keyframe, staggered
-                  per-logo via inline animation-delay); reduced-motion users get
-                  all three laid out statically in a row — see .lms-stage in
-                  globals.css. */}
-              <div data-reveal className="lg:pl-6">
-                {/* Eyebrow: centered label flanked by hairlines */}
-                <div className="flex items-center gap-4 mb-8 sm:mb-10">
-                  <span className="h-px flex-1 bg-gradient-to-r from-transparent to-slate-200" aria-hidden="true" />
-                  <p className="text-[0.7rem] uppercase tracking-[0.2em] text-slate-500 font-medium shrink-0">
-                    Integrates with
-                  </p>
-                  <span className="h-px flex-1 bg-gradient-to-l from-transparent to-slate-200" aria-hidden="true" />
-                </div>
-
+              <div className="flex items-center justify-center px-6 pb-10 sm:px-10 lg:p-14">
                 <ul
                   role="list"
-                  aria-label="Signpost integrates with Canvas, Blackboard, and Schoology"
-                  className="lms-stage h-20 sm:h-24"
+                  aria-label="Learning platforms Signpost integrates with"
+                  className="grid w-full max-w-lg grid-cols-3 gap-2.5 sm:gap-3"
                 >
-                  {LMS_LOGOS.map((logo, i) => (
+                  {LMS_PLATFORMS.map((platform) => (
                     <li
-                      key={logo.src}
-                      className="lms-logo"
-                      style={{ animationDelay: `${i * 3}s` }}
+                      key={platform.src}
+                      className="flex aspect-square items-center justify-center rounded-[14%] bg-white"
                     >
                       <Image
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={200}
-                        height={64}
-                        className="max-h-11 sm:max-h-14 w-auto object-contain"
+                        src={platform.src}
+                        alt={platform.alt}
+                        width={platform.width}
+                        height={platform.height}
+                        className={`h-auto object-contain ${platform.className}`}
                       />
                     </li>
                   ))}
@@ -363,7 +422,7 @@ export default function LandingPage() {
             <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Who we are</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
-                Built by ASL students, tested by ASL educators
+                Built by ASL students, <span className="text-slate-500">tested by ASL educators</span>
               </h2>
 
               <Link
@@ -401,7 +460,48 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="faq" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="Frequently asked questions about learning ASL">
+        {latestPosts.length > 0 ? (
+          <section id="blog" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-white" aria-label="Latest guides from the Signpost blog">
+            <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+              <div data-reveal className="mx-auto max-w-3xl text-center">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
+                  From the blog. <span className="text-slate-500">Resources to get you started on your learning.</span>
+                </h2>
+                <Link
+                  href="/blog"
+                  className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 transition-colors hover:text-slate-900"
+                >
+                  Visit the blog
+                  <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">&rarr;</span>
+                </Link>
+              </div>
+
+              <ul data-reveal-group className="mt-12 lg:mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {latestPosts.map((post) => (
+                  <li key={post.slug} className="flex">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="group flex min-h-[11.5rem] w-full flex-col justify-between gap-6 rounded-xl bg-slate-100 px-6 py-8 transition-colors duration-200 hover:bg-slate-200/70"
+                    >
+                      <div className="flex flex-col gap-4">
+                        <p className="text-[0.8125rem] uppercase leading-[1.2rem] text-slate-500">
+                          {post.category} &middot; <time dateTime={post.date}>{post.dateLabel}</time>
+                        </p>
+                        <h3 className="text-lg font-medium leading-6 text-slate-900 text-balance">{post.title}</h3>
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-base text-slate-500 transition-colors group-hover:text-slate-900">
+                        Read more
+                        <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">&rarr;</span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ) : null}
+
+        <section id="faq"className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="Frequently asked questions about learning ASL">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <h2 data-reveal className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900">
               FAQ
