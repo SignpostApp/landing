@@ -278,7 +278,6 @@ export default function SiteHeader({
   const barRef = useRef<HTMLDivElement | null>(null);
   const listRef = useRef<HTMLUListElement | null>(null);
   const megaRef = useRef<HTMLDivElement | null>(null);
-  const progressRef = useRef<HTMLSpanElement | null>(null);
   const burgerRef = useRef<HTMLButtonElement | null>(null);
   const backRef = useRef<HTMLButtonElement | null>(null);
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -423,13 +422,7 @@ export default function SiteHeader({
     const update = () => {
       frame = 0;
       const y = window.scrollY;
-      const max =
-        document.documentElement.scrollHeight - document.documentElement.clientHeight;
       if (nav) nav.dataset.scrolled = y > 8 ? "true" : "false";
-      if (progressRef.current) {
-        const ratio = max > 8 ? Math.min(1, Math.max(0, y / max)) : 0;
-        progressRef.current.style.transform = `scaleX(${ratio})`;
-      }
       if (activeRef.current) closeMenu();
     };
 
@@ -785,8 +778,6 @@ export default function SiteHeader({
               ))}
             </div>
           </div>
-
-          <span ref={progressRef} className="nav-progress" aria-hidden="true" />
         </div>
 
         <div
