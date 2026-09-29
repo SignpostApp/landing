@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 import AttributionCapture from "./AttributionCapture";
 import { DEMO_URL } from "./_components/navData";
@@ -15,18 +15,18 @@ import {
 
 import "./globals.css";
 
-const geist = Geist({
+const geist = localFont({
+  src: "./fonts/geist-latin.woff2",
   variable: "--font-sans",
-  subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: "300 800",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const jetbrainsMono = localFont({
+  src: "./fonts/jetbrains-mono-latin.woff2",
   variable: "--font-mono",
-  subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500"],
+  weight: "400 500",
 });
 
 export const viewport: Viewport = {
