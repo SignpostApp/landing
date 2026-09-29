@@ -6,6 +6,7 @@ import Link from "next/link";
 import WhiteWaitlistModal from "./WhiteWaitlistModal";
 import SiteHeader from "./_components/SiteHeader";
 import SiteFooter from "./_components/SiteFooter";
+import { DEMO_URL } from "./_components/navData";
 import type { Post } from "./blog/posts";
 import { useLandingAnimations } from "./useLandingAnimations";
 
@@ -39,7 +40,7 @@ const STEPS = [
   {
     n: "01",
     title: "Open the app",
-    body: "Visit demo.signpost.cv in any modern browser. Hand tracking runs locally on your device, so a webcam is all you need to start. Or, you can opt for traditional learning methods using videos.",
+    body: "Visit demo.signpostasl.com in any modern browser. Hand tracking runs locally on your device, so a webcam is all you need to start. Or, you can opt for traditional learning methods using videos.",
   },
   {
     n: "02",
@@ -180,7 +181,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
                 {/* Primary CTA */}
                 <a
                   data-hero-item
-                  href="https://demo.signpost.cv"
+                  href={DEMO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-6 py-3.5 text-sm font-semibold transition-colors duration-150"
@@ -572,7 +573,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <a
-                href="https://demo.signpost.cv"
+                href={DEMO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-6 py-3.5 text-sm font-semibold transition-colors duration-150"

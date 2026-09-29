@@ -13,6 +13,7 @@ import {
   wordCount,
   type Post,
 } from "../posts";
+import { DEMO_URL } from "@/app/_components/navData";
 import { SITE_URL, ogImage, pageMetadata, type OgImage } from "@/lib/seo";
 
 function postOgImage(post: Post): OgImage {
@@ -153,7 +154,7 @@ export default async function BlogPostPage({
               needed.
             </p>
             <a
-              href="https://demo.signpost.cv"
+              href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white px-6 py-3 text-sm font-semibold transition-[transform,box-shadow,background-color] duration-200 shadow-[0_1px_2px_rgba(37,99,235,0.15),0_10px_28px_-10px_rgba(37,99,235,0.55)] hover:-translate-y-0.5"

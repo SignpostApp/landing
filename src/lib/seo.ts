@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://signpost.cv";
+export const SITE_URL = "https://signpostasl.com";
 export const SITE_NAME = "Signpost";
 export const SITE_TITLE = "Learn ASL Online for Free with Real-Time Feedback";
 export const SITE_DESCRIPTION =

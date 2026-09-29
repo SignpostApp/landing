@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Geist, JetBrains_Mono } from "next/font/google";
 
 import AttributionCapture from "./AttributionCapture";
+import { DEMO_URL } from "./_components/navData";
 import {
   DEFAULT_OG_IMAGE,
   SITE_DESCRIPTION,
@@ -252,8 +253,8 @@ const jsonLd = {
         {
           "@type": "HowToStep",
           name: "Open the Signpost demo in your browser",
-          text: "Visit the Signpost demo at demo.signpost.cv. No sign-up or download is required for the demo.",
-          url: "https://demo.signpost.cv",
+          text: "Visit the Signpost demo at demo.signpostasl.com. No sign-up or download is required for the demo.",
+          url: DEMO_URL,
         },
         {
           "@type": "HowToStep",

@@ -29,17 +29,17 @@ export default function PrivacyPolicyPage() {
           &ldquo;our,&rdquo; or &ldquo;us&rdquo;) operates the Signpost
           platform at{" "}
           <a
-            href="https://signpost.cv"
+            href="https://signpostasl.com"
             className="text-accent-light hover:underline"
           >
-            signpost.cv
+            signpostasl.com
           </a>{" "}
           and the demo application at{" "}
           <a
-            href="https://demo.signpost.cv"
+            href="https://demo.signpostasl.com"
             className="text-accent-light hover:underline"
           >
-            demo.signpost.cv
+            demo.signpostasl.com
           </a>
           . This Privacy Policy explains what data we collect, why we collect
           it, and how we keep it safe — written in straightforward language
