@@ -6,7 +6,7 @@ brand
 
 ## Users
 
-Self-taught adult and older-teen ASL learners. They're studying at home with no teacher in the room, on a laptop or phone, in stolen 10–30 minute sessions. They've usually tried at least one of Lingvano, ASL Bloom, or YouTube playlists and bounced because nothing tells them whether their hands are actually right. They land on signpost.cv because someone mentioned it, they searched "best free ASL app," or they came from a YC / press mention. The job they're trying to get done in the next 60 seconds: decide whether this is serious enough to be worth their time, then start the demo or join the waitlist.
+Self-taught adult and older-teen ASL learners. They're studying at home with no teacher in the room, on a laptop or phone, in stolen 10–30 minute sessions. They've usually tried at least one of Lingvano, ASL Bloom, or YouTube playlists and bounced because nothing tells them whether their hands are actually right. They land on signpostasl.com because someone mentioned it, they searched "best free ASL app," or they came from a YC / press mention. The job they're trying to get done in the next 60 seconds: decide whether this is serious enough to be worth their time, then start the demo or join the waitlist.
 
 Secondary surfaces (hearing allies learning for a Deaf relative, K-12 schools running pilots, investors/press) get acknowledged in copy but the visual hierarchy is tuned to the consumer learner.
 

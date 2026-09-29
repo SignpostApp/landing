@@ -2,7 +2,7 @@ import posthog from "posthog-js";
 
 const POSTHOG_KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
 const POSTHOG_HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
-const DEMO_ORIGIN = "https://demo.signpost.cv";
+const DEMO_ORIGIN = "https://demo.signpostasl.com";
 
 function trackDemoClick(event: MouseEvent) {
   if (event.type === "auxclick" && event.button !== 1) return;

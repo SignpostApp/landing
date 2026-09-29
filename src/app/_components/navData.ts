@@ -38,7 +38,7 @@ export type NavLink = {
   href: string;
 };
 
-export const DEMO_URL = "https://demo.signpost.cv";
+export const DEMO_URL = "https://demo.signpostasl.com";
 
 export const NAV_MENUS: NavMenu[] = [
   {

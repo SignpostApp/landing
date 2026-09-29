@@ -62,12 +62,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      {
+      ...["www.signpostasl.com", "signpost.cv", "www.signpost.cv"].map((host) => ({
         source: "/:path*",
-        has: [{ type: "host", value: "www.signpost.cv" }],
-        destination: "https://signpost.cv/:path*",
+        has: [{ type: "host" as const, value: host }],
+        destination: "https://signpostasl.com/:path*",
         permanent: true,
-      },
+      })),
       {
         source: "/:path((?!ingest/).+)/",
         destination: "/:path",

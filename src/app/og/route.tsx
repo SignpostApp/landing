@@ -170,7 +170,7 @@ export async function GET(request: Request) {
           }}
         >
           <span style={{ fontSize: 26, fontWeight: 600, color: "#2563eb" }}>
-            signpost.cv
+            signpostasl.com
           </span>
           <span style={{ fontSize: 24, color: "#94a3b8" }}>
             Free demo · No sign-up

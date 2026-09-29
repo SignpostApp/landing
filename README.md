@@ -1,15 +1,15 @@
 # Signpost Landing Page
 
-Landing page + waitlist funnel for [Signpost](https://signpost.cv) — learn ASL with real-time AI computer vision feedback.
+Landing page + waitlist funnel for [Signpost](https://signpostasl.com) — learn ASL with real-time AI computer vision feedback.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black?logo=next.js&style=flat-square)](https://nextjs.org)
 [![Neon](https://img.shields.io/badge/Neon-Postgres-00E5A0?style=flat-square)](https://neon.tech)
-[![Deployment](https://img.shields.io/badge/Deployment-Live-00C7B7?logo=vercel&logoColor=white&style=flat-square)](https://signpost.cv)
+[![Deployment](https://img.shields.io/badge/Deployment-Live-00C7B7?logo=vercel&logoColor=white&style=flat-square)](https://signpostasl.com)
 
 ## Live Links
 
-- Main site: https://signpost.cv
-- Demo: https://demo.signpost.cv
+- Main site: https://signpostasl.com
+- Demo: https://demo.signpostasl.com
 
 ## Stack
 
@@ -34,7 +34,7 @@ Create `.env.local` with:
 DATABASE_URL=postgresql://<user>:<password>@<host>.neon.tech/<dbname>?sslmode=require
 
 # Optional PostHog analytics, proxied through /ingest on this origin.
-# Use the same project key as demo.signpost.cv so visitors carry over.
+# Use the same project key as demo.signpostasl.com so visitors carry over.
 NEXT_PUBLIC_POSTHOG_KEY=phc_...
 NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 ```

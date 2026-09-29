@@ -1,4 +1,4 @@
-export const STATUS_URL = "https://status.signpost.cv";
+export const STATUS_URL = "https://status.signpostasl.com";
 
 export type StatusKey =
   | "operational"
