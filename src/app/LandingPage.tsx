@@ -14,12 +14,27 @@ type LatestPost = Pick<Post, "slug" | "title" | "category" | "date"> & {
   dateLabel: string;
 };
 
-const TESTIMONIAL = {
-  quote:
-    "My school never offered ASL classes, but Signpost has helped me tremendously in learning how to communicate with the Deaf community!",
-  name: "R.C",
-  detail: "Student of West Baton Rouge Schools",
+const TESTIMONIALS = [
+  {
+    quote:
+      "My school never offered ASL classes, but Signpost has helped me tremendously in learning how to communicate with the Deaf community!",
+    name: "R.C",
+    detail: "Student of West Baton Rouge Schools",
+  },
+  {
+    quote:
+      "Signpost has allowed me to learn the ASL basics in the event I ever encounter a Deaf person at my job and need to communicate with them.",
+    name: "G.W.",
+    detail: "Employee at American Airlines",
+  },
+];
+
+const TESTIMONIAL_GRID_CLASSES: Record<number, string> = {
+  1: "max-w-3xl",
+  2: "md:grid-cols-2",
 };
+
+const testimonialGridClass = TESTIMONIAL_GRID_CLASSES[TESTIMONIALS.length] ?? "lg:grid-cols-3";
 
 const FEATURES = [
   {
@@ -249,29 +264,34 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
 
         <section id="learners" className="relative scroll-mt-24 border-t border-slate-100 bg-white" aria-label="What learners say about Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
-            <div data-reveal className="max-w-4xl grid gap-6 lg:grid-cols-[9rem_1fr] lg:gap-14 lg:items-start">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 lg:pt-2.5">
-                From a learner
-              </p>
+            <p data-reveal className="mb-8 lg:mb-10 text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
+              From our learners
+            </p>
 
-              <figure>
-                <blockquote className="text-xl sm:text-2xl lg:text-[1.6rem] font-medium tracking-[-0.02em] leading-[1.45] text-slate-900 text-balance">
-                  &ldquo;{TESTIMONIAL.quote}&rdquo;
-                </blockquote>
+            <div data-reveal-group className={`grid gap-5 lg:gap-6 ${testimonialGridClass}`}>
+              {TESTIMONIALS.map((testimonial) => (
+                <figure
+                  key={testimonial.quote}
+                  className="flex flex-col rounded-2xl border border-slate-200/70 bg-slate-50 p-8 lg:p-10"
+                >
+                  <blockquote className="text-lg sm:text-xl font-medium tracking-[-0.015em] leading-[1.5] text-slate-900 text-pretty">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </blockquote>
 
-                <figcaption className="mt-7 flex items-center gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-blue-50 text-sm font-semibold text-blue-600"
-                  >
-                    {TESTIMONIAL.name.trim().charAt(0)}
-                  </span>
-                  <span className="leading-tight">
-                    <span className="block text-sm font-semibold text-slate-900">{TESTIMONIAL.name}</span>
-                    <span className="block text-xs text-slate-500">{TESTIMONIAL.detail}</span>
-                  </span>
-                </figcaption>
-              </figure>
+                  <figcaption className="mt-auto flex items-center gap-3 pt-8">
+                    <span
+                      aria-hidden="true"
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-blue-50 text-sm font-semibold text-blue-600"
+                    >
+                      {testimonial.name.trim().charAt(0)}
+                    </span>
+                    <span className="leading-tight">
+                      <span className="block text-sm font-semibold text-slate-900">{testimonial.name}</span>
+                      <span className="block text-xs text-slate-500">{testimonial.detail}</span>
+                    </span>
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           </div>
         </section>
