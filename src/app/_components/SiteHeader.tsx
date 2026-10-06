@@ -866,7 +866,7 @@ export default function SiteHeader({
               className="msheet-btn msheet-btn-primary"
               onClick={closeMobile}
             >
-              Try the demo
+              Try our product
             </a>
           </div>
         </div>
