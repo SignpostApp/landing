@@ -215,6 +215,7 @@ export const NAV_MENUS: NavMenu[] = [
       {
         title: "Legal",
         items: [
+          { type: "link", label: "Trust Center", href: "/trust" },
           { type: "link", label: "Privacy", href: "/legal/privacy" },
           { type: "link", label: "Terms", href: "/legal/terms" },
           { type: "link", label: "Security", href: "/legal/security" },

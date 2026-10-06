@@ -114,6 +114,7 @@ export const POSTS: Post[] = [
     category: "Under the Hood",
     tint: "blue",
     date: "2026-09-06",
+    updated: "2026-10-05",
     imageAlt:
       "Hand landmark tracking overlaid on a webcam view of a person signing in American Sign Language.",
     body: [
@@ -139,7 +140,7 @@ export const POSTS: Post[] = [
       { type: "h2", text: "What we store, and what we do not" },
       {
         type: "p",
-        text: "Your webcam feed is never uploaded, recorded, or stored. The only data saved server-side is numerical landmark coordinates used to improve recognition, never images or video. More detail is in our [security overview](/legal/security).",
+        text: "Your webcam feed is never uploaded, recorded, or stored, and neither are the landmarks. When a lesson ends, the only thing sent to our servers is the result: which signs you practiced and how accurate each one was. More detail is in our [security overview](/legal/security).",
       },
     ],
   },

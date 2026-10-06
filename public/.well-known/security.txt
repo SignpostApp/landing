@@ -1,0 +1,5 @@
+Contact: mailto:signpostcv@gmail.com
+Expires: 2027-10-01T00:00:00.000Z
+Policy: https://signpostasl.com/legal/security#disclosure
+Preferred-Languages: en
+Canonical: https://signpostasl.com/.well-known/security.txt

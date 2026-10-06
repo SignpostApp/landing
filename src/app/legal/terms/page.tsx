@@ -1,277 +1,330 @@
-import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
+
+import { ContactCard, Email, LegalHeader, PolicyLinks } from "@/app/_components/legal";
+import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Terms of Service",
   description:
-    "Terms governing your use of the Signpost ASL learning platform, including acceptable use, intellectual property, and liability.",
+    "The terms for using Signpost, including accounts, paid plans and billing, school and LMS use, acceptable use, and liability.",
   path: "/legal/terms",
 });
 
 export default function TermsOfServicePage() {
   return (
     <article className="legal-page">
-      {/* Header */}
-      <header className="mb-16">
-        <p className="font-mono-upper mb-4">Legal</p>
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm mb-6">
-          Terms of Service
-        </h1>
-        <p className="font-subtext text-muted text-sm">
-          Last updated: April 12, 2026 &middot; Effective immediately
-        </p>
-      </header>
+      <LegalHeader title="Terms of Service" />
 
-      {/* Intro */}
       <section className="legal-section">
         <p className="legal-body">
-          Welcome to Signpost. These Terms of Service (&ldquo;Terms&rdquo;)
-          form a legally binding agreement between you and Matrix Studios Software
-          (&ldquo;Signpost,&rdquo; &ldquo;we,&rdquo; &ldquo;our&rdquo;)
-          governing your access to and use of our website, demo application,
-          and any related services (together, the &ldquo;Platform&rdquo;).
+          These terms are an agreement between you and Matrix Studios Software
+          (&ldquo;Signpost,&rdquo; &ldquo;we,&rdquo; or &ldquo;us&rdquo;). They
+          cover your use of signpostasl.com, the Signpost app, our LMS
+          integration, and anything else we offer under the Signpost name
+          (together, &ldquo;Signpost&rdquo;).
         </p>
         <p className="legal-body">
-          By accessing or using Signpost, you agree to be bound by these Terms.
-          If you do not agree, please do not use the Platform.
+          By using Signpost you agree to these terms and to our{" "}
+          <Link href="/legal/privacy">Privacy Policy</Link>. If you don&rsquo;t
+          agree, please don&rsquo;t use Signpost.
         </p>
       </section>
 
-      {/* 1 */}
       <section className="legal-section">
-        <h2 className="legal-heading">1. Eligibility</h2>
+        <h2 className="legal-heading">1. Who can use Signpost</h2>
         <p className="legal-body">
-          You must be at least 13 years old to create a Signpost account. If
-          you are between 13 and 18, you represent that you have your parent
-          or guardian&rsquo;s consent to use the Platform, or that your use is
-          supervised by your educational institution. Users under 13 may only
-          access Signpost with verifiable parental or guardian consent in
-          compliance with COPPA.
+          You need to be at least 13 to create your own account. If you&rsquo;re
+          under 18, you need a parent or guardian&rsquo;s permission, and they
+          should read these terms with you. If you&rsquo;re under 13, you can
+          only use Signpost with a parent or guardian&rsquo;s consent, or
+          through a school that has set it up for your class.
         </p>
         <p className="legal-body">
-          If you are using Signpost through a school or educational program,
-          the administrator of that program may have entered into a separate
-          agreement with us that governs your use and may override portions of
-          these Terms.
+          If you use Signpost through a school, your school may have its own
+          agreement with us. Where that agreement conflicts with these terms,
+          the school agreement applies.
         </p>
       </section>
 
-      {/* 2 */}
       <section className="legal-section">
-        <h2 className="legal-heading">2. Your Account</h2>
+        <h2 className="legal-heading">2. Your account</h2>
         <p className="legal-body">
-          You are responsible for keeping your login credentials secure.
-          Signpost is not liable for any unauthorized activity that occurs
-          under your account. If you suspect that your account has been
-          compromised, notify us immediately at{" "}
-          <a
-            href="mailto:signpostcv@gmail.com"
-            className="text-accent-light hover:underline"
-          >
-            signpostcv@gmail.com
-          </a>
-          .
+          Keep your login details to yourself. You&rsquo;re responsible for
+          what happens under your account, so tell us right away at <Email />{" "}
+          if you think someone else has gotten into it.
         </p>
         <p className="legal-body">
-          You may close your account at any time by contacting us. Upon
-          closure, we will delete your personal data in accordance with our{" "}
-          <Link
-            href="/legal/privacy"
-            className="text-accent-light hover:underline"
-          >
-            Privacy Policy
-          </Link>
-          .
+          You can stop using Signpost whenever you like. To delete your account
+          and its data, email us and we&rsquo;ll handle it as described in our{" "}
+          <Link href="/legal/privacy">Privacy Policy</Link>.
         </p>
       </section>
 
-      {/* 3 */}
       <section className="legal-section">
-        <h2 className="legal-heading">3. Acceptable Use</h2>
+        <h2 className="legal-heading">3. Plans and billing</h2>
         <p className="legal-body">
-          Signpost is an educational platform. You agree not to:
+          Signpost has a free plan and paid plans (currently Plus and Pro). The
+          plans page in the app shows what each plan includes and what it
+          costs. The free plan has usage limits, such as how many units you can
+          start within a few hours, and we may change those limits.
         </p>
         <ul className="legal-list">
           <li>
-            Reverse-engineer, decompile, or attempt to extract the source code
-            of our computer vision models or proprietary systems.
+            Paid plans are subscriptions billed monthly or yearly through
+            Stripe. They renew automatically at the end of each billing period,
+            and we&rsquo;ll charge your payment method for the next period
+            unless you cancel before it starts.
           </li>
           <li>
-            Use the Platform to develop a competing product or service.
+            You can cancel at any time from the Billing page in your account
+            settings. After you cancel, you keep your paid features until the
+            end of the period you&rsquo;ve paid for, and then your account moves
+            to the free plan.
           </li>
           <li>
-            Transmit malware, exploit vulnerabilities, or attempt unauthorized
-            access to our infrastructure.
+            Payments aren&rsquo;t refundable, and we don&rsquo;t give refunds or
+            credits for unused time, except where the law requires it. If you
+            think you were charged by mistake, email us and we&rsquo;ll look
+            into it.
           </li>
           <li>
-            Use automated scripts, bots, or scrapers to access the Platform in
-            a manner that exceeds reasonable personal use.
+            We may change prices or what a plan includes. A price change
+            won&rsquo;t affect a period you&rsquo;ve already paid for, and
+            we&rsquo;ll tell you before a new price applies to your
+            subscription.
           </li>
-          <li>
-            Misrepresent your identity or impersonate another person.
-          </li>
-          <li>
-            Upload, post, or transmit content that is unlawful, harmful,
-            threatening, or otherwise objectionable.
-          </li>
+          <li>Prices don&rsquo;t include taxes unless we say they do.</li>
         </ul>
         <p className="legal-body">
-          We reserve the right to suspend or terminate accounts that violate
-          these terms, with or without prior notice depending on the severity
-          of the violation.
+          If you invite friends who sign up, you may earn free time on a paid
+          plan, as described in the app. Referral rewards have no cash value
+          and can&rsquo;t be transferred. We may change or end the referral
+          program, and we may take back rewards earned through abuse, such as
+          fake accounts.
         </p>
       </section>
 
-      {/* 4 */}
       <section className="legal-section">
-        <h2 className="legal-heading">4. Intellectual Property</h2>
+        <h2 className="legal-heading">4. Schools, teachers, and LMS integrations</h2>
         <p className="legal-body">
-          The Signpost name, logo, website design, computer vision models,
-          curriculum content, and all underlying technology are the property of
-          Matrix Studios Software or its licensors and are protected by intellectual
-          property laws.
+          Teachers can create classes, invite students, set assignments, import
+          rosters from Canvas, and connect Signpost to their school&rsquo;s
+          learning management system. If you do any of this, you confirm that
+          your school allows it and that you have whatever permission is needed
+          to add students and share their information with us.
         </p>
         <p className="legal-body">
-          We grant you a limited, non-exclusive, non-transferable license to
-          access and use the Platform for personal, educational purposes. This
-          license does not include the right to modify, distribute, or create
-          derivative works based on our content without prior written
-          permission.
+          Lesson scores are produced automatically by our sign recognition and
+          can be wrong. They&rsquo;re meant to support a teacher&rsquo;s
+          judgment, not replace it, so please review scores before relying on
+          them as grades.
+        </p>
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">5. Acceptable use</h2>
+        <p className="legal-body">When using Signpost, please don&rsquo;t:</p>
+        <ul className="legal-list">
+          <li>
+            Copy, extract, or reverse engineer our recognition models, model
+            files, or other non-public parts of Signpost.
+          </li>
+          <li>
+            Use Signpost to build a competing product or to train another
+            recognition model.
+          </li>
+          <li>
+            Probe or test our systems for vulnerabilities, except as allowed by
+            our <Link href="/legal/security#disclosure">disclosure policy</Link>.
+          </li>
+          <li>
+            Overload or interfere with Signpost, or get around rate limits, plan
+            limits, or access controls.
+          </li>
+          <li>
+            Use bots or scrapers to access Signpost beyond normal personal use.
+          </li>
+          <li>Create fake accounts, including to collect referral rewards.</li>
+          <li>
+            Pretend to be someone else or misrepresent who you are, including
+            claiming to be a teacher when you aren&rsquo;t.
+          </li>
+          <li>
+            Post anything illegal, harmful, or harassing, for example in class
+            names, assignment instructions, or bug reports.
+          </li>
+          <li>Use Signpost in a way that breaks the law or violates anyone&rsquo;s rights.</li>
+        </ul>
+        <p className="legal-body">
+          We may suspend or close accounts that break these rules. For serious
+          violations we may do this without warning.
+        </p>
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">6. Our content and your license to use it</h2>
+        <p className="legal-body">
+          Signpost, including our recognition models, curriculum, software,
+          design, and logos, belongs to Matrix Studios Software or our
+          licensors and is protected by intellectual property laws. We give you
+          a personal, non-exclusive, non-transferable, revocable license to use
+          Signpost for learning and teaching, as these terms allow.
         </p>
         <p className="legal-body">
-          Some of our code is open source and available on{" "}
+          Some content in Signpost comes from others, like sign videos embedded
+          from YouTube and sign images from Lifeprint, and belongs to its
+          owners.
+        </p>
+        <p className="legal-body">
+          Some of our code is public on{" "}
           <a
             href="https://github.com/SignpostApp"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent-light hover:underline"
           >
             GitHub
           </a>
-          . Open-source components are governed by their respective licenses,
-          which take precedence over these Terms for those specific components.
+          . Public code isn&rsquo;t open source unless its repository includes
+          an open source license. Where one does, that license governs that
+          code.
         </p>
       </section>
 
-      {/* 5 */}
       <section className="legal-section">
-        <h2 className="legal-heading">5. User-Generated Content</h2>
+        <h2 className="legal-heading">7. Your content and feedback</h2>
         <p className="legal-body">
-          If you provide feedback, suggestions, or bug reports, you grant us a
-          non-exclusive, royalty-free, worldwide license to use, modify, and
-          incorporate that feedback into the Platform. You won&rsquo;t be
-          compensated for feedback unless separately agreed in writing.
+          Things you create in Signpost, like class names and assignment
+          instructions, stay yours. You let us store, display, and process them
+          as needed to run Signpost. If you send us feedback or ideas, we can
+          use them without paying you or owing you anything.
         </p>
         <p className="legal-body">
-          For clarity: hand landmark data collected during your practice
-          sessions is governed by our{" "}
-          <Link
-            href="/legal/privacy"
-            className="text-accent-light hover:underline"
-          >
-            Privacy Policy
-          </Link>
-          , not this section. We de-identify landmark data before using it for
-          model training.
+          Your practice results and other personal information are covered by
+          our <Link href="/legal/privacy">Privacy Policy</Link>.
         </p>
       </section>
 
-      {/* 6 */}
       <section className="legal-section">
-        <h2 className="legal-heading">6. Disclaimers</h2>
+        <h2 className="legal-heading">8. Other services</h2>
         <p className="legal-body">
-          Signpost is provided on an &ldquo;as is&rdquo; and &ldquo;as
-          available&rdquo; basis. We make no warranties — express or implied —
-          regarding the accuracy, completeness, or reliability of our
-          sign-recognition technology or curriculum content.
-        </p>
-        <p className="legal-body">
-          While we strive for high accuracy, computer vision is an evolving
-          field. Our feedback should be treated as a learning aid, not a
-          medical, therapeutic, or professional certification tool. Signpost
-          is not a substitute for working with a qualified ASL instructor or
-          interpreter where professional proficiency is required.
+          Signpost relies on services we don&rsquo;t control, including Clerk
+          for sign-in, Stripe for payments, YouTube for sign videos, and your
+          school&rsquo;s LMS. Their own terms apply when you use them, and
+          we&rsquo;re not responsible for them.
         </p>
       </section>
 
-      {/* 7 */}
       <section className="legal-section">
-        <h2 className="legal-heading">7. Limitation of Liability</h2>
+        <h2 className="legal-heading">9. Disclaimers</h2>
         <p className="legal-body">
-          To the maximum extent permitted by applicable law, Matrix Studios
-          Software, its founders, employees, and affiliates shall not be liable for
-          any indirect, incidental, special, consequential, or punitive
-          damages arising out of or relating to your use of the Platform. Our
-          total liability for any claim arising from these Terms is limited to
-          the amount you paid us (if any) in the 12 months preceding the
-          claim.
+          Signpost is a learning aid. Sign recognition is imperfect: it can
+          mark a correct sign as wrong or a wrong one as right, and it
+          can&rsquo;t judge everything that matters in ASL. Signpost isn&rsquo;t
+          a substitute for learning from Deaf signers and qualified ASL
+          teachers, and it doesn&rsquo;t certify ASL proficiency or qualify
+          anyone to interpret.
+        </p>
+        <p className="legal-body">
+          To the extent the law allows, Signpost is provided &ldquo;as
+          is&rdquo; and &ldquo;as available,&rdquo; without warranties of any
+          kind, including warranties of merchantability, fitness for a
+          particular purpose, and non-infringement. We don&rsquo;t promise that
+          Signpost will always be available, error-free, or accurate.
         </p>
       </section>
 
-      {/* 8 */}
       <section className="legal-section">
-        <h2 className="legal-heading">8. Indemnification</h2>
+        <h2 className="legal-heading">10. Limitation of liability</h2>
         <p className="legal-body">
-          You agree to indemnify and hold harmless Matrix Studios Software from any
-          claims, damages, losses, or expenses (including reasonable
-          attorneys&rsquo; fees) arising out of your violation of these Terms
-          or your misuse of the Platform.
+          To the extent the law allows, Matrix Studios Software and its
+          founders, employees, and contractors won&rsquo;t be liable for any
+          indirect, incidental, special, consequential, or punitive damages, or
+          for lost profits, data, or goodwill, arising from your use of
+          Signpost. Our total liability for any claim relating to Signpost is
+          limited to the greater of the amount you paid us in the 12 months
+          before the claim or US$50.
+        </p>
+        <p className="legal-body">
+          Some places don&rsquo;t allow these limits, so they may not fully
+          apply to you.
         </p>
       </section>
 
-      {/* 9 */}
       <section className="legal-section">
-        <h2 className="legal-heading">9. Modifications to These Terms</h2>
+        <h2 className="legal-heading">11. Indemnity</h2>
         <p className="legal-body">
-          We may revise these Terms from time to time. For material changes, we
-          will provide at least 14 days&rsquo; notice through email or an
-          in-platform notification. Continued use after the effective date
-          constitutes acceptance. If you disagree with the updated Terms, your
-          remedy is to stop using the Platform and delete your account.
+          If you break these terms or misuse Signpost and someone makes a
+          claim against us because of it, you agree to cover our resulting
+          losses and reasonable legal costs.
         </p>
       </section>
 
-      {/* 10 */}
       <section className="legal-section">
-        <h2 className="legal-heading">10. Governing Law &amp; Disputes</h2>
+        <h2 className="legal-heading">12. Ending these terms</h2>
         <p className="legal-body">
-          These Terms are governed by and construed in accordance with the
-          laws of the Commonwealth of Massachusetts, without regard to its
-          conflict-of-law provisions. Any disputes arising under these Terms
-          shall be resolved in the state or federal courts located in
-          Suffolk County, Massachusetts.
+          You can stop using Signpost at any time. We may suspend or end your
+          access if you break these terms, if the law requires it, or if we
+          stop offering Signpost. If we end a paid plan for any reason other
+          than your breaking these terms, we&rsquo;ll refund the unused part of
+          your current billing period.
+        </p>
+        <p className="legal-body">
+          Sections that should reasonably continue after your access ends,
+          like ownership, disclaimers, limitation of liability, and governing
+          law, will continue.
         </p>
       </section>
 
-      {/* 11 */}
       <section className="legal-section">
-        <h2 className="legal-heading">11. Severability</h2>
+        <h2 className="legal-heading">13. Changes to these terms</h2>
         <p className="legal-body">
-          If any provision of these Terms is found to be unenforceable, the
-          remaining provisions will continue in full force. The unenforceable
-          provision will be modified to reflect the parties&rsquo; original
-          intent as closely as possible.
+          If we make a material change, we&rsquo;ll tell you by email or with a
+          notice in Signpost at least 14 days before it takes effect. If you
+          keep using Signpost after that, you&rsquo;re agreeing to the new
+          terms. If you don&rsquo;t agree, stop using Signpost and ask us to
+          delete your account.
         </p>
       </section>
 
-      {/* Contact */}
       <section className="legal-section">
-        <h2 className="legal-heading">12. Contact</h2>
+        <h2 className="legal-heading">14. Governing law and disputes</h2>
         <p className="legal-body">
-          Need clarification on anything? Don&rsquo;t hesitate to reach out.
+          These terms are governed by the laws of the State of California,
+          without regard to its conflict of law rules. Any dispute relating to
+          these terms or Signpost will be heard in the state or federal courts
+          located in Orange County, California, and you and we agree to the
+          jurisdiction of those courts.
         </p>
-        <div className="glass-card rounded-2xl p-8 mt-6">
-          <p className="text-foreground font-medium mb-2">Matrix Studios Software</p>
-          <p className="text-muted text-sm leading-relaxed">
-            Email:{" "}
-            <a
-              href="mailto:signpostcv@gmail.com"
-              className="text-accent-light hover:underline"
-            >
-              signpostcv@gmail.com
-            </a>
-          </p>
-        </div>
+        <p className="legal-body">
+          Before filing a claim, please email us so we can try to sort it out
+          informally first. If you live outside the US, you may also have
+          rights under your local consumer protection laws that these terms
+          can&rsquo;t take away.
+        </p>
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">15. General</h2>
+        <p className="legal-body">
+          These terms and our Privacy Policy are the whole agreement between
+          you and us about Signpost. If part of these terms turns out to be
+          unenforceable, the rest still applies. If we don&rsquo;t enforce part
+          of these terms right away, we haven&rsquo;t given up the right to do
+          so later. We may transfer these
+          terms as part of a merger, acquisition, or sale of assets. You
+          can&rsquo;t transfer them without our written permission.
+        </p>
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">16. Contact</h2>
+        <p className="legal-body">Questions about these terms? Get in touch:</p>
+        <ContactCard />
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">Related</h2>
+        <PolicyLinks current="/legal/terms" />
       </section>
     </article>
   );

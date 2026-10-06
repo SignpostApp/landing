@@ -362,7 +362,7 @@ const jsonLd = {
           name: "Is my webcam data private and secure?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Your privacy is our top priority. All hand tracking runs entirely in your browser. Your webcam feed is never sent to our servers, recorded, or stored. The only data we save server-side is numerical hand landmark coordinates (joint positions, not images or video) used to improve our recognition models. No webcam footage ever leaves your device.",
+            text: "Yes. Hand tracking runs entirely in your browser, so your webcam feed is never sent to our servers, recorded, or stored. When you finish a lesson we save only the result: which signs you practiced and how accurate each one was. Video, images, and tracking data never leave your device.",
           },
         },
       ],
