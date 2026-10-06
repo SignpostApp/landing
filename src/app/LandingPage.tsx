@@ -190,7 +190,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
                 </h1>
 
                 <p data-hero-item className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed mt-6 mb-9 text-pretty">
-                  Signpost watches your hands through your webcam and corrects your form in under 100 milliseconds. The free demo opens in your browser; the full app is launching in 2026.
+                  Signpost watches your hands through your webcam and gives you information on what you are actually signing. Our product works fully in your browser, and gives you ASL learning for free, forever.
                 </p>
 
                 {/* Primary CTA */}
@@ -474,7 +474,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
                   <p className="text-xs text-slate-500 shrink-0">Both Deaf and hearing</p>
                 </div>
                 <p className="text-slate-600 leading-relaxed text-[0.95rem] mb-7 flex-1">
-                  The available lessons and product layout has been tested and approved by ASL educators who are both Deaf and hearing. We have made sure that our platform is not only useful, but also provides the correct content.
+                  The available lessons and product layout has been tested and approved by ASL educators who are both Deaf and hearing. We have made sure that our platform is not only useful, but we also continuously audit our content to ensure accuracy and quality.
                 </p>
               </article>
             </div>
@@ -586,10 +586,10 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
         <section className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="Start learning ASL now">
           <div data-reveal className="relative max-w-3xl mx-auto px-6 lg:px-10 text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 mb-5 text-balance">
-              Sign your first ASL letters in under five minutes.
+              Sign your first ASL letters right now, actually
             </h2>
             <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto mb-10 leading-relaxed text-pretty">
-              Open the demo, turn on your webcam, and start fingerspelling. The machine learning model corrects every letter in real time. No sign-up, no download.
+              Open our product, turn on your webcam, and start learning. Our in-house machine learning model will tell you exactly what you are signing. No sign-up, no download, no credit cards.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <a
@@ -609,7 +609,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
               </button>
             </div>
             <p className="mt-8 text-sm text-slate-500">
-              4,000+ users have already started signing, why not you?
+              5,000+ users have already started signing, why not you?
             </p>
           </div>
         </section>
