@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import IlyPile from "./IlyPile";
 import StatusPill from "./StatusPill";
 import { DEMO_URL } from "./navData";
 
@@ -48,6 +49,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
   {
     title: "Legal",
     links: [
+      { label: "Trust Center", href: "/trust" },
       { label: "Privacy", href: "/legal/privacy" },
       { label: "Terms", href: "/legal/terms" },
       { label: "Cookies", href: "/legal/cookies" },
@@ -62,8 +64,8 @@ const linkClass =
 
 export default function SiteFooter() {
   return (
-    <footer className="relative pt-20 pb-8 border-t border-slate-200">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+    <footer className="relative pt-20 border-t border-slate-200">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 pb-8">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20 mb-16">
           <div className="max-w-sm">
             <Link href="/" aria-label="Signpost home" className="inline-flex">
@@ -155,6 +157,8 @@ export default function SiteFooter() {
           </div>
         </div>
       </div>
+
+      <IlyPile />
     </footer>
   );
 }

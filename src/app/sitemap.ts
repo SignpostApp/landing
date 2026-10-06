@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 import { getAllPosts } from "./blog/posts";
 import { SITE_URL } from "@/lib/seo";
 
-const LEGAL_PAGES = ["privacy", "terms", "cookies", "gdpr", "security"];
-const LEGAL_UPDATED = new Date("2026-04-12");
+const LEGAL_PAGES = ["privacy", "terms", "cookies", "gdpr", "security", "subprocessors"];
+const LEGAL_UPDATED = new Date("2026-10-05");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/blog/${post.slug}`,
       lastModified: new Date(post.updated ?? post.date),
     })),
+    { url: `${SITE_URL}/trust`, lastModified: LEGAL_UPDATED },
     ...LEGAL_PAGES.map((slug) => ({
       url: `${SITE_URL}/legal/${slug}`,
       lastModified: LEGAL_UPDATED,

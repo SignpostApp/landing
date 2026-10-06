@@ -1,204 +1,226 @@
+import Link from "next/link";
+
+import { ContactCard, LegalHeader, LegalTable, PolicyLinks } from "@/app/_components/legal";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Cookie Policy",
   description:
-    "How Signpost uses cookies and similar technologies on its ASL learning platform.",
+    "Every cookie and browser storage item Signpost uses on signpostasl.com and the Signpost app, what each one is for, and how to control them.",
   path: "/legal/cookies",
 });
+
+function Key({ children }: { children: string }) {
+  return (
+    <code className="font-mono text-[0.8rem] text-slate-800 break-all">{children}</code>
+  );
+}
 
 export default function CookiePolicyPage() {
   return (
     <article className="legal-page">
-      {/* Header */}
-      <header className="mb-16">
-        <p className="font-mono-upper mb-4">Legal</p>
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl gradient-text-warm mb-6">
-          Cookie Policy
-        </h1>
-        <p className="font-subtext text-muted text-sm">
-          Last updated: April 12, 2026 &middot; Effective immediately
-        </p>
-      </header>
+      <LegalHeader title="Cookie Policy" />
 
-      {/* Intro */}
       <section className="legal-section">
         <p className="legal-body">
-          This Cookie Policy explains what cookies and similar tracking
-          technologies Matrix Studios Software (&ldquo;Signpost&rdquo;) uses, why
-          we use them, and what choices you have. We believe in keeping things
-          minimal — we only set cookies that are actually necessary for the
-          site to function or that help us understand how to improve the
-          experience.
+          This page lists the cookies and other browser storage that Signpost
+          uses on signpostasl.com and in the Signpost app at
+          demo.signpostasl.com, what each one does, and how you can control
+          them.
+        </p>
+        <p className="legal-body">
+          Cookies are small files a website saves in your browser. Sites can
+          also save data using local storage, which stays until it&rsquo;s
+          cleared, and session storage, which is cleared when you close the
+          tab. We use all three, and this page covers all of them.
         </p>
       </section>
 
-      {/* 1 */}
       <section className="legal-section">
-        <h2 className="legal-heading">1. What Are Cookies?</h2>
+        <h2 className="legal-heading">1. Necessary</h2>
         <p className="legal-body">
-          Cookies are small text files placed on your device by a website.
-          They allow the site to remember information about your visit — like
-          your preferences or login status — so you don&rsquo;t have to
-          re-enter that information every time. Some cookies expire at the end
-          of your session (session cookies), while others persist across visits
-          (persistent cookies).
+          These keep you signed in and keep the app working. Signpost
+          won&rsquo;t work properly without them.
+        </p>
+        <LegalTable
+          columns={["Name", "Set by", "What it does", "How long"]}
+          rows={[
+            [
+              <>
+                <Key>__session</Key>, <Key>__client_uat</Key>, <Key>__client</Key>, and
+                related cookies
+              </>,
+              "Clerk, in the app and on clerk.signpostasl.com",
+              "Keeps you signed in and protects your session.",
+              "While you're signed in. The session token itself is short-lived and renewed automatically.",
+            ],
+            [
+              <Key key="lti">signpost_lti</Key>,
+              "Signpost app",
+              "Links a launch from your school's LMS to the right account and lesson.",
+              "12 hours",
+            ],
+          ]}
+        />
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">2. Preferences and app state</h2>
+        <p className="legal-body">
+          These are saved in your browser&rsquo;s local and session storage in
+          the Signpost app. They never leave your device unless noted.
+        </p>
+        <LegalTable
+          columns={["Name", "Type", "What it does"]}
+          rows={[
+            [<Key key="theme">signpost-theme</Key>, "Local storage", "Remembers light or dark mode."],
+            [
+              <Key key="sidenav">signpost-sidenav-collapsed</Key>,
+              "Local storage",
+              "Remembers whether the sidebar is collapsed.",
+            ],
+            [
+              <Key key="gates">signpost-nav-gates</Key>,
+              "Local storage",
+              "Remembers whether to show the Classes and Dashboard menu items, so the menu doesn't jump while it loads.",
+            ],
+            [
+              <Key key="brow">signpost.brow-calibration</Key>,
+              "Local storage",
+              "Your eyebrow calibration numbers. If you're signed in, they're also saved to your account.",
+            ],
+            [
+              <Key key="memory">signpost-memory-best:*</Key>,
+              "Local storage",
+              "Your best scores in the memory games.",
+            ],
+            [
+              <Key key="debug">signpost.debug-info</Key>,
+              "Local storage",
+              "Whether the lesson debug panel is open.",
+            ],
+            [
+              <Key key="handoff">signpost.pendingChallenge</Key>,
+              "Session storage",
+              "Passes a drill or assignment to the lesson page when you start it.",
+            ],
+          ]}
+        />
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">3. Analytics</h2>
+        <p className="legal-body">
+          These help us understand how people find and use Signpost. Blocking
+          them won&rsquo;t affect how Signpost works.
+        </p>
+        <LegalTable
+          columns={["Name", "Set by", "What it does", "How long"]}
+          rows={[
+            [
+              <>
+                <Key>_ga</Key>, <Key>_ga_7DW69BDLXM</Key>
+              </>,
+              "Google Analytics, on both sites",
+              "Counts visits and tells returning visitors apart from new ones.",
+              "2 years",
+            ],
+            [
+              <Key key="ph">{"ph_<project key>_posthog"}</Key>,
+              "PostHog, on both sites",
+              "Keeps a random visitor ID so we can see how people move through the site and app. After you sign in, it's linked to your account ID. PostHog also keeps a copy in local storage and a little in session storage.",
+              "1 year",
+            ],
+            [
+              <Key key="attr">sp_attr</Key>,
+              "signpostasl.com (session storage)",
+              "Remembers how you arrived, such as a campaign tag or the site that linked you, so it can be saved with your email if you join the waitlist.",
+              "Until you close the tab",
+            ],
+          ]}
+        />
+        <p className="legal-body">
+          We use Google Analytics to measure traffic, not for advertising. We
+          don&rsquo;t use advertising or retargeting cookies, and we don&rsquo;t
+          let ad networks track you on Signpost.
         </p>
       </section>
 
-      {/* 2 */}
       <section className="legal-section">
-        <h2 className="legal-heading">2. Cookies We Use</h2>
+        <h2 className="legal-heading">4. Cookies from other services</h2>
         <p className="legal-body">
-          Here&rsquo;s an honest breakdown of every cookie category on our
-          platform:
-        </p>
-
-        {/* Table */}
-        <div className="overflow-x-auto mt-8 mb-6">
-          <table className="w-full text-sm border-collapse">
-            <thead>
-              <tr className="border-b border-white/10">
-                <th className="text-left py-3 pr-4 font-mono-upper text-[10px] text-muted">
-                  Category
-                </th>
-                <th className="text-left py-3 pr-4 font-mono-upper text-[10px] text-muted">
-                  Purpose
-                </th>
-                <th className="text-left py-3 font-mono-upper text-[10px] text-muted">
-                  Duration
-                </th>
-              </tr>
-            </thead>
-            <tbody className="text-muted leading-relaxed">
-              <tr className="border-b border-white/5">
-                <td className="py-4 pr-4 text-foreground/80 font-medium whitespace-nowrap">
-                  Strictly Necessary
-                </td>
-                <td className="py-4 pr-4">
-                  Authentication tokens, CSRF protection, and session
-                  management. The site cannot function without these.
-                </td>
-                <td className="py-4 whitespace-nowrap">Session / 30 days</td>
-              </tr>
-              <tr className="border-b border-white/5">
-                <td className="py-4 pr-4 text-foreground/80 font-medium whitespace-nowrap">
-                  Functional
-                </td>
-                <td className="py-4 pr-4">
-                  Remembering your preferences — like dark mode selection,
-                  language, or curriculum progress. These make your experience
-                  smoother but are not required for core functionality.
-                </td>
-                <td className="py-4 whitespace-nowrap">1 year</td>
-              </tr>
-              <tr className="border-b border-white/5">
-                <td className="py-4 pr-4 text-foreground/80 font-medium whitespace-nowrap">
-                  Analytics
-                </td>
-                <td className="py-4 pr-4">
-                  Vercel Analytics — anonymized, aggregate usage data. No
-                  personal identifiers. Helps us understand which features
-                  people actually use so we can prioritize development.
-                </td>
-                <td className="py-4 whitespace-nowrap">Session</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p className="legal-body">
-          Notice what&rsquo;s <em>not</em> on that list: advertising cookies,
-          social media tracking pixels, cross-site identifiers, or fingerprinting
-          scripts. We don&rsquo;t use any of those. Signpost is an educational
-          tool, not an ad platform.
-        </p>
-      </section>
-
-      {/* 3 */}
-      <section className="legal-section">
-        <h2 className="legal-heading">3. Third-Party Cookies</h2>
-        <p className="legal-body">
-          We currently use <strong className="text-foreground">Vercel Analytics</strong>,
-          which may place its own first-party-scoped cookies for anonymized
-          traffic measurement. No other third-party cookies are set by our
-          platform. We do not embed third-party social widgets, ad networks,
-          or tracking pixels.
-        </p>
-      </section>
-
-      {/* 4 */}
-      <section className="legal-section">
-        <h2 className="legal-heading">4. Managing Your Cookie Preferences</h2>
-        <p className="legal-body">
-          You can control cookies through your browser settings:
+          A few services we use set their own cookies on their own domains,
+          under their own policies:
         </p>
         <ul className="legal-list">
           <li>
-            <strong className="text-foreground/90">Chrome:</strong> Settings →
-            Privacy and Security → Cookies and other site data
+            <strong className="text-foreground/90">Stripe</strong> sets cookies
+            on its checkout and billing pages to process payments and prevent
+            fraud.
           </li>
           <li>
-            <strong className="text-foreground/90">Firefox:</strong> Settings →
-            Privacy &amp; Security → Cookies and Site Data
+            <strong className="text-foreground/90">YouTube</strong> sign videos
+            are embedded in privacy-enhanced mode (youtube-nocookie.com). If
+            you play one, YouTube may store cookies or similar data in your
+            browser.
+          </li>
+        </ul>
+      </section>
+
+      <section className="legal-section">
+        <h2 className="legal-heading">5. Your choices</h2>
+        <p className="legal-body">
+          You can see, block, and delete cookies and site data in your
+          browser&rsquo;s settings. Look for &ldquo;Cookies and site
+          data&rdquo; or &ldquo;Website data&rdquo; in Chrome, Firefox, Safari,
+          or Edge. Private or incognito windows clear everything when you close
+          them.
+        </p>
+        <ul className="legal-list">
+          <li>
+            Blocking analytics cookies, or using a content blocker, won&rsquo;t
+            change how Signpost works.
           </li>
           <li>
-            <strong className="text-foreground/90">Safari:</strong> Preferences
-            → Privacy → Manage Website Data
+            Google offers a{" "}
+            <a
+              href="https://tools.google.com/dlpage/gaoptout"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              browser add-on
+            </a>{" "}
+            that opts you out of Google Analytics on every site.
           </li>
           <li>
-            <strong className="text-foreground/90">Edge:</strong> Settings →
-            Cookies and site permissions → Manage and delete cookies
+            Blocking Clerk&rsquo;s cookies will stop you from signing in to the
+            app.
           </li>
         </ul>
         <p className="legal-body">
-          Blocking strictly necessary cookies may prevent you from logging in
-          or using core Platform features. Blocking functional or analytics
-          cookies will not prevent you from using Signpost — it just means we
-          won&rsquo;t remember your preferences and we&rsquo;ll have less
-          insight into how people use the product.
+          We don&rsquo;t sell your information or use it for targeted ads, which
+          is what Global Privacy Control signals ask sites to stop. We
+          don&rsquo;t change what we do based on Do Not Track signals.
         </p>
       </section>
 
-      {/* 5 */}
       <section className="legal-section">
-        <h2 className="legal-heading">5. Do Not Track</h2>
+        <h2 className="legal-heading">6. Changes</h2>
         <p className="legal-body">
-          Some browsers send a &ldquo;Do Not Track&rdquo; (DNT) signal with
-          each request. While there is no industry consensus on how to
-          interpret DNT, Signpost already does not engage in cross-site
-          tracking, so our behavior is consistent with the spirit of DNT
-          regardless.
+          We update this page when we add or remove cookies or storage. The
+          date at the top shows the last change. For more about how we handle
+          your data, see our <Link href="/legal/privacy">Privacy Policy</Link>.
         </p>
       </section>
 
-      {/* 6 */}
       <section className="legal-section">
-        <h2 className="legal-heading">6. Updates to This Policy</h2>
-        <p className="legal-body">
-          If we start using new cookie categories (for example, if we
-          introduce an optional cookie consent banner), we&rsquo;ll update
-          this page and notify users through our standard communication
-          channels. The &ldquo;last updated&rdquo; date at the top reflects
-          the most recent revision.
-        </p>
+        <h2 className="legal-heading">7. Questions</h2>
+        <ContactCard />
       </section>
 
-      {/* Contact */}
       <section className="legal-section">
-        <h2 className="legal-heading">7. Questions?</h2>
-        <div className="glass-card rounded-2xl p-8 mt-6">
-          <p className="text-foreground font-medium mb-2">Matrix Studios Software</p>
-          <p className="text-muted text-sm leading-relaxed">
-            Email:{" "}
-            <a
-              href="mailto:signpostcv@gmail.com"
-              className="text-accent-light hover:underline"
-            >
-              signpostcv@gmail.com
-            </a>
-          </p>
-        </div>
+        <h2 className="legal-heading">Related</h2>
+        <PolicyLinks current="/legal/cookies" />
       </section>
     </article>
   );
