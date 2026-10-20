@@ -17,20 +17,19 @@ type MatterModule = typeof Matter;
 
 type Point = { x: number; y: number };
 
-type Drag = {
+type Held = {
   index: number;
   body: Matter.Body;
-  constraint: Matter.Constraint;
+  angle: number;
   inertia: number;
-  pointerId: number;
-  trail: (Point & { t: number })[];
 };
 
 type Sim = {
   M: MatterModule;
   engine: Matter.Engine;
+  runner: Matter.Runner;
+  mouse: Matter.Mouse;
   bodies: (Matter.Body | null)[];
-  indexById: Map<number, number>;
   scale: number;
   offsetX: number;
   offsetY: number;
@@ -38,20 +37,18 @@ type Sim = {
   height: number;
   pivotDelta: Point;
   rendered: Float64Array;
-  frame: number;
-  last: number;
-  carry: number;
-  drag: Drag | null;
+  running: boolean;
+  pointerId: number | null;
+  held: Held | null;
   thrown: { body: Matter.Body; until: number } | null;
 };
 
-type Pending = Point & { index: number; pointerId: number };
+type Pending = Point & { pointerId: number };
 
 const LIT_MS = 2000;
-const STEP_MS = 1000 / 60;
-const THROW_WINDOW_MS = 90;
 const THROWN_MS = 1200;
-const MAX_THROW = 42;
+const WALL = 100;
+const CEILING_GAP = 16;
 const PIVOT_X = ILY_CENTER.x * ILY_SCALE;
 const PIVOT_Y = ILY_CENTER.y * ILY_SCALE;
 
@@ -84,11 +81,9 @@ function createHand(M: MatterModule, unit: number) {
 
   return M.Body.create({
     parts,
-    restitution: 0.25,
-    friction: 0.5,
-    frictionStatic: 0.8,
-    frictionAir: 0.012,
-    density: 0.0016,
+    restitution: 0.3,
+    friction: 0.4,
+    frictionAir: 0.01,
   });
 }
 
@@ -120,7 +115,7 @@ export default function IlyPile() {
         window.clearTimeout(timer);
         timers.delete(index);
       }
-      if (hold || sim?.drag?.index === index) return;
+      if (hold || sim?.held?.index === index) return;
       timers.set(
         index,
         window.setTimeout(() => {
@@ -171,28 +166,27 @@ export default function IlyPile() {
       }
     }
 
-    function tick(now: number) {
-      if (!sim) return;
-      sim.frame = 0;
-      sim.carry += Math.min(now - sim.last, 64);
-      sim.last = now;
-      let steps = 0;
-      while (sim.carry >= STEP_MS && steps < 4) {
-        sim.M.Engine.update(sim.engine, STEP_MS);
-        sim.carry -= STEP_MS;
-        steps += 1;
-      }
-      render();
-      const resting = !sim.drag && sim.bodies.every((body) => !body || body.isSleeping);
-      if (resting || !visible) return;
-      sim.frame = requestAnimationFrame(tick);
+    function run() {
+      if (!sim || sim.running || !visible) return;
+      sim.running = true;
+      sim.M.Runner.run(sim.runner, sim.engine);
     }
 
-    function run() {
-      if (!sim || sim.frame || !visible) return;
-      sim.last = performance.now();
-      sim.carry = 0;
-      sim.frame = requestAnimationFrame(tick);
+    function pause() {
+      if (!sim || !sim.running) return;
+      sim.running = false;
+      sim.M.Runner.stop(sim.runner);
+    }
+
+    function drop(next: Sim) {
+      const held = next.held;
+      if (!held) return;
+      next.M.Body.setInertia(held.body, held.inertia);
+      next.held = null;
+      next.thrown =
+        held.body.speed > 4 ? { body: held.body, until: performance.now() + THROWN_MS } : null;
+      delete wrap!.dataset.dragging;
+      light(held.index);
     }
 
     function build(M: MatterModule): Sim {
@@ -203,17 +197,8 @@ export default function IlyPile() {
       const offsetX = (width - ILY_VIEWBOX.width * scale) / 2;
       const offsetY = height - ILY_VIEWBOX.height * scale;
       const unit = ILY_SCALE * scale;
-      const wall = 400;
-      const ceiling = offsetY - 40 * scale;
 
-      const engine = M.Engine.create({ gravity: { x: 0, y: 1.4 }, enableSleeping: true });
-      M.Composite.add(engine.world, [
-        M.Bodies.rectangle(width / 2, height + wall / 2, width + wall * 2, wall, { isStatic: true }),
-        M.Bodies.rectangle(width / 2, ceiling - wall / 2, width + wall * 2, wall, { isStatic: true }),
-        M.Bodies.rectangle(-wall / 2, height / 2, wall, height * 4, { isStatic: true }),
-        M.Bodies.rectangle(width + wall / 2, height / 2, wall, height * 4, { isStatic: true }),
-      ]);
-
+      const engine = M.Engine.create({ gravity: { x: 0, y: 1.5 } });
       const indexById = new Map<number, number>();
       let pivotDelta: Point = { x: 0, y: 0 };
 
@@ -236,11 +221,23 @@ export default function IlyPile() {
         return body;
       });
 
+      M.Composite.add(engine.world, [
+        M.Bodies.rectangle(width / 2, height + WALL / 2, width * 2, WALL, { isStatic: true }),
+        M.Bodies.rectangle(width / 2, -WALL / 2, width * 2, WALL, { isStatic: true }),
+        M.Bodies.rectangle(-WALL / 2, height / 2, WALL, height * 3, { isStatic: true }),
+        M.Bodies.rectangle(width + WALL / 2, height / 2, WALL, height * 3, { isStatic: true }),
+      ]);
+
+      const mouse = M.Mouse.create(document.createElement("div"));
+      const grab = M.MouseConstraint.create(engine, { mouse, constraint: { stiffness: 0.2 } });
+      M.Composite.add(engine.world, grab);
+
       const next: Sim = {
         M,
         engine,
+        runner: M.Runner.create(),
+        mouse,
         bodies,
-        indexById,
         scale,
         offsetX,
         offsetY,
@@ -248,19 +245,45 @@ export default function IlyPile() {
         height,
         pivotDelta,
         rendered: new Float64Array(bodies.length * 3).fill(Number.NaN),
-        frame: 0,
-        last: 0,
-        carry: 0,
-        drag: null,
+        running: false,
+        pointerId: null,
+        held: null,
         thrown: null,
       };
 
+      M.Events.on(grab, "startdrag", () => {
+        const body = grab.body;
+        const index = indexById.get(body.id);
+        if (index === undefined) return;
+        drop(next);
+        next.held = { index, body, angle: body.angle, inertia: body.inertia };
+        M.Body.setAngularVelocity(body, 0);
+        M.Body.setInertia(body, Infinity);
+        light(index, true);
+        wrap!.dataset.dragging = "";
+      });
+
+      M.Events.on(grab, "enddrag", () => drop(next));
+
       M.Events.on(engine, "beforeUpdate", () => {
-        if (next.drag) M.Body.setAngularVelocity(next.drag.body, 0);
+        const held = next.held;
+        if (!held || grab.body !== held.body) return;
+        const { body } = held;
+        M.Body.setAngle(body, held.angle);
+        M.Body.setAngularVelocity(body, 0);
+        const reach = CEILING_GAP + (body.position.y - body.bounds.min.y);
+        if (mouse.position.y < reach) mouse.position.y = reach;
+        if (body.bounds.min.y < CEILING_GAP) {
+          M.Body.setPosition(body, {
+            x: body.position.x,
+            y: body.position.y + CEILING_GAP - body.bounds.min.y,
+          });
+          M.Body.setVelocity(body, { x: body.velocity.x, y: Math.max(0, body.velocity.y) });
+        }
       });
 
       M.Events.on(engine, "collisionStart", (event) => {
-        const held = next.drag?.body;
+        const held = next.held?.body;
         const thrown = next.thrown && performance.now() < next.thrown.until ? next.thrown.body : null;
         for (const pair of event.pairs) {
           const a = pair.bodyA.parent;
@@ -273,92 +296,44 @@ export default function IlyPile() {
         }
       });
 
+      M.Events.on(next.runner, "afterTick", render);
+
       return next;
     }
 
-    function beginDrag(index: number, pointerId: number, point: Point) {
-      if (!sim || sim.drag) return;
-      const body = sim.bodies[index];
-      if (!body) return;
-      const { M } = sim;
-      M.Sleeping.set(body, false);
-      const constraint = M.Constraint.create({
-        pointA: point,
-        bodyB: body,
-        pointB: { x: point.x - body.position.x, y: point.y - body.position.y },
-        stiffness: 0.2,
-        damping: 0.1,
-        length: 0,
-      });
-      M.Composite.add(sim.engine.world, constraint);
-      sim.drag = {
-        index,
-        body,
-        constraint,
-        inertia: body.inertia,
-        pointerId,
-        trail: [{ ...point, t: performance.now() }],
-      };
-      M.Body.setInertia(body, Infinity);
-      M.Body.setAngularVelocity(body, 0);
-      light(index, true);
-      wrap!.dataset.dragging = "";
-      run();
+    function press(pointerId: number, point: Point) {
+      if (!sim) return;
+      sim.pointerId = pointerId;
+      sim.mouse.position.x = point.x;
+      sim.mouse.position.y = point.y;
+      sim.mouse.button = 0;
     }
 
-    function endDrag() {
-      const drag = sim?.drag;
-      if (!sim || !drag) return;
-      const { M } = sim;
-      M.Composite.remove(sim.engine.world, drag.constraint);
-      M.Body.setInertia(drag.body, drag.inertia);
-
-      const now = performance.now();
-      const recent = drag.trail.filter((sample) => now - sample.t <= THROW_WINDOW_MS);
-      const first = recent[0];
-      const last = recent[recent.length - 1];
-      const elapsed = first && last ? last.t - first.t : 0;
-      const vx = elapsed > 0 ? ((last.x - first.x) / elapsed) * STEP_MS : 0;
-      const vy = elapsed > 0 ? ((last.y - first.y) / elapsed) * STEP_MS : 0;
-      M.Body.setVelocity(drag.body, {
-        x: clamp(vx, -MAX_THROW, MAX_THROW),
-        y: clamp(vy, -MAX_THROW, MAX_THROW),
-      });
-      M.Body.setAngularVelocity(drag.body, clamp(vx * 0.006, -0.25, 0.25));
-
-      sim.drag = null;
-      sim.thrown = Math.hypot(vx, vy) > 4 ? { body: drag.body, until: now + THROWN_MS } : null;
-      delete wrap!.dataset.dragging;
-      light(drag.index);
-      run();
-    }
-
-    async function activate(index: number, event: PointerEvent) {
-      if (sim || starting) return;
+    async function activate() {
+      if (starting) return;
       starting = true;
-      pending = { index, pointerId: event.pointerId, ...localPoint(event) };
       const M = await loadMatter();
       starting = false;
-      if (disposed) return;
+      if (disposed || sim) return;
       sim = build(M);
       wrap!.dataset.live = "";
-      const grab = pending;
+      const grabAt = pending;
       pending = null;
-      if (grab) beginDrag(grab.index, grab.pointerId, grab);
+      if (grabAt) press(grabAt.pointerId, grabAt);
       run();
     }
 
     function reset() {
       if (!sim) return;
-      cancelAnimationFrame(sim.frame);
-      sim.M.Events.off(sim.engine, "beforeUpdate");
-      sim.M.Events.off(sim.engine, "collisionStart");
-      sim.M.Composite.clear(sim.engine.world, false);
-      sim.M.Engine.clear(sim.engine);
+      const { M, engine, runner, held } = sim;
+      M.Runner.stop(runner);
+      M.Composite.clear(engine.world, false);
+      M.Engine.clear(engine);
       sim = null;
       pending = null;
       delete wrap!.dataset.live;
       delete wrap!.dataset.dragging;
+      if (held) light(held.index);
       ILY_LAYOUT.forEach(([x, y, degrees], i) => {
         const el = hands[i];
         if (!el) return;
@@ -371,52 +346,50 @@ export default function IlyPile() {
       const index = handIndex(event.target);
       if (index < 0) return;
       void loadMatter();
-      if (sim?.drag) return;
+      if (sim?.held) return;
       light(index);
     }
 
+    function capture(pointerId: number) {
+      try {
+        svg!.setPointerCapture(pointerId);
+      } catch {}
+    }
+
     function onPointerDown(event: PointerEvent) {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      if (sim) {
+        if (sim.pointerId !== null) return;
+        event.preventDefault();
+        capture(event.pointerId);
+        press(event.pointerId, localPoint(event));
+        return;
+      }
       const index = handIndex(event.target);
       if (index < 0) return;
-      if (event.pointerType === "mouse" && event.button !== 0) return;
       event.preventDefault();
-      if (reduceMotion.matches) {
-        light(index);
-        return;
-      }
-      try {
-        svg!.setPointerCapture(event.pointerId);
-      } catch {}
-      if (!sim) {
-        light(index, true);
-        void activate(index, event);
-        return;
-      }
-      beginDrag(index, event.pointerId, localPoint(event));
+      light(index);
+      if (reduceMotion.matches) return;
+      capture(event.pointerId);
+      pending = { pointerId: event.pointerId, ...localPoint(event) };
+      void activate();
     }
 
     function onPointerMove(event: PointerEvent) {
-      if (pending && pending.pointerId === event.pointerId) {
-        Object.assign(pending, localPoint(event));
-        return;
-      }
-      const drag = sim?.drag;
-      if (!drag || drag.pointerId !== event.pointerId) return;
+      if (!sim || sim.pointerId !== event.pointerId) return;
       const point = localPoint(event);
-      drag.constraint.pointA = point;
-      drag.trail.push({ ...point, t: performance.now() });
-      if (drag.trail.length > 12) drag.trail.shift();
-      sim!.M.Sleeping.set(drag.body, false);
+      sim.mouse.position.x = point.x;
+      sim.mouse.position.y = point.y;
     }
 
     function onPointerUp(event: PointerEvent) {
-      if (pending && pending.pointerId === event.pointerId) {
-        const index = pending.index;
+      if (pending?.pointerId === event.pointerId) {
         pending = null;
-        light(index);
         return;
       }
-      if (sim?.drag?.pointerId === event.pointerId) endDrag();
+      if (!sim || sim.pointerId !== event.pointerId) return;
+      sim.pointerId = null;
+      sim.mouse.button = -1;
     }
 
     function onTouchStart(event: TouchEvent) {
@@ -433,7 +406,10 @@ export default function IlyPile() {
     const touchOnly = window.matchMedia("(hover: none)");
     const visibilityObserver = new IntersectionObserver(([entry]) => {
       visible = entry?.isIntersecting ?? true;
-      if (!visible) return;
+      if (!visible) {
+        pause();
+        return;
+      }
       if (touchOnly.matches) void loadMatter();
       run();
     });
@@ -456,8 +432,8 @@ export default function IlyPile() {
       svg.removeEventListener("touchstart", onTouchStart);
       resizeObserver.disconnect();
       visibilityObserver.disconnect();
-      timers.forEach((timer) => window.clearTimeout(timer));
       reset();
+      timers.forEach((timer) => window.clearTimeout(timer));
     };
   }, []);
 
