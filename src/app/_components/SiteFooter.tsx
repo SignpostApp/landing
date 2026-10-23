@@ -93,6 +93,7 @@ export default function SiteFooter() {
                 alt="Matrix Studios Software"
                 width={512}
                 height={512}
+                unoptimized
                 className="h-5 w-5 shrink-0 grayscale opacity-70 group-hover:opacity-100 transition-opacity"
               />
 
