@@ -715,7 +715,7 @@ export default function SiteHeader({
                   className="nav-cta"
                   onClick={closeMenu}
                 >
-                  Try the demo
+                  Try our product
                 </a>
               </div>
 

@@ -18,7 +18,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
         href: "/blog/how-real-time-sign-feedback-works",
       },
       { label: "How it works", href: "/#how-it-works" },
-      { label: "Try the demo", href: DEMO_URL, external: true },
+      { label: "Try our product", href: DEMO_URL, external: true },
       { label: "FAQ", href: "/#faq" },
     ],
   },
