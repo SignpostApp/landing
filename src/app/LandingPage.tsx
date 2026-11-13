@@ -272,7 +272,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
               {TESTIMONIALS.map((testimonial) => (
                 <figure
                   key={testimonial.quote}
-                  className="flex flex-col rounded-2xl border border-slate-200/70 bg-slate-50 p-8 lg:p-10"
+                  className="flex flex-col rounded-2xl bg-slate-50 p-8 lg:p-10"
                 >
                   <blockquote className="text-lg sm:text-xl font-medium tracking-[-0.015em] leading-[1.5] text-slate-900 text-pretty">
                     &ldquo;{testimonial.quote}&rdquo;
@@ -311,7 +311,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
                     className={`flex min-h-[13.5rem] flex-col justify-between rounded-[1.375rem] p-5 sm:p-6 ${
                       accent
                         ? "bg-blue-50 text-blue-600 lg:h-[20rem]"
-                        : "border border-slate-200/70 bg-slate-50 text-slate-500 lg:h-[20rem]"
+                        : "bg-slate-50 text-slate-500 lg:h-[20rem]"
                     }`}
                   >
                     <p className="text-sm font-medium">{stat.label}</p>
