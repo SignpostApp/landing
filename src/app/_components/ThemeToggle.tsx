@@ -25,15 +25,23 @@ function subscribe(onChange: () => void) {
   return () => observer.disconnect();
 }
 
+let requestedTheme: Theme | null = null;
+
+function currentTheme(): Theme {
+  return requestedTheme ?? readTheme();
+}
+
 function applyTheme(theme: Theme) {
+  requestedTheme = theme;
   const root = document.documentElement;
   const freeze = document.createElement("style");
   freeze.textContent = "*,*::before,*::after{transition:none!important}";
 
   const swap = () => {
+    const target = requestedTheme ?? theme;
     document.head.appendChild(freeze);
-    root.dataset.theme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLORS[theme]);
+    root.dataset.theme = target;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLORS[target]);
     void getComputedStyle(document.body).color;
     setTimeout(() => freeze.remove(), 1);
   };
@@ -59,7 +67,7 @@ export default function ThemeToggle() {
     const followOtherTabs = (event: StorageEvent) => {
       if (event.key !== THEME_STORAGE_KEY && event.key !== null) return;
       const next = storedTheme() ?? systemTheme();
-      if (next !== readTheme()) applyTheme(next);
+      if (next !== currentTheme()) applyTheme(next);
     };
     media.addEventListener("change", followSystem);
     window.addEventListener("storage", followOtherTabs);
@@ -70,7 +78,7 @@ export default function ThemeToggle() {
   }, []);
 
   const toggle = () => {
-    const next: Theme = isDark ? "light" : "dark";
+    const next: Theme = currentTheme() === "dark" ? "light" : "dark";
     try {
       localStorage.setItem(THEME_STORAGE_KEY, next);
     } catch {}
