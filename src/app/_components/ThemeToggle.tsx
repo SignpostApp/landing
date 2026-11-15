@@ -52,11 +52,21 @@ export default function ThemeToggle() {
 
   useEffect(() => {
     const media = matchMedia(DARK_QUERY);
-    const followSystem = (event: MediaQueryListEvent) => {
-      if (!storedTheme()) applyTheme(event.matches ? "dark" : "light");
+    const systemTheme = (): Theme => (media.matches ? "dark" : "light");
+    const followSystem = () => {
+      if (!storedTheme()) applyTheme(systemTheme());
+    };
+    const followOtherTabs = (event: StorageEvent) => {
+      if (event.key !== THEME_STORAGE_KEY && event.key !== null) return;
+      const next = storedTheme() ?? systemTheme();
+      if (next !== readTheme()) applyTheme(next);
     };
     media.addEventListener("change", followSystem);
-    return () => media.removeEventListener("change", followSystem);
+    window.addEventListener("storage", followOtherTabs);
+    return () => {
+      media.removeEventListener("change", followSystem);
+      window.removeEventListener("storage", followOtherTabs);
+    };
   }, []);
 
   const toggle = () => {
