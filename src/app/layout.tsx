@@ -32,10 +32,6 @@ const jetbrainsMono = localFont({
 
 export const viewport: Viewport = {
   colorScheme: "light dark",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fcfcfd" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0e16" },
-  ],
 };
 
 // Google Search Console token. Set GOOGLE_SITE_VERIFICATION in the environment,

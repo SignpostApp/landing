@@ -2,7 +2,7 @@
 
 import { useEffect, useSyncExternalStore } from "react";
 
-import { THEME_STORAGE_KEY, type Theme } from "./theme";
+import { THEME_COLORS, THEME_STORAGE_KEY, type Theme } from "./theme";
 
 const DARK_QUERY = "(prefers-color-scheme: dark)";
 
@@ -33,6 +33,7 @@ function applyTheme(theme: Theme) {
   const swap = () => {
     document.head.appendChild(freeze);
     root.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLORS[theme]);
     void getComputedStyle(document.body).color;
     setTimeout(() => freeze.remove(), 1);
   };
