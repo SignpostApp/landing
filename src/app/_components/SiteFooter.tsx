@@ -74,7 +74,7 @@ export default function SiteFooter() {
                 alt="Signpost"
                 width={200}
                 height={48}
-                className="h-12 w-auto -ml-1 mb-5"
+                className="brand-logo h-12 w-auto -ml-1 mb-5"
               />
             </Link>
 

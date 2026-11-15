@@ -43,7 +43,7 @@ export default function StatusPill() {
       href={STATUS_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs text-slate-500 hover:border-slate-300 hover:text-slate-900 transition-colors w-fit"
+      className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-surface/70 px-3 py-1.5 text-xs text-slate-500 hover:border-slate-300 hover:text-slate-900 transition-colors w-fit"
     >
       <span className="relative flex h-2 w-2 shrink-0">
         {live && (

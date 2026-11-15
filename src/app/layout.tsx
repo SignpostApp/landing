@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 
 import AttributionCapture from "./AttributionCapture";
 import { DEMO_URL } from "./_components/navData";
+import { THEME_INIT_SCRIPT } from "./_components/theme";
 import {
   DEFAULT_OG_IMAGE,
   SITE_DESCRIPTION,
@@ -30,8 +31,11 @@ const jetbrainsMono = localFont({
 });
 
 export const viewport: Viewport = {
-  colorScheme: "light",
-  themeColor: "#fcfcfd",
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fcfcfd" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0e16" },
+  ],
 };
 
 // Google Search Console token. Set GOOGLE_SITE_VERIFICATION in the environment,
@@ -378,8 +382,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd }}

@@ -33,7 +33,7 @@ export function LegalHeader({
 }) {
   return (
     <header className="mb-14">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-4">
         {eyebrow}
       </p>
       <h1 className="text-[2.25rem] sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.05] text-slate-900 text-balance">
@@ -53,7 +53,7 @@ export function LegalHeader({
 
 export function ContactCard({ note }: { note?: ReactNode }) {
   return (
-    <div className="mt-6 border border-slate-200 bg-white p-6 sm:p-8">
+    <div className="mt-6 border border-slate-200 bg-surface p-6 sm:p-8">
       <p className="font-medium text-slate-900">{COMPANY_NAME}</p>
       <p className="mt-2 text-sm leading-relaxed text-slate-600">
         {COMPANY_ADDRESS}
@@ -73,7 +73,7 @@ export function LegalTable({
   rows: ReactNode[][];
 }) {
   return (
-    <div className="my-8 overflow-x-auto border border-slate-200 bg-white">
+    <div className="my-8 overflow-x-auto border border-slate-200 bg-surface">
       <table className="w-full min-w-[36rem] border-collapse text-left text-sm">
         <thead className="border-b border-slate-200 bg-slate-50">
           <tr>
@@ -111,7 +111,7 @@ export function PolicyLinks({ current }: { current: string }) {
   return (
     <ul className="mt-6 grid gap-px border border-slate-200 bg-slate-200 sm:grid-cols-2">
       {POLICIES.filter((policy) => policy.href !== current).map((policy) => (
-        <li key={policy.href} className="bg-white">
+        <li key={policy.href} className="bg-surface">
           <Link href={policy.href} className="legal-link-row">
             {policy.label}
             <span aria-hidden="true">&rarr;</span>
