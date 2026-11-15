@@ -455,7 +455,7 @@ export default function IlyPile() {
             <path
               d={ILY_PATH}
               fill="currentColor"
-              stroke="#fcfcfd"
+              className="ily-outline"
               strokeWidth={12}
               strokeLinejoin="round"
               paintOrder="stroke"
@@ -463,7 +463,7 @@ export default function IlyPile() {
             <path
               d={ILY_CREASES}
               fill="none"
-              stroke="rgba(15, 23, 42, 0.13)"
+              className="ily-crease"
               strokeWidth={3.2}
               strokeLinecap="round"
             />

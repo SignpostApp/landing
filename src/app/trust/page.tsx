@@ -99,7 +99,7 @@ export default function TrustCenterPage() {
         <h2 className="legal-heading">At a glance</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {HIGHLIGHTS.map((item) => (
-            <div key={item.title} className="border border-slate-200 bg-white p-6">
+            <div key={item.title} className="border border-slate-200 bg-surface p-6">
               <div className="mb-4 flex h-8 w-8 items-center justify-center border border-accent/20 bg-accent/10">
                 <svg
                   width="16"
@@ -170,7 +170,7 @@ export default function TrustCenterPage() {
 
       <section className="legal-section">
         <h2 className="legal-heading">Compliance</h2>
-        <dl className="mt-6 divide-y divide-slate-200 border border-slate-200 bg-white">
+        <dl className="mt-6 divide-y divide-slate-200 border border-slate-200 bg-surface">
           {COMPLIANCE.map((item) => (
             <div key={item.term} className="grid gap-1 px-5 py-4 sm:grid-cols-[11rem_1fr] sm:gap-6">
               <dt className="text-sm font-medium text-slate-900">{item.term}</dt>
@@ -191,7 +191,7 @@ export default function TrustCenterPage() {
           {SUBPROCESSORS.map((name) => (
             <li
               key={name}
-              className="border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700"
+              className="border border-slate-200 bg-surface px-3 py-1.5 text-sm text-slate-700"
             >
               {name}
             </li>
@@ -228,7 +228,7 @@ export default function TrustCenterPage() {
       <section className="legal-section">
         <h2 className="legal-heading">Status and reporting</h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="border border-slate-200 bg-white p-6">
+          <div className="border border-slate-200 bg-surface p-6">
             <h3 className="mb-2 text-sm font-medium text-foreground">System status</h3>
             <p className="text-sm leading-relaxed text-muted">
               Live uptime and past incidents are on{" "}
@@ -238,7 +238,7 @@ export default function TrustCenterPage() {
               .
             </p>
           </div>
-          <div className="border border-slate-200 bg-white p-6">
+          <div className="border border-slate-200 bg-surface p-6">
             <h3 className="mb-2 text-sm font-medium text-foreground">
               Report a vulnerability
             </h3>

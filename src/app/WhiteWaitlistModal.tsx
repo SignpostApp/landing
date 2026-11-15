@@ -156,10 +156,10 @@ export default function WhiteWaitlistModal({
       className="fixed inset-0 z-[100] flex items-center justify-center px-4 animate-[whiteModalFadeIn_0.2s_ease-out]"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-slate-900/30 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-scrim backdrop-blur-sm" />
 
       <div
-        className="relative w-full max-w-md rounded-2xl border border-slate-200 bg-white p-8 sm:p-10 shadow-[0_20px_60px_-15px_rgba(15,23,42,0.25)] animate-[whiteModalScaleIn_0.25s_cubic-bezier(0.16,1,0.3,1)]"
+        className="relative w-full max-w-md rounded-2xl border border-slate-200 bg-surface p-8 sm:p-10 shadow-[0_20px_60px_-15px_rgba(15,23,42,0.25)] animate-[whiteModalScaleIn_0.25s_cubic-bezier(0.16,1,0.3,1)]"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -180,7 +180,7 @@ export default function WhiteWaitlistModal({
             <p className="text-slate-500 text-sm mb-6">We&apos;ll reach out when it&apos;s your turn.</p>
             <button
               onClick={() => handleTabSwitch("check")}
-              className="text-blue-600 text-xs hover:underline underline-offset-4 transition-colors cursor-pointer"
+              className="text-accent text-xs hover:underline underline-offset-4 transition-colors cursor-pointer"
             >
               Check your spot →
             </button>
@@ -192,7 +192,7 @@ export default function WhiteWaitlistModal({
                 onClick={() => handleTabSwitch("join")}
                 className={`flex-1 py-2 text-xs font-semibold tracking-wide uppercase rounded-[10px] transition-all duration-200 cursor-pointer ${
                   tab === "join"
-                    ? "bg-white text-slate-900 shadow-sm"
+                    ? "bg-surface text-slate-900 shadow-sm"
                     : "text-slate-500 hover:text-slate-800"
                 }`}
               >
@@ -202,7 +202,7 @@ export default function WhiteWaitlistModal({
                 onClick={() => handleTabSwitch("check")}
                 className={`flex-1 py-2 text-xs font-semibold tracking-wide uppercase rounded-[10px] transition-all duration-200 cursor-pointer ${
                   tab === "check"
-                    ? "bg-white text-slate-900 shadow-sm"
+                    ? "bg-surface text-slate-900 shadow-sm"
                     : "text-slate-500 hover:text-slate-800"
                 }`}
               >
@@ -229,7 +229,7 @@ export default function WhiteWaitlistModal({
                     placeholder="you@example.com"
                     required
                     autoFocus
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 focus:bg-white transition-all"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 focus:bg-surface transition-all"
                   />
 
                   <input
@@ -247,7 +247,7 @@ export default function WhiteWaitlistModal({
                   <button
                     type="submit"
                     disabled={status === "loading" || status === "cooldown"}
-                    className="w-full rounded-xl bg-slate-900 text-white py-3.5 text-sm font-semibold hover:bg-slate-800 active:bg-slate-950 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                    className="w-full rounded-xl bg-slate-900 text-surface py-3.5 text-sm font-semibold hover:bg-slate-800 active:bg-slate-950 transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                   >
                     {status === "loading" ? "Joining..." : status === "cooldown" ? "Try again shortly" : "Join the waitlist"}
                   </button>
@@ -291,11 +291,11 @@ export default function WhiteWaitlistModal({
                         placeholder="you@example.com"
                         required
                         autoFocus
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 focus:bg-white transition-all"
+                        className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 focus:bg-surface transition-all"
                       />
                       <button
                         type="submit"
-                        className="w-full rounded-xl bg-slate-900 text-white py-3.5 text-sm font-semibold hover:bg-slate-800 transition-all cursor-pointer"
+                        className="w-full rounded-xl bg-slate-900 text-surface py-3.5 text-sm font-semibold hover:bg-slate-800 transition-all cursor-pointer"
                       >
                         Find my spot
                       </button>
@@ -366,7 +366,7 @@ export default function WhiteWaitlistModal({
                           setCheckSubmitted(false);
                           setCheckResult(null);
                         }}
-                        className="text-blue-600 text-xs hover:underline underline-offset-4 transition-colors cursor-pointer"
+                        className="text-accent text-xs hover:underline underline-offset-4 transition-colors cursor-pointer"
                       >
                         Join now →
                       </button>

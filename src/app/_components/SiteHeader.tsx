@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 import WhiteWaitlistModal from "../WhiteWaitlistModal";
 import { NavIcon } from "./navIcons";
+import ThemeToggle from "./ThemeToggle";
 import {
   DEMO_URL,
   LMS_MARKS,
@@ -626,7 +627,7 @@ export default function SiteHeader({
                   width={280}
                   height={68}
                   priority
-                  className="-my-4 h-16 w-auto sm:-my-5 sm:h-[4.5rem]"
+                  className="brand-logo -my-4 h-16 w-auto sm:-my-5 sm:h-[4.5rem]"
                 />
               </Link>
               <button
@@ -696,6 +697,7 @@ export default function SiteHeader({
             </nav>
 
             <div className="ml-auto flex items-center gap-2">
+              <ThemeToggle />
               <div className="nav-actions" data-hidden={mobileOpen ? "true" : "false"}>
                 <button
                   type="button"
