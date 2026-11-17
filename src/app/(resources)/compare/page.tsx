@@ -63,7 +63,7 @@ export default function ComparePage() {
           <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Compare ASL apps" }]} />
 
           <header className="mt-8 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">Compared</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Compared</p>
             <h1 className="mt-4 text-[2rem] font-semibold leading-[1.08] tracking-[-0.03em] text-slate-900 text-balance sm:text-4xl lg:text-[2.75rem]">
               How Signpost compares to other ASL apps
             </h1>
@@ -119,7 +119,7 @@ export default function ComparePage() {
                 return (
                   <li
                     key={competitor.id}
-                    className={`rounded-2xl p-6 ${highlight ? "bg-blue-50" : "bg-white ring-1 ring-slate-200/70"}`}
+                    className={`rounded-2xl p-6 ${highlight ? "bg-blue-50" : "bg-surface ring-1 ring-slate-200/70"}`}
                   >
                     <h3 className="text-lg font-semibold tracking-tight text-slate-900">
                       {highlight ? (
@@ -129,7 +129,7 @@ export default function ComparePage() {
                           href={competitor.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="hover:text-blue-700"
+                          className="hover:text-accent-strong"
                         >
                           {competitor.name}
                         </a>
@@ -163,7 +163,7 @@ export default function ComparePage() {
                 We also want to be straightforward about what we are not. Signpost does not have live Deaf
                 tutors, and our sign dictionary is smaller than Lifeprint&apos;s or ASL Bloom&apos;s. We add
                 signs as the models are trained on them, and{" "}
-                <Link href="/signs" className="font-medium text-blue-600 hover:text-blue-700">
+                <Link href="/signs" className="font-medium text-accent hover:text-accent-strong">
                   the dictionary
                 </Link>{" "}
                 lists exactly which ones have camera practice today.
@@ -171,7 +171,7 @@ export default function ComparePage() {
             </div>
           </section>
 
-          <section className="mt-20 rounded-2xl bg-[#f8fafc] p-8 text-center sm:p-12">
+          <section className="mt-20 rounded-2xl bg-slate-50 p-8 text-center sm:p-12">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 text-balance sm:text-3xl">
               See the difference in about a minute
             </h2>

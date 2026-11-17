@@ -157,7 +157,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
   useLandingAnimations(pageRef);
 
   return (
-    <div ref={pageRef} className="min-h-screen bg-[#fcfcfd] text-slate-900 antialiased">
+    <div ref={pageRef} className="min-h-screen bg-background text-slate-900 antialiased">
       <noscript
         dangerouslySetInnerHTML={{
           __html:
@@ -235,7 +235,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
 
                   {/* Floating activity chip: anchors the latency / live-tracking claim
                       next to the product so the visitor reads the visual as alive. */}
-                  <div data-hero-chip className="absolute -left-3 sm:-left-6 lg:-left-10 top-[22%] hidden sm:flex items-center gap-2.5 rounded-xl bg-white border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
+                  <div data-hero-chip className="absolute -left-3 sm:-left-6 lg:-left-10 top-[22%] hidden sm:flex items-center gap-2.5 rounded-xl bg-surface border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
                     <span className="h-2 w-2 shrink-0 rounded-full bg-blue-600" aria-hidden="true" />
                     <div className="leading-tight">
                       <div className="text-[0.7rem] text-slate-500">Hand tracking</div>
@@ -247,7 +247,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
 
                   {/* Floating confidence chip: secondary social-proof signal on the
                       opposite side, suggesting accuracy without an unfalsifiable %. */}
-                  <div data-hero-chip className="absolute -right-3 sm:-right-6 lg:-right-10 bottom-[18%] hidden md:flex items-center gap-2.5 rounded-xl bg-white border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
+                  <div data-hero-chip className="absolute -right-3 sm:-right-6 lg:-right-10 bottom-[18%] hidden md:flex items-center gap-2.5 rounded-xl bg-surface border border-slate-200 px-3.5 py-2.5 shadow-[0_8px_24px_-12px_rgba(15,23,42,0.18)]">
                     <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-100">
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                         <path d="M2.5 7.5L5.5 10.5L11.5 4" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -264,9 +264,9 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
           </div>
         </section>
 
-        <section id="learners" className="relative scroll-mt-24 border-t border-slate-100 bg-white" aria-label="What learners say about Signpost">
+        <section id="learners" className="relative scroll-mt-24 border-t border-slate-100 bg-surface" aria-label="What learners say about Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
-            <p data-reveal className="mb-8 lg:mb-10 text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
+            <p data-reveal className="mb-8 lg:mb-10 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
               From our learners
             </p>
 
@@ -274,7 +274,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
               {TESTIMONIALS.map((testimonial) => (
                 <figure
                   key={testimonial.quote}
-                  className="flex flex-col rounded-2xl border border-slate-200/70 bg-slate-50 p-8 lg:p-10"
+                  className="flex flex-col rounded-2xl bg-slate-50 p-8 lg:p-10"
                 >
                   <blockquote className="text-lg sm:text-xl font-medium tracking-[-0.015em] leading-[1.5] text-slate-900 text-pretty">
                     &ldquo;{testimonial.quote}&rdquo;
@@ -283,7 +283,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
                   <figcaption className="mt-auto flex items-center gap-3 pt-8">
                     <span
                       aria-hidden="true"
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-blue-50 text-sm font-semibold text-blue-600"
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-blue-50 text-sm font-semibold text-accent"
                     >
                       {testimonial.name.trim().charAt(0)}
                     </span>
@@ -298,7 +298,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
           </div>
         </section>
 
-        <section id="numbers" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-white" aria-label="Signpost by the numbers">
+        <section id="numbers" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-surface" aria-label="Signpost by the numbers">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <h2 data-reveal className="mx-auto max-w-3xl text-center text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
               Feedback you can measure. <span className="text-slate-500">Down to the millisecond.</span>
@@ -312,8 +312,8 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
                     key={stat.label}
                     className={`flex min-h-[13.5rem] flex-col justify-between rounded-[1.375rem] p-5 sm:p-6 ${
                       accent
-                        ? "bg-blue-50 text-blue-600 lg:h-[20rem]"
-                        : "border border-slate-200/70 bg-slate-50 text-slate-500 lg:h-[20rem]"
+                        ? "bg-blue-50 text-accent lg:h-[20rem]"
+                        : "bg-slate-50 text-slate-500 lg:h-[20rem]"
                     }`}
                   >
                     <p className="text-sm font-medium">{stat.label}</p>
@@ -337,7 +337,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
         <section id="features" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="What you get with Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Why Signpost</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-4">Why Signpost</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 Three things every ASL app has been missing.
               </h2>
@@ -347,7 +347,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
               {FEATURES.map((f) => (
                 <div
                   key={f.title}
-                  className="relative rounded-2xl bg-[#f3f4f6] p-8 lg:p-10"
+                  className="relative rounded-2xl bg-slate-100 p-8 lg:p-10"
                 >
                   <h3 className="text-lg sm:text-xl font-semibold tracking-tight mb-4 text-slate-900">
                     {f.title}
@@ -359,7 +359,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
           </div>
         </section>
 
-        <section id="compare" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-white" aria-label="How Signpost compares to other ASL apps">
+        <section id="compare" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-surface" aria-label="How Signpost compares to other ASL apps">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div data-reveal className="max-w-2xl mb-12 lg:mb-16">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Compared</p>
@@ -382,7 +382,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
             <div data-reveal className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-500">
               <Link
                 href="/compare"
-                className="group inline-flex items-center gap-2 font-medium text-slate-900 transition-colors hover:text-blue-700"
+                className="group inline-flex items-center gap-2 font-medium text-slate-900 transition-colors hover:text-accent-strong"
               >
                 See the full comparison
                 <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">&rarr;</span>
@@ -393,10 +393,10 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
         </section>
 
         {/* ═══ HOW IT WORKS ═══ */}
-        <section id="how-it-works" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="How to start learning ASL with Signpost">
+        <section id="how-it-works" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-slate-50" aria-label="How to start learning ASL with Signpost">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">How it works</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-4">How it works</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 From zero to your first signed conversation in three steps.
               </h2>
@@ -410,7 +410,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
                 <li key={step.n} className="relative pt-6">
                   {/* Top accent: small number + connector tick */}
                   <div className="absolute -top-px left-0 right-0 flex items-center gap-3">
-                    <span className="text-xs font-semibold tabular-nums text-blue-600">{step.n}</span>
+                    <span className="text-xs font-semibold tabular-nums text-accent">{step.n}</span>
                     <span className="flex-1 h-px bg-gradient-to-r from-slate-300 to-transparent" aria-hidden="true" />
                   </div>
                   <h3 className="text-lg font-semibold tracking-tight mb-3 text-slate-900">
@@ -426,10 +426,10 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
         {/* ═══ LTI 1.3 INTEGRATION ═══ */}
         <section id="schools" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100" aria-label="Signpost for teachers and schools">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-            <div data-reveal className="grid overflow-hidden rounded-2xl bg-[#f3f4f6] lg:grid-cols-2">
+            <div data-reveal className="grid overflow-hidden rounded-2xl bg-slate-100 lg:grid-cols-2">
               <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:p-14">
                 <div className="max-w-md">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">For schools</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-4">For schools</p>
                   <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                     Drops into the LMS your school already runs.
                   </h2>
@@ -473,10 +473,10 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
         </section>
 
         {/* ═══ FOUNDERS ═══ */}
-        <section id="team" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="About the Signpost team">
+        <section id="team" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-slate-50" aria-label="About the Signpost team">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
             <div data-reveal className="max-w-2xl mb-14 lg:mb-20">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Who we are</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-4">Who we are</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
                 Built by ASL students, <span className="text-slate-500">tested by ASL educators</span>
               </h2>
@@ -492,7 +492,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
 
             <div data-reveal-group className="grid md:grid-cols-2 gap-5 lg:gap-6 max-w-5xl">
               {/* Jerry */}
-              <article className="rounded-2xl bg-white p-8 lg:p-10 flex flex-col">
+              <article className="rounded-2xl bg-surface p-8 lg:p-10 flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
                   <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Built by ASL Students</h3>
                   <p className="text-xs text-slate-500 shrink-0">Max, Jerry, and Rhiley</p>
@@ -503,7 +503,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
               </article>
 
               {/* Max */}
-              <article className="rounded-2xl bg-white p-8 lg:p-10 flex flex-col">
+              <article className="rounded-2xl bg-surface p-8 lg:p-10 flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
                   <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Tested by ASL educators</h3>
                   <p className="text-xs text-slate-500 shrink-0">Both Deaf and hearing</p>
@@ -517,7 +517,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
         </section>
 
         {latestPosts.length > 0 ? (
-          <section id="blog" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-white" aria-label="Latest guides from the Signpost blog">
+          <section id="blog" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-surface" aria-label="Latest guides from the Signpost blog">
             <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
               <div data-reveal className="mx-auto max-w-3xl text-center">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
@@ -618,7 +618,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
         </section>
 
         {/* ═══ CTA ═══ */}
-        <section className="relative py-24 lg:py-32 border-t border-slate-100 bg-[#f8fafc]" aria-label="Start learning ASL now">
+        <section className="relative py-24 lg:py-32 border-t border-slate-100 bg-slate-50" aria-label="Start learning ASL now">
           <div data-reveal className="relative max-w-3xl mx-auto px-6 lg:px-10 text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 mb-5 text-balance">
               Sign your first ASL letters right now, actually
@@ -638,7 +638,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
               </a>
               <button
                 onClick={() => setWaitlistOpen(true)}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white text-slate-900 border border-slate-200 px-6 py-3.5 text-sm font-semibold transition-colors hover:border-slate-300 hover:bg-slate-50 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-surface text-slate-900 border border-slate-200 px-6 py-3.5 text-sm font-semibold transition-colors hover:border-slate-300 hover:bg-slate-50 cursor-pointer"
               >
                 Join the waitlist
               </button>

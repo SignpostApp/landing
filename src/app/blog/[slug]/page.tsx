@@ -122,7 +122,7 @@ export default async function BlogPostPage({
             <span aria-hidden>←</span> All posts
           </Link>
 
-          <p className="text-xs uppercase tracking-[0.16em] text-blue-600 font-semibold mb-4">
+          <p className="text-xs uppercase tracking-[0.16em] text-accent font-semibold mb-4">
             {post.category}
           </p>
 
@@ -179,10 +179,10 @@ export default async function BlogPostPage({
                   className="group flex flex-col border border-slate-200 overflow-hidden transition-[transform,box-shadow,border-color] duration-300 hover:border-slate-300 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-18px_rgba(15,23,42,0.18)]"
                 >
                   <div className="p-6">
-                    <span className="text-xs font-medium text-blue-600">
+                    <span className="text-xs font-medium text-accent">
                       {other.category}
                     </span>
-                    <h3 className="mt-2 text-base font-semibold tracking-tight text-slate-900 leading-snug text-balance group-hover:text-blue-700 transition-colors">
+                    <h3 className="mt-2 text-base font-semibold tracking-tight text-slate-900 leading-snug text-balance group-hover:text-accent-strong transition-colors">
                       {other.title}
                     </h3>
                   </div>

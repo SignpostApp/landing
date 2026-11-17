@@ -55,7 +55,7 @@ export default function SecurityPage() {
       </LegalHeader>
 
       <section className="legal-section">
-        <div className="border border-slate-200 bg-white p-8 sm:p-10">
+        <div className="border border-slate-200 bg-surface p-8 sm:p-10">
           <div className="flex items-start gap-4">
             <div className="shrink-0 mt-1">
               <div className="w-10 h-10 bg-accent/10 border border-accent/20 flex items-center justify-center">
@@ -123,7 +123,7 @@ export default function SecurityPage() {
         <h2 className="legal-heading">Protections in the app</h2>
         <div className="grid sm:grid-cols-2 gap-4 mt-8">
           {PROTECTIONS.map((item) => (
-            <div key={item.title} className="border border-slate-200 bg-white p-6">
+            <div key={item.title} className="border border-slate-200 bg-surface p-6">
               <h3 className="text-foreground font-medium text-sm mb-2">{item.title}</h3>
               <p className="text-muted text-xs leading-relaxed">{item.desc}</p>
             </div>

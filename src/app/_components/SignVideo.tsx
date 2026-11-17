@@ -9,7 +9,7 @@ export default function SignVideo({ video, title }: { video: SignVideoData; titl
 
   return (
     <figure className="w-full">
-      <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-slate-900">
+      <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black">
         {playing ? (
           <iframe
             src={youTubeEmbedUrl(video, true)}
@@ -34,7 +34,7 @@ export default function SignVideo({ video, title }: { video: SignVideoData; titl
               fetchPriority="high"
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-blue-600 shadow-[0_8px_30px_-10px_rgba(15,23,42,0.6)] transition-transform duration-150 group-hover:scale-105">
+            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-accent shadow-[0_8px_30px_-10px_rgba(15,23,42,0.6)] transition-transform duration-150 group-hover:scale-105">
               <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
                 <path d="M8.5 6.2v11.6c0 .8.9 1.3 1.6.9l9-5.8a1 1 0 0 0 0-1.7l-9-5.8c-.7-.5-1.6 0-1.6.8Z" />
               </svg>

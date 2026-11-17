@@ -5,7 +5,7 @@ import SiteFooter from "../_components/SiteFooter";
 
 export default function LegalLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col bg-[#fcfcfd] text-slate-900 antialiased">
+    <div className="min-h-screen flex flex-col bg-background text-slate-900 antialiased">
       <SiteHeader />
 
       {/* Page content */}

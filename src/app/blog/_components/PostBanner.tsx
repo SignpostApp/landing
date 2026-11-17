@@ -56,7 +56,7 @@ export default function PostBanner({
         background: [
           `radial-gradient(120% 140% at 0% 0%, rgba(${a},0.20), transparent 55%)`,
           `radial-gradient(130% 150% at 100% 100%, rgba(${b},0.18), transparent 55%)`,
-          "linear-gradient(180deg, #ffffff 0%, #f6f8fc 100%)",
+          "linear-gradient(180deg, var(--color-surface) 0%, var(--color-slate-50) 100%)",
         ].join(", "),
       }}
       aria-hidden="true"
@@ -66,13 +66,13 @@ export default function PostBanner({
         className="absolute inset-0 opacity-[0.5]"
         style={{
           backgroundImage:
-            "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
+            "radial-gradient(color-mix(in srgb, var(--color-ink) 6%, transparent) 1px, transparent 1px)",
           backgroundSize: "22px 22px",
         }}
       />
       <div className="absolute inset-0 flex items-center justify-center">
         <span
-          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 backdrop-blur-sm px-3.5 py-1.5 text-xs font-medium text-slate-600 shadow-sm"
+          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-surface/80 backdrop-blur-sm px-3.5 py-1.5 text-xs font-medium text-slate-600 shadow-sm"
           style={{ boxShadow: `0 10px 30px -12px rgba(${b},0.45)` }}
         >
           <span

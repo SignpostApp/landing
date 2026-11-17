@@ -65,7 +65,7 @@ export default function BlogIndexPage() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         {/* ═══ HEADER ═══ */}
         <header className="pt-14 sm:pt-20 lg:pt-24 pb-12 lg:pb-16 max-w-3xl">
-          <p className="text-xs uppercase tracking-[0.18em] text-blue-600 font-semibold mb-4">
+          <p className="text-xs uppercase tracking-[0.18em] text-accent font-semibold mb-4">
             The Signpost Blog
           </p>
           <h1 className="text-[2.25rem] sm:text-5xl lg:text-[3.25rem] font-semibold tracking-[-0.03em] leading-[1.05] text-slate-900 text-balance">
@@ -88,12 +88,12 @@ export default function BlogIndexPage() {
               >
                 <div className="flex flex-col flex-1 p-6 lg:p-7">
                   <div className="flex items-center gap-2 text-xs text-slate-500 mb-3">
-                    <span className="font-medium text-blue-600">{post.category}</span>
+                    <span className="font-medium text-accent">{post.category}</span>
                     <span aria-hidden>&middot;</span>
                     <span>{readingMinutes(post)} min read</span>
                   </div>
 
-                  <h2 className="text-lg font-semibold tracking-tight text-slate-900 leading-snug text-balance group-hover:text-blue-700 transition-colors">
+                  <h2 className="text-lg font-semibold tracking-tight text-slate-900 leading-snug text-balance group-hover:text-accent-strong transition-colors">
                     {post.title}
                   </h2>
 

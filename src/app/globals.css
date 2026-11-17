@@ -1,15 +1,64 @@
 @import "tailwindcss";
 
-@theme inline {
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme static {
   --color-background: #fcfcfd;
+  --color-surface: #ffffff;
   --color-foreground: #0f172a;
   --color-ink: #0f172a;
+  --color-prose: #334155;
   --color-muted: #475569;
   --color-subtle: #64748b;
   --color-border: #e2e8f0;
   --color-accent: #2563eb;
   --color-accent-strong: #1d4ed8;
   --color-accent-soft: #eff6ff;
+  --color-scrim: rgb(15 23 42 / 0.3);
+}
+
+:root {
+  color-scheme: light;
+  --ily-hand: #dfe6ef;
+  --ily-crease: rgb(15 23 42 / 0.13);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-background: #0a0e16;
+  --color-surface: #111724;
+  --color-foreground: #e8edf4;
+  --color-ink: #e8edf4;
+  --color-prose: #c3cbd8;
+  --color-muted: #a1acbd;
+  --color-subtle: #8792a5;
+  --color-border: #1f2836;
+  --color-accent: #60a5fa;
+  --color-accent-strong: #93c5fd;
+  --color-accent-soft: #0f1c33;
+  --color-scrim: rgb(2 4 10 / 0.65);
+
+  --color-slate-50: #0e131d;
+  --color-slate-100: #141a26;
+  --color-slate-200: #1f2836;
+  --color-slate-300: #2d3747;
+  --color-slate-400: #7a879c;
+  --color-slate-500: #8792a5;
+  --color-slate-600: #a1acbd;
+  --color-slate-700: #c3cbd8;
+  --color-slate-800: #d9dfe8;
+  --color-slate-900: #e8edf4;
+  --color-slate-950: #f5f7fa;
+
+  --color-blue-50: #0f1c33;
+  --color-blue-100: #182b4d;
+
+  --color-emerald-50: #052e22;
+  --color-emerald-100: #0a4232;
+
+  --ily-hand: #182030;
+  --ily-crease: rgb(255 255 255 / 0.06);
 }
 
 /* ═══════════════ Base ═══════════════ */
@@ -22,24 +71,17 @@ nextjs-portal {
   display: none !important;
 }
 
-/* Force light rendering everywhere: pins UA chrome (scrollbars, form controls)
-   and the first-paint canvas to light, so no page flashes dark under an OS
-   dark-mode preference. The site is light-theme only. */
-html {
-  color-scheme: light;
-}
-
 body {
-  background: #fcfcfd;
-  color: #0f172a;
+  background: var(--color-background);
+  color: var(--color-ink);
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   font-feature-settings: "ss01", "ss02", "cv11";
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(37, 99, 235, 0.18);
-  color: #0f172a;
+  background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  color: var(--color-ink);
 }
 
 ::-webkit-scrollbar {
@@ -49,16 +91,16 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(15, 23, 42, 0.16);
+  background: color-mix(in srgb, var(--color-ink) 16%, transparent);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(15, 23, 42, 0.28);
+  background: color-mix(in srgb, var(--color-ink) 28%, transparent);
 }
 
 /* ═══════════════ Focus ═══════════════ */
 :focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -125,7 +167,7 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: rgba(15, 23, 42, 0.85);
+  color: color-mix(in srgb, var(--color-ink) 85%, transparent);
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
   letter-spacing: -0.01em;
@@ -196,7 +238,7 @@ body {
   color: var(--color-accent-strong);
 }
 .legal-page .glass-card {
-  background: #ffffff;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   box-shadow:
     0 1px 2px rgba(15, 23, 42, 0.04),
@@ -237,7 +279,7 @@ body {
 }
 
 .ily-hand {
-  color: #dfe6ef;
+  color: var(--ily-hand);
   cursor: grab;
   touch-action: none;
   transition: color 0.7s ease;
@@ -258,17 +300,25 @@ body {
   transition-duration: 0.12s;
 }
 
+.ily-outline {
+  stroke: var(--color-background);
+}
+
+.ily-crease {
+  stroke: var(--ily-crease);
+}
+
 .ily-pile[data-dragging],
 .ily-pile[data-dragging] .ily-hand {
   cursor: grabbing;
 }
 
 /* ═══════════════ Blog ═══════════════
-   Article typography for posts under /blog. Body copy uses slate-700 (#334155)
-   on the #fcfcfd surface to stay comfortably above WCAG 2.2 AA contrast. */
+   Article typography for posts under /blog. Body copy uses the prose token,
+   tuned per theme to stay comfortably above WCAG 2.2 AA contrast. */
 .blog-prose {
   font-family: var(--font-sans), system-ui, sans-serif;
-  color: #334155;
+  color: var(--color-prose);
 }
 
 .blog-prose > * + * {
@@ -296,7 +346,7 @@ body {
 .blog-prose p {
   font-size: 1.0625rem;
   line-height: 1.8;
-  color: #334155;
+  color: var(--color-prose);
 }
 
 .blog-prose strong {
@@ -327,7 +377,7 @@ body {
   margin-top: 0.6rem;
   font-size: 1.0625rem;
   line-height: 1.8;
-  color: #334155;
+  color: var(--color-prose);
 }
 
 .blog-prose ul > li::before {
@@ -365,7 +415,7 @@ body {
 .blog-prose blockquote p {
   font-size: 1.15rem;
   font-style: italic;
-  color: #475569;
+  color: var(--color-muted);
 }
 
 [data-hero-heading],
@@ -397,10 +447,10 @@ body {
   --ease-soft: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --nav-ease: cubic-bezier(0.45, 0.05, 0.55, 0.95);
-  --nav-ink: #0f172a;
-  --nav-hushed: rgba(15, 23, 42, 0.6);
-  --nav-wash: rgba(15, 23, 42, 0.05);
-  --nav-rule: rgba(15, 23, 42, 0.1);
+  --nav-ink: var(--color-ink);
+  --nav-hushed: color-mix(in srgb, var(--color-ink) 60%, transparent);
+  --nav-wash: color-mix(in srgb, var(--color-ink) 5%, transparent);
+  --nav-rule: color-mix(in srgb, var(--color-ink) 10%, transparent);
 }
 
 html {
@@ -410,8 +460,8 @@ html {
 .nav-bar {
   position: relative;
   z-index: 1;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
-  background: rgba(255, 255, 255, 0.72);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   transition:
@@ -421,14 +471,14 @@ html {
 }
 
 [data-nav][data-scrolled="true"] .nav-bar {
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom-color: rgba(226, 232, 240, 0.95);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--color-border) 95%, transparent);
   box-shadow: 0 10px 34px -26px rgba(15, 23, 42, 0.55);
 }
 
 [data-nav][data-menu-open="true"] .nav-bar,
 [data-nav][data-mobile-open="true"] .nav-bar {
-  background: #fff;
+  background: var(--color-surface);
   border-bottom-color: var(--nav-wash);
   box-shadow: none;
 }
@@ -582,7 +632,7 @@ html {
   height: 2.25rem;
   padding: 0 0.875rem;
   border-radius: 0.375rem;
-  background: #2563eb;
+  background: var(--color-blue-600);
   font-size: 0.875rem;
   font-weight: 600;
   color: #fff;
@@ -591,11 +641,11 @@ html {
 }
 
 .nav-cta:hover {
-  background: #1d4ed8;
+  background: var(--color-blue-700);
 }
 
 .nav-cta:active {
-  background: #1e40af;
+  background: var(--color-blue-800);
 }
 
 .nav-burger {
@@ -612,7 +662,7 @@ html {
 }
 
 .nav-burger:hover {
-  background: rgba(15, 23, 42, 0.08);
+  background: color-mix(in srgb, var(--color-ink) 8%, transparent);
 }
 
 @media (max-width: 1023.98px) {
@@ -699,7 +749,7 @@ html {
   height: 0;
   overflow: hidden;
   border-radius: 0 0 0.75rem 0.75rem;
-  background: #fff;
+  background: var(--color-surface);
   box-shadow:
     0 232px 65px rgba(15, 23, 42, 0.006),
     0 35px 59px rgba(15, 23, 42, 0.03),
@@ -928,13 +978,14 @@ html {
   aspect-ratio: 472 / 266;
   overflow: hidden;
   border-radius: 0.75rem;
-  background: #fff;
+  background: var(--color-surface);
 }
 
 .mega-feature-logos {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #fff;
   gap: 1rem;
   padding: 0 1rem;
 }
@@ -997,17 +1048,17 @@ html {
 
   .mega-icon-item:hover .mega-badge {
     background: var(--nav-ink);
-    color: #fff;
+    color: var(--color-surface);
   }
 
   .mega-tile:hover {
-    background: rgba(15, 23, 42, 0.08);
+    background: color-mix(in srgb, var(--color-ink) 8%, transparent);
   }
 }
 
 .mega-icon-item:focus-visible .mega-badge {
   background: var(--nav-ink);
-  color: #fff;
+  color: var(--color-surface);
 }
 
 .msheet {
@@ -1018,7 +1069,7 @@ html {
   left: 0;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--color-surface);
   opacity: 0;
   visibility: hidden;
   transition:
@@ -1145,7 +1196,7 @@ html {
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
   padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
-  background: #fff;
+  background: var(--color-surface);
 }
 
 @media (min-width: 640px) {
@@ -1170,18 +1221,19 @@ html {
 
 .msheet-btn-dark {
   background: var(--nav-ink);
+  color: var(--color-surface);
 }
 
 .msheet-btn-dark:hover {
-  background: #1e293b;
+  background: var(--color-slate-800);
 }
 
 .msheet-btn-primary {
-  background: #2563eb;
+  background: var(--color-blue-600);
 }
 
 .msheet-btn-primary:hover {
-  background: #1d4ed8;
+  background: var(--color-blue-700);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1195,7 +1247,7 @@ html {
 }
 
 [data-nav][data-variant="plain"] .nav-bar {
-  background: #fcfcfd;
+  background: var(--color-background);
   border-bottom-color: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -1203,13 +1255,61 @@ html {
 }
 
 [data-nav][data-variant="plain"][data-scrolled="true"] .nav-bar {
-  background: #fcfcfd;
+  background: var(--color-background);
   border-bottom-color: transparent;
   box-shadow: none;
 }
 
 [data-nav][data-variant="plain"][data-menu-open="true"] .nav-bar,
 [data-nav][data-variant="plain"][data-mobile-open="true"] .nav-bar {
-  background: #fff;
+  background: var(--color-surface);
   border-bottom-color: var(--nav-wash);
+}
+
+.theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: 0.375rem;
+  color: var(--nav-ink);
+  cursor: pointer;
+  transition: background-color 0.24s var(--nav-ease);
+}
+
+.theme-toggle:hover {
+  background: var(--nav-wash);
+}
+
+.theme-toggle svg {
+  position: absolute;
+  width: 1.125rem;
+  height: 1.125rem;
+  transition:
+    opacity 0.3s var(--ease-out-expo),
+    transform 0.5s var(--ease-out-expo);
+}
+
+.theme-toggle-moon,
+[data-theme="dark"] .theme-toggle-sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+[data-theme="dark"] .theme-toggle-moon {
+  opacity: 1;
+  transform: none;
+}
+
+[data-theme="dark"] .brand-logo {
+  filter: brightness(1.55) saturate(1.1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: var(--ease-soft);
 }

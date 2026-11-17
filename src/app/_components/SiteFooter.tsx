@@ -19,7 +19,7 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
       },
       { label: "How it works", href: "/#how-it-works" },
       { label: "Compare ASL apps", href: "/compare" },
-      { label: "Try the demo", href: DEMO_URL, external: true },
+      { label: "Try our product", href: DEMO_URL, external: true },
       { label: "FAQ", href: "/#faq" },
     ],
   },
@@ -77,7 +77,7 @@ export default function SiteFooter() {
                 alt="Signpost"
                 width={200}
                 height={48}
-                className="h-12 w-auto -ml-1 mb-5"
+                className="brand-logo h-12 w-auto -ml-1 mb-5"
               />
             </Link>
 
@@ -96,6 +96,7 @@ export default function SiteFooter() {
                 alt="Matrix Studios Software"
                 width={512}
                 height={512}
+                unoptimized
                 className="h-5 w-5 shrink-0 grayscale opacity-70 group-hover:opacity-100 transition-opacity"
               />
 

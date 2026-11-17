@@ -132,7 +132,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         />
 
         <header className="mt-8 max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">ASL Dictionary</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">ASL Dictionary</p>
           <h1 className="mt-4 text-[2rem] font-semibold leading-[1.08] tracking-[-0.03em] text-slate-900 text-balance sm:text-4xl lg:text-[2.75rem]">
             {category.name} in ASL
           </h1>
@@ -148,10 +148,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
             <li key={sign.slug}>
               <Link
                 href={signPath(sign)}
-                className="group flex h-full flex-col rounded-2xl bg-white p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300"
+                className="group flex h-full flex-col rounded-2xl bg-surface p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300"
               >
                 <div className="flex items-baseline justify-between gap-4">
-                  <h2 className="text-lg font-semibold tracking-tight text-slate-900 group-hover:text-blue-700">
+                  <h2 className="text-lg font-semibold tracking-tight text-slate-900 group-hover:text-accent-strong">
                     {signDisplayName(sign)}
                   </h2>
                   <span className="shrink-0 text-xs font-medium text-slate-500">
@@ -176,7 +176,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
               <li key={other.slug}>
                 <Link
                   href={categoryPath(other)}
-                  className="inline-flex items-center rounded-full bg-[#f3f4f6] px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-blue-50 hover:text-blue-700"
+                  className="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-blue-50 hover:text-accent-strong"
                 >
                   {other.name}
                 </Link>

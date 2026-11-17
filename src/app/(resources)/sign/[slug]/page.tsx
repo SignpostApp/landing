@@ -50,7 +50,7 @@ function PracticeCard({ sign }: { sign: Sign }) {
   if (sign.trained) {
     return (
       <div className="mt-6 rounded-2xl bg-blue-50 p-6 sm:p-7">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">Camera practice</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Camera practice</p>
         <h2 className="mt-2 text-lg font-semibold tracking-tight text-slate-900">
           Practice {name} with your webcam
         </h2>
@@ -74,7 +74,7 @@ function PracticeCard({ sign }: { sign: Sign }) {
     );
   }
   return (
-    <div className="mt-6 rounded-2xl bg-[#f3f4f6] p-6 sm:p-7">
+    <div className="mt-6 rounded-2xl bg-slate-100 p-6 sm:p-7">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Video reference</p>
       <h2 className="mt-2 text-lg font-semibold tracking-tight text-slate-900">
         Camera practice for {name} is on the way
@@ -85,7 +85,7 @@ function PracticeCard({ sign }: { sign: Sign }) {
       </p>
       <Link
         href="/signs"
-        className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition-colors hover:text-blue-700"
+        className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 transition-colors hover:text-accent-strong"
       >
         Browse signs with camera practice
         <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">
@@ -179,7 +179,7 @@ export default async function SignPage({ params }: { params: Promise<{ slug: str
 
           <header className="mt-8 max-w-3xl">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold uppercase tracking-[0.16em]">
-              <Link href={categoryPath(sign.category)} className="text-blue-600 hover:text-blue-700">
+              <Link href={categoryPath(sign.category)} className="text-accent hover:text-accent-strong">
                 {sign.category.name}
               </Link>
               <span aria-hidden className="text-slate-300">
@@ -205,7 +205,7 @@ export default async function SignPage({ params }: { params: Promise<{ slug: str
               {sign.video ? (
                 <SignVideo video={sign.video} title={heading} />
               ) : sign.image ? (
-                <figure className="rounded-2xl bg-[#f3f4f6] p-8 sm:p-10">
+                <figure className="rounded-2xl bg-slate-100 p-8 sm:p-10">
                   <Image
                     src={sign.image.src}
                     alt={sign.image.alt}
@@ -213,7 +213,7 @@ export default async function SignPage({ params }: { params: Promise<{ slug: str
                     height={400}
                     unoptimized
                     priority
-                    className="mx-auto h-64 w-auto sm:h-80"
+                    className="mx-auto h-64 w-auto dark:invert sm:h-80"
                   />
                   <figcaption className="mt-4 text-center text-xs text-slate-500">
                     The {sign.label} handshape. See{" "}
@@ -236,7 +236,7 @@ export default async function SignPage({ params }: { params: Promise<{ slug: str
                   <ol className="mt-5 space-y-4">
                     {sign.steps.map((step, index) => (
                       <li key={step} className="flex gap-4">
-                        <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-50 font-mono text-xs font-medium text-blue-600">
+                        <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-50 font-mono text-xs font-medium text-accent">
                           {index + 1}
                         </span>
                         <p className="text-[0.95rem] leading-relaxed text-slate-600">{step}</p>
@@ -286,7 +286,7 @@ export default async function SignPage({ params }: { params: Promise<{ slug: str
                 <li key={item.slug}>
                   <Link
                     href={signPath(item)}
-                    className="inline-flex items-center rounded-full bg-[#f3f4f6] px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-blue-50 hover:text-blue-700"
+                    className="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-blue-50 hover:text-accent-strong"
                   >
                     {signDisplayName(item)}
                   </Link>
@@ -304,16 +304,16 @@ export default async function SignPage({ params }: { params: Promise<{ slug: str
             Keep learning
           </h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-3">
-            <Link href="/signs" className="group rounded-2xl bg-white p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300">
-              <p className="font-semibold text-slate-900 group-hover:text-blue-700">ASL Dictionary</p>
+            <Link href="/signs" className="group rounded-2xl bg-surface p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300">
+              <p className="font-semibold text-slate-900 group-hover:text-accent-strong">ASL Dictionary</p>
               <p className="mt-1 text-sm text-slate-600">Every sign Signpost teaches, by topic.</p>
             </Link>
-            <Link href="/asl-alphabet" className="group rounded-2xl bg-white p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300">
-              <p className="font-semibold text-slate-900 group-hover:text-blue-700">The ASL alphabet</p>
+            <Link href="/asl-alphabet" className="group rounded-2xl bg-surface p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300">
+              <p className="font-semibold text-slate-900 group-hover:text-accent-strong">The ASL alphabet</p>
               <p className="mt-1 text-sm text-slate-600">All 26 handshapes with a free printable chart.</p>
             </Link>
-            <Link href="/blog/best-way-to-learn-sign-language-at-home" className="group rounded-2xl bg-white p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300">
-              <p className="font-semibold text-slate-900 group-hover:text-blue-700">Learning ASL at home</p>
+            <Link href="/blog/best-way-to-learn-sign-language-at-home" className="group rounded-2xl bg-surface p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300">
+              <p className="font-semibold text-slate-900 group-hover:text-accent-strong">Learning ASL at home</p>
               <p className="mt-1 text-sm text-slate-600">How to build real skill without a classroom.</p>
             </Link>
           </div>

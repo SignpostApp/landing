@@ -47,12 +47,12 @@ export default function CompareTable({
   caption: string;
 }) {
   return (
-    <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-slate-200/70">
+    <div className="overflow-x-auto rounded-2xl bg-surface ring-1 ring-slate-200/70">
       <table className="w-full min-w-[720px] border-collapse text-left text-sm">
         <caption className="sr-only">{caption}</caption>
         <thead>
           <tr>
-            <th scope="col" className="sticky left-0 z-10 bg-white px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 sm:px-6">
+            <th scope="col" className="sticky left-0 z-10 bg-surface px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 sm:px-6">
               Feature
             </th>
             {COMPETITORS.map((competitor) => {
@@ -62,7 +62,7 @@ export default function CompareTable({
                   key={competitor.id}
                   scope="col"
                   className={`px-3 py-4 text-center text-sm font-semibold ${
-                    highlight ? "bg-blue-50 text-blue-700" : "text-slate-900"
+                    highlight ? "bg-blue-50 text-accent-strong" : "text-slate-900"
                   }`}
                 >
                   {competitor.name}
@@ -76,7 +76,7 @@ export default function CompareTable({
             <tr key={feature.id} className="border-t border-slate-100">
               <th
                 scope="row"
-                className="sticky left-0 z-10 bg-white px-5 py-4 text-sm font-medium leading-snug text-slate-900 sm:px-6"
+                className="sticky left-0 z-10 bg-surface px-5 py-4 text-sm font-medium leading-snug text-slate-900 sm:px-6"
               >
                 {feature.label}
               </th>
@@ -91,7 +91,7 @@ export default function CompareTable({
                   >
                     <span
                       className={`inline-flex items-center justify-center ${
-                        has ? (highlight ? "text-blue-600" : "text-slate-900") : "text-slate-300"
+                        has ? (highlight ? "text-accent" : "text-slate-900") : "text-slate-400"
                       }`}
                     >
                       {has ? <CheckIcon /> : <CrossIcon />}
@@ -100,7 +100,7 @@ export default function CompareTable({
                     {note ? (
                       <Link
                         href={`${notesHref.split("#")[0]}#note-${note}`}
-                        className="ml-0.5 align-super text-[0.65rem] font-semibold text-slate-500 hover:text-blue-700"
+                        className="ml-0.5 align-super text-[0.65rem] font-semibold text-slate-500 hover:text-accent-strong"
                         aria-label={`See note ${note}`}
                       >
                         {note}

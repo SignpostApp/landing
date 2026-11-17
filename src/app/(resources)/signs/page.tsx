@@ -76,7 +76,7 @@ export default function DictionaryIndexPage() {
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "ASL Dictionary" }]} />
 
         <header className="mt-8 max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">Reference</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Reference</p>
           <h1 className="mt-4 text-[2rem] font-semibold leading-[1.08] tracking-[-0.03em] text-slate-900 text-balance sm:text-4xl lg:text-[2.75rem]">
             ASL Dictionary
           </h1>
@@ -103,10 +103,10 @@ export default function DictionaryIndexPage() {
               <li key={category.slug}>
                 <Link
                   href={categoryPath(category)}
-                  className="group flex h-full flex-col rounded-2xl bg-white p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300"
+                  className="group flex h-full flex-col rounded-2xl bg-surface p-6 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300"
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="text-lg font-semibold tracking-tight text-slate-900 group-hover:text-blue-700">
+                    <h3 className="text-lg font-semibold tracking-tight text-slate-900 group-hover:text-accent-strong">
                       {category.name}
                     </h3>
                     <span className="shrink-0 font-mono text-xs text-slate-500">{signs.length}</span>
@@ -122,7 +122,7 @@ export default function DictionaryIndexPage() {
           <section key={category.slug} aria-labelledby={`cat-${category.slug}`} className="mt-16">
             <div className="flex items-baseline justify-between gap-4">
               <h2 id={`cat-${category.slug}`} className="text-xl font-semibold tracking-tight text-slate-900">
-                <Link href={categoryPath(category)} className="hover:text-blue-700">
+                <Link href={categoryPath(category)} className="hover:text-accent-strong">
                   {category.name}
                 </Link>
               </h2>
@@ -138,7 +138,7 @@ export default function DictionaryIndexPage() {
                 <li key={sign.slug}>
                   <Link
                     href={signPath(sign)}
-                    className="inline-flex items-center rounded-full bg-[#f3f4f6] px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-blue-50 hover:text-blue-700"
+                    className="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-blue-50 hover:text-accent-strong"
                   >
                     {signDisplayName(sign)}
                   </Link>
@@ -148,7 +148,7 @@ export default function DictionaryIndexPage() {
           </section>
         ))}
 
-        <section className="mt-20 rounded-2xl bg-[#f8fafc] p-8 text-center sm:p-12">
+        <section className="mt-20 rounded-2xl bg-slate-50 p-8 text-center sm:p-12">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 text-balance sm:text-3xl">
             Looking up a sign is the easy part. Signing it right is the hard part.
           </h2>

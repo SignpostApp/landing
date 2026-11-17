@@ -167,7 +167,7 @@ export default function AslAlphabetPage() {
   }).replace(/</g, "\\u003c");
 
   const downloadClass =
-    "inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition-colors hover:ring-slate-300 hover:text-blue-700";
+    "inline-flex items-center gap-2 rounded-lg bg-surface px-4 py-2.5 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition-colors hover:ring-slate-300 hover:text-accent-strong";
 
   return (
     <>
@@ -184,7 +184,7 @@ export default function AslAlphabetPage() {
           />
 
           <header className="mt-8 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">Fundamentals</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Fundamentals</p>
             <h1 className="mt-4 text-[2rem] font-semibold leading-[1.08] tracking-[-0.03em] text-slate-900 text-balance sm:text-4xl lg:text-[2.75rem]">
               The ASL alphabet: all 26 handshapes and how to actually learn them
             </h1>
@@ -197,8 +197,8 @@ export default function AslAlphabetPage() {
             </p>
           </header>
 
-          <section aria-labelledby="chart-heading" className="mt-12 grid gap-8 rounded-2xl bg-[#f3f4f6] p-6 sm:p-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-center">
-            <a href={CHART.png} target="_blank" rel="noopener" className="block overflow-hidden rounded-xl bg-white ring-1 ring-slate-200/70">
+          <section aria-labelledby="chart-heading" className="mt-12 grid gap-8 rounded-2xl bg-slate-100 p-6 sm:p-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-center">
+            <a href={CHART.png} target="_blank" rel="noopener" className="block overflow-hidden rounded-xl bg-surface ring-1 ring-slate-200/70">
               <Image
                 src={CHART.png}
                 alt="Chart of the 26 ASL alphabet handshapes from A to Z, with J and Z marked as the letters that move"
@@ -244,7 +244,7 @@ export default function AslAlphabetPage() {
                 <li key={sign.slug}>
                   <Link
                     href={signPath(sign)}
-                    className="group flex h-full flex-col rounded-2xl bg-white p-5 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300"
+                    className="group flex h-full flex-col rounded-2xl bg-surface p-5 ring-1 ring-slate-200/70 transition-colors hover:ring-slate-300"
                   >
                     <div className="flex h-28 items-center justify-center">
                       {sign.image ? (
@@ -254,16 +254,16 @@ export default function AslAlphabetPage() {
                           width={120}
                           height={120}
                           unoptimized
-                          className="h-24 w-auto"
+                          className="h-24 w-auto dark:invert"
                         />
                       ) : null}
                     </div>
                     <div className="mt-4 flex items-baseline justify-between gap-2">
-                      <span className="text-2xl font-semibold tracking-tight text-slate-900 group-hover:text-blue-700">
+                      <span className="text-2xl font-semibold tracking-tight text-slate-900 group-hover:text-accent-strong">
                         {sign.label}
                       </span>
                       {sign.label === "J" || sign.label === "Z" ? (
-                        <span className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-blue-600">
+                        <span className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-accent">
                           Moves
                         </span>
                       ) : null}
@@ -286,22 +286,22 @@ export default function AslAlphabetPage() {
                   that ASL is built on movement as much as on shape.
                 </p>
                 <ul className="mt-6 space-y-4">
-                  <li className="rounded-2xl bg-[#f3f4f6] p-6">
+                  <li className="rounded-2xl bg-slate-100 p-6">
                     <p className="font-semibold text-slate-900">J</p>
                     <p className="mt-1 text-[0.95rem] leading-relaxed text-slate-600">
                       Start with the I handshape, little finger up. Then trace the hook of a J downward and
                       around with the little finger. The handshape never changes. Only the wrist draws the curve.{" "}
-                      <Link href="/sign/letter-j" className="font-medium text-blue-600 hover:text-blue-700">
+                      <Link href="/sign/letter-j" className="font-medium text-accent hover:text-accent-strong">
                         How to sign J
                       </Link>
                     </p>
                   </li>
-                  <li className="rounded-2xl bg-[#f3f4f6] p-6">
+                  <li className="rounded-2xl bg-slate-100 p-6">
                     <p className="font-semibold text-slate-900">Z</p>
                     <p className="mt-1 text-[0.95rem] leading-relaxed text-slate-600">
                       Point your index finger and draw a Z in the air: across, down at an angle, and across
                       again. Keep it small and crisp, drawn with the finger rather than the whole arm.{" "}
-                      <Link href="/sign/letter-z" className="font-medium text-blue-600 hover:text-blue-700">
+                      <Link href="/sign/letter-z" className="font-medium text-accent hover:text-accent-strong">
                         How to sign Z
                       </Link>
                     </p>
@@ -335,7 +335,7 @@ export default function AslAlphabetPage() {
                 <ol className="mt-6 space-y-5">
                   {RULES.map((rule, index) => (
                     <li key={rule.title} className="flex gap-4">
-                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-50 font-mono text-xs font-medium text-blue-600">
+                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-50 font-mono text-xs font-medium text-accent">
                         {index + 1}
                       </span>
                       <div>
@@ -363,7 +363,7 @@ export default function AslAlphabetPage() {
                   and guess before you check. If you only ever practice your own hand, you will be the person
                   who can spell their own name but freezes the moment someone spells theirs back. We go deeper
                   on this in{" "}
-                  <Link href="/blog/how-to-learn-the-asl-alphabet" className="font-medium text-blue-600 hover:text-blue-700">
+                  <Link href="/blog/how-to-learn-the-asl-alphabet" className="font-medium text-accent hover:text-accent-strong">
                     our practical guide to fingerspelling
                   </Link>
                   .
@@ -373,7 +373,7 @@ export default function AslAlphabetPage() {
 
             <aside className="lg:sticky lg:top-28 lg:self-start">
               <div className="rounded-2xl bg-blue-50 p-6 sm:p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">Practice with feedback</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Practice with feedback</p>
                 <h2 className="mt-2 text-lg font-semibold tracking-tight text-slate-900">
                   Check your handshapes with your webcam
                 </h2>
@@ -394,21 +394,21 @@ export default function AslAlphabetPage() {
                   </span>
                 </a>
               </div>
-              <div className="mt-4 rounded-2xl bg-white p-6 ring-1 ring-slate-200/70">
+              <div className="mt-4 rounded-2xl bg-surface p-6 ring-1 ring-slate-200/70">
                 <p className="text-sm font-semibold text-slate-900">Related</p>
                 <ul className="mt-3 space-y-2 text-sm">
                   <li>
-                    <Link href="/signs/numbers" className="text-slate-600 hover:text-blue-700">
+                    <Link href="/signs/numbers" className="text-slate-600 hover:text-accent-strong">
                       ASL numbers 0 to 9
                     </Link>
                   </li>
                   <li>
-                    <Link href="/signs" className="text-slate-600 hover:text-blue-700">
+                    <Link href="/signs" className="text-slate-600 hover:text-accent-strong">
                       The full ASL dictionary
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog/is-asl-hard-to-learn" className="text-slate-600 hover:text-blue-700">
+                    <Link href="/blog/is-asl-hard-to-learn" className="text-slate-600 hover:text-accent-strong">
                       Is ASL hard to learn?
                     </Link>
                   </li>
