@@ -364,10 +364,10 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
             <div data-reveal className="max-w-2xl mb-12 lg:mb-16">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Compared</p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
-                What Signpost has that other ASL apps don&apos;t.
+                How Signpost compares to other ASL apps.
               </h2>
               <p className="mt-5 text-slate-600 leading-relaxed text-base sm:text-lg text-pretty">
-                Every other app shows you a video and hopes you copy it correctly. Signpost is the only one that watches your hands and grades the sign.
+                Every other app shows you a video and hopes you copy it correctly. Signpost is the only one that watches your hands and grades the sign. Here is where that leaves us, including the rows where others match us.
               </p>
             </div>
 

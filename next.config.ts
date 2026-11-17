@@ -99,21 +99,28 @@ const nextConfig: NextConfig = {
       });
     }
 
+    const signPageHeaders = headers.map((header) => {
+      if (header.key === "Cross-Origin-Embedder-Policy") {
+        return { ...header, value: "unsafe-none" };
+      }
+      if (header.key === "Permissions-Policy") {
+        return {
+          ...header,
+          value:
+            'camera=(), microphone=(), geolocation=(), autoplay=(self "https://www.youtube-nocookie.com"), fullscreen=(self "https://www.youtube-nocookie.com"), payment=(), usb=()',
+        };
+      }
+      return header;
+    });
+
     return [
       {
-        source: "/(.*)",
+        source: "/((?!sign/).*)",
         headers,
       },
       {
         source: "/sign/:slug",
-        headers: [
-          { key: "Cross-Origin-Embedder-Policy", value: "unsafe-none" },
-          {
-            key: "Permissions-Policy",
-            value:
-              'camera=(), microphone=(), geolocation=(), autoplay=(self "https://www.youtube-nocookie.com"), fullscreen=(self "https://www.youtube-nocookie.com"), payment=(), usb=()',
-          },
-        ],
+        headers: signPageHeaders,
       },
     ];
   },

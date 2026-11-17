@@ -11,12 +11,32 @@ import {
   getCategoryBySlug,
   signDisplayName,
   signPath,
+  type Sign,
 } from "@/lib/signs";
 
 function formatList(items: string[]): string {
   if (items.length <= 1) return items.join("");
   if (items.length === 2) return `${items[0]} and ${items[1]}`;
   return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
+}
+
+function coverage(signs: Sign[]) {
+  const withVideo = signs.filter((sign) => sign.video).length;
+  const withImage = signs.filter((sign) => sign.image).length;
+  const trained = signs.filter((sign) => sign.trained).length;
+  const parts = ["step-by-step instructions"];
+  if (withVideo === signs.length) parts.push("a video of each sign");
+  else if (withVideo > 0) parts.push("videos for most signs");
+  if (withImage === signs.length) parts.push("an illustration of each handshape");
+  if (trained === signs.length) parts.push("free webcam practice on Signpost");
+  else if (trained > 0) parts.push(`free webcam practice for ${trained} of them`);
+  const hint =
+    withVideo === signs.length
+      ? "Click any sign for the video, the steps, and the mistakes to avoid."
+      : withVideo > 0
+        ? "Click any sign for the steps, the mistakes to avoid, and the video where there is one."
+        : "Click any sign for the steps and the mistakes to avoid.";
+  return { parts, hint, trained };
 }
 
 export function generateStaticParams() {
@@ -37,7 +57,7 @@ export async function generateMetadata({
   const { category, signs } = group;
   const examples = signs.slice(0, 3).map(signDisplayName);
   const title = `${category.name} in ASL: How to Sign ${formatList(signs.length > 3 ? [...examples, "More"] : examples)}`;
-  const description = `${signs.length} ${category.name.toLowerCase()} signs in American Sign Language, each with a video, step-by-step instructions, and free webcam practice on Signpost.`;
+  const description = `${signs.length} ${category.name.toLowerCase()} signs in American Sign Language, with ${formatList(coverage(signs).parts)}.`;
 
   return pageMetadata({
     title,
@@ -55,7 +75,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
   const { category, signs } = group;
   const url = `${SITE_URL}${categoryPath(category)}`;
-  const trainedCount = signs.filter((sign) => sign.trained).length;
+  const { trained: trainedCount, hint } = coverage(signs);
   const otherCategories = CATEGORIES.filter(
     (other) => other.slug !== category.slug && getCategoryBySlug(other.slug),
   );
@@ -119,8 +139,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           <p className="mt-5 text-base leading-relaxed text-slate-600 text-pretty sm:text-lg">{category.blurb}</p>
           <p className="mt-3 text-sm text-slate-500">
             {signs.length} signs
-            {trainedCount > 0 ? `, ${trainedCount} with webcam practice` : ""}. Click any sign for the
-            video, the steps, and the mistakes to avoid.
+            {trainedCount > 0 ? `, ${trainedCount} with webcam practice` : ""}. {hint}
           </p>
         </header>
 

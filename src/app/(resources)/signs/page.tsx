@@ -11,9 +11,12 @@ import {
   signPath,
 } from "@/lib/signs";
 
+const ALL_SIGNS = getAllSigns();
+const VIDEO_COUNT = ALL_SIGNS.filter((sign) => sign.video).length;
+const TRAINED_COUNT = ALL_SIGNS.filter((sign) => sign.trained).length;
+
 const TITLE = "ASL Dictionary: How to Sign 200+ Words, Letters, and Numbers";
-const DESCRIPTION =
-  "Look up how to sign common words in American Sign Language. Every entry has a video, step-by-step instructions, common mistakes, and free webcam practice.";
+const DESCRIPTION = `Look up ${ALL_SIGNS.length} ASL signs, letters, and numbers. Every entry has step-by-step instructions, ${VIDEO_COUNT} have a video of a signer, and ${TRAINED_COUNT} can be practiced with your webcam for free.`;
 
 export const metadata = pageMetadata({
   title: TITLE,
@@ -24,8 +27,8 @@ export const metadata = pageMetadata({
 
 export default function DictionaryIndexPage() {
   const groups = getCategoriesWithSigns();
-  const all = getAllSigns();
-  const trainedCount = all.filter((sign) => sign.trained).length;
+  const all = ALL_SIGNS;
+  const trainedCount = TRAINED_COUNT;
   const url = `${SITE_URL}/signs`;
 
   const jsonLd = JSON.stringify({
@@ -78,12 +81,14 @@ export default function DictionaryIndexPage() {
             ASL Dictionary
           </h1>
           <p className="mt-5 text-base leading-relaxed text-slate-600 text-pretty sm:text-lg">
-            Every sign Signpost teaches, organized by topic. Each entry shows a native signer making the
-            sign, breaks down the handshape and movement step by step, and lists the mistakes beginners
-            make. Most signs can be practiced with your webcam, which checks your form as you sign.
+            Every sign Signpost teaches, organized by topic. Each entry breaks down the handshape and
+            movement step by step and lists the mistakes beginners make. Word signs include a video of a
+            signer, and letters include an illustration of the handshape. Most signs can be practiced with
+            your webcam, which checks your form as you sign.
           </p>
           <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
             <span>{all.length} signs</span>
+            <span>{VIDEO_COUNT} with video</span>
             <span>{trainedCount} with webcam practice</span>
             <span>{groups.length} topics</span>
           </div>
