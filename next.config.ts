@@ -24,8 +24,9 @@ const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
   "font-src 'self' data:",
-  `img-src 'self' data: blob:${ANALYTICS_IMG_SRC}`,
+  `img-src 'self' data: blob:${ANALYTICS_IMG_SRC} https://i.ytimg.com`,
   "object-src 'none'",
+  "frame-src https://www.youtube-nocookie.com",
   // SECURITY: Next.js injects inline runtime scripts for hydration.
   `script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'${ANALYTICS_SCRIPT_SRC}${__impeccableLiveDev}`,
   // SECURITY: Inline styles are required by framework/runtime styling paths.
@@ -98,10 +99,28 @@ const nextConfig: NextConfig = {
       });
     }
 
+    const signPageHeaders = headers.map((header) => {
+      if (header.key === "Cross-Origin-Embedder-Policy") {
+        return { ...header, value: "unsafe-none" };
+      }
+      if (header.key === "Permissions-Policy") {
+        return {
+          ...header,
+          value:
+            'camera=(), microphone=(), geolocation=(), autoplay=(self "https://www.youtube-nocookie.com"), fullscreen=(self "https://www.youtube-nocookie.com"), payment=(), usb=()',
+        };
+      }
+      return header;
+    });
+
     return [
       {
-        source: "/(.*)",
+        source: "/((?!sign/).*)",
         headers,
+      },
+      {
+        source: "/sign/:slug",
+        headers: signPageHeaders,
       },
     ];
   },

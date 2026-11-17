@@ -9,6 +9,8 @@ import SiteFooter from "./_components/SiteFooter";
 import { DEMO_URL } from "./_components/navData";
 import type { Post } from "./blog/posts";
 import { useLandingAnimations } from "./useLandingAnimations";
+import CompareTable from "./_components/CompareTable";
+import { COMPARE_CHECKED_LABEL, homepageFeatures } from "@/data/compare";
 
 type LatestPost = Pick<Post, "slug" | "title" | "category" | "date"> & {
   dateLabel: string;
@@ -345,7 +347,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
               {FEATURES.map((f) => (
                 <div
                   key={f.title}
-                  className="group relative rounded-2xl border border-slate-200 bg-surface p-8 lg:p-10 transition-colors duration-200 hover:border-slate-300"
+                  className="relative rounded-2xl bg-slate-100 p-8 lg:p-10"
                 >
                   <h3 className="text-lg sm:text-xl font-semibold tracking-tight mb-4 text-slate-900">
                     {f.title}
@@ -353,6 +355,39 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
                   <p className="text-slate-600 leading-relaxed text-[0.95rem]">{f.body}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="compare" className="relative scroll-mt-24 py-24 lg:py-32 border-t border-slate-100 bg-surface" aria-label="How Signpost compares to other ASL apps">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+            <div data-reveal className="max-w-2xl mb-12 lg:mb-16">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 mb-4">Compared</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-slate-900 text-balance">
+                How Signpost compares to other ASL apps.
+              </h2>
+              <p className="mt-5 text-slate-600 leading-relaxed text-base sm:text-lg text-pretty">
+                Every other app shows you a video and hopes you copy it correctly. Signpost is the only one that watches your hands and grades the sign. Here is where that leaves us, including the rows where others match us.
+              </p>
+            </div>
+
+            <div data-reveal>
+              <CompareTable
+                features={homepageFeatures()}
+                notesHref="/compare#notes"
+                caption="How Signpost compares to Lingvano, ASL Bloom, Start ASL, Lifeprint, and SignSchool"
+              />
+            </div>
+
+            <div data-reveal className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-500">
+              <Link
+                href="/compare"
+                className="group inline-flex items-center gap-2 font-medium text-slate-900 transition-colors hover:text-accent-strong"
+              >
+                See the full comparison
+                <span aria-hidden className="transition-transform duration-150 group-hover:translate-x-0.5">&rarr;</span>
+              </Link>
+              <span>Checked {COMPARE_CHECKED_LABEL}.</span>
             </div>
           </div>
         </section>
@@ -457,7 +492,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
 
             <div data-reveal-group className="grid md:grid-cols-2 gap-5 lg:gap-6 max-w-5xl">
               {/* Jerry */}
-              <article className="rounded-2xl border border-slate-200 bg-surface p-8 lg:p-10 transition-colors duration-200 hover:border-slate-300 flex flex-col">
+              <article className="rounded-2xl bg-surface p-8 lg:p-10 flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
                   <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Built by ASL Students</h3>
                   <p className="text-xs text-slate-500 shrink-0">Max, Jerry, and Rhiley</p>
@@ -468,7 +503,7 @@ export default function LandingPage({ latestPosts }: { latestPosts: LatestPost[]
               </article>
 
               {/* Max */}
-              <article className="rounded-2xl border border-slate-200 bg-surface p-8 lg:p-10 transition-colors duration-200 hover:border-slate-300 flex flex-col">
+              <article className="rounded-2xl bg-surface p-8 lg:p-10 flex flex-col">
                 <div className="flex items-baseline justify-between gap-4 mb-2">
                   <h3 className="text-2xl font-semibold tracking-tight text-slate-900">Tested by ASL educators</h3>
                   <p className="text-xs text-slate-500 shrink-0">Both Deaf and hearing</p>

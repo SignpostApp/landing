@@ -1,0 +1,3915 @@
+{
+  "generatedAt": "2026-11-17T00:18:48.787Z",
+  "source": "github.com/SignpostApp/signpost src/data/sign-content.ts and src/data/sign-videos.ts",
+  "entries": [
+    {
+      "slug": "hello",
+      "label": "HELLO",
+      "term": "Hello",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Greetings",
+      "appContent": {
+        "summary": "HELLO is a friendly salute: a flat hand starts at your forehead and sweeps outward toward the person you are greeting.",
+        "steps": [
+          "Hold your dominant hand flat with your fingers together.",
+          "Touch the side of your forehead with your fingertips, like the start of a salute.",
+          "Sweep the hand forward and away from your head in one smooth motion."
+        ],
+        "tips": [
+          "Keep it relaxed. A stiff military salute reads as a joke rather than a greeting.",
+          "Smile and make eye contact, because facial expression carries as much meaning as the handshape."
+        ],
+        "aka": [
+          "Hi"
+        ]
+      },
+      "video": {
+        "id": "MbggypBmHGw",
+        "title": "hello in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:40:51-07:00"
+      }
+    },
+    {
+      "slug": "goodbye",
+      "label": "GOODBYE",
+      "term": "Goodbye",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Greetings",
+      "appContent": {
+        "summary": "GOODBYE is the wave you already know: an open hand raised and waved, or the fingers folding down toward your palm.",
+        "steps": [
+          "Raise your dominant hand with the palm facing forward.",
+          "Wave the whole hand side to side, or fold your fingers down toward your palm and open them again."
+        ],
+        "tips": [
+          "The finger-fold version is the softer, more casual 'bye-bye'.",
+          "Signers usually mouth 'bye' at the same time."
+        ],
+        "aka": [
+          "Bye"
+        ]
+      },
+      "video": {
+        "id": "R_WzZx_4Cw0",
+        "title": "goodbye in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:41:10-07:00"
+      }
+    },
+    {
+      "slug": "nice",
+      "label": "NICE",
+      "term": "Nice",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Greetings",
+      "appContent": {
+        "summary": "NICE slides one flat hand across the other, as if wiping it clean.",
+        "steps": [
+          "Hold your non-dominant hand flat with the palm facing up.",
+          "Slide your dominant palm across it from the wrist toward the fingertips."
+        ],
+        "tips": [
+          "This is the same sign as CLEAN, and context tells the two apart.",
+          "One smooth slide is enough. Repeated wiping changes the meaning."
+        ],
+        "aka": [
+          "Clean"
+        ]
+      },
+      "video": {
+        "id": "gCPMZbEfr8o",
+        "title": "nice in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:06:21-07:00"
+      }
+    },
+    {
+      "slug": "meet",
+      "label": "MEET",
+      "term": "Meet",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Greetings",
+      "appContent": {
+        "summary": "MEET brings two upright index fingers toward each other until they touch.",
+        "steps": [
+          "Hold both index fingers up with the palms facing each other.",
+          "Move the hands toward each other until the fingers meet in the middle."
+        ],
+        "tips": [
+          "Each finger stands for a person, so the direction shows who is meeting whom.",
+          "Moving only one hand toward the other means 'I will meet you'."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "2kHrA-H8P-o",
+        "title": "meet in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:09:45-07:00"
+      }
+    },
+    {
+      "slug": "name",
+      "label": "NAME",
+      "term": "Name",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Greetings",
+      "appContent": {
+        "summary": "NAME taps two extended fingers across two more, like crossing a pair of sticks.",
+        "steps": [
+          "Extend the index and middle fingers of both hands.",
+          "Hold the non-dominant fingers flat in front of you.",
+          "Tap the dominant fingers down across them twice."
+        ],
+        "tips": [
+          "The hands cross at an angle rather than forming a perfect X.",
+          "Tap twice, because a single tap can be mistaken for a different sign."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "yT-tvthXGO8",
+        "title": "name in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:39:43-07:00"
+      }
+    },
+    {
+      "slug": "my",
+      "label": "MY",
+      "term": "My",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Pronouns",
+      "appContent": {
+        "summary": "MY lays an open palm flat against the center of your chest.",
+        "steps": [
+          "Hold your dominant hand flat with the fingers together and the palm toward your body.",
+          "Bring the palm to the center of your chest and press it there briefly."
+        ],
+        "tips": [
+          "Use the flat palm, not a pointing finger. Pointing at yourself is I/ME, not MY.",
+          "The same handshape pushed outward toward someone else becomes YOUR."
+        ],
+        "aka": [
+          "Mine"
+        ]
+      },
+      "video": {
+        "id": "EBu2DvsnniQ",
+        "title": "my mine in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:40:09-07:00"
+      }
+    },
+    {
+      "slug": "your",
+      "label": "YOUR",
+      "term": "Your",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Pronouns",
+      "appContent": {
+        "summary": "YOUR is MY turned around: a flat palm pushed toward the person you are talking about.",
+        "steps": [
+          "Hold your hand flat with the palm facing outward, toward the other person.",
+          "Push the palm forward a short distance."
+        ],
+        "tips": [
+          "Aim the push at whoever you mean. Direction is grammar in ASL.",
+          "Pushing toward a spot you set up earlier refers back to that person."
+        ],
+        "aka": [
+          "Yours"
+        ]
+      },
+      "video": {
+        "id": "FoNdrLOo4zQ",
+        "title": "your in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:47:59-07:00"
+      }
+    },
+    {
+      "slug": "you",
+      "label": "YOU",
+      "term": "You",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Pronouns",
+      "appContent": {
+        "summary": "YOU is a simple, direct point at the person you are addressing.",
+        "steps": [
+          "Extend your index finger.",
+          "Point directly at the person you are talking to."
+        ],
+        "tips": [
+          "Pointing is not rude in ASL. It is grammar.",
+          "Pointing at an empty space sets up a reference you can point back to later."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "rD8FdcFrj4A",
+        "title": "you in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:48:06-07:00"
+      }
+    },
+    {
+      "slug": "i",
+      "label": "I",
+      "term": "I",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Pronouns",
+      "appContent": {
+        "summary": "I points the index finger at the center of your own chest.",
+        "steps": [
+          "Extend your index finger.",
+          "Touch or point it at the center of your chest."
+        ],
+        "tips": [
+          "The I letter handshape with the pinky up is also used, but the index point is far more common.",
+          "ASL does not distinguish I from ME, since the same point covers both."
+        ],
+        "aka": [
+          "Me"
+        ]
+      },
+      "video": {
+        "id": "nDncXyPwfmM",
+        "title": "i me in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:07:30-07:00"
+      }
+    },
+    {
+      "slug": "where",
+      "label": "WHERE",
+      "term": "Where",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Question Words",
+      "appContent": {
+        "summary": "WHERE shakes a single upright index finger quickly from side to side.",
+        "steps": [
+          "Point your index finger up with the palm facing forward.",
+          "Shake the finger side to side a few times."
+        ],
+        "tips": [
+          "Lower your eyebrows. WH-questions in ASL require that expression to read as questions.",
+          "Hold the last shake a beat longer when you are waiting for an answer."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "4T2BfSwTIl8",
+        "title": "where in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:51:43-07:00"
+      }
+    },
+    {
+      "slug": "who",
+      "label": "WHO",
+      "term": "Who",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Question Words",
+      "appContent": {
+        "summary": "WHO bends the index finger at your chin while the thumb rests against it.",
+        "steps": [
+          "Rest your thumb on your chin with the index finger extended upward.",
+          "Bend the index finger down and up a couple of times."
+        ],
+        "tips": [
+          "Lowered eyebrows are part of the sign, and without them it reads as a statement.",
+          "A common variant circles the index finger around the lips instead."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "YtdyNWX9i38",
+        "title": "who in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:51:34-07:00"
+      }
+    },
+    {
+      "slug": "why",
+      "label": "WHY",
+      "term": "Why",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Question Words",
+      "appContent": {
+        "summary": "WHY starts at the forehead and pulls away, changing into a Y handshape.",
+        "steps": [
+          "Touch your fingertips to your forehead with an open hand.",
+          "Move the hand down and away from your head.",
+          "As it moves, change to a Y handshape with the thumb and pinky extended."
+        ],
+        "tips": [
+          "Lowered eyebrows and a slight head tilt belong to the sign.",
+          "In casual conversation people often shorten it to just the Y shake."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "Yoryobv213E",
+        "title": "why in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:50:35-07:00"
+      }
+    },
+    {
+      "slug": "when",
+      "label": "WHEN",
+      "term": "When",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Question Words",
+      "appContent": {
+        "summary": "WHEN circles one index finger around the other and lands on the fingertip.",
+        "steps": [
+          "Hold your non-dominant index finger up in front of you.",
+          "Circle your dominant index finger once around it.",
+          "Bring the two fingertips together to finish."
+        ],
+        "tips": [
+          "Land the contact cleanly, because the touch is the end of the sign.",
+          "Keep your eyebrows lowered throughout the question."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "jqETPcWlF9M",
+        "title": "when in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:51:46-07:00"
+      }
+    },
+    {
+      "slug": "how",
+      "label": "HOW",
+      "term": "How",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Question Words",
+      "appContent": {
+        "summary": "HOW rolls two bent hands forward until both palms end up facing the ceiling.",
+        "steps": [
+          "Curl both hands and place the backs of the fingers together.",
+          "Roll both hands forward and up until the palms face upward."
+        ],
+        "tips": [
+          "Keep the knuckles touching as the hands roll.",
+          "Lower your eyebrows, since this is a WH-question like WHERE and WHY."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "9GMloNPSwXE",
+        "title": "how in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:08:10-07:00"
+      }
+    },
+    {
+      "slug": "mother",
+      "label": "MOTHER",
+      "term": "Mother",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "People & Family",
+      "appContent": {
+        "summary": "MOTHER taps the thumb of a spread open hand against your chin.",
+        "steps": [
+          "Spread all five fingers with the palm facing sideways.",
+          "Tap the thumb of that hand on your chin twice."
+        ],
+        "tips": [
+          "Chin means female and forehead means male, and that split runs through most ASL family signs.",
+          "Keep the fingers spread. A closed hand at the chin is a different sign."
+        ],
+        "aka": [
+          "Mom"
+        ]
+      },
+      "video": {
+        "id": "a91pdNQLaQQ",
+        "title": "mother in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:41:22-07:00"
+      }
+    },
+    {
+      "slug": "father",
+      "label": "FATHER",
+      "term": "Father",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "People & Family",
+      "appContent": {
+        "summary": "FATHER is MOTHER moved up: the thumb of a spread open hand taps your forehead.",
+        "steps": [
+          "Spread all five fingers with the palm facing sideways.",
+          "Tap the thumb of that hand on your forehead twice."
+        ],
+        "tips": [
+          "Forehead signs are male, chin signs are female.",
+          "Wiggling the fingers as you tap adds a playful, affectionate tone."
+        ],
+        "aka": [
+          "Dad"
+        ]
+      },
+      "video": {
+        "id": "s9oGrlC7fTQ",
+        "title": "father in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:31:10-07:00"
+      }
+    },
+    {
+      "slug": "man",
+      "label": "MAN",
+      "term": "Man",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "People & Family",
+      "appContent": {
+        "summary": "MAN starts at the forehead like FATHER, then drops down to the chest.",
+        "steps": [
+          "Touch the thumb of your open hand to your forehead.",
+          "Move the hand down and forward.",
+          "Finish with the flat hand resting against your chest."
+        ],
+        "tips": [
+          "The forehead start is what marks it as male.",
+          "A smaller, quicker version of this movement means BOY."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "maovrTpAXeM",
+        "title": "man in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:43:36-07:00"
+      }
+    },
+    {
+      "slug": "deaf",
+      "label": "DEAF",
+      "term": "Deaf",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "People & Family",
+      "appContent": {
+        "summary": "DEAF traces a line between the ear and the mouth with a single index finger.",
+        "steps": [
+          "Point your index finger.",
+          "Touch it just beside your ear.",
+          "Move it down and touch near the corner of your mouth."
+        ],
+        "tips": [
+          "Both directions are accepted: ear to mouth and mouth to ear.",
+          "Capital-D Deaf refers to the cultural community, but the sign is the same."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "a3qC7RTkDFo",
+        "title": "deaf in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:31:28-07:00"
+      }
+    },
+    {
+      "slug": "hearing",
+      "label": "HEARING",
+      "term": "Hearing",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "People & Family",
+      "appContent": {
+        "summary": "HEARING rolls an index finger forward in small circles in front of your lips.",
+        "steps": [
+          "Point your index finger sideways in front of your mouth.",
+          "Roll it forward in small circles."
+        ],
+        "tips": [
+          "The sign literally means 'talking', so it marks someone who speaks rather than signs.",
+          "Keep the circles small and close to the lips."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "Gp739k6h738",
+        "title": "hearing in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:14:25-07:00"
+      }
+    },
+    {
+      "slug": "yes",
+      "label": "YES",
+      "term": "Yes",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "YES nods a closed fist the same way your head nods.",
+        "steps": [
+          "Make a fist with your thumb resting across the front.",
+          "Bend at the wrist so the fist nods up and down."
+        ],
+        "tips": [
+          "Nod your head along with the hand, because the two move together.",
+          "A slow single nod reads as hesitant agreement."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "DAWUn-AliYE",
+        "title": "yes in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:48:18-07:00"
+      }
+    },
+    {
+      "slug": "no",
+      "label": "NO",
+      "term": "No",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "NO snaps the index and middle fingers down onto the thumb, like a mouth closing.",
+        "steps": [
+          "Hold your index and middle fingers out with the thumb below them.",
+          "Snap all three together quickly."
+        ],
+        "tips": [
+          "Shake your head with it. The headshake is required grammar, not decoration.",
+          "One sharp snap is emphatic; a soft snap is a mild 'no'."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "I1USnQaJoIc",
+        "title": "no in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:06:02-07:00"
+      }
+    },
+    {
+      "slug": "good",
+      "label": "GOOD",
+      "term": "Good",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "GOOD starts at your chin and drops into your other open palm.",
+        "steps": [
+          "Touch the fingertips of your flat dominant hand to your chin.",
+          "Move the hand down and place it palm-up in your other flat palm."
+        ],
+        "tips": [
+          "The first half is identical to THANK YOU, and landing in the palm is what makes it GOOD.",
+          "Dropping the second hand entirely is a common shortcut among fluent signers."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "-BtJYY-DjxE",
+        "title": "good in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:19:02-07:00"
+      }
+    },
+    {
+      "slug": "sure",
+      "label": "SURE",
+      "term": "Sure",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "SURE moves a single upright finger straight forward from your lips.",
+        "steps": [
+          "Point your index finger up with the palm facing sideways.",
+          "Touch the side of the finger near your lips.",
+          "Move the hand straight forward and away from your face."
+        ],
+        "tips": [
+          "This is the same sign as TRUE and REAL, and context decides the English word.",
+          "A sharp, quick movement adds emphasis: 'definitely'."
+        ],
+        "aka": [
+          "True",
+          "Real"
+        ]
+      },
+      "video": {
+        "id": "dwdG1fWuNbw",
+        "title": "sure in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:23:50-07:00"
+      }
+    },
+    {
+      "slug": "like",
+      "label": "LIKE",
+      "term": "Like",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "LIKE pulls your feelings out from your chest with the thumb and middle finger.",
+        "steps": [
+          "Place your open hand on your chest with the thumb and middle finger apart.",
+          "Pull the hand away from your chest.",
+          "As it moves, close the thumb and middle finger together."
+        ],
+        "tips": [
+          "Ending with the fingers pinched is what separates LIKE from a plain open-hand pull.",
+          "Add a headshake and it becomes DON'T LIKE."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "LglPEe3z6jE",
+        "title": "like in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:11:58-07:00"
+      }
+    },
+    {
+      "slug": "know",
+      "label": "KNOW",
+      "term": "Know",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "KNOW taps your fingertips against your forehead or temple.",
+        "steps": [
+          "Hold your dominant hand flat with the fingers slightly bent.",
+          "Tap the fingertips against your temple."
+        ],
+        "tips": [
+          "Keep the hand relaxed, because a rigid flat hand looks like a salute.",
+          "Two taps is standard, but one is fine in fast conversation."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "qiWTCOA6WNs",
+        "title": "know in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:46:49-07:00"
+      }
+    },
+    {
+      "slug": "dont-know",
+      "label": "DONT_KNOW",
+      "term": "Don't Know",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "DON'T KNOW is KNOW flicked away: touch the forehead, then turn the hand outward.",
+        "steps": [
+          "Tap your fingertips against your forehead like KNOW.",
+          "Turn the hand outward and away so the palm ends up facing forward."
+        ],
+        "tips": [
+          "Shrug your shoulders and shake your head as you flip the hand.",
+          "The flip away from the head is what negates the sign."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "IUmndmWOaME",
+        "title": "dont know in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:25:35-07:00"
+      }
+    },
+    {
+      "slug": "understand",
+      "label": "UNDERSTAND",
+      "term": "Understand",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "UNDERSTAND flicks a finger up at the side of your forehead, like a light switching on.",
+        "steps": [
+          "Make a fist and hold it near the side of your forehead.",
+          "Flick your index finger up sharply."
+        ],
+        "tips": [
+          "Raise your eyebrows and nod slightly to mean 'got it'.",
+          "A slow flick with a doubtful face reads as 'sort of'."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "plJHFy1RcMI",
+        "title": "do you understand in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:41:50-07:00"
+      }
+    },
+    {
+      "slug": "can",
+      "label": "CAN",
+      "term": "Can",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "CAN presses two fists down together in one short, decisive motion.",
+        "steps": [
+          "Make a fist with both hands and hold them up with the palms facing down.",
+          "Move both fists down together in one firm, short motion."
+        ],
+        "tips": [
+          "Short and firm means 'can'. A long, slow push reads as strain or effort.",
+          "Nod as you sign it to confirm ability."
+        ],
+        "aka": [
+          "Able"
+        ]
+      },
+      "video": {
+        "id": "LTSTBNmoZ48",
+        "title": "can in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:56:48-07:00"
+      }
+    },
+    {
+      "slug": "cant",
+      "label": "CANT",
+      "term": "Can't",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": {
+        "summary": "CAN'T strikes one index finger sharply down past the other.",
+        "steps": [
+          "Hold your non-dominant index finger out in front of you.",
+          "Bring your dominant index finger down so it strikes past the other."
+        ],
+        "tips": [
+          "Only the dominant hand moves, and the other stays put as a target.",
+          "Shake your head with it. Negation lives in the face as much as the hands."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "K3i9xrw5ur0",
+        "title": "cant in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:56:25-07:00"
+      }
+    },
+    {
+      "slug": "home",
+      "label": "HOME",
+      "term": "Home",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": {
+        "summary": "HOME combines EAT and SLEEP: the place where you eat and where you sleep.",
+        "steps": [
+          "Bring your fingertips together into a flattened O shape.",
+          "Touch the fingertips to your mouth.",
+          "Move back and touch your cheek near your ear."
+        ],
+        "tips": [
+          "Some signers simply tap the cheek twice instead of travelling from mouth to ear.",
+          "Keep the movement small and close to the face."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "8uT5gJsmn_k",
+        "title": "home in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:08:54-07:00"
+      }
+    },
+    {
+      "slug": "live",
+      "label": "LIVE",
+      "term": "Live",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": {
+        "summary": "LIVE slides two L handshapes up the front of your torso.",
+        "steps": [
+          "Make an L with both hands: index up, thumb out.",
+          "Place them at your waist with the palms facing your body.",
+          "Slide both hands up your torso."
+        ],
+        "tips": [
+          "The A handshape version means the same thing and is just as common.",
+          "This sign also carries ADDRESS, and context decides which one you mean."
+        ],
+        "aka": [
+          "Address"
+        ]
+      },
+      "video": {
+        "id": "Dp3AumIRu_w",
+        "title": "live in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:11:23-07:00"
+      }
+    },
+    {
+      "slug": "move",
+      "label": "MOVE",
+      "term": "Move",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": {
+        "summary": "MOVE picks something up in both hands and carries it to a new spot.",
+        "steps": [
+          "Curl both hands as if holding something, palms facing down.",
+          "Lift them slightly and arc them sideways to a new position."
+        ],
+        "tips": [
+          "Where you start and end shows what is moving where.",
+          "A bigger arc means a bigger move."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "7tEe0PIqRrs",
+        "title": "move in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:41:07-07:00"
+      }
+    },
+    {
+      "slug": "make",
+      "label": "MAKE",
+      "term": "Make",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": {
+        "summary": "MAKE stacks two fists and twists them, like shaping something in your hands.",
+        "steps": [
+          "Make a fist with both hands.",
+          "Rest your dominant fist on top of the non-dominant one.",
+          "Twist both fists in opposite directions, then repeat."
+        ],
+        "tips": [
+          "Twice is standard; once reads as clipped.",
+          "Keep the fists in contact throughout the twist."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "p6rl9JZSYXw",
+        "title": "MAKE-[generate, create]",
+        "author": "Signs",
+        "authorUrl": "https://www.youtube.com/@aslu",
+        "uploadDate": "2016-11-18T22:11:43-08:00"
+      }
+    },
+    {
+      "slug": "from",
+      "label": "FROM",
+      "term": "From",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": {
+        "summary": "FROM hooks one bent finger onto another and pulls it back.",
+        "steps": [
+          "Hold your non-dominant index finger up in front of you.",
+          "Touch your bent dominant index finger to it.",
+          "Pull the dominant hand back and away."
+        ],
+        "tips": [
+          "The non-dominant hand stays still, because it is the origin point.",
+          "Pull straight back rather than down."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "s_WO9IVvvv4",
+        "title": "from in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:23:00-07:00"
+      }
+    },
+    {
+      "slug": "number",
+      "label": "NUMBER",
+      "term": "Number",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": {
+        "summary": "NUMBER pinches both sets of fingertips together and twists them past each other.",
+        "steps": [
+          "Bring the fingertips of each hand together into flattened O shapes.",
+          "Touch the two sets of fingertips together.",
+          "Twist the hands so they swap orientation, then touch again."
+        ],
+        "tips": [
+          "The twist is the sign, and a single touch without it is not NUMBER.",
+          "Keep both hands at chest height."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "I-KkRsbl82E",
+        "title": "number in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:04:56-07:00"
+      }
+    },
+    {
+      "slug": "later",
+      "label": "LATER",
+      "term": "Later",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": {
+        "summary": "LATER tips an L hand forward on its thumb, like a clock hand advancing.",
+        "steps": [
+          "Make an L with your dominant hand: index up, thumb out.",
+          "Hold it up in front of your shoulder.",
+          "Rotate the index finger forward and down."
+        ],
+        "tips": [
+          "The thumb is the pivot, and only the index finger travels.",
+          "A wide, slow rotation means 'much later'."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "unfSrlyblI0",
+        "title": "later in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:46:01-07:00"
+      }
+    },
+    {
+      "slug": "now",
+      "label": "NOW",
+      "term": "Now",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": {
+        "summary": "NOW drops both Y handshapes down sharply in front of you.",
+        "steps": [
+          "Make a Y with both hands: thumb and pinky out.",
+          "Hold them up with the palms facing upward.",
+          "Drop both hands down sharply."
+        ],
+        "tips": [
+          "A single sharp drop is 'now'; a double drop is 'today'.",
+          "Keep the movement small and grounded in front of your torso."
+        ],
+        "aka": []
+      },
+      "video": {
+        "id": "me-ZNt3G5DI",
+        "title": "now in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:05:03-07:00"
+      }
+    },
+    {
+      "slug": "please",
+      "label": "PLEASE",
+      "term": "Please",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": null,
+      "video": {
+        "id": "K0mD_RcESHI",
+        "title": "please in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:31:14-07:00"
+      }
+    },
+    {
+      "slug": "sorry",
+      "label": "SORRY",
+      "term": "Sorry",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Responses",
+      "appContent": null,
+      "video": {
+        "id": "_MHkMF3t8zc",
+        "title": "sorry in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-10T15:08:37-07:00"
+      }
+    },
+    {
+      "slug": "eat",
+      "label": "EAT",
+      "term": "Eat",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": null,
+      "video": {
+        "id": "kI7EQIAm-tE",
+        "title": "eat in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:23:50-07:00"
+      }
+    },
+    {
+      "slug": "drink",
+      "label": "DRINK",
+      "term": "Drink",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": null,
+      "video": {
+        "id": "FAN-FyuC2Ag",
+        "title": "drink in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:24:55-07:00"
+      }
+    },
+    {
+      "slug": "grandmother",
+      "label": "GRANDMOTHER",
+      "term": "Grandmother",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "People & Family",
+      "appContent": null,
+      "video": {
+        "id": "_0xAnBlyZ7o",
+        "title": "grandmother in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:18:23-07:00"
+      }
+    },
+    {
+      "slug": "grandfather",
+      "label": "GRANDFATHER",
+      "term": "Grandfather",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "People & Family",
+      "appContent": null,
+      "video": {
+        "id": "P9BlcAtm6Dc",
+        "title": "grandfather in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:18:29-07:00"
+      }
+    },
+    {
+      "slug": "aunt",
+      "label": "AUNT",
+      "term": "Aunt",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "People & Family",
+      "appContent": null,
+      "video": {
+        "id": "QNgYfXdnhis",
+        "title": "aunt in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:15:37-07:00"
+      }
+    },
+    {
+      "slug": "uncle",
+      "label": "UNCLE",
+      "term": "Uncle",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "People & Family",
+      "appContent": null,
+      "video": {
+        "id": "6tJ-wsoE51Q",
+        "title": "uncle in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:51:48-07:00"
+      }
+    },
+    {
+      "slug": "sleep",
+      "label": "SLEEP",
+      "term": "Sleep",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": null,
+      "video": {
+        "id": "HYuzCocLjLU",
+        "title": "sleep in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:55:23-07:00"
+      }
+    },
+    {
+      "slug": "talk",
+      "label": "TALK",
+      "term": "Talk",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": null,
+      "video": {
+        "id": "6Wg2rCGpGNw",
+        "title": "talk in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:22:19-07:00"
+      }
+    },
+    {
+      "slug": "listen",
+      "label": "LISTEN",
+      "term": "Listen",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Everyday Signs",
+      "appContent": null,
+      "video": {
+        "id": "JiQbdDPTHcs",
+        "title": "listen in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:11:32-07:00"
+      }
+    },
+    {
+      "slug": "monday",
+      "label": "MONDAY",
+      "term": "Monday",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Time & Days",
+      "appContent": null,
+      "video": {
+        "id": "_-_aaIBQ9ZA",
+        "title": "monday in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:07:44-07:00"
+      }
+    },
+    {
+      "slug": "tuesday",
+      "label": "TUESDAY",
+      "term": "Tuesday",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Time & Days",
+      "appContent": null,
+      "video": {
+        "id": "YO9rILB-5S0",
+        "title": "tuesday in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:52:09-07:00"
+      }
+    },
+    {
+      "slug": "wednesday",
+      "label": "WEDNESDAY",
+      "term": "Wednesday",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Time & Days",
+      "appContent": null,
+      "video": {
+        "id": "FVDIgosjsnA",
+        "title": "wednesday in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:52:29-07:00"
+      }
+    },
+    {
+      "slug": "thursday",
+      "label": "THURSDAY",
+      "term": "Thursday",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Time & Days",
+      "appContent": null,
+      "video": {
+        "id": "avbqdo5HoQc",
+        "title": "THURSDAY-[TH-version]",
+        "author": "Signs",
+        "authorUrl": "https://www.youtube.com/@aslu",
+        "uploadDate": "2017-07-10T15:08:52-07:00"
+      }
+    },
+    {
+      "slug": "friday",
+      "label": "FRIDAY",
+      "term": "Friday",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Time & Days",
+      "appContent": null,
+      "video": {
+        "id": "YjpUPyfpSzo",
+        "title": "friday in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:23:12-07:00"
+      }
+    },
+    {
+      "slug": "saturday",
+      "label": "SATURDAY",
+      "term": "Saturday",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Time & Days",
+      "appContent": null,
+      "video": {
+        "id": "C6DePldoeOY",
+        "title": "saturday in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:25:50-07:00"
+      }
+    },
+    {
+      "slug": "yesterday",
+      "label": "YESTERDAY",
+      "term": "Yesterday",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Time & Days",
+      "appContent": null,
+      "video": {
+        "id": "yYtzDdg-T7U",
+        "title": "yesterday in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:48:15-07:00"
+      }
+    },
+    {
+      "slug": "tomorrow",
+      "label": "TOMORROW",
+      "term": "Tomorrow",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Time & Days",
+      "appContent": null,
+      "video": {
+        "id": "SJgrOYptPiw",
+        "title": "tomorrow in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:53:37-07:00"
+      }
+    },
+    {
+      "slug": "time",
+      "label": "TIME",
+      "term": "Time",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "-xd9aweaUTw",
+        "title": "time in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-11T16:47:09-07:00"
+      }
+    },
+    {
+      "slug": "bored",
+      "label": "BORED",
+      "term": "Bored",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "Ot1585elIa4",
+        "title": "bored in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:01:48-07:00"
+      }
+    },
+    {
+      "slug": "fine",
+      "label": "FINE",
+      "term": "Fine",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "rZSdQbE7Uyw",
+        "title": "fine in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:29:12-07:00"
+      }
+    },
+    {
+      "slug": "proud",
+      "label": "PROUD",
+      "term": "Proud",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "HS-oZ6ke1IE",
+        "title": "proud in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:59:42-07:00"
+      }
+    },
+    {
+      "slug": "feel",
+      "label": "FEEL",
+      "term": "Feel",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "ir8Xd9I7Wvk",
+        "title": "feel in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:30:53-07:00"
+      }
+    },
+    {
+      "slug": "lonely",
+      "label": "LONELY",
+      "term": "Lonely",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "fjHaCd1ZbWk",
+        "title": "lonely in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:11:06-07:00"
+      }
+    },
+    {
+      "slug": "red",
+      "label": "RED",
+      "term": "Red",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "WBFI-rXXFRc",
+        "title": "red in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:26:49-07:00"
+      }
+    },
+    {
+      "slug": "blue",
+      "label": "BLUE",
+      "term": "Blue",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "fAwUVlehq7k",
+        "title": "blue in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:02:24-07:00"
+      }
+    },
+    {
+      "slug": "green",
+      "label": "GREEN",
+      "term": "Green",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "7rr152yPyoI",
+        "title": "green in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:17:47-07:00"
+      }
+    },
+    {
+      "slug": "yellow",
+      "label": "YELLOW",
+      "term": "Yellow",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "vQNQmT8h36Q",
+        "title": "yellow in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:48:21-07:00"
+      }
+    },
+    {
+      "slug": "orange",
+      "label": "ORANGE",
+      "term": "Orange",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "LEy4o5Q4UuY",
+        "title": "orange in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:37:57-07:00"
+      }
+    },
+    {
+      "slug": "purple",
+      "label": "PURPLE",
+      "term": "Purple",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "5nRs_apQe-g",
+        "title": "purple in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:59:15-07:00"
+      }
+    },
+    {
+      "slug": "black",
+      "label": "BLACK",
+      "term": "Black",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "ewlE8c8AS70",
+        "title": "black in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:03:15-07:00"
+      }
+    },
+    {
+      "slug": "white",
+      "label": "WHITE",
+      "term": "White",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "WmOevvqmUzE",
+        "title": "white in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:51:37-07:00"
+      }
+    },
+    {
+      "slug": "brown",
+      "label": "BROWN",
+      "term": "Brown",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "HPkkFkT5XXE",
+        "title": "brown in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:59:12-07:00"
+      }
+    },
+    {
+      "slug": "pink",
+      "label": "PINK",
+      "term": "Pink",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "-P2oOaVGuag",
+        "title": "pink in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:01:53-07:00"
+      }
+    },
+    {
+      "slug": "color",
+      "label": "COLOR",
+      "term": "Color",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "rs7vKKrpkQI",
+        "title": "color in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:48:35-07:00"
+      }
+    },
+    {
+      "slug": "water",
+      "label": "WATER",
+      "term": "Water",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "TbSmrS98qls",
+        "title": "water in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:53:04-07:00"
+      }
+    },
+    {
+      "slug": "food",
+      "label": "FOOD",
+      "term": "Food",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "zb_QJAsBdJ4",
+        "title": "food in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:27:45-07:00"
+      }
+    },
+    {
+      "slug": "milk",
+      "label": "MILK",
+      "term": "Milk",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "b8X9rzVXn-Q",
+        "title": "milk in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:08:32-07:00"
+      }
+    },
+    {
+      "slug": "apple",
+      "label": "APPLE",
+      "term": "Apple",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "0MYFjy1rd_4",
+        "title": "apple in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:18:55-07:00"
+      }
+    },
+    {
+      "slug": "fruit",
+      "label": "FRUIT",
+      "term": "Fruit",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "Eb1Bbb-XfoY",
+        "title": "fruit in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:22:44-07:00"
+      }
+    },
+    {
+      "slug": "hungry",
+      "label": "HUNGRY",
+      "term": "Hungry",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "MeEYqcZrEcE",
+        "title": "hungry in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:07:54-07:00"
+      }
+    },
+    {
+      "slug": "thirsty",
+      "label": "THIRSTY",
+      "term": "Thirsty",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "PqRSN7zWjg0",
+        "title": "thirsty in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-11T16:47:49-07:00"
+      }
+    },
+    {
+      "slug": "delicious",
+      "label": "DELICIOUS",
+      "term": "Delicious",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "oDfGlghE7II",
+        "title": "delicious in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:30:26-07:00"
+      }
+    },
+    {
+      "slug": "need",
+      "label": "NEED",
+      "term": "Need",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "LuXVnZowKec",
+        "title": "need in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:39:15-07:00"
+      }
+    },
+    {
+      "slug": "think",
+      "label": "THINK",
+      "term": "Think",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "6znLFyiqx5o",
+        "title": "think in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-11T16:48:00-07:00"
+      }
+    },
+    {
+      "slug": "forget",
+      "label": "FORGET",
+      "term": "Forget",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "YS28DR0pZ_E",
+        "title": "forget in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:27:27-07:00"
+      }
+    },
+    {
+      "slug": "take",
+      "label": "TAKE",
+      "term": "Take",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "lXAgro3lv-0",
+        "title": "take in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:22:41-07:00"
+      }
+    },
+    {
+      "slug": "look",
+      "label": "LOOK",
+      "term": "Look",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "drG8f9H_uRs",
+        "title": "look for in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:10:47-07:00"
+      }
+    },
+    {
+      "slug": "library",
+      "label": "LIBRARY",
+      "term": "Library",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "p51cUJ8sLxs",
+        "title": "library in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:12:21-07:00"
+      }
+    },
+    {
+      "slug": "boss",
+      "label": "BOSS",
+      "term": "Boss",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "WpSX0_2wWm8",
+        "title": "boss in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:01:18-07:00"
+      }
+    },
+    {
+      "slug": "police",
+      "label": "POLICE",
+      "term": "Police",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "S-YJw1qLyTs",
+        "title": "policeman in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:30:53-07:00"
+      }
+    },
+    {
+      "slug": "hire",
+      "label": "HIRE",
+      "term": "Hire",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "dp9XHbIKuws",
+        "title": "hire in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:10:59-07:00"
+      }
+    },
+    {
+      "slug": "head",
+      "label": "HEAD",
+      "term": "Head",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "9CQcSjlSHpI",
+        "title": "head in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:14:45-07:00"
+      }
+    },
+    {
+      "slug": "eye",
+      "label": "EYE",
+      "term": "Eye",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "-xPu9Q42nF8",
+        "title": "eyes in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:32:35-07:00"
+      }
+    },
+    {
+      "slug": "ear",
+      "label": "EAR",
+      "term": "Ear",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "4rsnQXRzfGg",
+        "title": "ear in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:24:14-07:00"
+      }
+    },
+    {
+      "slug": "stomach",
+      "label": "STOMACH",
+      "term": "Stomach",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "cuBRI63iGqU",
+        "title": "stomach in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-10T15:06:34-07:00"
+      }
+    },
+    {
+      "slug": "heart",
+      "label": "HEART",
+      "term": "Heart",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "pbMDv0hu4Mc",
+        "title": "heart in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:14:16-07:00"
+      }
+    },
+    {
+      "slug": "fever",
+      "label": "FEVER",
+      "term": "Fever",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "66lZyEU5j8M",
+        "title": "fever in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:29:51-07:00"
+      }
+    },
+    {
+      "slug": "hospital",
+      "label": "HOSPITAL",
+      "term": "Hospital",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "-dcmLLR-ggk",
+        "title": "hospital in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:08:39-07:00"
+      }
+    },
+    {
+      "slug": "emergency",
+      "label": "EMERGENCY",
+      "term": "Emergency",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "ZLccl1MsR4Y",
+        "title": "emergency in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:44:53-07:00"
+      }
+    },
+    {
+      "slug": "sun",
+      "label": "SUN",
+      "term": "Sun",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "rNKo994Im8o",
+        "title": "sun in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-10T15:03:17-07:00"
+      }
+    },
+    {
+      "slug": "hot",
+      "label": "HOT",
+      "term": "Hot",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "JnwopF8VmHw",
+        "title": "hot in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:08:35-07:00"
+      }
+    },
+    {
+      "slug": "warm",
+      "label": "WARM",
+      "term": "Warm",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "fWRaSDJ21mI",
+        "title": "warm in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:17:54-07:00"
+      }
+    },
+    {
+      "slug": "summer",
+      "label": "SUMMER",
+      "term": "Summer",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "iPaHXzvzOIM",
+        "title": "summer in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-10T15:03:20-07:00"
+      }
+    },
+    {
+      "slug": "airplane",
+      "label": "AIRPLANE",
+      "term": "Airplane",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "cMMsVa31eBo",
+        "title": "airplane in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:23:20-07:00"
+      }
+    },
+    {
+      "slug": "luggage",
+      "label": "LUGGAGE",
+      "term": "Luggage",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "kkLISls7cfY",
+        "title": "suitcase in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-10T15:03:23-07:00"
+      }
+    },
+    {
+      "slug": "phone",
+      "label": "PHONE",
+      "term": "Phone",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "LTVEN0DleoA",
+        "title": "cell phone in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:54:42-07:00"
+      }
+    },
+    {
+      "slug": "watch",
+      "label": "WATCH",
+      "term": "Watch",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "X-8ZXOlHW6Y",
+        "title": "watch in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:53:13-07:00"
+      }
+    },
+    {
+      "slug": "draw",
+      "label": "DRAW",
+      "term": "Draw",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "hyXRNpYa7Bk",
+        "title": "draw drawing in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:25:07-07:00"
+      }
+    },
+    {
+      "slug": "tall",
+      "label": "TALL",
+      "term": "Tall",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "UMHWi4orFMk",
+        "title": "tall in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:22:16-07:00"
+      }
+    },
+    {
+      "slug": "short",
+      "label": "SHORT",
+      "term": "Short",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "oIbuHtcQ_sE",
+        "title": "short in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:38:36-07:00"
+      }
+    },
+    {
+      "slug": "beautiful",
+      "label": "BEAUTIFUL",
+      "term": "Beautiful",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "bdBHTOrvpVg",
+        "title": "beautiful in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:07:25-07:00"
+      }
+    },
+    {
+      "slug": "handsome",
+      "label": "HANDSOME",
+      "term": "Handsome",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "J-tnxZesVVg",
+        "title": "handsome in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:15:26-07:00"
+      }
+    },
+    {
+      "slug": "old",
+      "label": "OLD",
+      "term": "Old",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "2efKyrtlaVY",
+        "title": "old in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:04:14-07:00"
+      }
+    },
+    {
+      "slug": "hair",
+      "label": "HAIR",
+      "term": "Hair",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "SkBTU11wrcI",
+        "title": "hair in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:16:58-07:00"
+      }
+    },
+    {
+      "slug": "bad",
+      "label": "BAD",
+      "term": "Bad",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "rkN0jIYVboc",
+        "title": "bad in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:13:35-07:00"
+      }
+    },
+    {
+      "slug": "tree",
+      "label": "TREE",
+      "term": "Tree",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "HxA2Rpjv7QM",
+        "title": "tree in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:52:30-07:00"
+      }
+    },
+    {
+      "slug": "cup",
+      "label": "CUP",
+      "term": "Cup",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "m1YmWIhyFVc",
+        "title": "cup in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:32:07-07:00"
+      }
+    },
+    {
+      "slug": "up",
+      "label": "UP",
+      "term": "Up",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "XvdQXVJO1-s",
+        "title": "get up in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:21:27-07:00"
+      }
+    },
+    {
+      "slug": "down",
+      "label": "DOWN",
+      "term": "Down",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "MsM-AgrXfh8",
+        "title": "down in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:25:16-07:00"
+      }
+    },
+    {
+      "slug": "history",
+      "label": "HISTORY",
+      "term": "History",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "yPSCVLmSUwY",
+        "title": "history in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:10:53-07:00"
+      }
+    },
+    {
+      "slug": "sister",
+      "label": "SISTER",
+      "term": "Sister",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "gtEMZfhqh4s",
+        "title": "sister in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:37:02-07:00"
+      }
+    },
+    {
+      "slug": "brother",
+      "label": "BROTHER",
+      "term": "Brother",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "Z8nDTCuKWqQ",
+        "title": "brother in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:59:19-07:00"
+      }
+    },
+    {
+      "slug": "baby",
+      "label": "BABY",
+      "term": "Baby",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "D8IWhjNvqH0",
+        "title": "baby in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:14:03-07:00"
+      }
+    },
+    {
+      "slug": "friend",
+      "label": "FRIEND",
+      "term": "Friend",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "QuEmlb18B5U",
+        "title": "friend in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:23:08-07:00"
+      }
+    },
+    {
+      "slug": "husband",
+      "label": "HUSBAND",
+      "term": "Husband",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "ku5gscARk3c",
+        "title": "husband in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:07:37-07:00"
+      }
+    },
+    {
+      "slug": "wife",
+      "label": "WIFE",
+      "term": "Wife",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "aVGrIkYxQFM",
+        "title": "wife in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:50:25-07:00"
+      }
+    },
+    {
+      "slug": "neighbor",
+      "label": "NEIGHBOR",
+      "term": "Neighbor",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "wQSJC-hfKy8",
+        "title": "neighbor in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:39:11-07:00"
+      }
+    },
+    {
+      "slug": "family",
+      "label": "FAMILY",
+      "term": "Family",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "Eq8J2ScFCXA",
+        "title": "family in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:31:49-07:00"
+      }
+    },
+    {
+      "slug": "have",
+      "label": "HAVE",
+      "term": "Have",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "YhnFTS5o2XY",
+        "title": "have in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:14:52-07:00"
+      }
+    },
+    {
+      "slug": "work",
+      "label": "WORK",
+      "term": "Work",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "r_YNkj6ATJ8",
+        "title": "work in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:49:25-07:00"
+      }
+    },
+    {
+      "slug": "study",
+      "label": "STUDY",
+      "term": "Study",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "AbzuVQvKWlo",
+        "title": "study in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-10T15:03:45-07:00"
+      }
+    },
+    {
+      "slug": "go",
+      "label": "GO",
+      "term": "Go",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "it8ALZu5oqs",
+        "title": "go in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:20:40-07:00"
+      }
+    },
+    {
+      "slug": "come",
+      "label": "COME",
+      "term": "Come",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "H56ab4aMK00",
+        "title": "come in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:48:32-07:00"
+      }
+    },
+    {
+      "slug": "walk",
+      "label": "WALK",
+      "term": "Walk",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "1-lz3kFWeBU",
+        "title": "walk in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:18:18-07:00"
+      }
+    },
+    {
+      "slug": "drive",
+      "label": "DRIVE",
+      "term": "Drive",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "VeJ8WVU4Gdc",
+        "title": "drive in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:24:52-07:00"
+      }
+    },
+    {
+      "slug": "run",
+      "label": "RUN",
+      "term": "Run",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "IRIXlGWWI8A",
+        "title": "run in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:41:04-07:00"
+      }
+    },
+    {
+      "slug": "read",
+      "label": "READ",
+      "term": "Read",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "0GPilKF-f7A",
+        "title": "read in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:27:15-07:00"
+      }
+    },
+    {
+      "slug": "write",
+      "label": "WRITE",
+      "term": "Write",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "Nxl5ZJKhbjU",
+        "title": "write in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:48:49-07:00"
+      }
+    },
+    {
+      "slug": "morning",
+      "label": "MORNING",
+      "term": "Morning",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "zimUFQwQOoA",
+        "title": "morning in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:41:29-07:00"
+      }
+    },
+    {
+      "slug": "night",
+      "label": "NIGHT",
+      "term": "Night",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "ZAG5EqMuvVI",
+        "title": "night in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T14:06:15-07:00"
+      }
+    },
+    {
+      "slug": "sunday",
+      "label": "SUNDAY",
+      "term": "Sunday",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": "Time & Days",
+      "appContent": null,
+      "video": {
+        "id": "vZDNEPRn5nk",
+        "title": "sunday in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-10T15:03:11-07:00"
+      }
+    },
+    {
+      "slug": "today",
+      "label": "TODAY",
+      "term": "Today",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "TQYx8P3isJo",
+        "title": "today in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-11T16:46:54-07:00"
+      }
+    },
+    {
+      "slug": "what",
+      "label": "WHAT",
+      "term": "What",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "Gm0CzJ0ao-E",
+        "title": "what in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T20:51:58-07:00"
+      }
+    },
+    {
+      "slug": "afternoon",
+      "label": "AFTERNOON",
+      "term": "Afternoon",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "AamBwAuJ7UI",
+        "title": "afternoon in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:23:48-07:00"
+      }
+    },
+    {
+      "slug": "birthday",
+      "label": "BIRTHDAY",
+      "term": "Birthday",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "Oo-4QYbPebQ",
+        "title": "birthday in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:03:37-07:00"
+      }
+    },
+    {
+      "slug": "happy",
+      "label": "HAPPY",
+      "term": "Happy",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "b6qujuJcoCc",
+        "title": "happy in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:15:13-07:00"
+      }
+    },
+    {
+      "slug": "child",
+      "label": "CHILD",
+      "term": "Child",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "32hgy9NSs7k",
+        "title": "CHILD",
+        "author": "Signs",
+        "authorUrl": "https://www.youtube.com/@aslu",
+        "uploadDate": "2017-06-11T18:16:43-07:00"
+      }
+    },
+    {
+      "slug": "partner",
+      "label": "PARTNER",
+      "term": "Partner",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "v0E-VUbavgM",
+        "title": "partner ASL",
+        "author": "ASL Interactive",
+        "authorUrl": "https://www.youtube.com/@ASLInteractive",
+        "uploadDate": "2025-05-20T13:22:20-07:00"
+      }
+    },
+    {
+      "slug": "sad",
+      "label": "SAD",
+      "term": "Sad",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "JZh5zwHXcX4",
+        "title": "sad in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:40:47-07:00"
+      }
+    },
+    {
+      "slug": "angry",
+      "label": "ANGRY",
+      "term": "Angry",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "g_p6lzxYZZk",
+        "title": "mad angry in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:44:12-07:00"
+      }
+    },
+    {
+      "slug": "excited",
+      "label": "EXCITED",
+      "term": "Excited",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "_HIY2L1hY3Y",
+        "title": "excited in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-01T10:33:00-07:00"
+      }
+    },
+    {
+      "slug": "tired",
+      "label": "TIRED",
+      "term": "Tired",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "CLduD06Unmk",
+        "title": "tired in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-11T16:47:00-07:00"
+      }
+    },
+    {
+      "slug": "surprised",
+      "label": "SURPRISED",
+      "term": "Surprised",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "gg5UvJMFzzM",
+        "title": "surprise in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:23:38-07:00"
+      }
+    },
+    {
+      "slug": "love",
+      "label": "LOVE",
+      "term": "Love",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "acuLIieGEQ0",
+        "title": "love in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:44:33-07:00"
+      }
+    },
+    {
+      "slug": "scared",
+      "label": "SCARED",
+      "term": "Scared",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "TAWaHJEJhgQ",
+        "title": "scared in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:25:31-07:00"
+      }
+    },
+    {
+      "slug": "cousin",
+      "label": "COUSIN",
+      "term": "Cousin",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "QcSdKxnVS-0",
+        "title": "Cousin (ASL)",
+        "author": "NEU - CPSLI American Sign Language",
+        "authorUrl": "https://www.youtube.com/@NEU-CPSLIASL",
+        "uploadDate": "2026-02-09T19:05:05-08:00"
+      }
+    },
+    {
+      "slug": "sign",
+      "label": "SIGN",
+      "term": "Sign",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "TRLHLtgHyzo",
+        "title": "SIGN-[signing-version]",
+        "author": "Signs",
+        "authorUrl": "https://www.youtube.com/@aslu",
+        "uploadDate": "2015-05-28T15:10:40-07:00"
+      }
+    },
+    {
+      "slug": "nervous",
+      "label": "NERVOUS",
+      "term": "Nervous",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "_suGVQ1mAeg",
+        "title": "nervous in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:39:02-07:00"
+      }
+    },
+    {
+      "slug": "confused",
+      "label": "CONFUSED",
+      "term": "Confused",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "wEQ6tst5ihg",
+        "title": "confused in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:26:23-07:00"
+      }
+    },
+    {
+      "slug": "car",
+      "label": "CAR",
+      "term": "Car",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "dBG0udgnPlg",
+        "title": "car in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:56:11-07:00"
+      }
+    },
+    {
+      "slug": "book",
+      "label": "BOOK",
+      "term": "Book",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "yFh2FpyHFbs",
+        "title": "book in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:01:59-07:00"
+      }
+    },
+    {
+      "slug": "bread",
+      "label": "BREAD",
+      "term": "Bread",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "59tc5Ks4Rwg",
+        "title": "bread in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:00:29-07:00"
+      }
+    },
+    {
+      "slug": "cookie",
+      "label": "COOKIE",
+      "term": "Cookie",
+      "kind": "gesture",
+      "trained": true,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "-BoqJSzwhs4",
+        "title": "cookie in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:25:47-07:00"
+      }
+    },
+    {
+      "slug": "soda",
+      "label": "SODA",
+      "term": "Soda",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "mQxqeJaSBqg",
+        "title": "soda pop in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:54:25-07:00"
+      }
+    },
+    {
+      "slug": "coffee",
+      "label": "COFFEE",
+      "term": "Coffee",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "2THolawX7Cs",
+        "title": "coffee in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T15:49:00-07:00"
+      }
+    },
+    {
+      "slug": "breakfast",
+      "label": "BREAKFAST",
+      "term": "Breakfast",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "vYu7qxgXDAE",
+        "title": "breakfast in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-07-25T16:00:23-07:00"
+      }
+    },
+    {
+      "slug": "lunch",
+      "label": "LUNCH",
+      "term": "Lunch",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "NHCv0MF4Qf8",
+        "title": "lunch in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-13T13:44:25-07:00"
+      }
+    },
+    {
+      "slug": "dinner",
+      "label": "DINNER",
+      "term": "Dinner",
+      "kind": "gesture",
+      "trained": false,
+      "appCategory": null,
+      "appContent": null,
+      "video": {
+        "id": "GYFCKHQlmz0",
+        "title": "dinner in ASL",
+        "author": "Start ASL",
+        "authorUrl": "https://www.youtube.com/@StartASL",
+        "uploadDate": "2023-08-09T10:27:53-07:00"
+      }
+    },
+    {
+      "slug": "letter-a",
+      "label": "A",
+      "term": "Letter A",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter A is formed with a closed fist with the thumb resting flat along the side of your index finger. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into a closed fist with the thumb resting flat along the side of your index finger.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Keep the thumb beside the fist, not wrapped across it, because that would be S.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-b",
+      "label": "B",
+      "term": "Letter B",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter B is formed with a flat hand with the fingers straight up and together and the thumb folded across your palm. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into a flat hand with the fingers straight up and together and the thumb folded across your palm.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "The thumb has to stay tucked into the palm or it reads as an open 5 hand.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-c",
+      "label": "C",
+      "term": "Letter C",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter C is formed with a curved hand that traces the shape of the letter C. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into a curved hand that traces the shape of the letter C.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Leave a real gap between the thumb and fingers so the C is readable from the front.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-d",
+      "label": "D",
+      "term": "Letter D",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter D is formed with an index finger pointing up while the other fingertips meet the thumb in a circle. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into an index finger pointing up while the other fingertips meet the thumb in a circle.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Only the index finger stands up; the other three curl to meet the thumb.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-e",
+      "label": "E",
+      "term": "Letter E",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter E is formed with fingers curled down so the fingertips rest on the thumb, with the thumb tucked across the palm. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into fingers curled down so the fingertips rest on the thumb, with the thumb tucked across the palm.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Keep the fingers tight against the thumb, since a loose E is easily read as a claw.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-f",
+      "label": "F",
+      "term": "Letter F",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter F is formed with the index finger and thumb touching in a circle with the other three fingers straight up. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index finger and thumb touching in a circle with the other three fingers straight up.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Hold the three raised fingers apart so the circle stays visible.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-g",
+      "label": "G",
+      "term": "Letter G",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter G is formed with the index finger and thumb extended parallel to each other, pointing sideways. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index finger and thumb extended parallel to each other, pointing sideways.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Point sideways rather than forward so the gap between thumb and finger shows.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-h",
+      "label": "H",
+      "term": "Letter H",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter H is formed with the index and middle fingers extended together, pointing sideways. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index and middle fingers extended together, pointing sideways.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Keep the two fingers pressed together. Apart, it becomes a sideways V.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-i",
+      "label": "I",
+      "term": "Letter I",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter I is formed with the pinky standing straight up with the other fingers closed into a fist. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the pinky standing straight up with the other fingers closed into a fist.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Only the pinky rises. Letting the thumb drift out turns it toward Y.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-j",
+      "label": "J",
+      "term": "Letter J",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter J is formed with the pinky standing up, then tracing the hook of a J through the air. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the pinky standing up, then tracing the hook of a J through the air.",
+          "Draw the J through the air, keeping your hand and wrist steady."
+        ],
+        "tips": [
+          "The handshape stays as I the whole time; only the wrist draws the hook.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-k",
+      "label": "K",
+      "term": "Letter K",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter K is formed with the index finger up, the middle finger angled out, and the thumb tucked between them. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index finger up, the middle finger angled out, and the thumb tucked between them.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "The thumb touches the base of the middle finger, not the palm.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-l",
+      "label": "L",
+      "term": "Letter L",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter L is formed with the index finger up and the thumb out to the side, forming a right angle. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index finger up and the thumb out to the side, forming a right angle.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Keep the angle square, since a collapsed L reads as a bent index finger.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-m",
+      "label": "M",
+      "term": "Letter M",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter M is formed with the thumb tucked underneath the first three fingers. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the thumb tucked underneath the first three fingers.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Three fingers over the thumb. Two makes it N.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-n",
+      "label": "N",
+      "term": "Letter N",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter N is formed with the thumb tucked underneath the first two fingers. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the thumb tucked underneath the first two fingers.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Two fingers over the thumb. Three makes it M.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-o",
+      "label": "O",
+      "term": "Letter O",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter O is formed with all fingertips meeting the thumb to form a round O. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into all fingertips meeting the thumb to form a round O.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Round the whole hand. A flattened O is a different handshape used in other signs.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-p",
+      "label": "P",
+      "term": "Letter P",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter P is formed with the K handshape rotated to point downward. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the K handshape rotated to point downward.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "It is a K pointed down, with the middle finger leading toward the floor.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-q",
+      "label": "Q",
+      "term": "Letter Q",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter Q is formed with the G handshape rotated to point downward. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the G handshape rotated to point downward.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "It is a G pointed down, like holding a small object between finger and thumb.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-r",
+      "label": "R",
+      "term": "Letter R",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter R is formed with the index and middle fingers crossed over each other. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index and middle fingers crossed over each other.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Cross the middle finger over the index, not beside it.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-s",
+      "label": "S",
+      "term": "Letter S",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter S is formed with a fist with the thumb crossing in front of your fingers. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into a fist with the thumb crossing in front of your fingers.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "The thumb crosses in front of the fingers. Beside them makes it A.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-t",
+      "label": "T",
+      "term": "Letter T",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter T is formed with the thumb tucked between the index and middle fingers. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the thumb tucked between the index and middle fingers.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "The thumb pokes up between the index and middle fingers.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-u",
+      "label": "U",
+      "term": "Letter U",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter U is formed with the index and middle fingers straight up and held together. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index and middle fingers straight up and held together.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Fingers together for U, apart for V. That is the only difference.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-v",
+      "label": "V",
+      "term": "Letter V",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter V is formed with the index and middle fingers straight up and spread apart. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index and middle fingers straight up and spread apart.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Spread the two fingers clearly so it is not mistaken for U.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-w",
+      "label": "W",
+      "term": "Letter W",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter W is formed with the index, middle, and ring fingers up with the thumb and pinky touching. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index, middle, and ring fingers up with the thumb and pinky touching.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Three fingers up. Four fingers up makes it the number 4.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-x",
+      "label": "X",
+      "term": "Letter X",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter X is formed with the index finger bent into a hook with the rest of the hand closed. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index finger bent into a hook with the rest of the hand closed.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "Hook the index finger like a fishing hook and keep the rest closed.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-y",
+      "label": "Y",
+      "term": "Letter Y",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter Y is formed with the thumb and pinky extended with the middle three fingers folded down. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the thumb and pinky extended with the middle three fingers folded down.",
+          "Hold the shape still for a beat so it reads clearly."
+        ],
+        "tips": [
+          "This handshape shows up everywhere in ASL, including the sign for NOW.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "letter-z",
+      "label": "Z",
+      "term": "Letter Z",
+      "kind": "letter",
+      "trained": true,
+      "appCategory": "Alphabet",
+      "appContent": {
+        "summary": "The ASL letter Z is formed with the index finger extended, tracing the letter Z through the air. It is one of the 26 handshapes used to fingerspell names, places, and any English word that has no dedicated sign.",
+        "steps": [
+          "Raise your dominant hand to about shoulder height with the palm facing forward.",
+          "Shape your hand into the index finger extended, tracing the letter Z through the air.",
+          "Draw the Z through the air, keeping your hand and wrist steady."
+        ],
+        "tips": [
+          "Draw the Z with your finger, not your whole arm. Keep it small and crisp.",
+          "Fingerspell from a single fixed spot near your shoulder. Bouncing the hand between letters is the most common beginner habit to break."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-0",
+      "label": "0",
+      "term": "Number 0",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 0 is formed with all fingers and the thumb closed into a round O. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into all fingers and the thumb closed into a round O.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "The same round handshape doubles as the letter O.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-1",
+      "label": "1",
+      "term": "Number 1",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 1 is formed with the index finger pointing straight up. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into the index finger pointing straight up.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "Palm faces you when counting. Turning it outward changes the meaning to pointing.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-2",
+      "label": "2",
+      "term": "Number 2",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 2 is formed with the index and middle fingers up and spread apart. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into the index and middle fingers up and spread apart.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "Palm faces you. The same shape turned outward is the letter V.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-3",
+      "label": "3",
+      "term": "Number 3",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 3 is formed with the thumb, index, and middle fingers extended. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into the thumb, index, and middle fingers extended.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "The thumb counts as one of the three, which surprises most beginners.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-4",
+      "label": "4",
+      "term": "Number 4",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 4 is formed with four fingers up with the thumb folded across the palm. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into four fingers up with the thumb folded across the palm.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "Keep the thumb tucked across the palm so it does not read as 5.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-5",
+      "label": "5",
+      "term": "Number 5",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 5 is formed with all five fingers spread wide. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into all five fingers spread wide.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "Spread the fingers wide. A relaxed hand reads as a lazy 5 or an open B.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-6",
+      "label": "6",
+      "term": "Number 6",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 6 is formed with the pinky touching the thumb with the other three fingers up. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into the pinky touching the thumb with the other three fingers up.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "6 through 9 all touch the thumb, so walk your fingers down from the pinky.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-7",
+      "label": "7",
+      "term": "Number 7",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 7 is formed with the ring finger touching the thumb with the other three fingers up. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into the ring finger touching the thumb with the other three fingers up.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "Ring finger to thumb. This one takes the most practice to isolate.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-8",
+      "label": "8",
+      "term": "Number 8",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 8 is formed with the middle finger touching the thumb with the other three fingers up. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into the middle finger touching the thumb with the other three fingers up.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "Middle finger to thumb, with the rest standing tall.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    },
+    {
+      "slug": "number-9",
+      "label": "9",
+      "term": "Number 9",
+      "kind": "number",
+      "trained": true,
+      "appCategory": "Numbers",
+      "appContent": {
+        "summary": "The ASL number 9 is formed with the index finger touching the thumb with the other three fingers up. Numbers one through five face your own body when you are counting, which is the opposite of what most beginners expect.",
+        "steps": [
+          "Raise your dominant hand to about chest height.",
+          "Shape your hand into the index finger touching the thumb with the other three fingers up.",
+          "Hold the shape still so the handshape is unmistakable."
+        ],
+        "tips": [
+          "Index to thumb, the same circle as the letter F.",
+          "Keep your hand in one place. Numbers are read by handshape, not by movement."
+        ],
+        "aka": []
+      },
+      "video": null
+    }
+  ]
+}

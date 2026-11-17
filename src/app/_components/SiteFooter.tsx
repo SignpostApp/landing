@@ -18,27 +18,30 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
         href: "/blog/how-real-time-sign-feedback-works",
       },
       { label: "How it works", href: "/#how-it-works" },
+      { label: "Compare ASL apps", href: "/compare" },
       { label: "Try our product", href: DEMO_URL, external: true },
       { label: "FAQ", href: "/#faq" },
     ],
   },
   {
-    title: "Solutions",
+    title: "Learn",
     links: [
+      { label: "ASL Dictionary", href: "/signs" },
+      { label: "ASL Alphabet", href: "/asl-alphabet" },
+      { label: "Blog", href: "/blog" },
       { label: "For self-learners", href: "/blog/learn-asl-on-your-own" },
       { label: "For homeschoolers", href: "/blog/asl-for-homeschoolers" },
-      {
-        label: "For schools",
-        href: "/blog/asl-for-schools-and-districts",
-      },
-      { label: "For educators", href: "/blog/asl-for-educators" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "/#team" },
-      { label: "Blog", href: "/blog" },
+      {
+        label: "For schools",
+        href: "/blog/asl-for-schools-and-districts",
+      },
+      { label: "For educators", href: "/blog/asl-for-educators" },
       {
         label: "GitHub",
         href: "https://github.com/SignpostApp",
