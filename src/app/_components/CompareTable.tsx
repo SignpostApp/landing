@@ -99,7 +99,7 @@ export default function CompareTable({
                     </span>
                     {note ? (
                       <Link
-                        href={`${notesHref}`}
+                        href={`${notesHref.split("#")[0]}#note-${note}`}
                         className="ml-0.5 align-super text-[0.65rem] font-semibold text-slate-500 hover:text-blue-700"
                         aria-label={`See note ${note}`}
                       >

@@ -166,9 +166,13 @@ export function signDisplayName(sign: Sign): string {
 }
 
 export function signDescription(sign: Sign): string {
-  const suffix = sign.trained
-    ? " Watch the clip, then practice it with real-time webcam feedback."
-    : " Watch the clip and follow the step-by-step guide.";
+  const suffix = !sign.video
+    ? sign.trained
+      ? " Practice it with real-time webcam feedback."
+      : " Follow the step-by-step guide."
+    : sign.trained
+      ? " Watch the clip, then practice it with real-time webcam feedback."
+      : " Watch the clip and follow the step-by-step guide.";
   const base = sign.summary.replace(/\s+/g, " ").trim();
   const room = 158 - suffix.length;
   if (base.length <= room) return `${base}${suffix}`;

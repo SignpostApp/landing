@@ -94,7 +94,7 @@ export default function ComparePage() {
             </h2>
             <ol className="mt-4 space-y-2 text-sm leading-relaxed text-slate-600">
               {FOOTNOTES.map((note, index) => (
-                <li key={note} id={`note-${index + 1}`} className="flex gap-3">
+                <li key={note} id={`note-${index + 1}`} className="flex gap-3 scroll-mt-28">
                   <span className="shrink-0 font-mono text-xs text-slate-400">{index + 1}</span>
                   <span>{note}</span>
                 </li>
