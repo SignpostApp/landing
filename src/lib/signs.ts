@@ -1,18 +1,11 @@
 import generated from "@/data/signs.generated.json";
 import { CATEGORIES, SIGN_CONTENT, type SignCategory } from "@/data/sign-content";
 import { DEMO_URL } from "@/app/_components/navData";
+import type { SignVideo } from "@/lib/youtube";
+
+export { youTubeEmbedUrl, youTubeThumbnail, youTubeWatchUrl, type SignVideo } from "@/lib/youtube";
 
 export type SignKind = "gesture" | "letter" | "number";
-
-export interface SignVideo {
-  id: string;
-  start?: number;
-  end?: number;
-  title?: string;
-  author?: string;
-  authorUrl?: string;
-  uploadDate?: string;
-}
 
 interface GeneratedEntry {
   slug: string;
@@ -180,22 +173,4 @@ export function signDescription(sign: Sign): string {
   const lastSpace = cut.lastIndexOf(" ");
   const head = (lastSpace > room * 0.5 ? cut.slice(0, lastSpace) : cut).replace(/[\s,;:.-]+$/, "");
   return `${head}.${suffix}`;
-}
-
-export function youTubeThumbnail(video: SignVideo): string {
-  return `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`;
-}
-
-export function youTubeEmbedUrl(video: SignVideo, autoplay: boolean): string {
-  const params = new URLSearchParams({ rel: "0", modestbranding: "1", playsinline: "1" });
-  if (autoplay) params.set("autoplay", "1");
-  if (video.start !== undefined) params.set("start", String(video.start));
-  if (video.end !== undefined) params.set("end", String(video.end));
-  return `https://www.youtube-nocookie.com/embed/${video.id}?${params.toString()}`;
-}
-
-export function youTubeWatchUrl(video: SignVideo): string {
-  const url = new URL(`https://www.youtube.com/watch?v=${video.id}`);
-  if (video.start !== undefined) url.searchParams.set("t", `${video.start}s`);
-  return url.toString();
 }

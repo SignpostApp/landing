@@ -76,7 +76,7 @@ export const CATEGORIES: SignCategory[] = [
   {
     name: "Describing People & Things",
     slug: "describing",
-    blurb: "Tall, short, old, beautiful, hot, and warm. Adjectives in ASL often come after the noun and are intensified with your face.",
+    blurb: "Tall, short, old, handsome, and beautiful. Adjectives in ASL often come after the noun and are intensified with your face.",
   },
   {
     name: "Work & Travel",

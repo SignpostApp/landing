@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { youTubeEmbedUrl, youTubeThumbnail, youTubeWatchUrl, type SignVideo as SignVideoData } from "@/lib/signs";
+import { youTubeEmbedUrl, youTubeThumbnail, youTubeWatchUrl, type SignVideo as SignVideoData } from "@/lib/youtube";
 
 export default function SignVideo({ video, title }: { video: SignVideoData; title: string }) {
   const [playing, setPlaying] = useState(false);
