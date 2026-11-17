@@ -16,7 +16,7 @@ const VIDEO_COUNT = ALL_SIGNS.filter((sign) => sign.video).length;
 const TRAINED_COUNT = ALL_SIGNS.filter((sign) => sign.trained).length;
 
 const TITLE = "ASL Dictionary: How to Sign 200+ Words, Letters, and Numbers";
-const DESCRIPTION = `Look up ${ALL_SIGNS.length} ASL signs, letters, and numbers. Every entry has step-by-step instructions, ${VIDEO_COUNT} have a video of a signer, and ${TRAINED_COUNT} can be practiced with your webcam for free.`;
+const DESCRIPTION = `Look up ${ALL_SIGNS.length} ASL signs, letters, and numbers. Every entry has step-by-step instructions, ${VIDEO_COUNT} have a video, and ${TRAINED_COUNT} can be practiced with your webcam for free.`;
 
 export const metadata = pageMetadata({
   title: TITLE,

@@ -69,8 +69,8 @@ export async function generateMetadata({
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category: slug } = await params;
-  if (slug === "alphabet") permanentRedirect("/asl-alphabet");
   const group = getCategoryBySlug(slug);
+  if (group?.category.slug === "alphabet") permanentRedirect("/asl-alphabet");
   if (!group) notFound();
 
   const { category, signs } = group;
