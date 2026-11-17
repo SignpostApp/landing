@@ -81,6 +81,13 @@ export const NAV_MENUS: NavMenu[] = [
             href: "/#schools",
             icon: "grid",
           },
+          {
+            type: "icon",
+            label: "Compare ASL Apps",
+            desc: "Signpost vs Lingvano, ASL Bloom, and more",
+            href: "/compare",
+            icon: "compare",
+          },
         ],
       },
       {
@@ -164,9 +171,16 @@ export const NAV_MENUS: NavMenu[] = [
         items: [
           {
             type: "icon",
-            label: "ASL Alphabet Guide",
-            desc: "Fingerspelling from A to Z",
-            href: "/blog/how-to-learn-the-asl-alphabet",
+            label: "ASL Dictionary",
+            desc: "How to sign 200+ words",
+            href: "/signs",
+            icon: "book",
+          },
+          {
+            type: "icon",
+            label: "ASL Alphabet",
+            desc: "All 26 handshapes, free chart",
+            href: "/asl-alphabet",
             icon: "hand",
           },
           {

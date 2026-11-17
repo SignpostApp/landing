@@ -8,7 +8,8 @@ export type IconName =
   | "book"
   | "lock"
   | "grid"
-  | "clock";
+  | "clock"
+  | "compare";
 
 const PATHS: Record<IconName, React.ReactNode> = {
   steps: <path d="M3.5 19h4v-4h4v-4h4V7h4.5" />,
@@ -69,6 +70,12 @@ const PATHS: Record<IconName, React.ReactNode> = {
     <>
       <circle cx="12" cy="12" r="8.6" />
       <path d="M12 7.4V12l3.1 2" />
+    </>
+  ),
+  compare: (
+    <>
+      <rect x="3.5" y="4.5" width="17" height="15" rx="1.8" />
+      <path d="M3.5 9.5h17M9.5 9.5v10M15 13l1.4 1.4 2.6-2.8" />
     </>
   ),
 };
