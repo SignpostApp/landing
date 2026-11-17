@@ -105,6 +105,7 @@ export default async function SignPage({ params }: { params: Promise<{ slug: str
   const name = signDisplayName(sign);
   const heading = signHeading(sign);
   const related = getRelatedSigns(sign, 8);
+  const relatedSameTopic = related.every((item) => item.category.slug === sign.category.slug);
 
   const graph: Record<string, unknown>[] = [
     {
@@ -271,13 +272,13 @@ export default async function SignPage({ params }: { params: Promise<{ slug: str
           >
             <div className="flex items-baseline justify-between gap-4">
               <h2 id="related-heading" className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
-                More {sign.category.name.toLowerCase()} signs
+                {relatedSameTopic ? `More ${sign.category.name.toLowerCase()} signs` : "More signs to learn"}
               </h2>
               <Link
-                href={categoryPath(sign.category)}
+                href={relatedSameTopic ? categoryPath(sign.category) : "/signs"}
                 className="text-sm text-slate-500 transition-colors hover:text-slate-900"
               >
-                View all
+                {relatedSameTopic ? "View all" : "Browse the dictionary"}
               </Link>
             </div>
             <ul className="mt-5 flex flex-wrap gap-2.5">
