@@ -9,6 +9,7 @@ export interface AuthoredSign {
 export interface SignCategory {
   name: string;
   slug: string;
+  plural: string;
   blurb: string;
 }
 
@@ -16,86 +17,103 @@ export const CATEGORIES: SignCategory[] = [
   {
     name: "Greetings",
     slug: "greetings",
+    plural: "greeting signs",
     blurb: "The signs every conversation opens with: hello, goodbye, nice to meet you, and introducing yourself by name.",
   },
   {
     name: "Question Words",
     slug: "question-words",
+    plural: "question-word signs",
     blurb: "Who, what, where, when, why, and how. In ASL these come with lowered eyebrows, and the expression is part of the sign.",
   },
   {
     name: "Pronouns",
     slug: "pronouns",
+    plural: "pronoun signs",
     blurb: "Pointing is grammar in ASL. These are the signs for I, you, my, and your, and how the direction of your hand carries the meaning.",
   },
   {
     name: "People & Family",
     slug: "people-and-family",
+    plural: "people and family signs",
     blurb: "Family signs follow a pattern: male signs start at the forehead and female signs start at the chin. Learn the pattern once and most of these come free.",
   },
   {
     name: "Responses",
     slug: "responses",
+    plural: "response signs",
     blurb: "Yes, no, please, sorry, and the short replies that keep a signed conversation moving.",
   },
   {
     name: "Everyday Signs",
     slug: "everyday-signs",
+    plural: "everyday signs",
     blurb: "High-frequency vocabulary for daily life: home, time, phone, book, and the small words that glue sentences together.",
   },
   {
     name: "Actions",
     slug: "actions",
+    plural: "action signs",
     blurb: "Common verbs: eat, drink, go, come, read, write, work, and study. Most of these mime the action, which makes them some of the easiest signs to remember.",
   },
   {
     name: "Time & Days",
     slug: "time-and-days",
+    plural: "time and day signs",
     blurb: "Days of the week use the first letter of the English word in a small circle, and ASL places the past behind you and the future in front of you.",
   },
   {
     name: "Feelings",
     slug: "feelings",
+    plural: "feeling signs",
     blurb: "Happy, sad, tired, nervous, excited. These signs live on the chest, and your face has to match the feeling or the sign reads wrong.",
   },
   {
     name: "Colors",
     slug: "colors",
+    plural: "color signs",
     blurb: "Most ASL colors are the first letter of the English word given a small twist of the wrist. Red, black, and white are the exceptions worth learning first.",
   },
   {
     name: "Food & Drink",
     slug: "food-and-drink",
+    plural: "food and drink signs",
     blurb: "Eat, drink, water, coffee, and the three meals of the day, which are compound signs built from EAT plus a time of day.",
   },
   {
     name: "Body & Health",
     slug: "body-and-health",
+    plural: "body and health signs",
     blurb: "Pointing to a body part is usually the sign for it. The health vocabulary here covers what you need to describe a problem and ask for help.",
   },
   {
     name: "Describing People & Things",
     slug: "describing",
+    plural: "describing signs",
     blurb: "Tall, short, old, handsome, and beautiful. Adjectives in ASL often come after the noun and are intensified with your face.",
   },
   {
     name: "Work & Travel",
     slug: "work-and-travel",
+    plural: "work and travel signs",
     blurb: "Boss, police, library, airplane, and luggage: the signs you reach for at work, in town, and on the way somewhere.",
   },
   {
     name: "Weather",
     slug: "weather",
+    plural: "weather signs",
     blurb: "Sun, hot, warm, and summer. Weather signs are a good first topic for small talk because they pair naturally with facial expression.",
   },
   {
     name: "Alphabet",
     slug: "alphabet",
+    plural: "letters",
     blurb: "The 26 handshapes of the ASL manual alphabet, used to fingerspell names, places, and any word without a sign.",
   },
   {
     name: "Numbers",
     slug: "numbers",
+    plural: "number signs",
     blurb: "The handshapes for 0 through 9. Numbers 1 through 5 face your own body when counting, which surprises most beginners.",
   },
 ];

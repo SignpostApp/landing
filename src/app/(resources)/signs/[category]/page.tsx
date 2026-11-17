@@ -57,7 +57,7 @@ export async function generateMetadata({
   const { category, signs } = group;
   const examples = signs.slice(0, 3).map(signDisplayName);
   const title = `${category.name} in ASL: How to Sign ${formatList(signs.length > 3 ? [...examples, "More"] : examples)}`;
-  const description = `${signs.length} ${category.name.toLowerCase()} signs in American Sign Language, with ${formatList(coverage(signs).parts)}.`;
+  const description = `${signs.length} ${category.plural} in American Sign Language, with ${formatList(coverage(signs).parts)}.`;
 
   return pageMetadata({
     title,

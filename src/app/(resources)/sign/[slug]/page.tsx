@@ -272,7 +272,7 @@ export default async function SignPage({ params }: { params: Promise<{ slug: str
           >
             <div className="flex items-baseline justify-between gap-4">
               <h2 id="related-heading" className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
-                {relatedSameTopic ? `More ${sign.category.name.toLowerCase()} signs` : "More signs to learn"}
+                {relatedSameTopic ? `More ${sign.category.plural}` : "More signs to learn"}
               </h2>
               <Link
                 href={relatedSameTopic ? categoryPath(sign.category) : "/signs"}
