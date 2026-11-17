@@ -46,3 +46,6 @@ next-env.d.ts
 .claude/
 .impeccable/
 .gemini/
+
+# JetBrains IDE state
+.idea/
