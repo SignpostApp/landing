@@ -28,7 +28,7 @@ Landing page + waitlist funnel for [Signpost](https://signpostasl.com) — learn
 
 ## Environment Variables
 
-Create `.env.local` with:
+Copy `.env.example` to `.env.local` and fill in the values:
 
 ```bash
 DATABASE_URL=postgresql://<user>:<password>@<host>.neon.tech/<dbname>?sslmode=require
@@ -69,7 +69,7 @@ The waitlist is powered by Neon Serverless Postgres with Next.js API routes:
 - **Join**: `POST /api/waitlist/join` → `src/app/api/waitlist/join/route.ts`
 - **Check status**: `POST /api/waitlist/check` → `src/app/api/waitlist/check/route.ts`
 - **DB connection**: `src/lib/db.ts`
-- **Frontend modal**: `src/app/WaitlistModal.tsx`
+- **Frontend modal**: `src/app/WhiteWaitlistModal.tsx`
 
 Protections:
 
@@ -92,7 +92,7 @@ flowchart LR
 Key files:
 
 - Landing page: `src/app/page.tsx`
-- Waitlist modal: `src/app/WaitlistModal.tsx`
+- Waitlist modal: `src/app/WhiteWaitlistModal.tsx`
 - API route (join): `src/app/api/waitlist/join/route.ts`
 - API route (check): `src/app/api/waitlist/check/route.ts`
 - DB connection: `src/lib/db.ts`
